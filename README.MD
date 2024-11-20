@@ -7,7 +7,7 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 ## 👨‍💻 Desarrollado por:
 
 ### 1. Duvan Figueroa 👨‍💻
-- Estudiante de Ingeniería Infomatica
+- Estudiante de Ingeniería Civil Infomatica
 - [Duvan Figueroa](https://github.com/HisokaMorow1)
 - Se encargar de implementar tablas hash.
 - Funciones de usuarios basándose en afinidades o popularidad.
@@ -20,7 +20,7 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 - Implementar Dijkstra para encontrar usuarios cercanos.
 
 ### 3. Ivan Mansilla 👨‍💻
-- Estudiante de Ingeniería Infomatica
+- Estudiante de Ingeniería Civil Infomatica
 - [Ivan Mansilla](https://github.com/ivnmansi)
 - Se encargara de implementar las listas enlazadas para manejar las publicaciones.
 - Crear estructuras de usuarios (contempla la lista enlazada de publicaciones).
@@ -28,7 +28,7 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 
 
 ### 4. Franco Aguilar 👨‍💻
-- Estudiante de Ingeniería Infomatica
+- Estudiante de Ingeniería Civil Infomatica
 - [Franco Aguilar](https://github.com/faguilardc)
 - Se encargara de las colas de prioridad.
 - Se encarga de investigar el algoritmo Jaccard.
