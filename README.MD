@@ -40,3 +40,8 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 - Se encargara de implementar grafos.
 - Ensamblador
 - Busqueda en grafos BFS/DFS.
+
+### 6. Nicolaz Alvarez 👨‍💻
+- Estudiante de Ingeniería Infomatica
+- [Nicolas Alvarez](https://github.com/nalvarti1)
+- Se encargara del guardado de información de los usuarios.
