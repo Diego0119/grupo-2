@@ -14,6 +14,11 @@ typedef struct User
 typedef struct Graph
 {
     int users_number;
-    User usuarios[MAX_USERS];
-    int *friendships[MAX_USERS]; // lista de adyacencia
+    User users[MAX_USERS];
+    int *adyacent_friendship_list[MAX_USERS]; // lista de adyacencia
 } Graph;
+
+// funciones de los grafos
+void initialize_graph(Graph *graph);
+int add_user(Graph *graph, const char *name);
+void add_friendship(Graph *graph, int user1, int user2);
