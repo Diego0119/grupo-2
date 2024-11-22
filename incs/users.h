@@ -50,7 +50,7 @@ struct _postNode {
 
 // Funciones para gestionar usuarios
 User create_new_user(char* username, char* password, char* name);
-void delete_user(User user);
+void delete_user(PtrToUser user);
 void print_user(User user);
 
 // Funciones para gestionar publicaciones (lista enlazada simple + hash)

@@ -56,7 +56,8 @@ PtrToPostNode insert_post(UserPosts posts, char* content){
     time_t t= time(NULL);
     newPost->id = jenkins_hash(content);
     newPost->date = *localtime(&t);
-    newPost->post = content;
+    newPost->post = malloc(strlen(content) + 1);
+    newPost->post = strcpy(newPost->post, content);
     newPost->next = posts->next;
     posts->next = newPost;
     posts->id++;
@@ -72,6 +73,7 @@ void delete_userPosts(UserPosts posts){
     if(posts->next != NULL){
         delete_userPosts(posts->next);
     }
+    free(posts->post);
     free(posts);
 }
 
@@ -80,11 +82,12 @@ void delete_userPosts(UserPosts posts){
  * 
  * @param user usuario a eliminar
  */
-void delete_user(User user){
-    delete_userPosts(user.posts);
-    free(user.username);
-    free(user.password);
-    free(user.name);
+void delete_user(PtrToUser user){
+    delete_userPosts(user->posts);
+    free(user->username);
+    free(user->password);
+    free(user->name);
+    free(user->id);
 }
 
 /**
