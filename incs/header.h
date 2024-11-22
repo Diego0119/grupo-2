@@ -22,3 +22,5 @@ typedef struct Graph
 void initialize_graph(Graph *graph);
 int add_user(Graph *graph, const char *name);
 void add_friendship(Graph *graph, int user1, int user2);
+void remove_user(Graph *graph, int user_id);
+void display_friends(Graph *graph, int user_id);

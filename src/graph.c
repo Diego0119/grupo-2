@@ -24,6 +24,7 @@ int add_user(Graph *graph, const char *name)
     return graph->users_number++;
 }
 
+// en esta funcion se debe actualizar la lista de adyacencia
 void add_friendship(Graph *graph, int user1, int user2)
 {
     if (user1 == user2)
@@ -31,4 +32,8 @@ void add_friendship(Graph *graph, int user1, int user2)
         printf("Un usuario no puede ser amigo de si mismo\n");
         return;
     }
+}
+
+void remove_user(Graph *graph, int user_id)
+{
 }
