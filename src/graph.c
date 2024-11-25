@@ -65,10 +65,6 @@ void remove_user(Graph *graph, int user_id)
         return;
     }
 
-    // aca para eliminar al usuario, se deben eliminar todas sus conexiones, ademas
-    // de eliminar sus conexiones, se debe poder acceder al lugar donde esta el usuario con una
-    // tabla hash
-
     graph->users_number--;
 
     printf("Usuario eliminado correctamente\n");
@@ -137,4 +133,20 @@ void remove_friendship(Graph *graph, int user1_id, int user2_id)
 
     // no hay amistad
     printf("No existe una amistad entre el usuario %d y el usuario %d.\n", user1_id, user2_id);
+}
+
+void remove_all_friendships(Graph *graph, int user_id)
+{
+    if (user_id < 0 || user_id > graph->users_number)
+    {
+        printf("El usuario no existe\n");
+        return;
+    }
+
+    Edge *current_friendship_list = graph->adyacent_friendship_list[user_id];
+    int friends_count = graph->friends_count[user_id];
+    free(current_friendship_list);
+    graph->adyacent_friendship_list[user_id] = NULL;
+    graph->friends_count[user_id] = 0;
+    printf("Todas las amistades del usuario %d han sido eliminadas.\n", user_id);
 }
