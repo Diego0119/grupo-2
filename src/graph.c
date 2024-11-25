@@ -24,11 +24,85 @@ int add_user(Graph *graph, const char *name)
     return graph->users_number++;
 }
 
-void add_friendship(Graph *graph, int user1, int user2)
+// en esta funcion se debe actualizar la lista de adyacencia
+// adyacent_list[ 1 | 2 | 3 | 4 | 5]
+//                |   |       |
+//                v   v       v
+//              [2|3] NULL   [3|4]
+void add_friendship(Graph *graph, int user1, int user2, int weight)
 {
     if (user1 == user2)
     {
         printf("Un usuario no puede ser amigo de si mismo\n");
         return;
     }
+
+    // se obtiene la lista de amigos de user1
+    Edge *friends_of_user1 = graph->adyacent_friendship_list[user1];
+    // se guardan los amigos totales del user1
+    int current_size1 = graph->friends_count[user1];
+    // redimensiona el arrelgo dinamico friends_of_user1 para añadir un nuevo amigo (conexion)
+    friends_of_user1 = realloc(friends_of_user1, sizeof(Edge) * (current_size1 + 1));
+    // añade como destino en la posicion nueva del arreglo, al user2 para que se conecten
+    friends_of_user1[current_size1].dest = user2;
+    // añade el peso que tiene la conexion al amigo
+    friends_of_user1[current_size1].weight = weight;
+    // la lista de adyacencia del grafo en la posicion user1, contendra el arreglo de estructura edge que contiene las conexiones
+    graph->adyacent_friendship_list[user1] = friends_of_user1;
+
+    Edge *friends_of_user2 = graph->adyacent_friendship_list[user2];
+    friends_of_user2 = realloc(friends_of_user2, sizeof(Edge) * (current_size1 + 1));
+    friends_of_user2[current_size1].dest = user1;
+    friends_of_user2[current_size1].weight = weight;
+    graph->adyacent_friendship_list[user2] = friends_of_user2;
+}
+
+void remove_user(Graph *graph, int user_id)
+{
+    if (user_id < 0 || user_id >= graph->users_number)
+    {
+        printf("El usuario no existe\n");
+        return;
+    }
+
+    // aca para eliminar al usuario, se deben eliminar todas sus conexiones, ademas
+    // de eliminar sus conexiones, se debe poder acceder al lugar donde esta el usuario con una
+    // tabla hash
+
+    graph->users_number--;
+
+    printf("Usuario eliminado correctamente\n");
+}
+
+void display_friends(Graph *graph, int user_id)
+{
+    if (user_id < 0 || user_id >= graph->users_number)
+    {
+        printf("El usuario no existe\n");
+        return;
+    }
+    printf("Los amigos del usuario con id %d son:\n", user_id);
+
+    // esto apuntara al arreglo del tipo Edge de amigos del user
+    Edge *friends_of_user = graph->adyacent_friendship_list[user_id];
+
+    // numero de amigos actuales de este usuario
+    int friends_count = graph->friends_count[user_id];
+
+    // ahora recorre el arreglo dinamico friends_of_user para ver los amigos del usuario
+    // y se imprimen
+
+    for (int i = 0; i < friends_count; i++)
+    {
+        printf("Amigo ID: %d, Peso de la conexión: %d\n", friends_of_user[i].dest, friends_of_user[i].weight);
+    }
+
+    if (friends_count == 0)
+    {
+        printf("El usuario con ID %d no tiene amigos\n", user_id);
+    }
+}
+
+void remove_friendship(Graph *graph, int user1_id, int user2_id)
+{
 }
