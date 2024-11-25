@@ -81,6 +81,26 @@ void display_friends(Graph *graph, int user_id)
         printf("El usuario no existe\n");
         return;
     }
+    printf("Los amigos del usuario con id %d son:\n", user_id);
+
+    // esto apuntara al arreglo del tipo Edge de amigos del user
+    Edge *friends_of_user = graph->adyacent_friendship_list[user_id];
+
+    // numero de amigos actuales de este usuario
+    int friends_count = graph->friends_count[user_id];
+
+    // ahora recorre el arreglo dinamico friends_of_user para ver los amigos del usuario
+    // y se imprimen
+
+    for (int i = 0; i < friends_count; i++)
+    {
+        printf("Amigo ID: %d, Peso de la conexión: %d\n", friends_of_user[i].dest, friends_of_user[i].weight);
+    }
+
+    if (friends_count == 0)
+    {
+        printf("El usuario con ID %d no tiene amigos\n", user_id);
+    }
 }
 
 void remove_friendship(Graph *graph, int user1_id, int user2_id)
