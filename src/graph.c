@@ -105,4 +105,36 @@ void display_friends(Graph *graph, int user_id)
 
 void remove_friendship(Graph *graph, int user1_id, int user2_id)
 {
+    if (user1_id < 0 || user1_id >= graph->users_number || user2_id < 0 || user2_id >= graph->users_number)
+    {
+        printf("El usuario no existe\n");
+        return;
+    }
+
+    // se obtiene la lista de amigos del user1
+    Edge *current_friendship_list = graph->adyacent_friendship_list[user1_id];
+    int friends_count = graph->friends_count[user1_id];
+
+    // se busca la amistad
+    for (int i = 0; i < friends_count; i++)
+    {
+        if (current_friendship_list[i].dest == user2_id)
+        {
+            // se mueve al ultimo elemento el lugar eliminado
+            current_friendship_list[i] = current_friendship_list[friends_count - 1];
+
+            // se reduce el tamaño del arreglo dinamico con realloc
+            current_friendship_list = realloc(current_friendship_list, sizeof(Edge) * (friends_count - 1));
+            graph->adyacent_friendship_list[user1_id] = current_friendship_list;
+
+            // se actualiza el contador de amigos
+            graph->friends_count[user1_id]--;
+
+            printf("La amistad entre el usuario %d y el usuario %d ha sido eliminada.\n", user1_id, user2_id);
+            return;
+        }
+    }
+
+    // no hay amistad
+    printf("No existe una amistad entre el usuario %d y el usuario %d.\n", user1_id, user2_id);
 }
