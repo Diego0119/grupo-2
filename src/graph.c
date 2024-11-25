@@ -82,3 +82,7 @@ void display_friends(Graph *graph, int user_id)
         return;
     }
 }
+
+void remove_friendship(Graph *graph, int user1_id, int user2_id)
+{
+}
