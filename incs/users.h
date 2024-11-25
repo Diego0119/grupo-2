@@ -11,7 +11,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <hash.h>
+
+#include "utilities.h"
 
 /*usuarios individuales*/
 typedef struct _user User;
@@ -50,7 +51,7 @@ struct _postNode {
 
 // Funciones para gestionar usuarios
 User create_new_user(char* username, char* password, char* name);
-void delete_user(PtrToUser user);
+void delete_user(User *user);
 void print_user(User user);
 
 // Funciones para gestionar publicaciones (lista enlazada simple + hash)

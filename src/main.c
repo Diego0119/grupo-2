@@ -15,7 +15,9 @@ int main(int argc, char *argv[]){
 
     print_user(user);
 
+    delete_user(&user);
+
     return 0;
 
-    delete_user(user);
+    
 }

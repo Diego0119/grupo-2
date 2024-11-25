@@ -12,9 +12,9 @@
 User create_new_user(char* username, char* password, char* name){
     User user;
     user.id = jenkins_hash(username);
-    user.username = username;
-    user.password = password;
-    user.name = name;
+    user.username = strdup(username);
+    user.password = strdup(password);
+    user.name = strdup(name);
     user.posts = create_empty_userPosts();
     return user;
 }
@@ -56,8 +56,7 @@ PtrToPostNode insert_post(UserPosts posts, char* content){
     time_t t= time(NULL);
     newPost->id = jenkins_hash(content);
     newPost->date = *localtime(&t);
-    newPost->post = malloc(strlen(content) + 1);
-    newPost->post = strcpy(newPost->post, content);
+    newPost->post = strdup(content);
     newPost->next = posts->next;
     posts->next = newPost;
     posts->id++;
@@ -75,6 +74,7 @@ void delete_userPosts(UserPosts posts){
     }
     free(posts->post);
     free(posts);
+    
 }
 
 /**
@@ -82,12 +82,11 @@ void delete_userPosts(UserPosts posts){
  * 
  * @param user usuario a eliminar
  */
-void delete_user(PtrToUser user){
+void delete_user(User *user){
     delete_userPosts(user->posts);
     free(user->username);
     free(user->password);
     free(user->name);
-    free(user->id);
 }
 
 /**
