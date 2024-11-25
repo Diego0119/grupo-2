@@ -1,3 +1,9 @@
+/**
+ * @file graph.h
+ * @author Iván Mansilla, Franco Aguilar, Diego Sanhueza, Duvan Figueroa, Nicolás Álvarez, Miguel Maripillan
+ * @brief Cabecera para graph.c
+ */
+
 #ifndef GRAPH_H
 #define GRAPH_H
 
