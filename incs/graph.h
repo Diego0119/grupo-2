@@ -27,7 +27,6 @@ typedef struct Graph
     int friends_count[MAX_USERS];              // contador de amigos de un usuario
 } Graph;
 
-
 // funciones de los grafos
 void initialize_graph(Graph *graph);
 int add_user(Graph *graph, const char *name);
@@ -35,5 +34,7 @@ void add_friendship(Graph *graph, int user1, int user2, int weigth);
 void remove_user(Graph *graph, int user_id);
 void display_friends(Graph *graph, int user_id);
 void remove_friendship(Graph *graph, int user1, int user2);
+void remove_all_friendships(Graph *graph, int user_id);
+void remove_reference_to_user(Graph *graph, int user_id);
 
 #endif

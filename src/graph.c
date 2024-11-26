@@ -64,12 +64,19 @@ void remove_user(Graph *graph, int user_id)
         printf("El usuario no existe\n");
         return;
     }
+    // funcion auxiliar que primero elimina todas las conexiones del usuario
+    remove_all_friendships(graph, user_id);
+    remove_reference_to_user(graph, user_id);
 
-    // aca para eliminar al usuario, se deben eliminar todas sus conexiones, ademas
-    // de eliminar sus conexiones, se debe poder acceder al lugar donde esta el usuario con una
-    // tabla hash
-
+    free(graph->adyacent_friendship_list[user_id]);
     graph->users_number--;
+
+    // mueve la lista de adyacencia posteriores al usuario eliminado
+    for (int i = user_id; i < graph->users_number - 1; i++)
+    {
+        graph->adyacent_friendship_list[i] = graph->adyacent_friendship_list[i + 1];
+        graph->friends_count[i] = graph->friends_count[i + 1];
+    }
 
     printf("Usuario eliminado correctamente\n");
 }
@@ -105,4 +112,87 @@ void display_friends(Graph *graph, int user_id)
 
 void remove_friendship(Graph *graph, int user1_id, int user2_id)
 {
+    if (user1_id < 0 || user1_id >= graph->users_number || user2_id < 0 || user2_id >= graph->users_number)
+    {
+        printf("El usuario no existe\n");
+        return;
+    }
+
+    // se obtiene la lista de amigos del user1
+    Edge *current_friendship_list = graph->adyacent_friendship_list[user1_id];
+    int friends_count = graph->friends_count[user1_id];
+
+    // se busca la amistad
+    for (int i = 0; i < friends_count; i++)
+    {
+        if (current_friendship_list[i].dest == user2_id)
+        {
+            // se mueve al ultimo elemento el lugar eliminado
+            current_friendship_list[i] = current_friendship_list[friends_count - 1];
+
+            // se reduce el tamaño del arreglo dinamico con realloc
+            current_friendship_list = realloc(current_friendship_list, sizeof(Edge) * (friends_count - 1));
+            graph->adyacent_friendship_list[user1_id] = current_friendship_list;
+
+            // se actualiza el contador de amigos
+            graph->friends_count[user1_id]--;
+
+            printf("La amistad entre el usuario %d y el usuario %d ha sido eliminada.\n", user1_id, user2_id);
+            return;
+        }
+    }
+
+    // no hay amistad
+    printf("No existe una amistad entre el usuario %d y el usuario %d.\n", user1_id, user2_id);
+}
+
+void remove_all_friendships(Graph *graph, int user_id)
+{
+    if (user_id < 0 || user_id > graph->users_number)
+    {
+        printf("El usuario no existe\n");
+        return;
+    }
+
+    // se obtiene la lista de amigos del usuario
+    Edge *current_friendship_list = graph->adyacent_friendship_list[user_id];
+    int friends_count = graph->friends_count[user_id];
+    // se libera la lista dinamica de amigos
+    free(current_friendship_list);
+    // se coloca en NULL la referencia a la lista
+    graph->adyacent_friendship_list[user_id] = NULL;
+    graph->friends_count[user_id] = 0;
+    printf("Todas las amistades del usuario %d han sido eliminadas.\n", user_id);
+}
+
+void remove_reference_to_user(Graph *graph, int user_id)
+{
+    // recorrera toda la lista buscando las referencias
+    for (int i = 0; i < graph->users_number; i++)
+    {
+        // se salta al usuario que se esta eliminando
+        if (i != user_id)
+        {
+            // se obtiene la lista de amigos del usuario actual (i)
+            Edge *friend_list = graph->adyacent_friendship_list[i];
+            int friend_count = graph->friends_count[i];
+
+            for (int j = 0; j < friend_count; j++)
+            {
+                // se ve si existe la amistad
+                if (friend_list[j].dest == user_id)
+                {
+                    // mueve el ultimo elemento al lugar del eliminado
+                    friend_list[j] = friend_list[friend_count - 1];
+
+                    // redimensionar la lista
+                    friend_list = realloc(friend_list, sizeof(Edge) * (friend_count - 1));
+                    graph->adyacent_friendship_list[i] = friend_list;
+
+                    graph->friends_count[i]--;
+                    break;
+                }
+            }
+        }
+    }
 }
