@@ -13,10 +13,12 @@
 #include <string.h>
 
 #include "utilities.h"
+#include "hash_table.h"
 
 /*usuarios individuales*/
-typedef struct _user User;
-typedef User *PtrToUser;
+typedef struct _user _User;
+typedef _User *User;
+typedef _User *PtrToUser;
 
 typedef struct _postNode PostNode;
 typedef PostNode* PtrToPostNode;
@@ -50,9 +52,10 @@ struct _postNode {
 };
 
 // Funciones para gestionar usuarios
-User create_new_user(char* username, char* password, char* name);
-void delete_user(User *user);
+User create_new_user(char* username, char* password, char* name, PtrToHashTable table);
+void delete_user(User user, PtrToHashTable table);
 void print_user(User user);
+User search_user(char* username, PtrToHashTable table);
 
 // Funciones para gestionar publicaciones (lista enlazada simple + hash)
 UserPosts create_empty_userPosts();

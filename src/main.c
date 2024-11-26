@@ -4,18 +4,30 @@
 #include <time.h>
 
 #include "users.h"
+#include "hash_table.h"
 
-int main(int argc, char *argv[]){
+int main(){
 
-    User user = create_new_user(argv[1], argv[2], argv[3]);
+    // prueba usuarios + tabla hash
 
-    insert_post(user.posts, "Hola mundooo");
+    PtrToHashTable userTable = create_hash_table(HASH_TABLE_SIZE);
+    User user1 = create_new_user("ivan","123","aaaa", userTable);
+    User user2 = create_new_user("adasda","1234","asidaisd", userTable);
 
-    insert_post(user.posts, "chill de cojones");
+    insert_post(user1->posts, "Hola mundooo");
+    insert_post(user1->posts, "chill de cojones");
 
-    print_user(user);
+    insert_post(user2->posts, "Hola mundooo");
+    insert_post(user2->posts, "chill de cojones");
 
-    delete_user(&user);
+    User current_user=search_user("ivan", userTable);
+    print_user(current_user);
+
+
+    delete_user(user1, userTable);
+    delete_user(user2, userTable);
+
+    free_hash_table(userTable);
 
     return 0;
 

@@ -9,13 +9,19 @@
  * @note Se debe iniciar sesión con el nombre de usuario y la contraseña que indique el usuario
  * @return User 
  */
-User create_new_user(char* username, char* password, char* name){
-    User user;
-    user.id = jenkins_hash(username);
-    user.username = strdup(username);
-    user.password = strdup(password);
-    user.name = strdup(name);
-    user.posts = create_empty_userPosts();
+User create_new_user(char* username, char* password, char* name, PtrToHashTable table){
+    User user = (User)malloc(sizeof(_User));
+    if(!user){
+        printf("ERROR: No hay memoria suficiente\n");
+        exit(EXIT_FAILURE);
+    }
+    user->id = jenkins_hash(username);
+    user->username = strdup(username);
+    user->password = strdup(password);
+    user->name = strdup(name);
+    user->posts = create_empty_userPosts();
+
+    insert_into_hash_table(table, username, user);
     return user;
 }
 
@@ -82,11 +88,13 @@ void delete_userPosts(UserPosts posts){
  * 
  * @param user usuario a eliminar
  */
-void delete_user(User *user){
+void delete_user(User user, PtrToHashTable table){
+    delete_from_hash_table(table, user->username);
     delete_userPosts(user->posts);
     free(user->username);
     free(user->password);
     free(user->name);
+    free(user);
 }
 
 /**
@@ -115,10 +123,14 @@ void print_userPosts(UserPosts posts){
  * @param user Usuario
  */
 void print_user(User user){
-    printf("ID: %d\n", user.id);
-    printf("Nombre: %s\n", user.name);
-    printf("Usuario: %s\n", user.username);
-    printf("Contraseña: %s\n", user.password);
+    printf("ID: %d\n", user->id);
+    printf("Nombre: %s\n", user->name);
+    printf("Usuario: %s\n", user->username);
+    printf("Contraseña: %s\n", user->password);
     printf("Publicaciones:\n");
-    print_userPosts(user.posts);
+    print_userPosts(user->posts);
+}
+
+User search_user(char* username, PtrToHashTable table){
+    return search_in_hash_table(table, username);
 }
