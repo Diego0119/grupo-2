@@ -196,3 +196,72 @@ void remove_reference_to_user(Graph *graph, int user_id)
         }
     }
 }
+
+void dijkstra(Graph *graph, int source)
+{
+    int users_number = graph->users_number;
+    // variables de marcas
+    int *visited = malloc(sizeof(int) * users_number);
+    int *distance = malloc(sizeof(int) * users_number);
+
+    // se inicializa como no visitado y distancias maximas de alcance
+    for (int i = 0; i < users_number; i++)
+    {
+        distance[i] = INT_MAX;
+        visited[i] = 0;
+    }
+
+    // la distancia al origen es 0
+    distance[source] = 0;
+
+    for (int count = 0; count < users_number - 1; count++)
+    {
+        int min_distance = INT_MAX, current_node = -1;
+        for (int i = 0; i < users_number; i++)
+        {
+            // se busca un nodo no visitado que tenga una distancia menor que min_distance (en un comienzo infinito)
+            if (!visited[i] && distance[i] < min_distance)
+            {
+                // se actualiza la distancia minima a la distancia encontrada
+                min_distance = distance[i];
+                // se guarda el nodo actual
+                current_node = i;
+            }
+        }
+
+        if (current_node == -1)
+            break;
+
+        // se marca el nodo como visitado
+        visited[current_node] = 1;
+
+        // se buscan los vecinos del nodo encontrado con la distancia minima
+        Edge *neighbors = graph->adyacent_friendship_list[current_node];
+        int friends_count = graph->friends_count[current_node];
+
+        for (int i = 0; i < friends_count; i++)
+        {
+            // se guarda informacion uno de sus vecinos (va iterando sobre todos)
+            int neighbor = neighbors[i].dest;
+            int weight = neighbors[i].weight;
+
+            // se ve si uno de sus vecinos no ha sido visitado
+            if (!visited[neighbor] && distance[current_node] + weight < distance[neighbor])
+            {
+                distance[neighbor] = distance[current_node] + weight;
+            }
+        }
+    }
+
+    printf("Distancias desde el nodo %d:\n", source);
+    for (int i = 0; i < users_number; i++)
+    {
+        if (distance[i] == INT_MAX)
+            printf("Usuario %d: Inalcanzable\n", i);
+        else
+            printf("Usuario %d: %d\n", i, distance[i]);
+    }
+
+    free(distance);
+    free(visited);
+}
