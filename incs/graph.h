@@ -1,3 +1,9 @@
+/**
+ * @file graph.h
+ * @author Iván Mansilla, Franco Aguilar, Diego Sanhueza, Duvan Figueroa, Nicolás Álvarez, Miguel Maripillan
+ * @brief Cabecera para graph.c
+ */
+
 #ifndef GRAPH_H
 #define GRAPH_H
 
@@ -5,6 +11,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
+#include <limits.h> // para poder usar INT_MAX como infinito
 
 #include "users.h"
 
@@ -36,5 +43,6 @@ void display_friends(Graph *graph, int user_id);
 void remove_friendship(Graph *graph, int user1, int user2);
 void remove_all_friendships(Graph *graph, int user_id);
 void remove_reference_to_user(Graph *graph, int user_id);
+void dijkstra(Graph *graph, int source);
 
 #endif
