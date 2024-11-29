@@ -18,6 +18,7 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 - [Diego Sanhueza](https://github.com/Diego0119)
 - Se encargar de implementar la estructura de los grafos.
 - Implementar Dijkstra para encontrar usuarios cercanos.
+- Implementacion del perfil psicologico
 
 ### 3. Ivan Mansilla 👨‍💻
 - Estudiante de Ingeniería Civil Infomatica
@@ -45,3 +46,4 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 - Estudiante de Ingeniería Infomatica
 - [Nicolas Alvarez](https://github.com/nalvarti1)
 - Se encargara del guardado de información de los usuarios.
+- Leer usuarios y crearlos por medio de un txt de entrada.
