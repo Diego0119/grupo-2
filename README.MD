@@ -18,7 +18,7 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 - [Diego Sanhueza](https://github.com/Diego0119)
 - Se encargar de implementar la estructura de los grafos.
 - Implementar Dijkstra para encontrar usuarios cercanos.
-- Implementacion del perfil psicologico
+- Implementar las afinidades entre usuarios
 
 ### 3. Ivan Mansilla 👨‍💻
 - Estudiante de Ingeniería Civil Infomatica
