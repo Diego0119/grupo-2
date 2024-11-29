@@ -18,7 +18,7 @@ int add_user(Graph *graph, const char *name)
     }
 
     User new_user;
-    strcpy(new_user.name, name);
+    strcpy(new_user->name, name);
     graph->users[graph->users_number] = new_user;
 
     return graph->users_number++;
