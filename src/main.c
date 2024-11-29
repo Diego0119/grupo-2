@@ -5,7 +5,8 @@
 
 #include "users.h"
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[])
+{
 
     User user = create_new_user(argv[1], argv[2], argv[3]);
 
@@ -18,6 +19,4 @@ int main(int argc, char *argv[]){
     delete_user(&user);
 
     return 0;
-
-    
 }
