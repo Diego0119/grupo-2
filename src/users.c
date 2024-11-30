@@ -9,19 +9,28 @@
  * @note Se debe iniciar sesión con el nombre de usuario y la contraseña que indique el usuario
  * @return User 
  */
-User create_new_user(char* username, char* password, char* name, PtrToHashTable table){
+User create_new_user(char* username, char* password, char* name, PtrToHashTable table, Graph graph){
     User user = (User)malloc(sizeof(_User));
     if(!user){
         printf("ERROR: No hay memoria suficiente\n");
         exit(EXIT_FAILURE);
     }
     user->id = jenkins_hash(username);
+    
     user->username = strdup(username);
     user->password = strdup(password);
     user->name = strdup(name);
     user->posts = create_empty_userPosts();
 
+    user->following = init_empty_edge();
+    user->followers = init_empty_edge();
+    user->numFollowing = 0;
+    user->numFollowers = 0;
+    
     insert_into_hash_table(table, username, user);
+    add_user_to_graph(graph, user);
+    
+    
     return user;
 }
 
@@ -80,7 +89,6 @@ void delete_userPosts(UserPosts posts){
     }
     free(posts->post);
     free(posts);
-    
 }
 
 /**
@@ -88,12 +96,15 @@ void delete_userPosts(UserPosts posts){
  * 
  * @param user usuario a eliminar
  */
-void delete_user(User user, PtrToHashTable table){
+void delete_user(User user, PtrToHashTable table, Graph graph){
     delete_from_hash_table(table, user->username);
+    remove_user_from_graph(graph, user);
     delete_userPosts(user->posts);
     free(user->username);
     free(user->password);
     free(user->name);
+    free(user->following);
+    free(user->followers);
     free(user);
 }
 
@@ -127,10 +138,75 @@ void print_user(User user){
     printf("Nombre: %s\n", user->name);
     printf("Usuario: %s\n", user->username);
     printf("Contraseña: %s\n", user->password);
+    printf("Seguidores (%d) | Seguidos (%d)\n", user->numFollowers, user->numFollowing);
     printf("Publicaciones:\n");
     print_userPosts(user->posts);
 }
 
+/**
+ * @brief Busca a un usuario según su nombre de usuario
+ * 
+ * @param username Nombre usuario
+ * @param table Tabla hash de usuarios
+ * @return User 
+ */
 User search_user(char* username, PtrToHashTable table){
     return search_in_hash_table(table, username);
+}
+
+/**
+ * @brief Imprime los seguidores de un usuario
+ * 
+ * @param user Usuario
+ */
+void print_followers(User user){
+    Edge aux = user->followers->next;
+    printf("Seguidores de %s:\n", user->username);
+    while(aux){
+        printf("- %s\n", aux->dest->username);
+        aux = aux->next;
+    }
+}
+
+/**
+ * @brief Imprime los seguidos de un usuario
+ * 
+ * @param user Usuario
+ */
+void print_following(User user){
+    Edge aux = user->following->next;
+    printf("Seguidos de %s:\n", user->username);
+    while(aux){
+        printf("- %s\n", aux->dest->username);
+        aux = aux->next;
+    }
+}
+
+/**
+ * @brief Imprime todos los usuarios de la red social
+ * 
+ * @param graph Grafo de usuarios
+ */
+void print_all_users(Graph graph) {
+    GraphList aux = graph->graphUsersList->next;
+    printf("Usuarios (%d):\n", graph->usersNumber);
+    while (aux) {
+        printf("- %s\n", aux->username);
+        aux = aux->next;
+    }
+}
+
+/**
+ * @brief Libera la memoria de todos los usuarios de la red social
+ * 
+ * @param table Tabla hash de usuarios
+ * @param graph Grafo de usuarios
+ */
+void free_all_users(PtrToHashTable table, Graph graph) {
+    GraphList aux = graph->graphUsersList->next;
+    while (aux) {
+        GraphList next = aux->next;
+        delete_user(aux, table, graph);
+        aux = next;
+    }
 }
