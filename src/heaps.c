@@ -1,3 +1,16 @@
+/**
+ * @file heaps.c
+ * @brief Funciones para gestionar colas de prioridad
+ * @authors
+ * - Iván Mansilla
+ * - Franco Aguilar
+ * - Diego Sanhueza
+ * - Duvan Figueroa
+ * - Nicolás Álvarez
+ * - Miguel Maripillan
+ */
+
+
 #include "heaps.h"
 
 /**

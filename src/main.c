@@ -1,3 +1,16 @@
+/**
+ * @file main.c
+ * @brief Flujo principal del programa
+ * @authors
+ * - Iván Mansilla
+ * - Franco Aguilar
+ * - Diego Sanhueza
+ * - Duvan Figueroa
+ * - Nicolás Álvarez
+ * - Miguel Maripillan
+ */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -5,36 +18,37 @@
 
 #include "users.h"
 #include "heaps.h"
+#include "graph.h"
 
-int main(int argc, char *argv[])
+int main()
 {
+    PtrToHashTable table = create_hash_table();
+    Graph graph = initialize_graph();
 
-    User user = create_new_user(argv[1], argv[2], argv[3]);
-
-    insert_post(user.posts, "Hola mundooo");
-
-    insert_post(user.posts, "chill de cojones");
-
+    User user = create_new_user("pichuldondsfd","asdasd","caca con crema",table, graph);
+    User user2 = create_new_user("cacay","asdas","sdasd",table, graph);
+    User user3 = create_new_user("john","asdasd","John caca",table, graph);
+    User user4 = create_new_user("jofdsdfhn","asd","John caca",table, graph);
+    
+    add_edge(user, user2, 1);
+    add_edge(user, user3, 1);
+    add_edge(user2, user, 1);
+    add_edge(user3, user, 1);
+    add_edge(user4, user, 1);
+    add_edge(user2, user4, 1);
+    
     print_user(user);
 
-    delete_user(&user);
+    print_all_users(graph);
 
-    // EJEMPLO DE PUBLICACIONES CON COLAS DE PRIORIDAD (HEAPS)
+    dijkstra(graph, user);
+    /* frees */
+    free_all_users(table, graph);
+    free_graph(graph);
 
-    heap h = {0}; // Creamos un heap vacío (Cola de prioridad)
 
-    // Insertar publicaciones
-    insert_new_post(&h, "pepito123", 50, "hoy comi pancito, amo la cocina!"); // cola de prioridad, usuario, prioridad, contenido
-    insert_new_post(&h, "masterjoy", 75, "soy tan suertudo, amo apostar");
-    insert_new_post(&h, "jotabond12", 95, "que mala suerte, como odio los dias lunes");
-    insert_new_post(&h, "userDesk", 65, "a veces me gusta correr");
-    insert_new_post(&h, "Charmy404", 85, "amo jugar a la consola");
 
-    print_heap(&h);
-
-    ver_posts(&h);
-
-    print_heap(&h);
+    
 
     return 0;
 }

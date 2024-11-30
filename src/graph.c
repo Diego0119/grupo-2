@@ -1,6 +1,6 @@
 /**
  * @file graph.c
- * @brief Implementación de funciones para gestionar grafos y relaciones entre usuarios en una red social
+ * @brief Implementación de funciones para gestionar grafos y relaciones entre usuarios
  * @authors
  * - Iván Mansilla
  * - Franco Aguilar

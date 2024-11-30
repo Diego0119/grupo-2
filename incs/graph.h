@@ -1,12 +1,13 @@
 /**
  * @file graph.h
- * @author Iván Mansilla
+ * @brief Cabecera para graph.c
+ * @authors
+ * - Iván Mansilla
  * - Franco Aguilar
  * - Diego Sanhueza
  * - Duvan Figueroa
  * - Nicolás Álvarez
  * - Miguel Maripillan
- * @brief Cabecera para graph.c
  */
 
 #ifndef GRAPH_H
@@ -58,11 +59,7 @@ void dijkstra(Graph graph, User source);
 int dijkstra_table_index(Graph graph, User source);
 void free_graph(Graph graph);
 
-
-
-
-
 // Funciones de afinidad
-double calculate_affinity(Graph *graph, int user1_id, int user2_id);
+double calculate_affinity(Graph graph, int user1_id, int user2_id);
 
 #endif

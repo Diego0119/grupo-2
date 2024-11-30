@@ -1,3 +1,16 @@
+/**
+ * @file utilities.c
+ * @brief Funciones de utilidad y testing para el programa
+ * @authors
+ * - Iván Mansilla
+ * - Franco Aguilar
+ * - Diego Sanhueza
+ * - Duvan Figueroa
+ * - Nicolás Álvarez
+ * - Miguel Maripillan
+ */
+
+
 #include "utilities.h"
 
 /**

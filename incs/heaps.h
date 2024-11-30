@@ -1,7 +1,13 @@
 /**
- * @file users.h
- * @author Iván Mansilla, Franco Aguilar, Diego Sanhueza, Duvan Figueroa, Nicolás Álvarez, Miguel Maripillan
- * @brief Cabecera para users.c
+ * @file heaps.h
+ * @brief Cabecera para heaps.c
+ * @authors
+ * - Iván Mansilla
+ * - Franco Aguilar
+ * - Diego Sanhueza
+ * - Duvan Figueroa
+ * - Nicolás Álvarez
+ * - Miguel Maripillan
  */
 
 #ifndef HEAPS_H

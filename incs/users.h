@@ -40,18 +40,6 @@ typedef struct _graph* Graph;
 #define MAX_POST_TABLE 100
 
 /**
- * @struct _postNode
- * @brief Estructura que define un post (publicación)
- * @note Es el nodo de una lista enlazada simple
- */
-struct _postNode {
-    int id; /*!< id (hash) del post */
-    struct tm date; /*!< fecha del post */
-    char* post; /*!< contenido del post */
-    PtrToPostNode next; /*!< Puntero al post siguiente */
-};
-
-/**
  * @struct _user
  * @brief Estructura que almacena los datos de un usuario
  */
@@ -95,6 +83,7 @@ void print_all_users(Graph graph);
 void print_followers(User user);
 void print_following(User user);
 
+// Funciones para gestionar publicaciones (lista enlazada simple + hash)
 UserPosts create_empty_userPosts();
 PtrToPostNode insert_post(UserPosts posts, char* content);
 PtrToPostNode search_post(UserPosts posts, int postId);
