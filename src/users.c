@@ -39,6 +39,8 @@ User create_new_user(char* username, char* password, char* name, PtrToHashTable 
     user->followers = init_empty_edge();
     user->numFollowing = 0;
     user->numFollowers = 0;
+
+    user->popularity = 0;
     
     insert_into_hash_table(table, username, user);
     add_user_to_graph(graph, user);
@@ -151,7 +153,7 @@ void print_user(User user){
     printf("Nombre: %s\n", user->name);
     printf("Usuario: %s\n", user->username);
     printf("Contraseña: %s\n", user->password);
-    printf("Seguidores (%d) | Seguidos (%d)\n", user->numFollowers, user->numFollowing);
+    printf("Popularidad (%d) | Seguidores (%d) | Seguidos (%d)\n", user->popularity, user->numFollowers, user->numFollowing);
     printf("Publicaciones:\n");
     print_userPosts(user->posts);
 }
@@ -222,4 +224,69 @@ void free_all_users(PtrToHashTable table, Graph graph) {
         delete_user(aux, table, graph);
         aux = next;
     }
+}
+
+/**
+ * @brief Incrementa la popularidad de un usuario
+ * 
+ * @param user Puntero al usuario
+ */
+void increment_popularity(User user) {
+    if (user) user->popularity++;
+}
+
+
+/**
+ * @brief Sugerir usuarios populares basados en popularidad
+ * 
+ * @param table Tabla hash que contiene los usuarios
+ */
+void suggest_popular_users(HashTable *table) {
+    printf("Usuarios populares:\n");
+    for (int i = 0; i < HASH_TABLE_SIZE; i++) {
+        Hashnode *current = table->buckets[i];
+        while (current) {
+            User u = (User)current->data;
+            if (u->popularity > 10) { 
+                printf("- %s (Popularidad: %d)\n", u->username, u->popularity);
+            }
+            current = current->next;
+        }
+    }
+}
+
+/**
+ * @brief Ordena las publicaciones de un usuario por fecha
+ * 
+ * @param user Puntero al usuario
+ */
+void sort_posts(User user) {
+    if (!user || !user->posts) return;
+
+    int swapped;
+    PtrToPostNode ptr1;
+    PtrToPostNode lptr = NULL;
+
+    do {
+        swapped = 0;
+        ptr1 = user->posts->next;
+
+        while (ptr1 && ptr1->next != lptr) {
+            if (difftime(mktime(&ptr1->date), mktime(&ptr1->next->date)) < 0) {
+                // Intercambiar contenidos
+                char *temp_content = ptr1->post;
+                struct tm temp_date = ptr1->date;
+
+                ptr1->post = ptr1->next->post;
+                ptr1->date = ptr1->next->date;
+
+                ptr1->next->post = temp_content;
+                ptr1->next->date = temp_date;
+
+                swapped = 1;
+            }
+            ptr1 = ptr1->next;
+        }
+        lptr = ptr1;
+    } while (swapped);
 }

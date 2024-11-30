@@ -55,7 +55,8 @@ struct _user{
     int numFollowing; // numero de usuarios que sigue
     int numFollowers; // numero de usuarios que lo siguen
     PtrToUser next; /* siguiente en la lista del grafo */
-    /* INTERESES */
+    /* INTERESES Y POPULARIDAD*/
+    int popularity;
     //bool interests[]; /*POR HACER*/
 };
 
@@ -75,13 +76,16 @@ struct _postNode {
 User create_new_user(char* username, char* password, char* name, PtrToHashTable table, Graph graph);
 void delete_user(User user, PtrToHashTable table, Graph graph);
 User search_user(char* username, PtrToHashTable table);
-void free_all_users(PtrToHashTable table, Graph graph); 
+void free_all_users(PtrToHashTable table, Graph graph);
+void increment_popularity(User user);
 
 // funciones de impresión
 void print_user(User user);
 void print_all_users(Graph graph);
 void print_followers(User user);
 void print_following(User user);
+void suggest_popular_users(HashTable *table);
+
 
 // Funciones para gestionar publicaciones (lista enlazada simple + hash)
 UserPosts create_empty_userPosts();
@@ -90,5 +94,6 @@ PtrToPostNode search_post(UserPosts posts, int postId);
 void delete_post(UserPosts posts, int postId); /*PENDIENTE*/
 void delete_userPosts(UserPosts posts);
 void print_userPosts(UserPosts posts);
+void sort_posts(User user);
 
 #endif
