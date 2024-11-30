@@ -1,3 +1,15 @@
+/**
+ * @file graph.c
+ * @brief Implementación de funciones para gestionar grafos y relaciones entre usuarios en una red social
+ * @authors
+ * - Iván Mansilla
+ * - Franco Aguilar
+ * - Diego Sanhueza
+ * - Duvan Figueroa
+ * - Nicolás Álvarez
+ * - Miguel Maripillan
+ */
+
 #include "graph.h"
 
 /**

@@ -1,6 +1,11 @@
 /**
  * @file graph.h
- * @author Iván Mansilla, Franco Aguilar, Diego Sanhueza, Duvan Figueroa, Nicolás Álvarez, Miguel Maripillan
+ * @author Iván Mansilla
+ * - Franco Aguilar
+ * - Diego Sanhueza
+ * - Duvan Figueroa
+ * - Nicolás Álvarez
+ * - Miguel Maripillan
  * @brief Cabecera para graph.c
  */
 
@@ -56,5 +61,8 @@ void free_graph(Graph graph);
 
 
 
+
+// Funciones de afinidad
+double calculate_affinity(Graph *graph, int user1_id, int user2_id);
 
 #endif
