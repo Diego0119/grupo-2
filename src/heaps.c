@@ -1,17 +1,17 @@
 #include "heaps.h"
 
 /**
- * @brief funcion para insertar una nueva publicación en el heap
+ * @brief función para insertar una nueva publicación en el heap
  *
  * @param h cola de prioridad
  * @param user_name nombre del usuario
- * @param priority prioridad de la publicacion
- * @param content contenido de la publicacion
+ * @param priority prioridad de la publicación
+ * @param content contenido de la publicación
  */
 void insert_new_post(heap* h, const char* user_name, int priority, const char* content)
 {
     if (h->size >= MAX_HEAP_SIZE) {
-        printf("El heap está lleno.\n");
+        printf("el heap está lleno.\n");
         return;
     }
 
@@ -20,22 +20,22 @@ void insert_new_post(heap* h, const char* user_name, int priority, const char* c
     new_post.priority = priority;
     strcpy(new_post.content, content);
 
-    // Insertar al final y luego hacer heapify_up
+    // insertar al final y luego hacer heapify_up
     h->posts[h->size] = new_post;
     h->size++;
     heapify_up(h, h->size - 1);
 }
 
 /**
- * @brief funcion para asegurar que el heap mantenga la propiedad (heapify_up)
+ * @brief función para asegurar que el heap mantenga la propiedad (heapify_up)
  *
  * @param h cola de prioridad
- * @param user_name nombre del usuario
+ * @param index índice del nodo que debe ajustarse
  */
 void heapify_up(heap* h, int index)
 {
     while (index > 0 && h->posts[index].priority > h->posts[(index - 1) / 2].priority) {
-        // Intercambiar
+        // intercambiar
         post temp = h->posts[index];
         h->posts[index] = h->posts[(index - 1) / 2];
         h->posts[(index - 1) / 2] = temp;
@@ -45,31 +45,31 @@ void heapify_up(heap* h, int index)
 }
 
 /**
- * @brief funcion para extraer el máximo (el nodo más prioritario) y lo muestra (Se utiliza en la función ver_posts)
+ * @brief función para extraer el máximo (el nodo más prioritario) y lo muestra (se utiliza en la función ver_posts)
  *
  * @param h cola de prioridad
  */
 void extract_max(heap* h)
 {
     if (h->size == 0) {
-        printf("\nNo hay mas publicaciones, intente mas tarde\n");
+        printf("\nno hay más publicaciones, intente más tarde\n");
         return;
     }
 
     printf("%s\n\n|----------\n  %s\n|----------\n", h->posts[0].user_name, h->posts[0].content);
 
-    // Mover el último nodo a la raíz y hacer heapify_down
+    // mover el último nodo a la raíz y hacer heapify_down
     h->posts[0] = h->posts[h->size - 1];
     h->size--;
-    // Restaurar la propiedad del heap
+    // restaurar la propiedad del heap
     heapify_down(h, 0);
 }
 
 /**
- * @brief funcion para hacer heapify_down (restaurar la propiedad después de extraer el máximo)
+ * @brief función para hacer heapify_down (restaurar la propiedad después de extraer el máximo)
  *
  * @param h cola de prioridad
- * @param index indice del nodo
+ * @param index índice del nodo
  */
 void heapify_down(heap* h, int index)
 {
@@ -84,7 +84,7 @@ void heapify_down(heap* h, int index)
         largest = right;
     }
     if (largest != index) {
-        // Intercambiar
+        // intercambiar
         post temp = h->posts[index];
         h->posts[index] = h->posts[largest];
         h->posts[largest] = temp;
@@ -94,26 +94,26 @@ void heapify_down(heap* h, int index)
 }
 
 /**
- * @brief funcion para imprimir el heap
+ * @brief función para imprimir el heap
  *
  * @param h cola de prioridad
  */
 void print_heap(heap* h)
 {
     if (h->size == 0) {
-        printf("El heap está vacío.\n");
+        printf("el heap está vacío.\n");
         return;
     }
 
-    printf("Contenido del heap: %d\n", h->size);
+    printf("contenido del heap: %d\n", h->size);
     for (int i = 0; i < h->size; i++) {
-        printf("Usuario: %s, Prioridad: %d, Contenido: %s\n",
+        printf("usuario: %s, prioridad: %d, contenido: %s\n",
             h->posts[i].user_name, h->posts[i].priority, h->posts[i].content);
     }
 }
 
 /**
- * @brief funcion para visualizar publicaciones del heap en consola y orden de prioridad
+ * @brief función para visualizar publicaciones del heap en consola y orden de prioridad
  *
  * @param h cola de prioridad
  */
@@ -127,7 +127,11 @@ void ver_posts(heap* h)
         // Verifica si hay publicaciones y extrae la más relevante (máximo)
         switch (opcion) {
             case 1:
-                extract_max(h);
+                if (h->size > 0) {
+                    extract_max(h);  // Extrae y muestra la publicación de mayor prioridad
+                } else {
+                    printf("\nNo hay más publicaciones para mostrar.\n");
+                }
                 break;
             case 2:
                 break;
@@ -153,3 +157,4 @@ void ver_posts(heap* h)
         }
     }
 }
+

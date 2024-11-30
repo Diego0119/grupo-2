@@ -1,14 +1,41 @@
+/**
+ * @file graph.c
+ * @brief Implementación de funciones para gestionar grafos y relaciones entre usuarios en una red social
+ * @authors
+ * - Iván Mansilla
+ * - Franco Aguilar
+ * - Diego Sanhueza
+ * - Duvan Figueroa
+ * - Nicolás Álvarez
+ * - Miguel Maripillan
+ */
+
 #include "graph.h"
 
+/**
+ * @brief Inicializa un grafo vacío
+ * 
+ * @param graph Puntero al grafo que será inicializado
+ * @note Se configuran las listas de adyacencia y el contador de usuarios en 0.
+ */
 void initialize_graph(Graph *graph)
 {
     graph->users_number = 0;
     for (int i = 0; i < MAX_USERS; i++)
     {
         graph->adyacent_friendship_list[i] = NULL;
+        graph->friends_count[i] = 0;
     }
 }
 
+/**
+ * @brief Añade un nuevo usuario al grafo
+ * 
+ * @param graph Puntero al grafo
+ * @param name Nombre del usuario a añadir
+ * @return int Devuelve el ID del usuario añadido o -1 si falla
+ * @note Si se alcanza el número máximo de usuarios, no se realiza la inserción.
+ */
 int add_user(Graph *graph, const char *name)
 {
     if (graph->users_number >= MAX_USERS)
@@ -24,63 +51,54 @@ int add_user(Graph *graph, const char *name)
     return graph->users_number++;
 }
 
-// en esta funcion se debe actualizar la lista de adyacencia
-// adyacent_list[ 1 | 2 | 3 | 4 | 5]
-//                |   |       |
-//                v   v       v
-//              [2|3] NULL   [3|4]
+/**
+ * @brief Establece una amistad entre dos usuarios
+ * 
+ * @param graph Puntero al grafo
+ * @param user1 ID del primer usuario
+ * @param user2 ID del segundo usuario
+ * @param weight Nivel de afinidad entre los usuarios (peso de la relación)
+ * @note Esta función es simétrica: añade la conexión en ambas direcciones.
+ */
 void add_friendship(Graph *graph, int user1, int user2, int weight)
 {
     if (user1 == user2)
     {
-        printf("Un usuario no puede ser amigo de si mismo\n");
+        printf("Un usuario no puede ser amigo de sí mismo\n");
         return;
     }
 
-    // se obtiene la lista de amigos de user1
+    // Obtiene la lista de amigos del usuario 1
     Edge *friends_of_user1 = graph->adyacent_friendship_list[user1];
-    // se guardan los amigos totales del user1
+    // Número actual de amigos del usuario 1
     int current_size1 = graph->friends_count[user1];
-    // redimensiona el arrelgo dinamico friends_of_user1 para añadir un nuevo amigo (conexion)
+    // Redimensiona el arreglo dinámico para añadir un nuevo amigo
     friends_of_user1 = realloc(friends_of_user1, sizeof(Edge) * (current_size1 + 1));
-    // añade como destino en la posicion nueva del arreglo, al user2 para que se conecten
+    // Añade el usuario 2 como amigo del usuario 1
     friends_of_user1[current_size1].dest = user2;
-    // añade el peso que tiene la conexion al amigo
+    // Asigna el peso de la relación (nivel de afinidad)
     friends_of_user1[current_size1].weight = weight;
-    // la lista de adyacencia del grafo en la posicion user1, contendra el arreglo de estructura edge que contiene las conexiones
+    // Actualiza la lista de adyacencia
     graph->adyacent_friendship_list[user1] = friends_of_user1;
+    graph->friends_count[user1]++;
 
+    // Repite los mismos pasos para añadir al usuario 1 como amigo del usuario 2
     Edge *friends_of_user2 = graph->adyacent_friendship_list[user2];
-    friends_of_user2 = realloc(friends_of_user2, sizeof(Edge) * (current_size1 + 1));
-    friends_of_user2[current_size1].dest = user1;
-    friends_of_user2[current_size1].weight = weight;
+    int current_size2 = graph->friends_count[user2];
+    friends_of_user2 = realloc(friends_of_user2, sizeof(Edge) * (current_size2 + 1));
+    friends_of_user2[current_size2].dest = user1;
+    friends_of_user2[current_size2].weight = weight;
     graph->adyacent_friendship_list[user2] = friends_of_user2;
+    graph->friends_count[user2]++;
 }
 
-void remove_user(Graph *graph, int user_id)
-{
-    if (user_id < 0 || user_id >= graph->users_number)
-    {
-        printf("El usuario no existe\n");
-        return;
-    }
-    // funcion auxiliar que primero elimina todas las conexiones del usuario
-    remove_all_friendships(graph, user_id);
-    remove_reference_to_user(graph, user_id);
-
-    free(graph->adyacent_friendship_list[user_id]);
-    graph->users_number--;
-
-    // mueve la lista de adyacencia posteriores al usuario eliminado
-    for (int i = user_id; i < graph->users_number - 1; i++)
-    {
-        graph->adyacent_friendship_list[i] = graph->adyacent_friendship_list[i + 1];
-        graph->friends_count[i] = graph->friends_count[i + 1];
-    }
-
-    printf("Usuario eliminado correctamente\n");
-}
-
+/**
+ * @brief Muestra los amigos de un usuario
+ * 
+ * @param graph Puntero al grafo
+ * @param user_id ID del usuario
+ * @note Imprime los IDs y pesos de las conexiones de cada amigo del usuario.
+ */
 void display_friends(Graph *graph, int user_id)
 {
     if (user_id < 0 || user_id >= graph->users_number)
@@ -88,17 +106,14 @@ void display_friends(Graph *graph, int user_id)
         printf("El usuario no existe\n");
         return;
     }
-    printf("Los amigos del usuario con id %d son:\n", user_id);
 
-    // esto apuntara al arreglo del tipo Edge de amigos del user
+    printf("Amigos del usuario con ID %d:\n", user_id);
+
+    // Obtiene la lista de amigos del usuario
     Edge *friends_of_user = graph->adyacent_friendship_list[user_id];
-
-    // numero de amigos actuales de este usuario
     int friends_count = graph->friends_count[user_id];
 
-    // ahora recorre el arreglo dinamico friends_of_user para ver los amigos del usuario
-    // y se imprimen
-
+    // Recorre e imprime cada amigo
     for (int i = 0; i < friends_count; i++)
     {
         printf("Amigo ID: %d, Peso de la conexión: %d\n", friends_of_user[i].dest, friends_of_user[i].weight);
@@ -110,6 +125,14 @@ void display_friends(Graph *graph, int user_id)
     }
 }
 
+/**
+ * @brief Elimina una relación de amistad entre dos usuarios
+ * 
+ * @param graph Puntero al grafo
+ * @param user1_id ID del primer usuario
+ * @param user2_id ID del segundo usuario
+ * @note Se elimina la relación de ambas listas de adyacencia.
+ */
 void remove_friendship(Graph *graph, int user1_id, int user2_id)
 {
     if (user1_id < 0 || user1_id >= graph->users_number || user2_id < 0 || user2_id >= graph->users_number)
@@ -118,113 +141,69 @@ void remove_friendship(Graph *graph, int user1_id, int user2_id)
         return;
     }
 
-    // se obtiene la lista de amigos del user1
+    // Elimina la relación del usuario 1 hacia el usuario 2
     Edge *current_friendship_list = graph->adyacent_friendship_list[user1_id];
     int friends_count = graph->friends_count[user1_id];
 
-    // se busca la amistad
     for (int i = 0; i < friends_count; i++)
     {
         if (current_friendship_list[i].dest == user2_id)
         {
-            // se mueve al ultimo elemento el lugar eliminado
             current_friendship_list[i] = current_friendship_list[friends_count - 1];
-
-            // se reduce el tamaño del arreglo dinamico con realloc
             current_friendship_list = realloc(current_friendship_list, sizeof(Edge) * (friends_count - 1));
             graph->adyacent_friendship_list[user1_id] = current_friendship_list;
-
-            // se actualiza el contador de amigos
             graph->friends_count[user1_id]--;
-
-            printf("La amistad entre el usuario %d y el usuario %d ha sido eliminada.\n", user1_id, user2_id);
-            return;
+            break;
         }
     }
 
-    // no hay amistad
-    printf("No existe una amistad entre el usuario %d y el usuario %d.\n", user1_id, user2_id);
-}
+    // Elimina la relación del usuario 2 hacia el usuario 1
+    current_friendship_list = graph->adyacent_friendship_list[user2_id];
+    friends_count = graph->friends_count[user2_id];
 
-void remove_all_friendships(Graph *graph, int user_id)
-{
-    if (user_id < 0 || user_id > graph->users_number)
+    for (int i = 0; i < friends_count; i++)
     {
-        printf("El usuario no existe\n");
-        return;
-    }
-
-    // se obtiene la lista de amigos del usuario
-    Edge *current_friendship_list = graph->adyacent_friendship_list[user_id];
-    int friends_count = graph->friends_count[user_id];
-    // se libera la lista dinamica de amigos
-    free(current_friendship_list);
-    // se coloca en NULL la referencia a la lista
-    graph->adyacent_friendship_list[user_id] = NULL;
-    graph->friends_count[user_id] = 0;
-    printf("Todas las amistades del usuario %d han sido eliminadas.\n", user_id);
-}
-
-void remove_reference_to_user(Graph *graph, int user_id)
-{
-    // recorrera toda la lista buscando las referencias
-    for (int i = 0; i < graph->users_number; i++)
-    {
-        // se salta al usuario que se esta eliminando
-        if (i != user_id)
+        if (current_friendship_list[i].dest == user1_id)
         {
-            // se obtiene la lista de amigos del usuario actual (i)
-            Edge *friend_list = graph->adyacent_friendship_list[i];
-            int friend_count = graph->friends_count[i];
-
-            for (int j = 0; j < friend_count; j++)
-            {
-                // se ve si existe la amistad
-                if (friend_list[j].dest == user_id)
-                {
-                    // mueve el ultimo elemento al lugar del eliminado
-                    friend_list[j] = friend_list[friend_count - 1];
-
-                    // redimensionar la lista
-                    friend_list = realloc(friend_list, sizeof(Edge) * (friend_count - 1));
-                    graph->adyacent_friendship_list[i] = friend_list;
-
-                    graph->friends_count[i]--;
-                    break;
-                }
-            }
+            current_friendship_list[i] = current_friendship_list[friends_count - 1];
+            current_friendship_list = realloc(current_friendship_list, sizeof(Edge) * (friends_count - 1));
+            graph->adyacent_friendship_list[user2_id] = current_friendship_list;
+            graph->friends_count[user2_id]--;
+            break;
         }
     }
 }
 
+/**
+ * @brief Utiliza el algoritmo de Dijkstra para calcular distancias mínimas
+ * 
+ * @param graph Puntero al grafo
+ * @param source ID del usuario origen
+ * @note Imprime las distancias mínimas desde el nodo origen a todos los demás nodos.
+ */
 void dijkstra(Graph *graph, int source)
 {
     int users_number = graph->users_number;
-    // variables de marcas
     int *visited = malloc(sizeof(int) * users_number);
     int *distance = malloc(sizeof(int) * users_number);
 
-    // se inicializa como no visitado y distancias maximas de alcance
     for (int i = 0; i < users_number; i++)
     {
         distance[i] = INT_MAX;
         visited[i] = 0;
     }
 
-    // la distancia al origen es 0
     distance[source] = 0;
 
     for (int count = 0; count < users_number - 1; count++)
     {
         int min_distance = INT_MAX, current_node = -1;
+
         for (int i = 0; i < users_number; i++)
         {
-            // se busca un nodo no visitado que tenga una distancia menor que min_distance (en un comienzo infinito)
             if (!visited[i] && distance[i] < min_distance)
             {
-                // se actualiza la distancia minima a la distancia encontrada
                 min_distance = distance[i];
-                // se guarda el nodo actual
                 current_node = i;
             }
         }
@@ -232,20 +211,16 @@ void dijkstra(Graph *graph, int source)
         if (current_node == -1)
             break;
 
-        // se marca el nodo como visitado
         visited[current_node] = 1;
 
-        // se buscan los vecinos del nodo encontrado con la distancia minima
         Edge *neighbors = graph->adyacent_friendship_list[current_node];
         int friends_count = graph->friends_count[current_node];
 
         for (int i = 0; i < friends_count; i++)
         {
-            // se guarda informacion uno de sus vecinos (va iterando sobre todos)
             int neighbor = neighbors[i].dest;
             int weight = neighbors[i].weight;
 
-            // se ve si uno de sus vecinos no ha sido visitado
             if (!visited[neighbor] && distance[current_node] + weight < distance[neighbor])
             {
                 distance[neighbor] = distance[current_node] + weight;
