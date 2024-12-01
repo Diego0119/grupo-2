@@ -88,7 +88,7 @@ void suggest_popular_users(HashTable *table);
 
 
 // Funciones para gestionar publicaciones (lista enlazada simple + hash)
-UserPosts create_empty_userPosts();
+UserPosts create_empty_userPosts(void);
 PtrToPostNode insert_post(UserPosts posts, char* content);
 PtrToPostNode search_post(UserPosts posts, int postId);
 void delete_post(UserPosts posts, int postId); /*PENDIENTE*/

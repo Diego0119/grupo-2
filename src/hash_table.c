@@ -16,7 +16,7 @@
  * 
  * @return HashTable* Puntero a la nueva tabla hash
  */
-HashTable* create_hash_table() {
+HashTable* create_hash_table(void) {
     HashTable *table = (HashTable *)malloc(sizeof(HashTable));
     if (!table) {
         printf("ERROR: No hay memoria suficiente\n");

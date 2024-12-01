@@ -47,7 +47,7 @@ struct _hashtable {
 };
 
 /* Funciones principales para gestionar tablas hash */
-HashTable* create_hash_table();
+HashTable* create_hash_table(void);
 unsigned int hash_function(const char *key);
 int insert_into_hash_table(HashTable *table, char *key, void *data);
 void *search_in_hash_table(HashTable *table, char *key);

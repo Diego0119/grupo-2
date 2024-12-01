@@ -45,7 +45,7 @@ unsigned int jenkins_hash(char* key)
  * @param argv 
  * @return int 
  */
-int get_option(int argc, char *argv[]){
+int get_option(int argc __attribute__((unused)), char *argv[] __attribute__((unused))) {
    
    /*int opt; // Variable para el manejo de opciones
 	int opt_index = 0;
@@ -80,4 +80,5 @@ int get_option(int argc, char *argv[]){
     printf("Uso: 'fly -d <directorio>'\n'fly -h' para mostrar ayuda\n");
     return NULL;*/
 
+    return 0;
 }
