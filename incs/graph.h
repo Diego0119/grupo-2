@@ -44,15 +44,17 @@ struct _graph{
 };
 
 // funciones de edges
-Edge init_empty_edge();
+Edge init_empty_edge(void);
 Edge search_user_in_edge(Edge edge, User user);
 Edge search_previous_in_edge(Edge edge, User user);
 void add_edge(User user1, User user2, double weigth);
 void remove_edge(User user1, User user2);
 void free_all_edges(User user);
+void BFS(Graph graph, User startUser);
+void DFS(Graph graph, User startUser);
 
 // funciones de grafos
-Graph initialize_graph();
+Graph initialize_graph(void);
 void add_user_to_graph(Graph graph, User user);
 void remove_user_from_graph(Graph graph, User user);
 void dijkstra(Graph graph, User source);

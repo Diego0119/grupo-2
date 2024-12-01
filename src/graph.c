@@ -17,7 +17,7 @@
  * 
  * @return Edge 
  */
-Edge init_empty_edge(){
+Edge init_empty_edge(void){
     Edge newEdge = (Edge)malloc(sizeof(struct _edge));
     if(!newEdge){
         printf("ERROR: No hay memoria suficiente\n");
@@ -73,7 +73,7 @@ Edge search_previous_in_edge(Edge edge, User user){
  * 
  * @return Graph 
  */
-Graph initialize_graph()
+Graph initialize_graph(void)
 {
     Graph newGraph = (Graph)malloc(sizeof(struct _graph));
     if(!newGraph){
@@ -322,4 +322,73 @@ void dijkstra(Graph graph, User source) {
     }
 
     free(table);
+}
+
+void BFS(Graph graph, User startUser) {
+    if (!graph || !startUser) {
+        printf("Error: Grafo o usuario inicial inválido.\n");
+        return;
+    }
+
+    // Crear una cola para BFS
+    User queue[MAX_USERS];
+    int front = 0, rear = 0;
+    int visited[MAX_USERS] = {0};
+
+    int startIndex = dijkstra_table_index(graph, startUser);
+    if (startIndex == -1) return;
+
+    visited[startIndex] = 1;
+    queue[rear++] = startUser;
+
+    printf("Recorrido BFS desde %s:\n", startUser->username);
+
+    while (front < rear) {
+        User currentUser = queue[front++];
+        printf("- %s\n", currentUser->username);
+
+        Edge edge = currentUser->following->next;
+        while (edge) {
+            int neighborIndex = dijkstra_table_index(graph, edge->dest);
+            if (!visited[neighborIndex]) {
+                visited[neighborIndex] = 1;
+                queue[rear++] = edge->dest;
+            }
+            edge = edge->next;
+        }
+    }
+}
+
+void DFS(Graph graph, User startUser) {
+    if (!graph || !startUser) {
+        printf("Error: Grafo o usuario inicial inválido.\n");
+        return;
+    }
+
+    User stack[MAX_USERS];
+    int top = -1;
+    int visited[MAX_USERS] = {0};
+
+    int startIndex = dijkstra_table_index(graph, startUser);
+    if (startIndex == -1) return;
+
+    visited[startIndex] = 1;
+    stack[++top] = startUser;
+
+    printf("Recorrido DFS desde %s:\n", startUser->username);
+
+    while (top >= 0) {
+        User currentUser = stack[top--];
+        printf("- %s\n", currentUser->username);
+
+        Edge edge = currentUser->following->next;
+        while (edge) {
+            int neighborIndex = dijkstra_table_index(graph, edge->dest);
+            if (!visited[neighborIndex]) {
+                visited[neighborIndex] = 1;
+                stack[++top] = edge->dest;
+            }
+            edge = edge->next;
+        }
+    }
 }

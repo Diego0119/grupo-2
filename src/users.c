@@ -23,6 +23,11 @@
  * @return User 
  */
 User create_new_user(char* username, char* password, char* name, PtrToHashTable table, Graph graph){
+    if (search_in_hash_table(table, username)) {
+        printf("Error: El nombre de usuario '%s' ya existe\n", username);
+        return NULL;
+    }
+
     User user = (User)malloc(sizeof(_User));
     if(!user){
         printf("ERROR: No hay memoria suficiente\n");
@@ -54,7 +59,7 @@ User create_new_user(char* username, char* password, char* name, PtrToHashTable 
  * @note Centinela contiene fecha en que se crea la lista, o sea, cuando se creó el usuario, y el id es la cantidad de posts que tiene el usuario
  * @return UserPosts 
  */
-UserPosts create_empty_userPosts(){
+UserPosts create_empty_userPosts(void) {
     UserPosts posts=(UserPosts)malloc(sizeof(PostNode));
     if(!posts){
         printf("ERROR: No hay memoria suficiente\n");
