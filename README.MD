@@ -9,41 +9,54 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 ### 1. Duvan Figueroa 👨‍💻
 - Estudiante de Ingeniería Civil Infomatica
 - [Duvan Figueroa](https://github.com/HisokaMorow1)
-- Se encargar de implementar tablas hash.
-- Funciones de usuarios basándose en afinidades o popularidad.
-- Organizar publicaciones.
 
 ### 2. Diego Sanhueza 👨‍💻
 - Estudiante de Ingeniería Infomatica
 - [Diego Sanhueza](https://github.com/Diego0119)
+<<<<<<< HEAD
 - Se encargar de implementar la estructura de los grafos.
 - Implementar Dijkstra para encontrar usuarios cercanos.
 - Implementar las afinidades entre usuarios
+=======
+>>>>>>> main
 
 ### 3. Ivan Mansilla 👨‍💻
 - Estudiante de Ingeniería Civil Infomatica
 - [Ivan Mansilla](https://github.com/ivnmansi)
-- Se encargara de implementar las listas enlazadas para manejar las publicaciones.
-- Crear estructuras de usuarios (contempla la lista enlazada de publicaciones).
-- Se encarga de investigar el algoritmo Jaccard.
-
 
 ### 4. Franco Aguilar 👨‍💻
 - Estudiante de Ingeniería Civil Infomatica
-- [Franco Aguilar](https://github.com/faguilardc)
-- Se encargara de las colas de prioridad.
-- Se encarga de investigar el algoritmo Jaccard.
-- Se encargara de publicar y visualizar las publicaciones.    
+- [Franco Aguilar](https://github.com/faguilardc)   
 
 ### 5. Miguel Maripillan 👨‍💻
 - Estudiante de Ingeniería Infomatica
 - [Miguel Maripillan](https://github.com/mihel1)
-- Se encargara de implementar grafos.
-- Ensamblador
-- Busqueda en grafos BFS/DFS.
 
-### 6. Nicolaz Alvarez 👨‍💻
+### 6. Nicolás Alvarez 👨‍💻
 - Estudiante de Ingeniería Infomatica
 - [Nicolas Alvarez](https://github.com/nalvarti1)
-- Se encargara del guardado de información de los usuarios.
-- Leer usuarios y crearlos por medio de un txt de entrada.
+
+## Lista de tareas
+- [X] Implementar tablas hash (Duván)
+- [ ] Funciones de usuarios basándose en afinidades o popularidad
+- [X] Organizar publicaciones (Duván)
+- [X] Estructura de grafos (Diego y Miguel)
+- [X] Algoritmos BFS/DFS (Miguel)
+- [X] Implementar Dijkstra para encontrar usuarios cercanos (Diego)
+- [X] Implementar las listas enlazadas para manejar las publicaciones (Iván)
+- [X] Crear estructuras de usuarios (contempla la lista enlazada de publicaciones) (Iván)
+- [ ] Agregar temas/tópicos en la estructura de usuarios y publicaciones (Iván)
+- [ ] Implementar Jaccard en usuarios y publicaciones (Iván)
+- [ ] Asignación de intereses a usuarios
+- [X] Implementar colas de prioridad (Franco)
+- [ ] Algoritmo de recomendación de publicaciones
+- [ ] Algoritmo de recomendación de usuarios
+- [ ] Guardar información de los usuarios (nube) (Nicolás)
+- [ ] Cargar usuarios por medio de un txt de entrada (Nicolás)
+- [ ] Iniciar sesión y publicar cosas según el usuario iniciado
+
+
+### Extras
+- [ ] Perfil psicológico (Diego)
+- [ ] Usuarios aleatorios (Diego)
+
