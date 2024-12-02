@@ -330,18 +330,61 @@ void sort_posts(User user)
 
 void generate_users(int quantity, PtrToHashTable table, Graph graph)
 {
-    const char *names[] = {"Alice", "Bob", "Charlie", "Diana", "Eve", "Frank", "Grace", "Hannah"};
-    const char *usernames[] = {"alice123", "bob456", "charlie789", "diana001", "eve202", "frank303", "grace404", "hannah505"};
+    printf("Creando usuarios, por favor espere...\n");
+
+    for (int i = 0; i <= 3; i++)
+    {
+        sleep(1);
+        printf(".");
+        fflush(stdout);
+    }
+    printf("\n");
+
+    const char *names[] = {
+        "Duvan", "Ivan", "Franco", "Diego", "Miguel", "Nicolas", "Jose", "Messi",
+        "Carlos", "Juan", "Andres", "Pedro", "Luis", "Raul", "Javier", "Santiago",
+        "Ricardo", "Antonio", "Sebastian", "Francisco", "Eduardo", "Julian", "Pablo", "Alfredo", "Oscar",
+        "Hector", "Felipe", "Victor", "Martin", "Jorge", "Alberto", "Guillermo", "Mario", "Oscar", "Manuel",
+        "Ruben", "Arturo", "Felipe", "Gabriel", "Emilio", "David", "Luis", "Esteban", "Luis", "Raul",
+        "Diego", "Pedro", "Ivan", "Ricardo", "Luis", "Hugo", "Alejandro", "Diego", "Alfredo", "Leonardo",
+        "Rafael", "Carlos", "Sergio", "Adrian", "Antonio", "Hernan", "Rodrigo", "Erick", "Ernesto", "Victor",
+        "Gabriel", "Ariel", "Diego", "Oscar", "Lautaro", "Lucas", "Fabian", "Felipe", "Hector", "Juan",
+        "Ramon", "Mauro", "Simón", "Joaquín", "Bautista", "Alfredo", "Luis", "Francisco", "Alberto", "Aureliano",
+        "Armando", "Pedro", "Ramon", "Santiago", "Cristian", "Héctor", "Omar", "Ignacio", "Jorge", "Antonio"};
+
+    const char *usernames[] = {
+        "BlackWarrior", "TheTerminator", "TheDataStructure", "TheCLanguage", "TheBeast666",
+        "TheCryBaby", "ElonMusk", "DonaldTrump", "TechGuru", "CyberKnight", "CodeMaster",
+        "ThePhantom", "PixelHunter", "SuperCoder", "NetWarrior", "CodeJunkie", "FutureTech",
+        "TheDigitalNomad", "SpaceXplorer", "QuantumCoder", "TheDevKing", "RoboHacker",
+        "ByteBeast", "CyberSamurai", "Hackzilla", "CodeSlayer", "PixelPirate", "GameChanger",
+        "TechieWarrior", "TheCodeHunter", "DarkCoder", "IronProgrammer", "ByteKnight", "CodeViper",
+        "TechAvenger", "ScriptNinja", "DevSlinger", "MatrixManiac", "DigitalDragon", "TechWizard",
+        "QuantumWizard", "CodePhantom", "TechGuruX", "ZeroBugHero", "Debugger", "CodeXplorer",
+        "CryptoKnight", "DevSorcerer", "AlgorithmMaster", "BinaryHacker", "WebWarlord",
+        "CodeSavant", "TheCyberBeast", "NetworkNinja", "TechTitan", "TheCodeSling",
+        "BugHunter", "AlgorithmAce", "CodeWarden", "InfinityCoder", "ByteRider",
+        "ScriptMaster", "CloudWarrior", "CyberFox", "PixelKnight", "AppMaster",
+        "TheDevBeast", "CyberWarriorX", "CodeDemon", "TechSavant", "WebWizard",
+        "DevGuruX", "ByteBender", "CloudCoder", "QuantumHacker", "FutureProgrammer",
+        "TheTechShaman", "DigitalNomad", "CodeWhisperer", "TechNinja", "BugCrusher",
+        "PixelWhisperer", "TheTechEnforcer", "DevWarlord", "CyberViking", "DigitalPhantom",
+        "ByteKing", "NetMaster", "DigitalScribe", "CodeWiz", "TechSniper",
+        "AlgorithmSleuth", "ZeroBugMaster", "DigitalSorcerer", "CodePioneer", "BugWizard"};
+
     const char *passwords[] = {"pass1", "pass2", "pass3", "pass4", "pass5", "pass6", "pass7", "pass8"};
+
     int numNames = sizeof(names) / sizeof(names[0]);
+    int numUsernames = sizeof(usernames) / sizeof(usernames[0]);
+    int numPasswords = sizeof(passwords) / sizeof(passwords[0]);
 
     srand(time(NULL));
 
     for (int i = 0; i < quantity; i++)
     {
         int nameIndex = rand() % numNames;
-        int usernameIndex = rand() % numNames;
-        int passwordIndex = rand() % numNames;
+        int usernameIndex = rand() % numUsernames;
+        int passwordIndex = rand() % numPasswords;
 
         char *name = strdup(names[nameIndex]);
         char *username = strdup(usernames[usernameIndex]);

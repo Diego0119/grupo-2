@@ -97,7 +97,8 @@ void delete_userPosts(UserPosts posts);
 void print_userPosts(UserPosts posts);
 void sort_posts(User user);
 
-// funciones de generacion de usuarios
+// Funciones de generacion aleatoria y conexion aleatoria de usuarios
 void generate_users(int quantity, PtrToHashTable table, Graph graph);
+void generate_random_connections(int quantity, Graph graph);
 
 #endif

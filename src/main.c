@@ -24,17 +24,13 @@ int main(void)
     PtrToHashTable table = create_hash_table();
     Graph graph = initialize_graph();
 
-    User user1 = create_new_user("pichuldondsfd", "asdasd", "caca con crema", table, graph);
-    User user2 = create_new_user("cacay", "asdas", "sdasd", table, graph);
-    User user3 = create_new_user("john", "asdasd", "John caca", table, graph);
-    User user4 = create_new_user("jofdsdfhn", "asd", "John caca", table, graph);
+    printf("Generando usuarios aleatorios...\n");
+    User user1 = create_new_user("Admin", "pass", "DIOS", table, graph);
+    generate_users(50, table, graph);
+    int users_quantity = graph->usersNumber;
+    printf("Users quantity %d\n", users_quantity);
 
-    add_edge(user1, user2, 1);
-    add_edge(user1, user3, 1);
-    add_edge(user2, user1, 1);
-    add_edge(user3, user1, 1);
-    add_edge(user4, user1, 1);
-    add_edge(user2, user4, 1);
+    // generate_random_connections(users_quantity, graph);
 
     printf("\nProbando BFS:\n");
     BFS(graph, user1);

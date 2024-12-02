@@ -21,24 +21,25 @@
 
 #include "users.h"
 
-#define MAX_USERS 100 // maxima cantidad de users en la red
+#define MAX_USERS 200 // maxima cantidad de users en la red
 
 typedef struct _user _User;
 typedef _User *User;
 typedef _User *PtrToUser;
 
-
-typedef struct _edge* Edge;
+typedef struct _edge *Edge;
 typedef PtrToUser GraphList;
-typedef struct _graph* Graph;
+typedef struct _graph *Graph;
 
-struct _edge{
-    User dest;   // usuario al que esta conectado
+struct _edge
+{
+    User dest;     // usuario al que esta conectado
     double weight; // peso de la conexion
-    Edge next; // posición siguiente
+    Edge next;     // posición siguiente
 };
 
-struct _graph{
+struct _graph
+{
     GraphList graphUsersList;
     int usersNumber;
 };
