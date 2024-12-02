@@ -31,18 +31,18 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 - [Nicolas Alvarez](https://github.com/nalvarti1)
 
 ## Lista de tareas
-- [ X ] Implementar tablas hash (Duván)
+- [X] Implementar tablas hash (Duván)
 - [ ] Funciones de usuarios basándose en afinidades o popularidad
-- [ X ] Organizar publicaciones (Duván)
-- [ X ] Estructura de grafos (Diego y Miguel)
-- [ X ] Algoritmos BFS/DFS (Miguel)
-- [ X ] Implementar Dijkstra para encontrar usuarios cercanos (Diego)
-- [ X ] Implementar las listas enlazadas para manejar las publicaciones (Iván)
-- [ X ] Crear estructuras de usuarios (contempla la lista enlazada de publicaciones) (Iván)
+- [X] Organizar publicaciones (Duván)
+- [X] Estructura de grafos (Diego y Miguel)
+- [X] Algoritmos BFS/DFS (Miguel)
+- [X] Implementar Dijkstra para encontrar usuarios cercanos (Diego)
+- [X] Implementar las listas enlazadas para manejar las publicaciones (Iván)
+- [X] Crear estructuras de usuarios (contempla la lista enlazada de publicaciones) (Iván)
 - [ ] Agregar temas/tópicos en la estructura de usuarios y publicaciones (Iván)
 - [ ] Implementar Jaccard en usuarios y publicaciones (Iván)
 - [ ] Asignación de intereses a usuarios
-- [ X ] Implementar colas de prioridad (Franco)
+- [X] Implementar colas de prioridad (Franco)
 - [ ] Algoritmo de recomendación de publicaciones
 - [ ] Algoritmo de recomendación de usuarios
 - [ ] Guardar información de los usuarios (nube) (Nicolás)
