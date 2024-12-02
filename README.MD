@@ -13,12 +13,6 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 ### 2. Diego Sanhueza 👨‍💻
 - Estudiante de Ingeniería Infomatica
 - [Diego Sanhueza](https://github.com/Diego0119)
-<<<<<<< HEAD
-- Se encargar de implementar la estructura de los grafos.
-- Implementar Dijkstra para encontrar usuarios cercanos.
-- Implementar las afinidades entre usuarios
-=======
->>>>>>> main
 
 ### 3. Ivan Mansilla 👨‍💻
 - Estudiante de Ingeniería Civil Infomatica

@@ -10,7 +10,6 @@
  * - Miguel Maripillan
  */
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -25,11 +24,11 @@ int main(void)
     PtrToHashTable table = create_hash_table();
     Graph graph = initialize_graph();
 
-    User user1 = create_new_user("pichuldondsfd","asdasd","caca con crema",table, graph);
-    User user2 = create_new_user("cacay","asdas","sdasd",table, graph);
-    User user3 = create_new_user("john","asdasd","John caca",table, graph);
-    User user4 = create_new_user("jofdsdfhn","asd","John caca",table, graph);
-    
+    User user1 = create_new_user("pichuldondsfd", "asdasd", "caca con crema", table, graph);
+    User user2 = create_new_user("cacay", "asdas", "sdasd", table, graph);
+    User user3 = create_new_user("john", "asdasd", "John caca", table, graph);
+    User user4 = create_new_user("jofdsdfhn", "asd", "John caca", table, graph);
+
     add_edge(user1, user2, 1);
     add_edge(user1, user3, 1);
     add_edge(user2, user1, 1);
@@ -42,7 +41,7 @@ int main(void)
 
     printf("\nProbando DFS:\n");
     DFS(graph, user1);
-    
+
     print_user(user1);
 
     print_all_users(graph);
@@ -51,10 +50,6 @@ int main(void)
     /* frees */
     free_all_users(table, graph);
     free_graph(graph);
-
-
-
-    
 
     return 0;
 }
