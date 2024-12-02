@@ -47,6 +47,7 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 - [ ] Algoritmo de recomendación de usuarios
 - [ ] Guardar información de los usuarios (nube) (Nicolás)
 - [ ] Cargar usuarios por medio de un txt de entrada (Nicolás)
+- [ ] Iniciar sesión y publicar cosas según el usuario iniciado
 
 
 ### Extras
