@@ -41,6 +41,7 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 - [ X ] Crear estructuras de usuarios (contempla la lista enlazada de publicaciones) (Iván)
 - [ ] Agregar temas/tópicos en la estructura de usuarios y publicaciones (Iván)
 - [ ] Implementar Jaccard en usuarios y publicaciones (Iván)
+- [ ] Asignación de intereses a usuarios
 - [ X ] Implementar colas de prioridad (Franco)
 - [ ] Algoritmo de recomendación de publicaciones
 - [ ] Algoritmo de recomendación de usuarios
