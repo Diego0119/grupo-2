@@ -28,7 +28,7 @@ build/$(EXEC2): $(OBJ2_FILES)
 .PHONY: clean folders send
 clean:
 	rm -f $(OBJ_FILES) $(OBJ2_FILES)
-	rm -f build/$(EXEC) build/$(EXEC2)
+	rm -rf build/$(EXEC) build/$(EXEC2)
 	rm -f doc*.txt
 
 folders:

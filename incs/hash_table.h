@@ -17,34 +17,41 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "utilities.h"
+
 /* Tamaño predeterminado de la tabla hash */
 #define HASH_TABLE_SIZE 100
+
+
+typedef struct _hashnode Hashnode;
+typedef struct _hashtable HashTable;
+typedef HashTable* PtrToHashTable;
 
 /**
  * @struct hashnode
  * @brief Nodo individual en la tabla hash
  * @note Almacena un par clave-valor
  */
-typedef struct hashnode {
+struct _hashnode {
     char *key; /*!< Clave única asociada al dato */
     void *data; /*!< Puntero genérico a los datos */
-    struct hashnode *next; /*!< Puntero al siguiente nodo (en caso de colisión) */
-} hashnode;
+    Hashnode *next; /*!< Puntero al siguiente nodo (en caso de colisión) */
+};
 
 /**
- * @struct hashtable
+ * @struct _hashtable
  * @brief Estructura principal de la tabla hash
  */
-typedef struct hashtable {
-    hashnode *buckets[HASH_TABLE_SIZE]; /*!< Array de nodos (buckets) */
-} hashtable;
+struct _hashtable {
+    Hashnode *buckets[HASH_TABLE_SIZE]; /*!< Array de nodos (buckets) */
+};
 
 /* Funciones principales para gestionar tablas hash */
-hashtable *create_hash_table();
+HashTable* create_hash_table(void);
 unsigned int hash_function(const char *key);
-int insert_into_hash_table(hashtable *table, const char *key, void *data);
-void *search_in_hash_table(hashtable *table, const char *key);
-int delete_from_hash_table(hashtable *table, const char *key);
-void free_hash_table(hashtable *table);
+int insert_into_hash_table(HashTable *table, char *key, void *data);
+void *search_in_hash_table(HashTable *table, char *key);
+int delete_from_hash_table(HashTable *table, char *key);
+void free_hash_table(HashTable *table);
 
 #endif

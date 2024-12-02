@@ -1,3 +1,16 @@
+/**
+ * @file utilities.c
+ * @brief Funciones de utilidad y testing para el programa
+ * @authors
+ * - Iván Mansilla
+ * - Franco Aguilar
+ * - Diego Sanhueza
+ * - Duvan Figueroa
+ * - Nicolás Álvarez
+ * - Miguel Maripillan
+ */
+
+
 #include "utilities.h"
 
 /**
@@ -22,7 +35,7 @@ unsigned int jenkins_hash(char* key)
    hash ^= (hash >> 11);
    hash += (hash << 15);
 
-   return hash;
+   return hash % HASH_TABLE_SIZE;
 }
 
 /**
@@ -32,7 +45,40 @@ unsigned int jenkins_hash(char* key)
  * @param argv 
  * @return int 
  */
-int get_option(int argc, char *argv[]){
+int get_option(int argc __attribute__((unused)), char *argv[] __attribute__((unused))) {
+   
+   /*int opt; // Variable para el manejo de opciones
+	int opt_index = 0;
 
+   // estructura para las opciones
+	static struct option long_options[] = {
+        {"help", no_argument, 0, 'h'},
+        {"search", required_argument, 0, 's'},
+        {0, 0, 0, 0}
+    };
 
+    while((opt = getopt_long(argc, argv, ":hd:", long_options, &opt_index)) != -1){
+
+		switch(opt){
+			case 'h':
+				printf("fly -d <directorio>      Ejecuta el programa sobre un directorio\n");
+				return NULL;
+                break;
+			case 'd':
+                return optarg;
+                break;
+			case ':':
+                printf("Uso: 'fly -d <directorio>'\n'fly -h' para mostrar ayuda\n");
+				return NULL;
+				break;
+			default:
+				printf("Uso: 'fly -d <directorio>'\n'fly -h' para mostrar ayuda\n");
+                return NULL;
+				break;
+		}
+	}
+    printf("Uso: 'fly -d <directorio>'\n'fly -h' para mostrar ayuda\n");
+    return NULL;*/
+
+    return 0;
 }
