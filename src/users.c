@@ -15,7 +15,7 @@
 
 /**
  * @brief Crea un nuevo usuario
- * 
+ *
  * @param username Nombre de usuario
  * @param password Contraseña
  * @param name Nombre completo
@@ -29,12 +29,13 @@ User create_new_user(char* username, char* password, char* name, PtrToHashTable 
     }
 
     User user = (User)malloc(sizeof(_User));
-    if(!user){
+    if (!user)
+    {
         printf("ERROR: No hay memoria suficiente\n");
         exit(EXIT_FAILURE);
     }
     user->id = jenkins_hash(username);
-    
+
     user->username = strdup(username);
     user->password = strdup(password);
     user->name = strdup(name);
@@ -57,11 +58,13 @@ User create_new_user(char* username, char* password, char* name, PtrToHashTable 
 /**
  * @brief Crea lista enlazada de posts vacía
  * @note Centinela contiene fecha en que se crea la lista, o sea, cuando se creó el usuario, y el id es la cantidad de posts que tiene el usuario
- * @return UserPosts 
+ * @return UserPosts
  */
-UserPosts create_empty_userPosts(void) {
-    UserPosts posts=(UserPosts)malloc(sizeof(PostNode));
-    if(!posts){
+UserPosts create_empty_userPosts(void)
+{
+    UserPosts posts = (UserPosts)malloc(sizeof(PostNode));
+    if (!posts)
+    {
         printf("ERROR: No hay memoria suficiente\n");
         exit(EXIT_FAILURE);
     }
@@ -76,19 +79,20 @@ UserPosts create_empty_userPosts(void) {
 
 /**
  * @brief Crea un post en la lista de posts
- * 
+ *
  * @param posts Lista de posts del usuario
  * @param content Contenido del post a crear
  * @note Inserta al principio de la lista y guarda la fecha de la máquina en el momento de crear el post.
- * @return PtrToPostNode 
+ * @return PtrToPostNode
  */
 PtrToPostNode insert_post(UserPosts posts, char* content, GlobalInterests globalInterestTable){
     PtrToPostNode newPost = (PtrToPostNode)malloc(sizeof(PostNode));
-    if(!newPost){
+    if (!newPost)
+    {
         printf("ERROR: No hay memoria suficiente\n");
         exit(EXIT_FAILURE);
     }
-    time_t t= time(NULL);
+    time_t t = time(NULL);
     newPost->id = jenkins_hash(content);
     newPost->date = *localtime(&t);
     newPost->post = strdup(content);
@@ -103,11 +107,13 @@ PtrToPostNode insert_post(UserPosts posts, char* content, GlobalInterests global
 
 /**
  * @brief Elimina la lista de posts de un usuario
- * 
+ *
  * @param posts Lista de posts
  */
-void delete_userPosts(UserPosts posts){
-    if(posts->next != NULL){
+void delete_userPosts(UserPosts posts)
+{
+    if (posts->next != NULL)
+    {
         delete_userPosts(posts->next);
     }
     free_user_interests(posts->post);
@@ -117,7 +123,7 @@ void delete_userPosts(UserPosts posts){
 
 /**
  * @brief Elimina un usuario
- * 
+ *
  * @param user usuario a eliminar
  */
 void delete_user(User user, PtrToHashTable table, Graph graph, GlobalInterests globalInterests){
@@ -135,17 +141,20 @@ void delete_user(User user, PtrToHashTable table, Graph graph, GlobalInterests g
 
 /**
  * @brief Imprime una lista de posts
- * 
+ *
  * @param posts Lista de posts
  */
-void print_userPosts(UserPosts posts){
-    if(posts->next == NULL){
+void print_userPosts(UserPosts posts)
+{
+    if (posts->next == NULL)
+    {
         printf("No hay publicaciones\n");
         return;
     }
 
     PtrToPostNode aux = posts->next;
-    while(aux != NULL){
+    while (aux != NULL)
+    {
         printf("   ID: %d\n", aux->id);
         printf("   Fecha: %s\n", asctime(&aux->date));
         printf("   %s\n", aux->post);
@@ -155,10 +164,11 @@ void print_userPosts(UserPosts posts){
 
 /**
  * @brief Imprime toda la información de un usuario
- * 
+ *
  * @param user Usuario
  */
-void print_user(User user){
+void print_user(User user)
+{
     printf("ID: %d\n", user->id);
     printf("Nombre: %s\n", user->name);
     printf("Usuario: %s\n", user->username);
@@ -170,24 +180,27 @@ void print_user(User user){
 
 /**
  * @brief Busca a un usuario según su nombre de usuario
- * 
+ *
  * @param username Nombre usuario
  * @param table Tabla hash de usuarios
- * @return User 
+ * @return User
  */
-User search_user(char* username, PtrToHashTable table){
+User search_user(char *username, PtrToHashTable table)
+{
     return search_in_hash_table(table, username);
 }
 
 /**
  * @brief Imprime los seguidores de un usuario
- * 
+ *
  * @param user Usuario
  */
-void print_followers(User user){
+void print_followers(User user)
+{
     Edge aux = user->followers->next;
     printf("Seguidores de %s:\n", user->username);
-    while(aux){
+    while (aux)
+    {
         printf("- %s\n", aux->dest->username);
         aux = aux->next;
     }
@@ -195,13 +208,15 @@ void print_followers(User user){
 
 /**
  * @brief Imprime los seguidos de un usuario
- * 
+ *
  * @param user Usuario
  */
-void print_following(User user){
+void print_following(User user)
+{
     Edge aux = user->following->next;
     printf("Seguidos de %s:\n", user->username);
-    while(aux){
+    while (aux)
+    {
         printf("- %s\n", aux->dest->username);
         aux = aux->next;
     }
@@ -209,13 +224,15 @@ void print_following(User user){
 
 /**
  * @brief Imprime todos los usuarios de la red social
- * 
+ *
  * @param graph Grafo de usuarios
  */
-void print_all_users(Graph graph) {
+void print_all_users(Graph graph)
+{
     GraphList aux = graph->graphUsersList->next;
     printf("Usuarios (%d):\n", graph->usersNumber);
-    while (aux) {
+    while (aux)
+    {
         printf("- %s\n", aux->username);
         aux = aux->next;
     }
@@ -223,13 +240,14 @@ void print_all_users(Graph graph) {
 
 /**
  * @brief Libera la memoria de todos los usuarios de la red social
- * 
+ *
  * @param table Tabla hash de usuarios
  * @param graph Grafo de usuarios
  */
 void free_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
     GraphList aux = graph->graphUsersList->next;
-    while (aux) {
+    while (aux)
+    {
         GraphList next = aux->next;
         delete_user(aux, table, graph, globalInterests);
         aux = next;
@@ -238,26 +256,31 @@ void free_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInt
 
 /**
  * @brief Incrementa la popularidad de un usuario
- * 
+ *
  * @param user Puntero al usuario
  */
-void increment_popularity(User user) {
-    if (user) user->popularity++;
+void increment_popularity(User user)
+{
+    if (user)
+        user->popularity++;
 }
-
 
 /**
  * @brief Sugerir usuarios populares basados en popularidad
- * 
+ *
  * @param table Tabla hash que contiene los usuarios
  */
-void suggest_popular_users(HashTable *table) {
+void suggest_popular_users(HashTable *table)
+{
     printf("Usuarios populares:\n");
-    for (int i = 0; i < HASH_TABLE_SIZE; i++) {
+    for (int i = 0; i < HASH_TABLE_SIZE; i++)
+    {
         Hashnode *current = table->buckets[i];
-        while (current) {
+        while (current)
+        {
             User u = (User)current->data;
-            if (u->popularity > 10) { 
+            if (u->popularity > 10)
+            {
                 printf("- %s (Popularidad: %d)\n", u->username, u->popularity);
             }
             current = current->next;
@@ -267,22 +290,27 @@ void suggest_popular_users(HashTable *table) {
 
 /**
  * @brief Ordena las publicaciones de un usuario por fecha
- * 
+ *
  * @param user Puntero al usuario
  */
-void sort_posts(User user) {
-    if (!user || !user->posts) return;
+void sort_posts(User user)
+{
+    if (!user || !user->posts)
+        return;
 
     int swapped;
     PtrToPostNode ptr1;
     PtrToPostNode lptr = NULL;
 
-    do {
+    do
+    {
         swapped = 0;
         ptr1 = user->posts->next;
 
-        while (ptr1 && ptr1->next != lptr) {
-            if (difftime(mktime(&ptr1->date), mktime(&ptr1->next->date)) < 0) {
+        while (ptr1 && ptr1->next != lptr)
+        {
+            if (difftime(mktime(&ptr1->date), mktime(&ptr1->next->date)) < 0)
+            {
                 // Intercambiar contenidos
                 char *temp_content = ptr1->post;
                 struct tm temp_date = ptr1->date;
@@ -340,6 +368,101 @@ void free_global_interests(GlobalInterests globalInterestTable) {
         free(globalInterestTable.interestsTable[i]);
     }
 }
+/**
+ * @brief Genera usuarios aleatorios
+ *
+ * @param quantity Cantidad de usuarios a generar
+ * @param table Tabla hash que contiene los usuarios
+ * @param graph El grafo de los usuarios
+ */
+void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInterests globalInterests)
+{
+    printf("Creando usuarios, por favor espere...\n");
+
+    for (int i = 0; i <= 3; i++)
+    {
+        sleep(1);
+        printf(".");
+        fflush(stdout);
+    }
+    printf("\n");
+
+    const char *names[] = {
+        "Duvan", "Ivan", "Franco", "Diego", "Miguel", "Nicolas", "Jose", "Messi",
+        "Carlos", "Juan", "Andres", "Pedro", "Luis", "Raul", "Javier", "Santiago",
+        "Ricardo", "Antonio", "Sebastian", "Francisco", "Eduardo", "Julian", "Pablo", "Alfredo", "Oscar",
+        "Hector", "Felipe", "Victor", "Martin", "Jorge", "Alberto", "Guillermo", "Mario", "Oscar", "Manuel",
+        "Ruben", "Arturo", "Felipe", "Gabriel", "Emilio", "David", "Luis", "Esteban", "Luis", "Raul",
+        "Diego", "Pedro", "Ivan", "Ricardo", "Luis", "Hugo", "Alejandro", "Diego", "Alfredo", "Leonardo",
+        "Rafael", "Carlos", "Sergio", "Adrian", "Antonio", "Hernan", "Rodrigo", "Erick", "Ernesto", "Victor",
+        "Gabriel", "Ariel", "Diego", "Oscar", "Lautaro", "Lucas", "Fabian", "Felipe", "Hector", "Juan",
+        "Ramon", "Mauro", "Simón", "Joaquín", "Bautista", "Alfredo", "Luis", "Francisco", "Alberto", "Aureliano",
+        "Armando", "Pedro", "Ramon", "Santiago", "Cristian", "Héctor", "Omar", "Ignacio", "Jorge", "Antonio"};
+
+    const char *usernames[] = {
+        "BlackWarrior", "TheTerminator", "TheDataStructure", "TheCLanguage", "TheBeast666",
+        "TheCryBaby", "ElonMusk", "DonaldTrump", "TechGuru", "CyberKnight", "CodeMaster",
+        "ThePhantom", "PixelHunter", "SuperCoder", "NetWarrior", "CodeJunkie", "FutureTech",
+        "TheDigitalNomad", "SpaceXplorer", "QuantumCoder", "TheDevKing", "RoboHacker",
+        "ByteBeast", "CyberSamurai", "Hackzilla", "CodeSlayer", "PixelPirate", "GameChanger",
+        "TechieWarrior", "TheCodeHunter", "DarkCoder", "IronProgrammer", "ByteKnight", "CodeViper",
+        "TechAvenger", "ScriptNinja", "DevSlinger", "MatrixManiac", "DigitalDragon", "TechWizard",
+        "QuantumWizard", "CodePhantom", "TechGuruX", "ZeroBugHero", "Debugger", "CodeXplorer",
+        "CryptoKnight", "DevSorcerer", "AlgorithmMaster", "BinaryHacker", "WebWarlord",
+        "CodeSavant", "TheCyberBeast", "MiguelLoaizaMachuca(ElPhantom)", "NetworkNinja", "TechTitan", "TheCodeSling",
+        "BugHunter", "AlgorithmAce", "CodeWarden", "InfinityCoder", "ByteRider",
+        "ScriptMaster", "CloudWarrior", "CyberFox", "PixelKnight", "AppMaster",
+        "TheDevBeast", "CyberWarriorX", "CodeDemon", "TechSavant", "WebWizard",
+        "DevGuruX", "ByteBender", "CloudCoder", "QuantumHacker", "FutureProgrammer",
+        "TheTechShaman", "DigitalNomad", "CodeWhisperer", "TechNinja", "BugCrusher",
+        "PixelWhisperer", "TheTechEnforcer", "DevWarlord", "CyberViking", "DigitalPhantom",
+        "ByteKing", "NetMaster", "DigitalScribe", "CodeWiz", "TechSniper",
+        "AlgorithmSleuth", "ZeroBugMaster", "DigitalSorcerer", "CodePioneer", "BugWizard"};
+
+    const char *passwords[] = {"pass1", "pass2", "pass3", "pass4", "pass5", "pass6", "pass7", "pass8"};
+
+    int numNames = sizeof(names) / sizeof(names[0]);
+    int numUsernames = sizeof(usernames) / sizeof(usernames[0]);
+    int numPasswords = sizeof(passwords) / sizeof(passwords[0]);
+
+    srand(time(NULL));
+
+    for (int i = 0; i < quantity; i++)
+    {
+        int nameIndex = rand() % numNames;
+        int usernameIndex = rand() % numUsernames;
+        int passwordIndex = rand() % numPasswords;
+
+        char *name = strdup(names[nameIndex]);
+        char *username = strdup(usernames[usernameIndex]);
+        char *password = strdup(passwords[passwordIndex]);
+
+        if (search_in_hash_table(table, username))
+        {
+            printf("Advertencia: El nombre de usuario '%s' ya existe. Saltando...\n", username);
+            free(name);
+            free(username);
+            free(password);
+            continue;
+        }
+
+        User newUser = create_new_user(username, password, name, table, graph, globalInterests);
+        if (!newUser)
+        {
+            printf("Error al crear el usuario '%s'.\n", username);
+            free(name);
+            free(username);
+            free(password);
+            continue;
+        }
+
+        printf("Usuario creado: %s (%s)\n", name, username);
+
+        free(name);
+        free(username);
+        free(password);
+    }
+}
 
 /**
  * @brief Inicializa los intereses de un usuario
@@ -382,8 +505,65 @@ print_user_interests(InterestTable userInterests, GlobalInterests globalInterest
 double edge_jaccard(User user1, User user2){
     double jaccard;
 
-    
+    /* POR HACER */
 
 
     return jaccard;
+}
+
+/** 
+ * @brief Genera conexiones aleatorias entre usuarios.
+ *
+ * @param quantity Cantidad de usuarios en el grafo.
+ * @param graph El grafo de usuarios.
+ */
+void generate_random_connections(int quantity, Graph graph)
+{
+    PtrToUser currentUser = graph->graphUsersList;
+
+    for (int i = 0; i < quantity; i++)
+    {
+        if (currentUser == NULL)
+        {
+            printf("La lista de usuarios está vacía.\n");
+            return;
+        }
+
+        int randomIndex = rand() % graph->usersNumber;
+
+        currentUser = graph->graphUsersList->next;
+
+        for (int i = 0; i < randomIndex; i++)
+        {
+            if (currentUser->next != NULL)
+            {
+                currentUser = currentUser->next;
+            }
+            else
+            {
+                printf("Error: la lista es más corta de lo esperado.\n");
+                return;
+            }
+        }
+
+        printf("Usuario seleccionado en la iteracion %d: %s\n", i, currentUser->username);
+
+        User randomUser = graph->graphUsersList->next;
+        int random_index = rand() % graph->usersNumber;
+
+        for (int j = 0; j < random_index; j++)
+        {
+            randomUser = randomUser->next;
+        }
+
+        if (randomUser != currentUser)
+        {
+            add_edge(currentUser, randomUser, rand() % 100);
+            printf("Conectando el usuario '%s' con '%s'.\n", currentUser->username, randomUser->username);
+        }
+        else
+        {
+            printf("No se puede conectar el usuario '%s' consigo mismo.\n", currentUser->username);
+        }
+    }
 }

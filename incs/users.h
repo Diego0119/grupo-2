@@ -30,7 +30,7 @@ typedef _User *User;
 typedef _User *PtrToUser;
 
 typedef struct _postNode PostNode;
-typedef PostNode* PtrToPostNode;
+typedef PostNode *PtrToPostNode;
 typedef PtrToPostNode PostsPosition;
 typedef PtrToPostNode UserPosts;
 
@@ -41,8 +41,8 @@ typedef Interest* PtrToInterest;
 typedef struct _globalInterests GlobalInterests;
 
 /*grafo*/
-typedef struct _edge* Edge;
-typedef struct _graph* Graph;
+typedef struct _edge *Edge;
+typedef struct _graph *Graph;
 
 #define MAX_POST_TABLE 100
 #define NUM_INTERESTS 10
@@ -51,11 +51,12 @@ typedef struct _graph* Graph;
  * @struct _user
  * @brief Estructura que almacena los datos de un usuario
  */
-struct _user{
-    int id; /*!< id (hash) del usuario*/
-    char *username; /*!< username*/
-    char *password; /*!< contraseña del usuario*/
-    char *name; /*!< nombre del usuario*/
+struct _user
+{
+    int id;          /*!< id (hash) del usuario*/
+    char *username;  /*!< username*/
+    char *password;  /*!< contraseña del usuario*/
+    char *name;      /*!< nombre del usuario*/
     UserPosts posts; /*!< puntero a la lista de posts*/
     /* GRAFO */
     Edge following; /*!< lista de adyacencia de usuarios que sigue*/
@@ -73,10 +74,11 @@ struct _user{
  *  @brief Estructura que define un post (publicación)
  *  @note Es el nodo de una lista enlazada simple
  */
-struct _postNode {
-    int id; /*!< id (hash) del post*/
-    struct tm date; /*!< fecha del post*/
-    char* post; /*!< contenido del post*/
+struct _postNode
+{
+    int id;             /*!< id (hash) del post*/
+    struct tm date;     /*!< fecha del post*/
+    char *post;         /*!< contenido del post*/
     PtrToPostNode next; /*!< Puntero al post siguiente*/
     InterestTable topics;
 };
@@ -123,4 +125,7 @@ void free_user_interests(InterestTable userInterests);
 
 double edge_jaccard(User user1, User user2);
 
+// funciones de generacion aleatoria y conexion aleatoria de usuarios
+void generate_random_connections(int quantity, Graph graph);
+void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
 #endif

@@ -10,7 +10,6 @@
  * - Miguel Maripillan
  */
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
