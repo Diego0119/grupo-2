@@ -328,6 +328,13 @@ void sort_posts(User user)
     } while (swapped);
 }
 
+/**
+ * @brief Genera usuarios aleatorios
+ *
+ * @param quantity Cantidad de usuarios a generar
+ * @param table Tabla hash que contiene los usuarios
+ * @param graph El grafo de los usuarios
+ */
 void generate_users(int quantity, PtrToHashTable table, Graph graph)
 {
     printf("Creando usuarios, por favor espere...\n");
@@ -362,7 +369,7 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph)
         "TechAvenger", "ScriptNinja", "DevSlinger", "MatrixManiac", "DigitalDragon", "TechWizard",
         "QuantumWizard", "CodePhantom", "TechGuruX", "ZeroBugHero", "Debugger", "CodeXplorer",
         "CryptoKnight", "DevSorcerer", "AlgorithmMaster", "BinaryHacker", "WebWarlord",
-        "CodeSavant", "TheCyberBeast", "NetworkNinja", "TechTitan", "TheCodeSling",
+        "CodeSavant", "TheCyberBeast", "MiguelLoaizaMachuca(ElPhantom)", "NetworkNinja", "TechTitan", "TheCodeSling",
         "BugHunter", "AlgorithmAce", "CodeWarden", "InfinityCoder", "ByteRider",
         "ScriptMaster", "CloudWarrior", "CyberFox", "PixelKnight", "AppMaster",
         "TheDevBeast", "CyberWarriorX", "CodeDemon", "TechSavant", "WebWizard",
@@ -414,5 +421,43 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph)
         free(name);
         free(username);
         free(password);
+    }
+}
+
+/**
+ * @brief Genera conexiones aleatorias entre usuarios.
+ *
+ * @param quantity Cantidad de usuarios en el grafo.
+ * @param graph El grafo de usuarios.
+ */
+void generate_random_connections(int quantity, Graph graph)
+{
+    srand(time(NULL));
+
+    PtrToUser user = graph->graphUsersList;
+
+    for (int i = 0; i < quantity; i++)
+    {
+        User currentUser = user;
+        user = user->next;
+
+        int numConnections = rand() % (quantity / 2);
+
+        for (int j = 0; j < numConnections; j++)
+        {
+            User randomUser = graph->graphUsersList;
+            int randomIndex = rand() % quantity;
+            for (int k = 0; k < randomIndex; k++)
+            {
+                randomUser = randomUser->next;
+            }
+
+            if (randomUser == currentUser)
+            {
+                continue;
+            }
+
+            add_edge(currentUser, randomUser, rand() % 100);
+        }
     }
 }

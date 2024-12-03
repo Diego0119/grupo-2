@@ -30,7 +30,7 @@ int main(void)
     int users_quantity = graph->usersNumber;
     printf("Users quantity %d\n", users_quantity);
 
-    // generate_random_connections(users_quantity, graph);
+    generate_random_connections(users_quantity, graph);
 
     printf("\nProbando BFS:\n");
     BFS(graph, user1);
