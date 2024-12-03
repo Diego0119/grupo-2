@@ -432,32 +432,51 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph)
  */
 void generate_random_connections(int quantity, Graph graph)
 {
-    srand(time(NULL));
-
-    PtrToUser user = graph->graphUsersList;
+    PtrToUser currentUser = graph->graphUsersList;
 
     for (int i = 0; i < quantity; i++)
     {
-        User currentUser = user;
-        user = user->next;
-
-        int numConnections = rand() % (quantity / 2);
-
-        for (int j = 0; j < numConnections; j++)
+        if (currentUser == NULL)
         {
-            User randomUser = graph->graphUsersList;
-            int randomIndex = rand() % quantity;
-            for (int k = 0; k < randomIndex; k++)
-            {
-                randomUser = randomUser->next;
-            }
+            printf("La lista de usuarios está vacía.\n");
+            return;
+        }
 
-            if (randomUser == currentUser)
-            {
-                continue;
-            }
+        int randomIndex = rand() % graph->usersNumber;
 
+        currentUser = graph->graphUsersList->next;
+
+        for (int i = 0; i < randomIndex; i++)
+        {
+            if (currentUser->next != NULL)
+            {
+                currentUser = currentUser->next;
+            }
+            else
+            {
+                printf("Error: la lista es más corta de lo esperado.\n");
+                return;
+            }
+        }
+
+        printf("Usuario seleccionado en la iteracion %d: %s\n", i, currentUser->username);
+
+        User randomUser = graph->graphUsersList->next;
+        int random_index = rand() % graph->usersNumber;
+
+        for (int j = 0; j < random_index; j++)
+        {
+            randomUser = randomUser->next;
+        }
+
+        if (randomUser != currentUser)
+        {
             add_edge(currentUser, randomUser, rand() % 100);
+            printf("Conectando el usuario '%s' con '%s'.\n", currentUser->username, randomUser->username);
+        }
+        else
+        {
+            printf("No se puede conectar el usuario '%s' consigo mismo.\n", currentUser->username);
         }
     }
 }
