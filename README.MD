@@ -39,7 +39,7 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 - [X] Implementar Dijkstra para encontrar usuarios cercanos (Diego)
 - [X] Implementar las listas enlazadas para manejar las publicaciones (Iván)
 - [X] Crear estructuras de usuarios (contempla la lista enlazada de publicaciones) (Iván)
-- [ ] Agregar temas/tópicos en la estructura de usuarios y publicaciones (Iván)
+- [X] Agregar temas/tópicos en la estructura de usuarios y publicaciones (Iván)
 - [ ] Implementar Jaccard en usuarios y publicaciones (Iván)
 - [ ] Asignación de intereses a usuarios
 - [X] Implementar colas de prioridad (Franco)
