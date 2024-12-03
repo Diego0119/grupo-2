@@ -48,6 +48,7 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 - [ ] Guardar información de los usuarios (nube) (Nicolás)
 - [ ] Cargar usuarios por medio de un txt de entrada (Nicolás)
 - [ ] Iniciar sesión y publicar cosas según el usuario iniciado
+- [ ] Comandos para publicar, borrar, ver usuarios, perfil, publicaciones, etc
 
 
 ### Extras
