@@ -29,12 +29,14 @@ int main(void)
     GlobalInterests globalInterestsTable = init_global_interests();
     /*------*/
 
-
-
+    generate_users(100, table, graph, globalInterestsTable);
 
     User user1 = create_new_user("pichuldondsfd","asdasd","caca con crema",table, graph, globalInterestsTable);
-
+    generate_random_connections(graph);
+    print_all_users(graph);
     print_user(user1);
+    dijkstra(graph, user1);
+    
     
 
 

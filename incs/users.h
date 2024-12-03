@@ -126,6 +126,6 @@ void free_user_interests(InterestTable userInterests);
 double edge_jaccard(User user1, User user2);
 
 // funciones de generacion aleatoria y conexion aleatoria de usuarios
-void generate_random_connections(int quantity, Graph graph);
+void generate_random_connections(Graph graph);
 void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
 #endif

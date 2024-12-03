@@ -379,14 +379,6 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
 {
     printf("Creando usuarios, por favor espere...\n");
 
-    for (int i = 0; i <= 3; i++)
-    {
-        sleep(1);
-        printf(".");
-        fflush(stdout);
-    }
-    printf("\n");
-
     const char *names[] = {
         "Duvan", "Ivan", "Franco", "Diego", "Miguel", "Nicolas", "Jose", "Messi",
         "Carlos", "Juan", "Andres", "Pedro", "Luis", "Raul", "Javier", "Santiago",
@@ -517,11 +509,11 @@ double edge_jaccard(User user1, User user2){
  * @param quantity Cantidad de usuarios en el grafo.
  * @param graph El grafo de usuarios.
  */
-void generate_random_connections(int quantity, Graph graph)
+void generate_random_connections(Graph graph)
 {
     PtrToUser currentUser = graph->graphUsersList;
 
-    for (int i = 0; i < quantity; i++)
+    for (int i = 0; i < graph->usersNumber; i++)
     {
         if (currentUser == NULL)
         {
