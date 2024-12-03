@@ -19,6 +19,8 @@
 
 #include "hash_table.h"
 
+#define MAX_CHAR 256
+
 unsigned int jenkins_hash(char* key);
 
 int get_option(int argc, char *argv[]);

@@ -19,10 +19,10 @@
  * @param username Nombre de usuario
  * @param password Contraseña
  * @param name Nombre completo
- * @note Se debe iniciar sesión con el nombre de usuario y la contraseña que indique el usuario
+ * @note Primero inicializar tabla hash, grafo e intereses globales
  * @return User 
  */
-User create_new_user(char* username, char* password, char* name, PtrToHashTable table, Graph graph){
+User create_new_user(char* username, char* password, char* name, PtrToHashTable table, Graph graph, GlobalInterests globalInterests){
     if (search_in_hash_table(table, username)) {
         printf("Error: El nombre de usuario '%s' ya existe\n", username);
         return NULL;
@@ -46,10 +46,10 @@ User create_new_user(char* username, char* password, char* name, PtrToHashTable 
     user->numFollowers = 0;
 
     user->popularity = 0;
-    
+
+    user->interests = init_user_interests(globalInterests);
     insert_into_hash_table(table, username, user);
     add_user_to_graph(graph, user);
-    
     
     return user;
 }
@@ -82,7 +82,7 @@ UserPosts create_empty_userPosts(void) {
  * @note Inserta al principio de la lista y guarda la fecha de la máquina en el momento de crear el post.
  * @return PtrToPostNode 
  */
-PtrToPostNode insert_post(UserPosts posts, char* content){
+PtrToPostNode insert_post(UserPosts posts, char* content, GlobalInterests globalInterestTable){
     PtrToPostNode newPost = (PtrToPostNode)malloc(sizeof(PostNode));
     if(!newPost){
         printf("ERROR: No hay memoria suficiente\n");
@@ -92,6 +92,9 @@ PtrToPostNode insert_post(UserPosts posts, char* content){
     newPost->id = jenkins_hash(content);
     newPost->date = *localtime(&t);
     newPost->post = strdup(content);
+
+    newPost->topics = init_user_interests(globalInterestTable);
+
     newPost->next = posts->next;
     posts->next = newPost;
     posts->id++;
@@ -107,6 +110,7 @@ void delete_userPosts(UserPosts posts){
     if(posts->next != NULL){
         delete_userPosts(posts->next);
     }
+    free_user_interests(posts->post);
     free(posts->post);
     free(posts);
 }
@@ -116,7 +120,7 @@ void delete_userPosts(UserPosts posts){
  * 
  * @param user usuario a eliminar
  */
-void delete_user(User user, PtrToHashTable table, Graph graph){
+void delete_user(User user, PtrToHashTable table, Graph graph, GlobalInterests globalInterests){
     delete_from_hash_table(table, user->username);
     remove_user_from_graph(graph, user);
     delete_userPosts(user->posts);
@@ -125,6 +129,7 @@ void delete_user(User user, PtrToHashTable table, Graph graph){
     free(user->name);
     free(user->following);
     free(user->followers);
+    free_user_interests(user->interests);
     free(user);
 }
 
@@ -222,11 +227,11 @@ void print_all_users(Graph graph) {
  * @param table Tabla hash de usuarios
  * @param graph Grafo de usuarios
  */
-void free_all_users(PtrToHashTable table, Graph graph) {
+void free_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
     GraphList aux = graph->graphUsersList->next;
     while (aux) {
         GraphList next = aux->next;
-        delete_user(aux, table, graph);
+        delete_user(aux, table, graph, globalInterests);
         aux = next;
     }
 }
@@ -294,4 +299,91 @@ void sort_posts(User user) {
         }
         lptr = ptr1;
     } while (swapped);
+}
+
+/* FUNCIONES DE INTERESES */
+
+/**
+ * @brief Inicializa la tabla de tópicos globales leyendo el archivo 'subtopics'
+ * 
+ * @return GlobalInterests 
+ */
+GlobalInterests init_global_interests(void) {
+    int numInterests = line_number_in_file("subtopics");
+
+    GlobalInterests globalInterestTable;
+    globalInterestTable.interestsTable = (char**)malloc(numInterests * sizeof(char*));
+    globalInterestTable.numInterests = numInterests;
+
+    FILE *file_pointer = fopen("subtopics", "r");
+    if (!file_pointer) {
+        printf("ERROR: No se pudo abrir el archivo\n");
+        exit(EXIT_FAILURE);
+    }
+
+    for(int i = 0; i < numInterests; i++) {
+        globalInterestTable.interestsTable[i] = (char*)malloc(sizeof(char) * numInterests);
+        fgets(globalInterestTable.interestsTable[i], MAX_CHAR, file_pointer);
+        globalInterestTable.interestsTable[i][strlen(globalInterestTable.interestsTable[i]) - 1] = '\0';
+    }
+    fclose(file_pointer);
+    return globalInterestTable;
+}
+
+/**
+ * @brief Libera la lista de intereses globales
+ * 
+ * @param globalInterestTable 
+ */
+void free_global_interests(GlobalInterests globalInterestTable) {
+    for(int i = 0; i < globalInterestTable.numInterests; i++) {
+        free(globalInterestTable.interestsTable[i]);
+    }
+}
+
+/**
+ * @brief Inicializa los intereses de un usuario
+ * 
+ * @param globalInterests Lista de intereses globales
+ * @return InterestTable 
+ */
+InterestTable init_user_interests(GlobalInterests globalInterestTable) {
+    InterestTable userInterests = (InterestTable)malloc(globalInterestTable.numInterests * sizeof(Interest));
+
+    for(int i = 0; i < globalInterestTable.numInterests; i++) {
+        userInterests[i].value = 0;
+        userInterests[i].name = globalInterestTable.interestsTable[i];
+    }
+    return userInterests;
+}
+
+/**
+ * @brief Libera memoria los intereses de un usuario
+ * 
+ * @param userInterests 
+ */
+void free_user_interests(InterestTable userInterests) {
+    free(userInterests);
+    /* REVISAR PQ HAY LEAKEOS DE MEMORIA!!*/
+}
+
+/**
+ * @brief Imprime los intereses de un usuario
+ * 
+ * @param userInterests 
+ * @param globalInterestTable 
+ */
+print_user_interests(InterestTable userInterests, GlobalInterests globalInterestTable) {
+    for(int i = 0; i < globalInterestTable.numInterests; i++) {
+        printf("%s: %d\n", userInterests[i].name, userInterests[i].value);
+    }
+}
+
+double edge_jaccard(User user1, User user2){
+    double jaccard;
+
+    
+
+
+    return jaccard;
 }
