@@ -1,0 +1,10 @@
+.exec
+.vscode/
+*.out
+*.exe
+test/
+.DS_Store
+obj/
+test
+.txt
+.eps
