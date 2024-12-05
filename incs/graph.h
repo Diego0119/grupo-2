@@ -26,6 +26,7 @@
 typedef struct _user _User;
 typedef _User *User;
 typedef _User *PtrToUser;
+typedef struct _globalInterests GlobalInterests;
 
 typedef struct _edge *Edge;
 typedef PtrToUser GraphList;
@@ -44,11 +45,13 @@ struct _graph
     int usersNumber;
 };
 
+
+
 // funciones de edges
 Edge init_empty_edge(void);
 Edge search_user_in_edge(Edge edge, User user);
 Edge search_previous_in_edge(Edge edge, User user);
-void add_edge(User user1, User user2, double weigth);
+void add_edge(User user1, User user2, GlobalInterests globalInterests);
 void remove_edge(User user1, User user2);
 void free_all_edges(User user);
 void BFS(Graph graph, User startUser);

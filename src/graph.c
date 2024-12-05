@@ -156,7 +156,7 @@ void remove_user_from_graph(Graph graph, User user)
  * @param user2 Usuario 2 será añadido por usuario 1
  * @param weigth Peso de la conexion
  */
-void add_edge(User user1, User user2, double weigth)
+void add_edge(User user1, User user2, GlobalInterests globalInterests)
 {
 
     if (user1 == user2)
@@ -165,13 +165,15 @@ void add_edge(User user1, User user2, double weigth)
         return;
     }
 
+    double weight=edge_jaccard(user1, user2, globalInterests);
+
     Edge newEdgeUser1 = (Edge)malloc(sizeof(struct _edge));
     newEdgeUser1->dest = user2;
-    newEdgeUser1->weight = weigth;
+    newEdgeUser1->weight = weight;
 
     Edge newEdgeUser2 = (Edge)malloc(sizeof(struct _edge));
     newEdgeUser2->dest = user1;
-    newEdgeUser2->weight = weigth;
+    newEdgeUser2->weight = weight;
 
     if (!newEdgeUser1 || !newEdgeUser2)
     {
