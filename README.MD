@@ -40,13 +40,13 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 - [X] Implementar las listas enlazadas para manejar las publicaciones (Iván)
 - [X] Crear estructuras de usuarios (contempla la lista enlazada de publicaciones) (Iván)
 - [X] Agregar temas/tópicos en la estructura de usuarios y publicaciones (Iván)
-- [ ] Implementar Jaccard en usuarios y publicaciones (Iván)
+- [X] Implementar Jaccard en usuarios y publicaciones (Iván)
 - [ ] Asignación de intereses a usuarios
 - [X] Implementar colas de prioridad (Franco)
 - [ ] Algoritmo de recomendación de publicaciones
 - [ ] Algoritmo de recomendación de usuarios
-- [ ] Guardar información de los usuarios (nube) (Nicolás)
-- [ ] Cargar usuarios por medio de un txt de entrada (Nicolás)
+- [ ] Guardar información de los usuarios (nube) 
+- [ ] Cargar usuarios por medio de un txt de entrada
 - [ ] Iniciar sesión y publicar cosas según el usuario iniciado
 - [ ] Comandos para publicar, borrar, ver usuarios, perfil, publicaciones, etc
 
