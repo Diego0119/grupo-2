@@ -80,7 +80,6 @@ struct _postNode
     struct tm date;     /*!< fecha del post*/
     char *post;         /*!< contenido del post*/
     PtrToPostNode next; /*!< Puntero al post siguiente*/
-    InterestTable topics;
 };
 
 struct _interest {
@@ -123,9 +122,9 @@ void free_global_interests(GlobalInterests globalInterestTable);
 InterestTable init_user_interests(GlobalInterests globalInterestTable);
 void free_user_interests(InterestTable userInterests);
 
-double edge_jaccard(User user1, User user2);
+double edge_jaccard(User user1, User user2, GlobalInterests globalInterestTable);
 
 // funciones de generacion aleatoria y conexion aleatoria de usuarios
-void generate_random_connections(Graph graph);
+void generate_random_connections(Graph graph, GlobalInterests globalInterests);
 void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
 #endif

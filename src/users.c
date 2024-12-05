@@ -97,8 +97,6 @@ PtrToPostNode insert_post(UserPosts posts, char* content, GlobalInterests global
     newPost->date = *localtime(&t);
     newPost->post = strdup(content);
 
-    newPost->topics = init_user_interests(globalInterestTable);
-
     newPost->next = posts->next;
     posts->next = newPost;
     posts->id++;
@@ -494,13 +492,35 @@ print_user_interests(InterestTable userInterests, GlobalInterests globalInterest
     }
 }
 
-double edge_jaccard(User user1, User user2){
+/**
+ * @brief Calcula la DIFERENCIA de jaccard entre dos usuarios
+ * 
+ * @param user1 Usuario 1
+ * @param user2 Usuario 2
+ * @param globalInterestTable Lista de intereses globales
+ * @return double 
+ * @note Utilizarse en el peso de la conexion
+ */
+double edge_jaccard(User user1, User user2, GlobalInterests globalInterestTable){
     double jaccard;
 
-    /* POR HACER */
+    int diff=0, same=0;
 
+    for(int i = 0; i < globalInterestTable.numInterests; i++) {
+        if(user1->interests[i].value == 1 && user2->interests[i].value == 1) {
+            same++;
+        }
+        if(user1->interests[i].value == 0 && user2->interests[i].value == 1) {
+            diff++;
+        }
+        if(user1->interests[i].value == 1 && user2->interests[i].value == 0) {
+            diff++;
+        }
+    }
 
-    return jaccard;
+    jaccard = (double)same / (same + diff);
+
+    return 1-jaccard;
 }
 
 /** 
@@ -509,7 +529,7 @@ double edge_jaccard(User user1, User user2){
  * @param quantity Cantidad de usuarios en el grafo.
  * @param graph El grafo de usuarios.
  */
-void generate_random_connections(Graph graph)
+void generate_random_connections(Graph graph, GlobalInterests globalInterests)
 {
     PtrToUser currentUser = graph->graphUsersList;
 
@@ -550,7 +570,7 @@ void generate_random_connections(Graph graph)
 
         if (randomUser != currentUser)
         {
-            add_edge(currentUser, randomUser, rand() % 100);
+            add_edge(currentUser, randomUser, globalInterests);
             printf("Conectando el usuario '%s' con '%s'.\n", currentUser->username, randomUser->username);
         }
         else
