@@ -9,6 +9,7 @@
  * - Nicolás Álvarez
  * - Miguel Maripillan
  */
+
 #include "hash_table.h"
 
 /**
@@ -26,20 +27,6 @@ HashTable* create_hash_table(void) {
         table->buckets[i] = NULL;
     }
     return table;
-}
-
-/**
- * @brief Calcula el índice de la tabla hash para una clave
- * 
- * @param key Clave para calcular el hash
- * @return unsigned int Índice calculado
- */
-unsigned int hash_function(const char *key) {
-    unsigned int hash = 0;
-    while (*key) {
-        hash = (hash << 5) + *key++;
-    }
-    return hash % HASH_TABLE_SIZE;
 }
 
 /**
@@ -89,7 +76,7 @@ void *search_in_hash_table(HashTable *table, char *key) {
  */
 int delete_from_hash_table(HashTable *table, char *key) {
     if (!table || !key) return -1;
-    unsigned int index = hash_function(key);
+    unsigned int index = jenkins_hash(key);
     Hashnode *current = table->buckets[index];
     Hashnode *previous = NULL;
 

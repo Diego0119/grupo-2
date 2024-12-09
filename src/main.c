@@ -20,28 +20,53 @@
 #include "graph.h"
 #include "hash_table.h"
 #include "files.h"
+#include "utilities.h"
+#include "database.h" 
 
 int main(void)
 {
-    /* INITS */
     PtrToHashTable table = create_hash_table();
     Graph graph = initialize_graph();
     GlobalInterests globalInterestsTable = init_global_interests();
-    /*------*/
 
+    int loadedFromDB = 0;
+
+    if (database_exists_and_not_empty()) {
+        printf("Se ha detectado una base de datos existente. ¿Deseas cargarla?\n");
+        printf("1. Sí, cargar usuarios existentes.\n");
+        printf("2. No, ignorar y generar usuarios nuevos.\n");
+        int opcion;
+        if (scanf("%d",&opcion)!=1) opcion=1;
+        if (opcion == 1) {
+            load_all_users(table, graph, globalInterestsTable);
+            loadedFromDB = 1;
+        } else {
+    generate_users(80, table, graph, globalInterestsTable);
     generate_users(80, table, graph, globalInterestsTable);
 
-    User user1 = create_new_user("pefwefwfe", "asdasd", "fefwefwef", table, graph, globalInterestsTable);
-    generate_random_connections(graph, globalInterestsTable);
+            generate_users(80, table, graph, globalInterestsTable);
+
+            User user1 = create_new_user("pefwefwfe", "asdasd", "fefwefwef", table, graph, globalInterestsTable);
+            generate_random_connections(graph, globalInterestsTable);
+        }
+    } else {
+        generate_users(80, table, graph, globalInterestsTable);
+        User user1 = create_new_user("pefwefwfe", "asdasd", "fefwefwef", table, graph, globalInterestsTable);
+        generate_random_connections(graph, globalInterestsTable);
+    }
 
     printf("Tabla de amigabilidad:\n");
     print_friendliness_table(graph);
 
-    /*FREES*/
+    if (!loadedFromDB) {
+        save_all_users(graph, globalInterestsTable);
+    }
+
+    confirm_and_cleanup();
+
     free_all_users(table, graph, globalInterestsTable);
     free_graph(graph);
     free_global_interests(globalInterestsTable);
-    /*----*/
 
     return 0;
 }

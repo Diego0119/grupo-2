@@ -47,6 +47,7 @@ typedef struct _graph *Graph;
 #define MAX_POST_TABLE 100
 #define NUM_INTERESTS 10
 
+
 /**
  * @struct _user
  * @brief Estructura que almacena los datos de un usuario
@@ -57,7 +58,7 @@ struct _user
     char *username;  /*!< username*/
     char *password;  /*!< contraseña del usuario*/
     char *name;      /*!< nombre del usuario*/
-    UserPosts posts; /*!< puntero a la lista de posts*/
+    UserPosts posts; /*!< puntero a la lista de posts*/ 
     /* GRAFO */
     Edge following;   /*!< lista de adyacencia de usuarios que sigue*/
     Edge followers;   /*!< lista de adyacencia de usuarios que sigue*/
@@ -67,6 +68,10 @@ struct _user
     /* INTERESES Y POPULARIDAD*/
     int popularity;          /*!< popularidad del usuario */
     InterestTable interests; /* Tabla de intereses del usuario */
+
+    // Campos nuevos para amigabilidad
+    float friendliness;  
+    char *category;      
 };
 
 /**
@@ -106,10 +111,10 @@ void print_user(User user);
 void print_all_users(Graph graph);
 void print_followers(User user);
 void print_following(User user);
-print_user_interests(InterestTable userInterests, GlobalInterests globalInterestTable);
+void print_user_interests(InterestTable userInterests, GlobalInterests globalInterestTable);
 void suggest_popular_users(HashTable *table);
 
-// Funciones para gestionar publicaciones (lista enlazada simple + hash)
+// Funciones para gestionar publicaciones
 UserPosts create_empty_userPosts(void);
 PtrToPostNode insert_post(UserPosts posts, char *content, GlobalInterests globalInterestTable);
 PtrToPostNode search_post(UserPosts posts, int postId);
@@ -126,11 +131,10 @@ void free_user_interests(InterestTable userInterests);
 
 double edge_jaccard(User user1, User user2, GlobalInterests globalInterestTable);
 
-// funciones de generacion aleatoria y conexion aleatoria de usuarios
+// generar conexiones y usuarios
 void generate_random_connections(Graph graph, GlobalInterests globalInterests);
 void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
 
-// funcion para calcular que tan amigable es un usuario
 float calculate_friendliness(User user);
 void print_friendliness_table(Graph graph);
 const char *classify_friendliness(float friendliness);

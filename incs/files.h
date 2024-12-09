@@ -22,7 +22,4 @@
 /* Utilidades para archivos */
 int line_number_in_file(char *file);
 
-
-
-
 #endif

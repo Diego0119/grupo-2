@@ -9,7 +9,6 @@
  * - Nicolás Álvarez
  * - Miguel Maripillan
  */
-
 #ifndef HASH_TABLE_H
 #define HASH_TABLE_H
 
@@ -21,7 +20,6 @@
 
 /* Tamaño predeterminado de la tabla hash */
 #define HASH_TABLE_SIZE 100
-
 
 typedef struct _hashnode Hashnode;
 typedef struct _hashtable HashTable;
@@ -48,7 +46,6 @@ struct _hashtable {
 
 /* Funciones principales para gestionar tablas hash */
 HashTable* create_hash_table(void);
-unsigned int hash_function(const char *key);
 int insert_into_hash_table(HashTable *table, char *key, void *data);
 void *search_in_hash_table(HashTable *table, char *key);
 int delete_from_hash_table(HashTable *table, char *key);
