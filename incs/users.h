@@ -35,8 +35,8 @@ typedef PtrToPostNode PostsPosition;
 typedef PtrToPostNode UserPosts;
 
 typedef struct _interest Interest;
-typedef Interest* InterestTable;
-typedef Interest* PtrToInterest;
+typedef Interest *InterestTable;
+typedef Interest *PtrToInterest;
 
 typedef struct _globalInterests GlobalInterests;
 
@@ -59,13 +59,13 @@ struct _user
     char *name;      /*!< nombre del usuario*/
     UserPosts posts; /*!< puntero a la lista de posts*/
     /* GRAFO */
-    Edge following; /*!< lista de adyacencia de usuarios que sigue*/
-    Edge followers; /*!< lista de adyacencia de usuarios que sigue*/
+    Edge following;   /*!< lista de adyacencia de usuarios que sigue*/
+    Edge followers;   /*!< lista de adyacencia de usuarios que sigue*/
     int numFollowing; /*!< número de usuarios que sigue */
     int numFollowers; /*!< número de usuarios que lo siguen */
-    PtrToUser next; /* siguiente en la lista del grafo */
+    PtrToUser next;   /* siguiente en la lista del grafo */
     /* INTERESES Y POPULARIDAD*/
-    int popularity; /*!< popularidad del usuario */
+    int popularity;          /*!< popularidad del usuario */
     InterestTable interests; /* Tabla de intereses del usuario */
 };
 
@@ -82,21 +82,23 @@ struct _postNode
     PtrToPostNode next; /*!< Puntero al post siguiente*/
 };
 
-struct _interest {
-    char** name;
+struct _interest
+{
+    char **name;
     int value;
 };
 
-struct _globalInterests {
-    char** interestsTable;
+struct _globalInterests
+{
+    char **interestsTable;
     int numInterests;
 };
 
 // Funciones para gestionar usuarios
-User create_new_user(char* username, char* password, char* name, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
+User create_new_user(char *username, char *password, char *name, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
 void delete_user(User user, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
-User search_user(char* username, PtrToHashTable table);
-void free_all_users(PtrToHashTable table, Graph graph,  GlobalInterests globalInterests);
+User search_user(char *username, PtrToHashTable table);
+void free_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
 void increment_popularity(User user);
 
 // funciones de impresión
@@ -109,7 +111,7 @@ void suggest_popular_users(HashTable *table);
 
 // Funciones para gestionar publicaciones (lista enlazada simple + hash)
 UserPosts create_empty_userPosts(void);
-PtrToPostNode insert_post(UserPosts posts, char* content, GlobalInterests globalInterestTable);
+PtrToPostNode insert_post(UserPosts posts, char *content, GlobalInterests globalInterestTable);
 PtrToPostNode search_post(UserPosts posts, int postId);
 void delete_post(UserPosts posts, int postId); /*PENDIENTE*/
 void delete_userPosts(UserPosts posts);
@@ -127,4 +129,9 @@ double edge_jaccard(User user1, User user2, GlobalInterests globalInterestTable)
 // funciones de generacion aleatoria y conexion aleatoria de usuarios
 void generate_random_connections(Graph graph, GlobalInterests globalInterests);
 void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
+
+// funcion para calcular que tan amigable es un usuario
+float calculate_friendliness(User user);
+void print_friendliness_table(Graph graph);
+const char *classify_friendliness(float friendliness);
 #endif

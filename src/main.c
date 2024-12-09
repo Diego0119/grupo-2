@@ -29,18 +29,13 @@ int main(void)
     GlobalInterests globalInterestsTable = init_global_interests();
     /*------*/
 
-    generate_users(5, table, graph, globalInterestsTable);
+    generate_users(80, table, graph, globalInterestsTable);
 
-    User user1 = create_new_user("pefwefwfe","asdasd","fefwefwef",table, graph, globalInterestsTable);
+    User user1 = create_new_user("pefwefwfe", "asdasd", "fefwefwef", table, graph, globalInterestsTable);
     generate_random_connections(graph, globalInterestsTable);
-    print_all_users(graph);
-    print_user(user1);
-    dijkstra(graph, user1);
-    
-    
 
-
-
+    printf("Tabla de amigabilidad:\n");
+    print_friendliness_table(graph);
 
     /*FREES*/
     free_all_users(table, graph, globalInterestsTable);
