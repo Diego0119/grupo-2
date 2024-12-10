@@ -173,7 +173,7 @@ void print_userPosts(UserPosts posts)
  *
  * @param user Usuario
  */
-void print_user(User user)
+void print_user(User user, GlobalInterests globalInterestsTable)
 {
     printf("ID: %d\n", user->id);
     printf("Nombre: %s\n", user->name);
@@ -183,6 +183,8 @@ void print_user(User user)
     // Mostrar amigabilidad y categoría
     printf("Amigabilidad: %.2f\n", user->friendliness);
     printf("Categoría: %s\n", user->category ? user->category : "Desconocida");
+    printf("Le gusta: ");
+    print_user_interests(user->interests, globalInterestsTable);
     printf("Publicaciones:\n");
     print_userPosts(user->posts);
 }
@@ -427,8 +429,11 @@ void print_user_interests(InterestTable userInterests, GlobalInterests globalInt
 {
     for (int i = 0; i < globalInterestTable.numInterests; i++)
     {
-        printf("%s: %d\n", userInterests[i].name, userInterests[i].value);
+        if(userInterests[i].value==1){
+            printf("%s, ", userInterests[i].name);
+        }
     }
+    printf("\n");
 }
 
 /**
@@ -440,8 +445,7 @@ void print_user_interests(InterestTable userInterests, GlobalInterests globalInt
  * @return double
  * @note Utilizarse en el peso de la conexion
  */
-double edge_jaccard(User user1, User user2, GlobalInterests globalInterestTable)
-{
+double edge_jaccard(User user1, User user2, GlobalInterests globalInterestTable){
     double jaccard;
 
     int diff = 0, same = 0;

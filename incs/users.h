@@ -108,11 +108,11 @@ void free_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInt
 void increment_popularity(User user);
 
 // funciones de impresión
-void print_user(User user);
+void print_user(User user, GlobalInterests globalInterestsTable);
 void print_all_users(Graph graph);
 void print_followers(User user);
 void print_following(User user);
-void print_user_interests(InterestTable userInterests, GlobalInterests globalInterestTable);
+void print_user_interests(InterestTable userInterests, GlobalInterests globalInterestsTable);
 void suggest_popular_users(HashTable *table);
 
 // Funciones para gestionar publicaciones
