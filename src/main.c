@@ -48,15 +48,21 @@ int main(void)
 
             User user1 = create_new_user("pefwefwfe", "asdasd", "fefwefwef", table, graph, globalInterestsTable);
             generate_random_connections(graph, globalInterestsTable);
+            print_user(user1);
+            dijkstra(graph, user1);
         }
     } else {
         generate_users(80, table, graph, globalInterestsTable);
         User user1 = create_new_user("pefwefwfe", "asdasd", "fefwefwef", table, graph, globalInterestsTable);
         generate_random_connections(graph, globalInterestsTable);
+        print_user(user1);
+        dijkstra(graph, user1);
     }
 
-    printf("Tabla de amigabilidad:\n");
-    print_friendliness_table(graph);
+    //printf("Tabla de amigabilidad:\n");
+    //print_friendliness_table(graph);
+
+    
 
     if (!loadedFromDB) {
         save_all_users(graph, globalInterestsTable);

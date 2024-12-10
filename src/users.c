@@ -400,6 +400,7 @@ InterestTable init_user_interests(GlobalInterests globalInterestTable)
     for (int i = 0; i < globalInterestTable.numInterests; i++)
     {
         userInterests[i].value = 0;
+        userInterests[i].globalId = i;
         userInterests[i].name = globalInterestTable.interestsTable[i];
     }
     return userInterests;
@@ -544,6 +545,10 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
             free(username);
             free(password);
             continue;
+        }
+
+        for(int i=0; i<rand()%globalInterests.numInterests; i++){
+            add_interest(newUser, globalInterests, rand()% globalInterests.numInterests);
         }
 
         printf("Usuario creado: %s (%s)\n", name, username);
@@ -692,5 +697,19 @@ const char *classify_friendliness(float friendliness)
     else
     {
         return "Muy amigable";
+    }
+}
+
+void add_interest(User user, GlobalInterests globalInterestTable, int interestId){
+    if(interestId>=globalInterestTable.numInterests){
+        printf("ERROR: Id de interés inválido\n");
+        return;
+    }
+    user->interests[interestId].value = 1;
+}
+
+void print_global_interests(GlobalInterests globalInterestTable){
+    for(int i=0; i<globalInterestTable.numInterests; i++){
+        printf("%d. %s\n", i, globalInterestTable.interestsTable[i]);
     }
 }

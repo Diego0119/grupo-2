@@ -89,14 +89,15 @@ struct _postNode
 
 struct _interest
 {
-    char **name;
-    int value;
+    char **name; /*!< nombre del interes*/
+    int globalId; /*!< Index en la tabla de intereses globales */
+    int value; /*!< valor del interes (0 si no la tiene, 1 si la tiene) */
 };
 
 struct _globalInterests
 {
-    char **interestsTable;
-    int numInterests;
+    char **interestsTable; /*!< Tabla de intereses globales */
+    int numInterests; /*!< Número de intereses totales */
 };
 
 // Funciones para gestionar usuarios
@@ -128,6 +129,8 @@ GlobalInterests init_global_interests(void);
 void free_global_interests(GlobalInterests globalInterestTable);
 InterestTable init_user_interests(GlobalInterests globalInterestTable);
 void free_user_interests(InterestTable userInterests);
+void add_interest(User user, GlobalInterests globalInterestTable, int interestId);
+void print_global_interests(GlobalInterests globalInterestTable);
 
 double edge_jaccard(User user1, User user2, GlobalInterests globalInterestTable);
 
