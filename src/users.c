@@ -430,7 +430,7 @@ void print_user_interests(InterestTable userInterests, GlobalInterests globalInt
     for (int i = 0; i < globalInterestTable.numInterests; i++)
     {
         if(userInterests[i].value==1){
-            printf("%s, ", userInterests[i].name);
+            printf("%s ", userInterests[i].name);
         }
     }
     printf("\n");

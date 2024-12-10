@@ -299,7 +299,7 @@ void dijkstra(Graph graph, User source)
     struct dijkstra_table
     {
         User user;
-        int distance;
+        double distance;
         int visited;
     };
     int usersNumber = graph->usersNumber;
@@ -359,7 +359,7 @@ void dijkstra(Graph graph, User source)
         }
         else
         {
-            printf("Distancia desde %s a %s: %d\n", source->username, table[i].user->username, table[i].distance);
+            printf("Distancia desde %s a %s: %.2f\n", source->username, table[i].user->username, table[i].distance);
         }
     }
 

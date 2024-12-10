@@ -1,0 +1,45 @@
+ID: 70
+Username: TechSavant
+Password: pass5
+Name: Carlos
+Popularity: 0
+Friendliness: 3.00
+Category: Muy amigable
+Interests:
+  : 1
+  python: 0
+  java: 1
+  javascript: 0
+  html: 1
+  css: 1
+  sql: 0
+  algoritmos: 0
+  estructuras de datos: 0
+  computador: 0
+  sistemas operativos: 0
+  redes: 1
+  bases de datos: 1
+  inteligencia artificial: 0
+  chatgpt: 0
+  tecnologia: 1
+  programacion: 0
+  unity: 1
+  videojuegos: 0
+  optimizacion: 0
+  informatica: 0
+  hardware: 0
+  software: 1
+  malware: 0
+  ciberseguridad: 0
+  markdown: 0
+  latex: 0
+  terminal: 0
+  linux: 1
+  windows: 0
+  : 1
+Posts:
+Followers:
+  CloudWarrior
+  GameChanger
+  ByteBender
+Following:

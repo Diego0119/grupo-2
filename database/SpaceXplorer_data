@@ -1,0 +1,45 @@
+ID: 63
+Username: SpaceXplorer
+Password: pass5
+Name: Luis
+Popularity: 0
+Friendliness: 4.00
+Category: Muy amigable
+Interests:
+  : 0
+  python: 0
+  java: 1
+  javascript: 0
+  html: 0
+  css: 1
+  sql: 1
+  algoritmos: 1
+  estructuras de datos: 0
+  computador: 0
+  sistemas operativos: 0
+  redes: 0
+  bases de datos: 0
+  inteligencia artificial: 1
+  chatgpt: 0
+  tecnologia: 0
+  programacion: 0
+  unity: 0
+  videojuegos: 0
+  optimizacion: 1
+  informatica: 0
+  hardware: 0
+  software: 0
+  malware: 1
+  ciberseguridad: 0
+  markdown: 0
+  latex: 0
+  terminal: 1
+  linux: 1
+  windows: 0
+  : 0
+Posts:
+Followers:
+  CodeDemon
+  AlgorithmSleuth
+Following:
+  CodeWhisperer

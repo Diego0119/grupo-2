@@ -49,14 +49,14 @@ int main(void)
             User user1 = create_new_user("pefwefwfe", "asdasd", "fefwefwef", table, graph, globalInterestsTable);
             generate_random_connections(graph, globalInterestsTable);
             print_user(graph->graphUsersList->next->next, globalInterestsTable);
-            dijkstra(graph, user1);
+            dijkstra(graph, graph->graphUsersList->next->next);
         }
     } else {
         generate_users(80, table, graph, globalInterestsTable);
         User user1 = create_new_user("pefwefwfe", "asdasd", "fefwefwef", table, graph, globalInterestsTable);
         generate_random_connections(graph, globalInterestsTable);
         print_user(graph->graphUsersList->next->next, globalInterestsTable);
-        dijkstra(graph, user1);
+        dijkstra(graph, graph->graphUsersList->next->next);
     }
 
     //printf("Tabla de amigabilidad:\n");

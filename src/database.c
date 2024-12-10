@@ -1,14 +1,20 @@
+/**
+ * @file database.h
+ * @brief Funciones para la gestión de la base de datos
+ * @authors
+ * - Iván Mansilla
+ * - Franco Aguilar
+ * - Diego Sanhueza
+ * - Duvan Figueroa
+ * - Nicolás Álvarez
+ * - Miguel Maripillan
+ */
+
 #include "database.h"
 
-typedef struct _pending_connections {
-    char *username;
-    char **followers;
-    int numFollowers;
-    char **following;
-    int numFollowing;
-    struct _pending_connections *next;
-} PendingConnections;
-
+/**
+ * @brief Crea el directorio database si no existe.
+ */
 void create_database_dir(void) {
     struct stat st = {0};
     if (stat("database", &st) == -1) {
@@ -19,6 +25,12 @@ void create_database_dir(void) {
     }
 }
 
+/**
+ * @brief Guarda toda la información de un usuario en "database/{username}_data".
+ *
+ * @param user Usuario a guardar
+ * @param globalInterests Tabla de intereses globales
+ */
 void save_user_data(User user, GlobalInterests globalInterests) {
     if (!user) return;
 
@@ -77,6 +89,12 @@ void save_user_data(User user, GlobalInterests globalInterests) {
     fclose(fp);
 }
 
+/**
+ * @brief Guarda todos los usuarios del grafo en la carpeta database.
+ *
+ * @param graph Grafo con usuarios
+ * @param globalInterests Tabla global de intereses
+ */
 void save_all_users(Graph graph, GlobalInterests globalInterests) {
     create_database_dir();
 
@@ -89,6 +107,9 @@ void save_all_users(Graph graph, GlobalInterests globalInterests) {
     printf("Se han guardado todos los datos de los usuarios en la carpeta 'database'.\n");
 }
 
+/**
+ * @brief Elimina todos los archivos y la carpeta database.
+ */
 void clear_database(void) {
     DIR *dir = opendir("database");
     if (!dir) {
@@ -111,6 +132,9 @@ void clear_database(void) {
     printf("Se han eliminado todos los datos de la base de datos.\n");
 }
 
+/**
+ * @brief Pregunta al usuario si desea mantener o eliminar la base de datos.
+ */
 void confirm_and_cleanup(void) {
     int opcion;
     printf("¿Desea mantener los datos guardados?\n");
@@ -129,6 +153,11 @@ void confirm_and_cleanup(void) {
     }
 }
 
+/**
+ * @brief Verifica si la carpeta database existe y contiene datos.
+ *
+ * @return 1 si existe y contiene al menos un archivo, 0 de lo contrario.
+ */
 int database_exists_and_not_empty(void) {
     DIR *dir = opendir("database");
     if (!dir) {
@@ -156,7 +185,7 @@ static void trim(char *str) {
     *(end+1) = '\0';
 }
 
-// load_user_from_file
+
 static PendingConnections* load_user_from_file(const char *filename, PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
     FILE *fp = fopen(filename,"r");
     if (!fp) {
@@ -331,6 +360,14 @@ static PendingConnections* load_user_from_file(const char *filename, PtrToHashTa
     return pc;
 }
 
+/**
+ * @brief Carga todos los usuarios desde los archivos en la carpeta database, restaurando el estado anterior.
+ *        Se debe llamar antes de generar usuarios aleatorios.
+ *
+ * @param table Tabla hash de usuarios
+ * @param graph Grafo de usuarios
+ * @param globalInterests Tabla de intereses globales
+ */
 void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
     DIR *dir = opendir("database");
     if (!dir) {
@@ -395,4 +432,66 @@ void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInt
     }
 
     printf("Se ha cargado la base de datos con los usuarios existentes.\n");
+}
+
+/**
+ * @brief Verifica si hay una sesión iniciada y si es válida.
+ * 
+ * @param graph Tabla hash de usuarios
+ * @return user, si está la sesión iniciada, NULL si no o no es válida la sesión
+ */
+User current_session(PtrToHashTable graph) {
+    FILE *file = fopen("current.dat","r");
+    if (!file) {
+        printf("No se ha iniciado sesión.\n");
+        return NULL;
+    }
+    
+    char *username;
+    fscanf(file,"%s",&username);
+    fclose(file);
+
+    User user = search_user(username, graph);
+    if (!user) {
+        printf("ERROR: sesión iniciada no válida\n");
+        return NULL;
+    }
+    return user;
+}
+
+/**
+ * @brief Inicia sesión en la red social
+ * 
+ * @param username Usuario a iniciar sesión
+ * @param password Contraseña
+ * @param graph Tabla hash de usuarios
+ */
+void login(char *username, char *password, PtrToHashTable graph) {
+    FILE *file = fopen("current.dat","w");
+    if (!file) {
+        printf("ERROR: No se pudo iniciar sesión\n");
+        return;
+    }
+
+    User user = search_user(username, graph);
+    if (!user) {
+        printf("ERROR: Usuario no existe\n");
+        return;
+    }
+
+    if (strcmp(user->password, password)) {
+        printf("ERROR: Contraseña incorrecta. Intente iniciar sesión nuevamente.\n");
+        return;
+    }
+
+    fprintf(file,"%s",username);
+    fclose(file);
+}
+
+/**
+ * @brief Cierra sesión en la red social
+ * 
+ */
+void logout(void) {
+    remove("current.dat");
 }
