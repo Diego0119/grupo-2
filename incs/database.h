@@ -46,8 +46,8 @@ void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInt
 static PendingConnections* load_user_from_file(const char *filename, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
 
 /* FUNCIONES DE SESION ACTUAL */
-void login(char *username, char *password);
+void login(char *username, char *password, PtrToHashTable graph);
 void logout(void);
-User current_session(Graph graph);
+User current_session(PtrToHashTable graph);
 
 #endif
