@@ -52,6 +52,6 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 
 
 ### Extras
-- [ ] Perfil psicológico (Diego)
+- [X] Perfil psicológico (Diego)
 - [X] Usuarios aleatorios (Diego)
 
