@@ -47,10 +47,13 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 - [ ] Algoritmo de recomendación de usuarios
 - [X] Guardar información de los usuarios (nube) (Miguel)
 - [X] Cargar usuarios por medio de un txt de entrada (Miguel)
-- [ ] Iniciar sesión y publicar cosas según el usuario iniciado
-- [ ] Comandos para publicar, borrar, ver usuarios, perfil, publicaciones, etc (Duván)
+- [X] Iniciar sesión y publicar cosas según el usuario iniciado (Iván)
+- [ ] Comandos para publicar, borrar, ver usuarios, perfil, publicaciones, etc (Iván)
 - [ ] Ordenar main para el programa final 
 
+### Urgente
+- [ ] Arreglar carga y guardado de publicaciones
+- [ ] Arreglar carga de seguidores y seguidos
 
 ### Extras
 - [X] Perfil psicológico (Diego)

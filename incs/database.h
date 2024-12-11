@@ -46,8 +46,13 @@ void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInt
 static PendingConnections* load_user_from_file(const char *filename, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
 
 /* FUNCIONES DE SESION ACTUAL */
-void login(char *username, char *password, PtrToHashTable graph);
+void login(PtrToHashTable graph);
 void logout(void);
 User current_session(PtrToHashTable graph);
+void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
+void write_post(User user, GlobalInterests globalInterests);
+void follow(User user, char* follow, GlobalInterests globalInterests, PtrToHashTable table);
+void unfollow(User user, char* follow, GlobalInterests globalInterests, PtrToHashTable table);
+void delete_account(User user);
 
 #endif

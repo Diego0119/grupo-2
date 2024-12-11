@@ -22,7 +22,6 @@
 #include "utilities.h"
 #include "hash_table.h"
 #include "graph.h"
-#include "files.h"
 
 /*usuarios individuales*/
 typedef struct _user _User;
@@ -117,7 +116,7 @@ void suggest_popular_users(HashTable *table);
 
 // Funciones para gestionar publicaciones
 UserPosts create_empty_userPosts(void);
-PtrToPostNode insert_post(UserPosts posts, char *content, GlobalInterests globalInterestTable);
+PtrToPostNode insert_post(UserPosts posts, char *content);
 PtrToPostNode search_post(UserPosts posts, int postId);
 void delete_post(UserPosts posts, int postId); /*PENDIENTE*/
 void delete_userPosts(UserPosts posts);

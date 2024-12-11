@@ -1,6 +1,6 @@
 /**
  * @file database.h
- * @brief Funciones para la gestión de la base de datos
+ * @brief Funciones para la gestión y guardado de la base de datos
  * @authors
  * - Iván Mansilla
  * - Franco Aguilar
@@ -295,7 +295,7 @@ static PendingConnections* load_user_from_file(const char *filename, PtrToHashTa
                     post_content[511]='\0';
                     post_state=3;
                 } else if (strncmp(line,"------------------------",24)==0 && post_state==3) {
-                    PtrToPostNode newP = insert_post(posts, post_content, globalInterests);
+                    PtrToPostNode newP = insert_post(posts, post_content);
                     if (newP) {
                         newP->date = post_date;
                     }
@@ -431,7 +431,7 @@ void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInt
         current = next;
     }
 
-    printf("Se ha cargado la base de datos con los usuarios existentes.\n");
+    //printf("Se ha cargado la base de datos con los usuarios existentes.\n");
 }
 
 /**
@@ -443,19 +443,20 @@ void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInt
 User current_session(PtrToHashTable graph) {
     FILE *file = fopen("current.dat","r");
     if (!file) {
-        printf("No se ha iniciado sesión.\n");
         return NULL;
     }
     
-    char *username;
-    fscanf(file,"%s",&username);
+    char *username=malloc(sizeof(char)*256);
+    fscanf(file,"%s",username);
     fclose(file);
-
+    
     User user = search_user(username, graph);
+
     if (!user) {
-        printf("ERROR: sesión iniciada no válida\n");
+        logout(); // sesión iniciada no es válida, entonces se borra la sesión
         return NULL;
     }
+    free(username);
     return user;
 }
 
@@ -466,25 +467,37 @@ User current_session(PtrToHashTable graph) {
  * @param password Contraseña
  * @param graph Tabla hash de usuarios
  */
-void login(char *username, char *password, PtrToHashTable graph) {
+void login(PtrToHashTable graph) {
     FILE *file = fopen("current.dat","w");
     if (!file) {
-        printf("ERROR: No se pudo iniciar sesión\n");
+        printf("ERROR: No se pudo iniciar sesión. Verifique los permisos de su sistema.\n");
         return;
     }
 
+    // leer usuario y contraseña
+    char *username=malloc(sizeof(char)*256);
+    char *password=malloc(sizeof(char)*256);
+    printf("Ingrese su nombre de usuario: ");
+    scanf("%s",username);
+    printf("Ingrese su contraseña: ");
+    scanf("%s",password);
+
+    // verificar si los datos son correctos
     User user = search_user(username, graph);
     if (!user) {
-        printf("ERROR: Usuario no existe\n");
+        printf("ERROR: Usuario no existe. Intente nuevamente\n");
         return;
     }
 
     if (strcmp(user->password, password)) {
-        printf("ERROR: Contraseña incorrecta. Intente iniciar sesión nuevamente.\n");
+        printf("ERROR: Contraseña incorrecta. Intente nuevamente.\n");
         return;
     }
-
+    // guardar usuario en el archivo actual.dat
     fprintf(file,"%s",username);
+    printf("Sesión iniciada correctamente como '%s'.\n", username);
+    free(username);
+    free(password);
     fclose(file);
 }
 
@@ -494,4 +507,111 @@ void login(char *username, char *password, PtrToHashTable graph) {
  */
 void logout(void) {
     remove("current.dat");
+}
+
+void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
+    // leer usuario y contraseña
+    char *username=malloc(sizeof(char)*256);
+    printf("Ingrese su nombre de usuario: ");
+    scanf("%s",username);
+    User user = search_user(username, table);
+    while(user) {
+        printf("ERROR: El nombre de usuario '%s' ya existe. Intente con otro usuario: \n", username);
+        scanf("%s",username);
+        user = search_user(username, table);
+    }
+
+    char *password=malloc(sizeof(char)*256);
+    printf("Ingrese su contraseña: ");
+    scanf("%s",password);
+
+    while (getchar() != '\n');
+    char *name=malloc(sizeof(char)*256);
+    printf("Ingrese su nombre: ");
+    if (fgets(name, 256, stdin) != NULL) {
+        size_t len = strlen(name);
+        if (len > 0 && name[len - 1] == '\n') {
+            name[len - 1] = '\0';
+        }
+    }
+
+    user = create_new_user(username, password, name, table, graph, globalInterests);
+    if(!user){
+        printf("ERROR: No se pudo crear el usuario '%s'.\n", username);
+    }
+    free(name);
+    free(username);
+    free(password);
+
+    // selección de intereses
+    printf("Bienvenido/a %s a DevGraph! Por favor, ingrese el ID de los intereses que mas se ajusten consigo\n", user->name);
+    print_global_interests(globalInterests);
+    printf("Ingrese la opción deseada (0 para terminar)\n ");
+    int option;
+    do {
+        scanf("%d",&option);
+        if(option<0 || option>=globalInterests.numInterests){
+            printf("ERROR: ID de interes no válido. Intente nuevamente\n");
+        }
+        else {
+        add_interest(user, globalInterests, option);
+        }
+    } while(option>0);
+
+    save_user_data(user, globalInterests);
+
+    printf("Usuario registrado correctamente! Ahora puedes iniciar sesión y conectarte con otros usuarios.\n");
+}
+
+void write_post(User user, GlobalInterests globalInterests) {
+    printf("Publicando como '%s'. Escriba el contenido de la publicación:\n\n", user->username);
+    char *content=malloc(sizeof(char)*1028);
+    if (fgets(content, 512, stdin) != NULL) {
+        size_t len = strlen(content);
+        if (len > 0 && content[len - 1] == '\n') {
+            content[len - 1] = '\0';
+        }
+    }
+    insert_post(user->posts, content);
+    free(content);
+    save_user_data(user, globalInterests);
+    printf("\nPublicación publicada correctamente.\n");
+}
+
+void follow(User user, char* follow, GlobalInterests globalInterests, PtrToHashTable table) {
+    User to_follow = search_user(follow, table);
+        if(!to_follow){
+            printf("ERROR: Usuario no encontrado\n");
+            return 0;
+        }
+        add_edge(user, to_follow, globalInterests);
+        save_user_data(user, globalInterests);
+        printf("Se ha seguido a '%s'.\n", to_follow->username);
+}
+
+void unfollow(User user, char* follow, GlobalInterests globalInterests, PtrToHashTable table) {
+    User to_unfollow = search_user(follow, table);
+        if(!to_unfollow){
+            printf("ERROR: Usuario no encontrado\n");
+            return 0;
+        }
+        remove_edge(user, to_unfollow);
+        save_user_data(user, globalInterests);
+        printf("Se ha dejado de seguir a '%s'.\n", to_unfollow->username);
+}
+
+void delete_account(User user) {
+    DIR *dir = opendir("database");
+    if (!dir) {
+        return;
+    }
+
+    struct dirent *entry;
+    char path[512];
+
+    snprintf(path, sizeof(path), "database/%s_data", user->username);
+    remove(path);
+    closedir(dir);
+    logout();
+    printf("Se ha borrado la cuenta de '%s' exitosamente.\n", user->username);
 }

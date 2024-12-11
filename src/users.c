@@ -90,7 +90,7 @@ UserPosts create_empty_userPosts(void)
  * @note Inserta al principio de la lista y guarda la fecha de la máquina en el momento de crear el post.
  * @return PtrToPostNode
  */
-PtrToPostNode insert_post(UserPosts posts, char *content, GlobalInterests globalInterestTable)
+PtrToPostNode insert_post(UserPosts posts, char *content)
 {
     PtrToPostNode newPost = (PtrToPostNode)malloc(sizeof(PostNode));
     if (!newPost)
@@ -178,7 +178,7 @@ void print_user(User user, GlobalInterests globalInterestsTable)
     printf("ID: %d\n", user->id);
     printf("Nombre: %s\n", user->name);
     printf("Usuario: %s\n", user->username);
-    printf("Contraseña: %s\n", user->password);
+    //printf("Contraseña: %s\n", user->password);
     printf("Popularidad (%d) | Seguidores (%d) | Seguidos (%d)\n", user->popularity, user->numFollowers, user->numFollowing);
     // Mostrar amigabilidad y categoría
     printf("Amigabilidad: %.2f\n", user->friendliness);
@@ -714,6 +714,6 @@ void add_interest(User user, GlobalInterests globalInterestTable, int interestId
 
 void print_global_interests(GlobalInterests globalInterestTable){
     for(int i=0; i<globalInterestTable.numInterests; i++){
-        printf("%d. %s\n", i, globalInterestTable.interestsTable[i]);
+        printf("- %d. %s\n", i, globalInterestTable.interestsTable[i]);
     }
 }
