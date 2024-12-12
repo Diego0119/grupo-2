@@ -9,3 +9,14 @@ test
 .txt
 .eps
 build/
+*.m
+*.aux
+*.bbl
+*.bcf
+*.fdb_latexmk
+*.fls
+*.log
+*:Zone.Identifier
+*.run.xml
+*.gz
+*.toc
