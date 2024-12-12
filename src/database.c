@@ -486,11 +486,17 @@ void login(PtrToHashTable graph) {
     User user = search_user(username, graph);
     if (!user) {
         printf("ERROR: Usuario no existe. Intente nuevamente\n");
+        free(username);
+        free(password);
+        fclose(file);
         return;
     }
 
     if (strcmp(user->password, password)) {
         printf("ERROR: Contraseña incorrecta. Intente nuevamente.\n");
+        free(username);
+        free(password);
+        fclose(file);
         return;
     }
     // guardar usuario en el archivo actual.dat

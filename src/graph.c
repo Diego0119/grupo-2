@@ -94,6 +94,7 @@ Graph initialize_graph(void)
     if (!newGraph->graphUsersList)
     {
         printf("Error al crear el grafo (lista de usuarios)\n");
+        free_graph(newGraph);
         return NULL;
     }
     newGraph->graphUsersList->next = NULL;

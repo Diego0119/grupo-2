@@ -141,11 +141,12 @@ int main(int argc, char *argv[])
         break;
     }
 
-    /*
-    free_all_users(table, graph, globalInterestsTable);
-    free_graph(graph);
-    free_global_interests(globalInterestsTable);
-    */
+    // LIBERAR MEMORIA
+    if(option > 0 && option != 2){
+        free_all_users(table, graph, globalInterestsTable);
+        free_graph(graph);
+        free_global_interests(globalInterestsTable);
+    }
 
     return 0;
 }
