@@ -22,8 +22,14 @@
 #include "utilities.h"
 #include "database.h" 
 
-int main(int argc, char *argv[])
-{
+/**
+ * @brief Función que ejecuta el flujo principal del programa
+ * 
+ * @param argc Número de argumentos
+ * @param argv Argumentos ingresados al programa
+ * @return int 
+ */
+int main(int argc, char *argv[]){
     PtrToHashTable table;
     Graph graph;
     GlobalInterests globalInterestsTable;

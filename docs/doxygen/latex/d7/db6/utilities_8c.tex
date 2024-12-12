@@ -1,0 +1,77 @@
+\doxysection{src/utilities.c File Reference}
+\hypertarget{utilities_8c}{}\label{utilities_8c}\index{src/utilities.c@{src/utilities.c}}
+
+
+Funciones de utilidad y testing para el programa.  
+
+
+{\ttfamily \#include "{}utilities.\+h"{}}\newline
+Include dependency graph for utilities.\+c\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{utilities_8c_aac0e4071b93021a3454f4d61d277b519}{jenkins\+\_\+hash}} (char \texorpdfstring{$\ast$}{*}key)
+\begin{DoxyCompactList}\small\item\em Calcula el hash de un string. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utilities_8c_a757e6e51479badedfcf23bae4d05ec9a}{get\+\_\+option}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Indice del programa. \end{DoxyCompactList}\item 
+\Hypertarget{utilities_8c_a0ea8ae37a046313ec525e076e6005dcb}\label{utilities_8c_a0ea8ae37a046313ec525e076e6005dcb} 
+int {\bfseries line\+\_\+number\+\_\+in\+\_\+file} (char \texorpdfstring{$\ast$}{*}file)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Funciones de utilidad y testing para el programa. 
+
+\begin{DoxyAuthor}{Authors}
+
+\begin{DoxyItemize}
+\item Iván Mansilla
+\item Franco Aguilar
+\item Diego Sanhueza
+\item Duvan Figueroa
+\item Nicolás Álvarez
+\item Miguel Maripillan 
+\end{DoxyItemize}
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{utilities_8c_a757e6e51479badedfcf23bae4d05ec9a}\label{utilities_8c_a757e6e51479badedfcf23bae4d05ec9a} 
+\index{utilities.c@{utilities.c}!get\_option@{get\_option}}
+\index{get\_option@{get\_option}!utilities.c@{utilities.c}}
+\doxysubsubsection{\texorpdfstring{get\_option()}{get\_option()}}
+{\footnotesize\ttfamily int get\+\_\+option (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Indice del programa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & \\
+\hline
+{\em argv} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Retorna número de la opción seleccionada 
+\end{DoxyReturn}
+\Hypertarget{utilities_8c_aac0e4071b93021a3454f4d61d277b519}\label{utilities_8c_aac0e4071b93021a3454f4d61d277b519} 
+\index{utilities.c@{utilities.c}!jenkins\_hash@{jenkins\_hash}}
+\index{jenkins\_hash@{jenkins\_hash}!utilities.c@{utilities.c}}
+\doxysubsubsection{\texorpdfstring{jenkins\_hash()}{jenkins\_hash()}}
+{\footnotesize\ttfamily unsigned int jenkins\+\_\+hash (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{key }\end{DoxyParamCaption})}
+
+
+
+Calcula el hash de un string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned int 
+\end{DoxyReturn}

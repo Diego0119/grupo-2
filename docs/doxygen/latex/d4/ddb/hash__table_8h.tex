@@ -1,0 +1,162 @@
+\doxysection{incs/hash\+\_\+table.h File Reference}
+\hypertarget{hash__table_8h}{}\label{hash__table_8h}\index{incs/hash\_table.h@{incs/hash\_table.h}}
+
+
+Cabecera para \doxylink{hash__table_8c}{hash\+\_\+table.\+c}.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}utilities.\+h"{}}\newline
+Include dependency graph for hash\+\_\+table.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__hashnode}{\+\_\+hashnode}}
+\begin{DoxyCompactList}\small\item\em Nodo individual en la tabla hash. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct__hashtable}{\+\_\+hashtable}}
+\begin{DoxyCompactList}\small\item\em Estructura principal de la tabla hash. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{hash__table_8h_abfd8510b1fadf533d685965730e2969b}\label{hash__table_8h_abfd8510b1fadf533d685965730e2969b} 
+\#define {\bfseries HASH\+\_\+\+TABLE\+\_\+\+SIZE}~100
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{hash__table_8h_a9425b622874809e354d5fccf59123d1c}\label{hash__table_8h_a9425b622874809e354d5fccf59123d1c} 
+typedef struct \mbox{\hyperlink{struct__hashnode}{\+\_\+hashnode}} {\bfseries Hashnode}
+\item 
+\Hypertarget{hash__table_8h_a31908626dcb461c733577209bc647a55}\label{hash__table_8h_a31908626dcb461c733577209bc647a55} 
+typedef struct \mbox{\hyperlink{struct__hashtable}{\+\_\+hashtable}} {\bfseries Hash\+Table}
+\item 
+\Hypertarget{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}\label{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833} 
+typedef \mbox{\hyperlink{struct__hashtable}{Hash\+Table}} \texorpdfstring{$\ast$}{*} {\bfseries Ptr\+To\+Hash\+Table}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct__hashtable}{Hash\+Table}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hash__table_8h_a3fccc35fdaa619c188fe92be6484f0c8}{create\+\_\+hash\+\_\+table}} (void)
+\begin{DoxyCompactList}\small\item\em Crea una nueva tabla hash vacía. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{hash__table_8h_a59ed78b7d84acd2ba628ae76d36f782b}{insert\+\_\+into\+\_\+hash\+\_\+table}} (\mbox{\hyperlink{struct__hashtable}{Hash\+Table}} \texorpdfstring{$\ast$}{*}table, char \texorpdfstring{$\ast$}{*}key, void \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Inserta un nuevo elemento en la tabla hash. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hash__table_8h_a2ce95b083b6024decb314925a79cf32c}{search\+\_\+in\+\_\+hash\+\_\+table}} (\mbox{\hyperlink{struct__hashtable}{Hash\+Table}} \texorpdfstring{$\ast$}{*}table, char \texorpdfstring{$\ast$}{*}key)
+\begin{DoxyCompactList}\small\item\em Busca un elemento en la tabla hash por su clave. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{hash__table_8h_ac2658c590377bd10f0556f8750773bf6}{delete\+\_\+from\+\_\+hash\+\_\+table}} (\mbox{\hyperlink{struct__hashtable}{Hash\+Table}} \texorpdfstring{$\ast$}{*}table, char \texorpdfstring{$\ast$}{*}key)
+\begin{DoxyCompactList}\small\item\em Elimina un elemento de la tabla hash. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hash__table_8h_a2537edb646045b3189b9e01f2f532cb7}{free\+\_\+hash\+\_\+table}} (\mbox{\hyperlink{struct__hashtable}{Hash\+Table}} \texorpdfstring{$\ast$}{*}table)
+\begin{DoxyCompactList}\small\item\em Libera toda la memoria utilizada por la tabla hash. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Cabecera para \doxylink{hash__table_8c}{hash\+\_\+table.\+c}. 
+
+\begin{DoxyAuthor}{Authors}
+
+\begin{DoxyItemize}
+\item Iván Mansilla
+\item Franco Aguilar
+\item Diego Sanhueza
+\item Duvan Figueroa
+\item Nicolás Álvarez
+\item Miguel Maripillan 
+\end{DoxyItemize}
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{hash__table_8h_a3fccc35fdaa619c188fe92be6484f0c8}\label{hash__table_8h_a3fccc35fdaa619c188fe92be6484f0c8} 
+\index{hash\_table.h@{hash\_table.h}!create\_hash\_table@{create\_hash\_table}}
+\index{create\_hash\_table@{create\_hash\_table}!hash\_table.h@{hash\_table.h}}
+\doxysubsubsection{\texorpdfstring{create\_hash\_table()}{create\_hash\_table()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__hashtable}{Hash\+Table}} \texorpdfstring{$\ast$}{*} create\+\_\+hash\+\_\+table (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Crea una nueva tabla hash vacía. 
+
+\begin{DoxyReturn}{Returns}
+Hash\+Table\texorpdfstring{$\ast$}{*} Puntero a la nueva tabla hash 
+\end{DoxyReturn}
+\Hypertarget{hash__table_8h_ac2658c590377bd10f0556f8750773bf6}\label{hash__table_8h_ac2658c590377bd10f0556f8750773bf6} 
+\index{hash\_table.h@{hash\_table.h}!delete\_from\_hash\_table@{delete\_from\_hash\_table}}
+\index{delete\_from\_hash\_table@{delete\_from\_hash\_table}!hash\_table.h@{hash\_table.h}}
+\doxysubsubsection{\texorpdfstring{delete\_from\_hash\_table()}{delete\_from\_hash\_table()}}
+{\footnotesize\ttfamily int delete\+\_\+from\+\_\+hash\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__hashtable}{Hash\+Table}} \texorpdfstring{$\ast$}{*}}]{table,  }\item[{char \texorpdfstring{$\ast$}{*}}]{key }\end{DoxyParamCaption})}
+
+
+
+Elimina un elemento de la tabla hash. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Tabla hash \\
+\hline
+{\em key} & Clave del elemento a eliminar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 si se elimina correctamente, -\/1 si no se encuentra 
+\end{DoxyReturn}
+\Hypertarget{hash__table_8h_a2537edb646045b3189b9e01f2f532cb7}\label{hash__table_8h_a2537edb646045b3189b9e01f2f532cb7} 
+\index{hash\_table.h@{hash\_table.h}!free\_hash\_table@{free\_hash\_table}}
+\index{free\_hash\_table@{free\_hash\_table}!hash\_table.h@{hash\_table.h}}
+\doxysubsubsection{\texorpdfstring{free\_hash\_table()}{free\_hash\_table()}}
+{\footnotesize\ttfamily void free\+\_\+hash\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__hashtable}{Hash\+Table}} \texorpdfstring{$\ast$}{*}}]{table }\end{DoxyParamCaption})}
+
+
+
+Libera toda la memoria utilizada por la tabla hash. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Tabla hash \\
+\hline
+\end{DoxyParams}
+\Hypertarget{hash__table_8h_a59ed78b7d84acd2ba628ae76d36f782b}\label{hash__table_8h_a59ed78b7d84acd2ba628ae76d36f782b} 
+\index{hash\_table.h@{hash\_table.h}!insert\_into\_hash\_table@{insert\_into\_hash\_table}}
+\index{insert\_into\_hash\_table@{insert\_into\_hash\_table}!hash\_table.h@{hash\_table.h}}
+\doxysubsubsection{\texorpdfstring{insert\_into\_hash\_table()}{insert\_into\_hash\_table()}}
+{\footnotesize\ttfamily int insert\+\_\+into\+\_\+hash\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__hashtable}{Hash\+Table}} \texorpdfstring{$\ast$}{*}}]{table,  }\item[{char \texorpdfstring{$\ast$}{*}}]{key,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Inserta un nuevo elemento en la tabla hash. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Tabla hash \\
+\hline
+{\em key} & Clave del elemento \\
+\hline
+{\em data} & Puntero a los datos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 si se inserta correctamente, -\/1 si hay un error 
+\end{DoxyReturn}
+\Hypertarget{hash__table_8h_a2ce95b083b6024decb314925a79cf32c}\label{hash__table_8h_a2ce95b083b6024decb314925a79cf32c} 
+\index{hash\_table.h@{hash\_table.h}!search\_in\_hash\_table@{search\_in\_hash\_table}}
+\index{search\_in\_hash\_table@{search\_in\_hash\_table}!hash\_table.h@{hash\_table.h}}
+\doxysubsubsection{\texorpdfstring{search\_in\_hash\_table()}{search\_in\_hash\_table()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} search\+\_\+in\+\_\+hash\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__hashtable}{Hash\+Table}} \texorpdfstring{$\ast$}{*}}]{table,  }\item[{char \texorpdfstring{$\ast$}{*}}]{key }\end{DoxyParamCaption})}
+
+
+
+Busca un elemento en la tabla hash por su clave. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Tabla hash \\
+\hline
+{\em key} & Clave del elemento a buscar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void\texorpdfstring{$\ast$}{*} Puntero a los datos encontrados o NULL si no existe 
+\end{DoxyReturn}

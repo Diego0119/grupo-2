@@ -25,14 +25,17 @@
 #include "graph.h"
 #include "utilities.h"
 
-
+/**
+ * @struct _pending_connections
+ * @brief Lista auxiliar para guardar las conexiones pendientes de un usuario en la carga de la base de datos
+ */
 typedef struct _pending_connections {
-    char *username;
-    char **followers;
-    int numFollowers;
-    char **following;
-    int numFollowing;
-    struct _pending_connections *next;
+    char *username; /*!< Nombre de usuario */
+    char **followers; /*!< Nombres de los usuarios que lo siguen */
+    int numFollowers; /*!< Numero de seguidores */
+    char **following; /*!< Nombres de los usuarios que sigue */
+    int numFollowing; /*!< Número de seguidos */
+    struct _pending_connections *next; /*!< Siguiente en la lista */
 } PendingConnections;
 
 /* FUNCIONES DE CARGA Y GUARDADO DE LA BASE DE DATOS */

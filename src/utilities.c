@@ -39,13 +39,13 @@ unsigned int jenkins_hash(char* key)
 }
 
 /**
- * @brief Indice del programa (por hacer)
+ * @brief Indice del programa
  * 
  * @param argc 
  * @param argv 
- * @return int 
+ * @return int Retorna número de la opción seleccionada
  */
-int get_option(int argc __attribute__((unused)), char *argv[] __attribute__((unused))) {
+int get_option(int argc, char *argv[]) {
    
    int opt; // Variable para el manejo de opciones
 	int opt_index = 0;

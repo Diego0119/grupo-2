@@ -1,0 +1,74 @@
+\doxysection{\+\_\+post\+Node Struct Reference}
+\hypertarget{struct__postNode}{}\label{struct__postNode}\index{\_postNode@{\_postNode}}
+
+
+Estructura que define un post (publicación)  
+
+
+
+
+{\ttfamily \#include $<$users.\+h$>$}
+
+
+
+Collaboration diagram for \+\_\+post\+Node\+:
+% FIG 0
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{struct__postNode_ace569ee169d91a95ad239273cbb542b4}{id}}
+\item 
+struct tm \mbox{\hyperlink{struct__postNode_afd5b5bdb94fb89ec859606c01594114b}{date}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__postNode_a0a07fd8a409b3006ed6edd9c21b9ea91}{post}}
+\item 
+int \mbox{\hyperlink{struct__postNode_adcc9f3eb8cdfec94f17d598e6118f2ca}{priority}}
+\item 
+\mbox{\hyperlink{struct__postNode}{Ptr\+To\+Post\+Node}} \mbox{\hyperlink{struct__postNode_a84053971dc3635c5b7fdae4a377f8e33}{next}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Estructura que define un post (publicación) 
+
+\begin{DoxyNote}{Note}
+Es el nodo de una lista enlazada simple 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct__postNode_afd5b5bdb94fb89ec859606c01594114b}\label{struct__postNode_afd5b5bdb94fb89ec859606c01594114b} 
+\index{\_postNode@{\_postNode}!date@{date}}
+\index{date@{date}!\_postNode@{\_postNode}}
+\doxysubsubsection{\texorpdfstring{date}{date}}
+{\footnotesize\ttfamily struct tm \+\_\+post\+Node\+::date}
+
+fecha del post \Hypertarget{struct__postNode_ace569ee169d91a95ad239273cbb542b4}\label{struct__postNode_ace569ee169d91a95ad239273cbb542b4} 
+\index{\_postNode@{\_postNode}!id@{id}}
+\index{id@{id}!\_postNode@{\_postNode}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily int \+\_\+post\+Node\+::id}
+
+id (hash) del post \Hypertarget{struct__postNode_a84053971dc3635c5b7fdae4a377f8e33}\label{struct__postNode_a84053971dc3635c5b7fdae4a377f8e33} 
+\index{\_postNode@{\_postNode}!next@{next}}
+\index{next@{next}!\_postNode@{\_postNode}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__postNode}{Ptr\+To\+Post\+Node}} \+\_\+post\+Node\+::next}
+
+Puntero al post siguiente \Hypertarget{struct__postNode_a0a07fd8a409b3006ed6edd9c21b9ea91}\label{struct__postNode_a0a07fd8a409b3006ed6edd9c21b9ea91} 
+\index{\_postNode@{\_postNode}!post@{post}}
+\index{post@{post}!\_postNode@{\_postNode}}
+\doxysubsubsection{\texorpdfstring{post}{post}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} \+\_\+post\+Node\+::post}
+
+contenido del post \Hypertarget{struct__postNode_adcc9f3eb8cdfec94f17d598e6118f2ca}\label{struct__postNode_adcc9f3eb8cdfec94f17d598e6118f2ca} 
+\index{\_postNode@{\_postNode}!priority@{priority}}
+\index{priority@{priority}!\_postNode@{\_postNode}}
+\doxysubsubsection{\texorpdfstring{priority}{priority}}
+{\footnotesize\ttfamily int \+\_\+post\+Node\+::priority}
+
+prioridad del post 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+incs/\mbox{\hyperlink{users_8h}{users.\+h}}\end{DoxyCompactItemize}

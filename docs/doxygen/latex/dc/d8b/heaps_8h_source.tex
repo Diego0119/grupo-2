@@ -1,0 +1,44 @@
+\doxysection{heaps.\+h}
+\hypertarget{heaps_8h_source}{}\label{heaps_8h_source}\index{incs/heaps.h@{incs/heaps.h}}
+\mbox{\hyperlink{heaps_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ HEAPS\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ HEAPS\_H}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__post}{\_post}}\ \mbox{\hyperlink{struct__post}{post}};}
+\DoxyCodeLine{00017\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__heap}{\_heap}}\ \mbox{\hyperlink{struct__heap}{heap}};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ MAX\_HEAP\_SIZE\ 100}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ MAX\_NAME\ 100}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ MAX\_CONTENT\ 256}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__post}{\_post}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{char}\ user\_name[MAX\_NAME];\ \ \textcolor{comment}{//\ Nombre\ del\ usuario\ (único\ para\ cada\ usuario)}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{char}\ name[MAX\_NAME];\ \ \ \ \ \ \ \textcolor{comment}{//\ Nombre\ real}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ priority;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Prioridad\ (por\ ejemplo,\ basado\ en\ intereses\ del\ usuario)}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{char}\ content[MAX\_CONTENT];\ \ \ \ \textcolor{comment}{//\ Contenido\ de\ la\ publicación}}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__heap}{\_heap}}\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{struct__post}{post}}\ posts[MAX\_HEAP\_SIZE];\ \textcolor{comment}{//\ Arreglo\ de\ publicaciones}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ size;\ \textcolor{comment}{//\ Este\ tamaño\ refleja\ el\ número\ de\ elementos\ en\ el\ heap}}
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{//Funciones\ para\ gestionar\ heaps}}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{heaps_8h_ae554c4bbe601908038441685f46ffb58}{heapify\_up}}(\mbox{\hyperlink{struct__heap}{heap}}*\ h,\ \textcolor{keywordtype}{int}\ index);\ \textcolor{comment}{//\ Función\ para\ asegurar\ que\ el\ heap\ mantenga\ la\ propiedad\ (heapify\_up)}}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{heaps_8h_a69a35f14dffa0f1a49d408f62e1e3f2a}{heapify\_down}}(\mbox{\hyperlink{struct__heap}{heap}}*\ h,\ \textcolor{keywordtype}{int}\ index);\ \textcolor{comment}{//\ Función\ para\ hacer\ heapify\_down\ (restaurar\ la\ propiedad\ después\ de\ extraer\ el\ máximo)}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ funciones\ para\ gestionar\ publicaciones}}
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{heaps_8h_a572f41d91b37df49c99486a835a22727}{insert\_new\_post}}(\mbox{\hyperlink{struct__heap}{heap}}*\ h,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ user\_name,\ \textcolor{keywordtype}{int}\ priority,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ content);\ \textcolor{comment}{//\ Función\ para\ insertar\ una\ publicación\ en\ el\ heap}}
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{heaps_8h_a885fd75957c9234214624ff119375184}{extract\_max}}(\mbox{\hyperlink{struct__heap}{heap}}*\ h);\ \textcolor{comment}{//\ Función\ para\ extraer\ el\ máximo\ (el\ nodo\ más\ relevante)}}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{heaps_8h_a1d4c1432189e6d271049bd40a407fd3b}{print\_heap}}(\mbox{\hyperlink{struct__heap}{heap}}*\ h);\ \textcolor{comment}{//\ Función\ para\ imprimir\ el\ heap}}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{heaps_8h_aa4499cf0118858ef39802b277a5374cf}{ver\_posts}}(\mbox{\hyperlink{struct__heap}{heap}}*\ h);\ \textcolor{comment}{//\ Función\ para\ ver\ publicaciones\ del\ heap}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

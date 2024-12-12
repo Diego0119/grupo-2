@@ -1,0 +1,39 @@
+\doxysection{hash\+\_\+table.\+h}
+\hypertarget{hash__table_8h_source}{}\label{hash__table_8h_source}\index{incs/hash\_table.h@{incs/hash\_table.h}}
+\mbox{\hyperlink{hash__table_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ HASH\_TABLE\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ HASH\_TABLE\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utilities_8h}{utilities.h}}"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ HASH\_TABLE\_SIZE\ 100}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__hashnode}{\_hashnode}}\ \mbox{\hyperlink{struct__hashnode}{Hashnode}};}
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__hashtable}{\_hashtable}}\ \mbox{\hyperlink{struct__hashtable}{HashTable}};}
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__hashtable}{HashTable}}*\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__hashnode}{\_hashnode}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct__hashnode_adbf067e5e7590b24e08a1f08d6884f06}{key}};\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{struct__hashnode_ae81d267aad9d47ae16eb7495a61dcc55}{data}};\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{struct__hashnode}{Hashnode}}\ *\mbox{\hyperlink{struct__hashnode_a34a5e84f7e112ce1060902eff82c1fcc}{next}};\ }
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__hashtable}{\_hashtable}}\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{struct__hashnode}{Hashnode}}\ *\mbox{\hyperlink{struct__hashtable_a1223de0d0c56ea30844b97fd5b67079c}{buckets}}[HASH\_TABLE\_SIZE];\ }
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{/*\ Funciones\ principales\ para\ gestionar\ tablas\ hash\ */}}
+\DoxyCodeLine{00046\ \mbox{\hyperlink{struct__hashtable}{HashTable}}*\ \mbox{\hyperlink{hash__table_8h_a3fccc35fdaa619c188fe92be6484f0c8}{create\_hash\_table}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{hash__table_8h_a59ed78b7d84acd2ba628ae76d36f782b}{insert\_into\_hash\_table}}(\mbox{\hyperlink{struct__hashtable}{HashTable}}\ *table,\ \textcolor{keywordtype}{char}\ *key,\ \textcolor{keywordtype}{void}\ *data);}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{hash__table_8h_a2ce95b083b6024decb314925a79cf32c}{search\_in\_hash\_table}}(\mbox{\hyperlink{struct__hashtable}{HashTable}}\ *table,\ \textcolor{keywordtype}{char}\ *key);}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{hash__table_8h_ac2658c590377bd10f0556f8750773bf6}{delete\_from\_hash\_table}}(\mbox{\hyperlink{struct__hashtable}{HashTable}}\ *table,\ \textcolor{keywordtype}{char}\ *key);}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{hash__table_8h_a2537edb646045b3189b9e01f2f532cb7}{free\_hash\_table}}(\mbox{\hyperlink{struct__hashtable}{HashTable}}\ *table);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

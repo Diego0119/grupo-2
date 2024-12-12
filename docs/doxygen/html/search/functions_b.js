@@ -1,0 +1,11 @@
+var searchData=
+[
+  ['print_5fall_5fusers_0',['print_all_users',['../d2/d9e/users_8c.html#a360a3e27e03a0155ccfe3cdc28f9abe1',1,'print_all_users(Graph graph):&#160;users.c'],['../d0/d5f/users_8h.html#a360a3e27e03a0155ccfe3cdc28f9abe1',1,'print_all_users(Graph graph):&#160;users.c']]],
+  ['print_5ffollowers_1',['print_followers',['../d2/d9e/users_8c.html#ac086476b157eb9110ffac2b58b16d67c',1,'print_followers(User user):&#160;users.c'],['../d0/d5f/users_8h.html#ac086476b157eb9110ffac2b58b16d67c',1,'print_followers(User user):&#160;users.c']]],
+  ['print_5ffollowing_2',['print_following',['../d2/d9e/users_8c.html#a6314922df43861bd6d37310fda8fad29',1,'print_following(User user):&#160;users.c'],['../d0/d5f/users_8h.html#a6314922df43861bd6d37310fda8fad29',1,'print_following(User user):&#160;users.c']]],
+  ['print_5ffriendliness_5ftable_3',['print_friendliness_table',['../d2/d9e/users_8c.html#a08e8561c58c199017703c94efe4ab55f',1,'print_friendliness_table(Graph graph):&#160;users.c'],['../d0/d5f/users_8h.html#a08e8561c58c199017703c94efe4ab55f',1,'print_friendliness_table(Graph graph):&#160;users.c']]],
+  ['print_5fheap_4',['print_heap',['../d5/d4f/heaps_8c.html#a1d4c1432189e6d271049bd40a407fd3b',1,'print_heap(heap *h):&#160;heaps.c'],['../dc/d8b/heaps_8h.html#a1d4c1432189e6d271049bd40a407fd3b',1,'print_heap(heap *h):&#160;heaps.c']]],
+  ['print_5fuser_5',['print_user',['../d2/d9e/users_8c.html#a35b00484b2f280f381c1f3015de40b10',1,'print_user(User user, GlobalInterests globalInterestsTable):&#160;users.c'],['../d0/d5f/users_8h.html#a35b00484b2f280f381c1f3015de40b10',1,'print_user(User user, GlobalInterests globalInterestsTable):&#160;users.c']]],
+  ['print_5fuser_5finterests_6',['print_user_interests',['../d2/d9e/users_8c.html#af8a2c28d208845d1d404235073e0ae85',1,'print_user_interests(InterestTable userInterests, GlobalInterests globalInterestTable):&#160;users.c'],['../d0/d5f/users_8h.html#aea0be0e6a2651d5351de6f6bbc0654c6',1,'print_user_interests(InterestTable userInterests, GlobalInterests globalInterestsTable):&#160;users.c']]],
+  ['print_5fuserposts_7',['print_userposts',['../d2/d9e/users_8c.html#a6b6418dc0ab92404a730e1b8eeb392a0',1,'print_userPosts(UserPosts posts):&#160;users.c'],['../d0/d5f/users_8h.html#a6b6418dc0ab92404a730e1b8eeb392a0',1,'print_userPosts(UserPosts posts):&#160;users.c']]]
+];

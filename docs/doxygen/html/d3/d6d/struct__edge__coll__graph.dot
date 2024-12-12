@@ -1,0 +1,18 @@
+digraph "_edge"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="_edge",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Estructura que representa una lista de arista de un usuario perteneciente al grafo."];
+  Node2 -> Node1 [id="edge1_Node000001_Node000002",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" dest",fontcolor="grey" ];
+  Node2 [id="Node000002",label="_user",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d5/d4f/struct__user.html",tooltip="Estructura que almacena los datos de un usuario."];
+  Node3 -> Node2 [id="edge2_Node000002_Node000003",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" posts",fontcolor="grey" ];
+  Node3 [id="Node000003",label="_postNode",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$da/d98/struct__postNode.html",tooltip="Estructura que define un post (publicación)"];
+  Node3 -> Node3 [id="edge3_Node000003_Node000003",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" next",fontcolor="grey" ];
+  Node1 -> Node2 [id="edge4_Node000002_Node000001",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" followers\nfollowing",fontcolor="grey" ];
+  Node2 -> Node2 [id="edge5_Node000002_Node000002",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" next",fontcolor="grey" ];
+  Node4 -> Node2 [id="edge6_Node000002_Node000004",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" interests",fontcolor="grey" ];
+  Node4 [id="Node000004",label="_interest",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d8/d57/struct__interest.html",tooltip="Estructura que almacena un interes."];
+  Node1 -> Node1 [id="edge7_Node000001_Node000001",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" next",fontcolor="grey" ];
+}

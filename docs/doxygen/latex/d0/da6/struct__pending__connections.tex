@@ -1,0 +1,77 @@
+\doxysection{\+\_\+pending\+\_\+connections Struct Reference}
+\hypertarget{struct__pending__connections}{}\label{struct__pending__connections}\index{\_pending\_connections@{\_pending\_connections}}
+
+
+Lista auxiliar para guardar las conexiones pendientes de un usuario en la carga de la base de datos.  
+
+
+
+
+{\ttfamily \#include $<$database.\+h$>$}
+
+
+
+Collaboration diagram for \+\_\+pending\+\_\+connections\+:
+% FIG 0
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__pending__connections_afd47bd5b1f1d13ee081f69515fe47689}{username}}
+\item 
+char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__pending__connections_a3087378d61c85157b721f82135f056ec}{followers}}
+\item 
+int \mbox{\hyperlink{struct__pending__connections_abcf982d8be1a024573b3c397696b9766}{num\+Followers}}
+\item 
+char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__pending__connections_a32ca8a4799bcb3e4bb4bc7cb21cc75ff}{following}}
+\item 
+int \mbox{\hyperlink{struct__pending__connections_ac20463850ff421c25141c444ddf5de0f}{num\+Following}}
+\item 
+struct \mbox{\hyperlink{struct__pending__connections}{\+\_\+pending\+\_\+connections}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__pending__connections_abce451f6500fe70e9d06c1c85b729cfc}{next}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Lista auxiliar para guardar las conexiones pendientes de un usuario en la carga de la base de datos. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct__pending__connections_a3087378d61c85157b721f82135f056ec}\label{struct__pending__connections_a3087378d61c85157b721f82135f056ec} 
+\index{\_pending\_connections@{\_pending\_connections}!followers@{followers}}
+\index{followers@{followers}!\_pending\_connections@{\_pending\_connections}}
+\doxysubsubsection{\texorpdfstring{followers}{followers}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \+\_\+pending\+\_\+connections\+::followers}
+
+Nombres de los usuarios que lo siguen \Hypertarget{struct__pending__connections_a32ca8a4799bcb3e4bb4bc7cb21cc75ff}\label{struct__pending__connections_a32ca8a4799bcb3e4bb4bc7cb21cc75ff} 
+\index{\_pending\_connections@{\_pending\_connections}!following@{following}}
+\index{following@{following}!\_pending\_connections@{\_pending\_connections}}
+\doxysubsubsection{\texorpdfstring{following}{following}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \+\_\+pending\+\_\+connections\+::following}
+
+Nombres de los usuarios que sigue \Hypertarget{struct__pending__connections_abce451f6500fe70e9d06c1c85b729cfc}\label{struct__pending__connections_abce451f6500fe70e9d06c1c85b729cfc} 
+\index{\_pending\_connections@{\_pending\_connections}!next@{next}}
+\index{next@{next}!\_pending\_connections@{\_pending\_connections}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct__pending__connections}{\+\_\+pending\+\_\+connections}}\texorpdfstring{$\ast$}{*} \+\_\+pending\+\_\+connections\+::next}
+
+Siguiente en la lista \Hypertarget{struct__pending__connections_abcf982d8be1a024573b3c397696b9766}\label{struct__pending__connections_abcf982d8be1a024573b3c397696b9766} 
+\index{\_pending\_connections@{\_pending\_connections}!numFollowers@{numFollowers}}
+\index{numFollowers@{numFollowers}!\_pending\_connections@{\_pending\_connections}}
+\doxysubsubsection{\texorpdfstring{numFollowers}{numFollowers}}
+{\footnotesize\ttfamily int \+\_\+pending\+\_\+connections\+::num\+Followers}
+
+Numero de seguidores \Hypertarget{struct__pending__connections_ac20463850ff421c25141c444ddf5de0f}\label{struct__pending__connections_ac20463850ff421c25141c444ddf5de0f} 
+\index{\_pending\_connections@{\_pending\_connections}!numFollowing@{numFollowing}}
+\index{numFollowing@{numFollowing}!\_pending\_connections@{\_pending\_connections}}
+\doxysubsubsection{\texorpdfstring{numFollowing}{numFollowing}}
+{\footnotesize\ttfamily int \+\_\+pending\+\_\+connections\+::num\+Following}
+
+Número de seguidos \Hypertarget{struct__pending__connections_afd47bd5b1f1d13ee081f69515fe47689}\label{struct__pending__connections_afd47bd5b1f1d13ee081f69515fe47689} 
+\index{\_pending\_connections@{\_pending\_connections}!username@{username}}
+\index{username@{username}!\_pending\_connections@{\_pending\_connections}}
+\doxysubsubsection{\texorpdfstring{username}{username}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} \+\_\+pending\+\_\+connections\+::username}
+
+Nombre de usuario 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+incs/\mbox{\hyperlink{database_8h}{database.\+h}}\end{DoxyCompactItemize}

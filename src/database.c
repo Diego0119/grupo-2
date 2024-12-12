@@ -1,5 +1,5 @@
 /**
- * @file database.h
+ * @file database.c
  * @brief Funciones para la gestión y guardado de la base de datos
  * @authors
  * - Iván Mansilla
@@ -15,7 +15,7 @@
 /**
  * @brief Crea el directorio database si no existe.
  */
-void create_database_dir(void) {
+void create_database_dir(void){
     struct stat st = {0};
     if (stat("database", &st) == -1) {
         if (mkdir("database", 0777) == -1) {
@@ -175,6 +175,11 @@ int database_exists_and_not_empty(void) {
     return has_files;
 }
 
+/**
+ * @brief Elimina espacios en blanco al inicio y al final de una cadena
+ * 
+ * @param str 
+ */
 static void trim(char *str) {
     char *end;
     while(*str==' ' || *str=='\t' || *str=='\n') str++;
@@ -185,7 +190,15 @@ static void trim(char *str) {
     *(end+1) = '\0';
 }
 
-
+/**
+ * @brief Carga un usuario desde un archivo
+ * 
+ * @param filename Nombre del archivo
+ * @param table Tabla hash de usuarios
+ * @param graph Grafo de usuarios
+ * @param globalInterests Tabla de intereses globales
+ * @return PendingConnections* 
+ */
 static PendingConnections* load_user_from_file(const char *filename, PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
     FILE *fp = fopen(filename,"r");
     if (!fp) {
@@ -515,6 +528,13 @@ void logout(void) {
     remove("current.dat");
 }
 
+/**
+ * @brief Registra un usuario nuevo en la red social
+ * 
+ * @param table Tabla hash de usuarios
+ * @param graph Grafo de usuarios
+ * @param globalInterests Tabla de intereses globales
+ */
 void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
     // leer usuario y contraseña
     char *username=malloc(sizeof(char)*256);
@@ -569,6 +589,12 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
     printf("Usuario registrado correctamente! Ahora puedes iniciar sesión y conectarte con otros usuarios.\n");
 }
 
+/**
+ * @brief Permite a un usuario publicar un post, guardandolo en la base de datos
+ * 
+ * @param user Sesión iniciada
+ * @param globalInterests Tabla de intereses globales
+ */
 void write_post(User user, GlobalInterests globalInterests) {
     printf("Publicando como '%s'. Escriba el contenido de la publicación:\n\n", user->username);
     char *content=malloc(sizeof(char)*1028);
@@ -584,6 +610,14 @@ void write_post(User user, GlobalInterests globalInterests) {
     printf("\nPublicación publicada correctamente.\n");
 }
 
+/**
+ * @brief Permite a un usuario seguir a otro, y guarda dicha información en la base de datos
+ * 
+ * @param user Sesión iniciada
+ * @param follow Nombre de usuario de la persona a seguir
+ * @param globalInterests Tabla de intereses globales
+ * @param table Tabla hash de usuarios
+ */
 void follow(User user, char* follow, GlobalInterests globalInterests, PtrToHashTable table) {
     User to_follow = search_user(follow, table);
         if(!to_follow){
@@ -595,6 +629,14 @@ void follow(User user, char* follow, GlobalInterests globalInterests, PtrToHashT
         printf("Se ha seguido a '%s'.\n", to_follow->username);
 }
 
+/**
+ * @brief Permite a un usuario dejar de seguir a otro, y guarda dicha información en la base de datos
+ * 
+ * @param user Sesión iniciada
+ * @param follow Nombre de usuario de la persona a seguir
+ * @param globalInterests Tabla de intereses globales
+ * @param table Tabla hash de usuarios
+ */
 void unfollow(User user, char* follow, GlobalInterests globalInterests, PtrToHashTable table) {
     User to_unfollow = search_user(follow, table);
         if(!to_unfollow){
@@ -606,6 +648,11 @@ void unfollow(User user, char* follow, GlobalInterests globalInterests, PtrToHas
         printf("Se ha dejado de seguir a '%s'.\n", to_unfollow->username);
 }
 
+/**
+ * @brief Elimina el usuario de la sesión actual de la base de datos
+ * 
+ * @param user Sesión iniciada
+ */
 void delete_account(User user) {
     DIR *dir = opendir("database");
     if (!dir) {

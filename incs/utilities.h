@@ -20,6 +20,7 @@
 
 #define MAX_CHAR 256
 
+/* Defines para impresión */
 #define COLOR_BLACK "\033[0;30m"
 #define COLOR_RED "\033[0;31m"
 #define COLOR_GREEN "\033[0;32m"
@@ -34,9 +35,7 @@
 
 
 unsigned int jenkins_hash(char* key);
-
 int get_option(int argc, char *argv[]);
-
 int line_number_in_file(char *file);
 
 #endif

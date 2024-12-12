@@ -15,10 +15,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
 #include "utilities.h"
 
-/* Tamaño predeterminado de la tabla hash */
 #define HASH_TABLE_SIZE 100
 
 typedef struct _hashnode Hashnode;
@@ -26,7 +24,7 @@ typedef struct _hashtable HashTable;
 typedef HashTable* PtrToHashTable;
 
 /**
- * @struct hashnode
+ * @struct _hashnode
  * @brief Nodo individual en la tabla hash
  * @note Almacena un par clave-valor
  */

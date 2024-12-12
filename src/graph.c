@@ -375,10 +375,15 @@ void BFS(Graph graph, User startUser)
         return;
     }
 
-    // Crear una cola para BFS
-    User queue[MAX_USERS];
+    int MAX_USERS = graph->usersNumber;
+
+    User *queue=malloc(sizeof(User)*MAX_USERS);
+    int *visited=malloc(sizeof(int)*MAX_USERS);
+    for(int i=0;i<MAX_USERS;i++){
+        queue[i]=NULL;
+        visited[i]=0;
+    }
     int front = 0, rear = 0;
-    int visited[MAX_USERS] = {0};
 
     int startIndex = dijkstra_table_index(graph, startUser);
     if (startIndex == -1)
@@ -406,6 +411,8 @@ void BFS(Graph graph, User startUser)
             edge = edge->next;
         }
     }
+    free(visited);
+    free(queue);
 }
 
 void DFS(Graph graph, User startUser)
@@ -415,10 +422,15 @@ void DFS(Graph graph, User startUser)
         printf("Error: Grafo o usuario inicial inválido.\n");
         return;
     }
+    int MAX_USERS = graph->usersNumber;
+    User *stack=malloc(sizeof(User)*MAX_USERS);
+    int *visited=malloc(sizeof(int)*MAX_USERS);
+    for(int i=0;i<MAX_USERS;i++){
+        stack[i]=NULL;
+        visited[i]=0;
+    }
 
-    User stack[MAX_USERS];
     int top = -1;
-    int visited[MAX_USERS] = {0};
 
     int startIndex = dijkstra_table_index(graph, startUser);
     if (startIndex == -1)
@@ -446,4 +458,6 @@ void DFS(Graph graph, User startUser)
             edge = edge->next;
         }
     }
+    free(visited);
+    free(stack);
 }
