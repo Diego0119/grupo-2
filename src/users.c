@@ -520,7 +520,7 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
     int numUsernames = sizeof(usernames) / sizeof(usernames[0]);
     int numPasswords = sizeof(passwords) / sizeof(passwords[0]);
 
-    srand(time(NULL));
+    srand(time(0)^clock());
 
     for (int i = 0; i < quantity; i++)
     {
@@ -529,15 +529,18 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
         int passwordIndex = rand() % numPasswords;
 
         char *name = strdup(names[nameIndex]);
-        char *username = strdup(usernames[usernameIndex]);
+        //char *username = strdup(usernames[usernameIndex]);
+        char username[50];
+        int num = rand() % 1000;
+        snprintf(username, sizeof(username), "%s%d", usernames[usernameIndex], num);
         char *password = strdup(passwords[passwordIndex]);
 
         if (search_in_hash_table(table, username))
         {
-            printf("Advertencia: El nombre de usuario '%s' ya existe. Saltando...\n", username);
+            printf("Advertencia: El nombre de usuario '%s' ya existe. Generando otro usuario...\n", username);
             free(name);
-            free(username);
             free(password);
+            i--;
             continue;
         }
 
@@ -546,7 +549,6 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
         {
             printf("Error al crear el usuario '%s'.\n", username);
             free(name);
-            free(username);
             free(password);
             continue;
         }
@@ -555,10 +557,9 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
             add_interest(newUser, globalInterests, rand()% globalInterests.numInterests);
         }
 
-        printf("Usuario creado: %s (%s)\n", name, username);
+        printf("%d. Usuario creado: %s (%s)\n", i, name, username);
 
         free(name);
-        free(username);
         free(password);
     }
 }
