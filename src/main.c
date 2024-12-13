@@ -38,7 +38,7 @@ int main(int argc, char *argv[]){
     int option=get_option(argc, argv);
     
     // si no se llama a ayuda o hay error, se inician las estructuras de datos
-    if(option > 0 && option != 2){
+    if(option > 0 && option != 2 && option != 12){
         table = create_hash_table();
         graph = initialize_graph();
         globalInterestsTable = init_global_interests();
@@ -51,6 +51,7 @@ int main(int argc, char *argv[]){
                 int quantity;
                 if(sscanf(argv[2], "%d", &quantity)!=1){
                     printf("ERROR: No se pudo leer la cantidad de usuarios a generar\n");
+                    free_hash_table(table);
                     free_graph(graph);
                     free_global_interests(globalInterestsTable);
                     exit(EXIT_FAILURE);
@@ -58,9 +59,11 @@ int main(int argc, char *argv[]){
                 generate_users(quantity, table, graph, globalInterestsTable);
                 generate_random_connections(graph, globalInterestsTable);
                 save_all_users(graph, globalInterestsTable);
+                free_all_users(table, graph, globalInterestsTable);
             }
             else{
                 printf("No se ha encontrado una base de datos. Ejecute './devgraph -g <cantidad de usuarios>' para generar una.\n");
+                free_hash_table(table);
                 free_graph(graph);
                 free_global_interests(globalInterestsTable);
                 exit(EXIT_FAILURE);
@@ -159,6 +162,7 @@ int main(int argc, char *argv[]){
         free_all_users(table, graph, globalInterestsTable);
         free_graph(graph);
         free_global_interests(globalInterestsTable);
+        free_hash_table(table);
     }
 
     return 0;

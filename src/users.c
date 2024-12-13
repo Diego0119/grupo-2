@@ -137,8 +137,7 @@ void delete_user(User user, PtrToHashTable table, Graph graph, GlobalInterests g
     free(user->username);
     free(user->password);
     free(user->name);
-    free(user->following);
-    free(user->followers);
+    free_all_edges(user);
     free_user_interests(user->interests);
     if (user->category) free(user->category);
     free(user);
@@ -386,6 +385,7 @@ void free_global_interests(GlobalInterests globalInterestTable)
     {
         free(globalInterestTable.interestsTable[i]);
     }
+    free(globalInterestTable.interestsTable);
 }
 
 /**

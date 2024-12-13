@@ -31,52 +31,6 @@ void create_database_dir(void){
  * @param user Usuario a guardar
  * @param globalInterests Tabla de intereses globales
  */
-/*void save_user_data(User user, GlobalInterests globalInterests) {
-    struct stat st = {0};
-
-    // crear carpeta para el usuario, si no existe
-    char filename[512];
-    snprintf(filename, sizeof(filename), "database/%s_data", user->username);
-    if (stat(filename, &st) == -1) {
-        if (mkdir(filename, 0777) == -1) {
-            printf("Error al crear directorio para el usuario '%s'\n", user->username);
-            exit(EXIT_FAILURE);
-        }
-    }
-    
-    // crear o escribir los archivos de datos
-    /* data 
-    FILE *fp;
-    snprintf(filename, sizeof(filename), "database/%s_data/data.dat", user->username);
-    fp = fopen(filename,"w");
-    fprintf(fp, "ID: %d\n", user->id);
-    fprintf(fp, "Username: %s\n", user->username);
-    fprintf(fp, "Password: %s\n", user->password);
-    fprintf(fp, "Name: %s\n", user->name);
-    fprintf(fp, "Popularity: %d\n", user->popularity);
-    float f = calculate_friendliness(user);
-    const char *cat = classify_friendliness(f);
-    fprintf(fp, "Friendliness: %.2f\n", f);
-    fprintf(fp, "Category: %s\n", cat);
-    fprintf(fp, "Interests:\n");
-    for (int i = 0; i < globalInterests.numInterests; i++) {
-        fprintf(fp, "  %s: %d\n", user->interests[i].name, user->interests[i].value);
-    }
-    fclose(fp);
-
-    /*seguidores
-    snprintf(filename, sizeof(filename), "database/%s_data/followers.dat", user->username);
-    fp = fopen(filename,"w");
-    Edge e = user->followers->next;
-    while(e){
-        fprintf(fp, "  %s\n", e->dest->username);
-        e = e->next;
-    }
-
-
-}*/
-
-
 void save_user_data(User user, GlobalInterests globalInterests) {
     if (!user) return;
 
