@@ -22,7 +22,7 @@ Para ejecutar el programa, siga los siguientes pasos:
 2. Generar las carpetas necesarias con el comando `make folders`
 3. Compilar el programa con el comando `make`
 4. Ejecutar el programa con `make run` o entrando a la carpeta `build` y ejecutando el archivo `devgraph.out`
-> ⚠️ Asegurese que el archvivo `subtopics` se encuentre en el mismo directorio del que va a ejecutarse el programa
+> ⚠️ Asegurese que el archivo `subtopics` se encuentre en el mismo directorio del que va a ejecutarse el programa
 
 ## Comandos disponibles
 | Comando | Descripción |
