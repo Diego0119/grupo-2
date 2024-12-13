@@ -103,25 +103,25 @@
 \newpage
 \section{Introducción}
 
-\rhostart{U}na red social, es una aplicación que nos permite conectarnos con otros usuarios de la misma red social y compartir información a través de publicaciones, teniendo en cuenta nuestros gustos o intereses y la comunidad que deseamos formar, además de poder forjar amistades y visualizar publicaciones de otros usuarios con los que concretamos una amistad o publicaciones en base a nuestros intereses.
+\rhostart{U}na red social es una aplicación diseñada para conectar a las personas y permitirles compartir información a través de publicaciones. Estas plataformas toman en cuenta los intereses y preferencias de los usuarios, ayudándoles a formar comunidades, establecer amistades y ver contenido relevante basado en sus gustos o conexiones.
 
-Esta red social que simularemos como programa en este informe esta enfocado en la creación del usuario, conexión de usuarios, visualización y creación de publicaciones y a su vez compartirla. Además de la implementación de algoritmos para simular la sugerencia de usuarios (o nuevas amistades) y de publicaciones.
+DevGraph es una simulación de una red social que se enfoca en la creación de usuarios, la conexión entre ellos, la visualización y creación de publicaciones, y la posibilidad de compartirlas. Además, incluye algoritmos que simulan sugerencias de nuevos amigos y publicaciones relevantes para los usuarios.
 
-Para este programa en C haremos uso de algoritmos y estructuras de datos para simular este programa como:
+Para su implementación en C, se utilizaron algoritmos y estructuras de datos para simular DevGraph como:
 
 \begin{itemize}
 
 \item \textbf{Estructuras de datos:}
 \begin{itemize}
-\item Grafos: Que representará las conexiones entre usuarios, donde cada usuario corresponde a un vértice, cada amistad una arista en un grafo no dirigido.
-\item Tablas Hash: Que almacenará perfiles de usuarios y publicaciones para un acceso más veloz.
-\item Colas de prioridad (Heap): Que será utilizada para recrear recomendaciones de amistades y publicaciones en base a nuestros intereses o amigos.
-\item Listas enlazadas: Para manejar publicaciones como listas enlazadas de nodos.
+\item \textbf{Grafos:} En representación de las conexiones entre usuarios, donde cada persona corresponde a un vértice y cada conexión una arista en un grafo dirigido.
+\item \textbf{Tablas Hash:} Para una busqueda eficiente de datos en la red social.
+\item \textbf{Colas de prioridad (Heap):} Para crearon recomendaciones de usuarios y publicaciones en base a nuestros intereses o amigos.
+\item \textbf{Listas enlazadas:} Para manejar publicaciones como listas enlazadas de nodos.
 \end{itemize}
 \item \textbf{Algoritmos:}
 \begin{itemize}
-\item Caminos cortos (Dijkstra): Para calcular la distancia de un nodo a otro en un grafo y de ésta manera encontrar usuarios cercanos en la red.
-\item Similaridad de Jaccard: la cual mide el peso del enlace en base a los intereses comunes entre dos usuarios.
+\item \textbf{Algoritmo de caminos cortos (Dijkstra):} Para calcular la distancia de un nodo a otro en un grafo y de ésta manera encontrar usuarios cercanos en la red.
+\item \textbf{Similaridad de Jaccard:} la cual mide el peso del enlace en base a los intereses comunes entre dos usuarios.
 \end{itemize}
 \item \textbf{Funcionalidades adicionales:}
 \begin{itemize}
@@ -131,9 +131,6 @@ Para este programa en C haremos uso de algoritmos y estructuras de datos para si
 \end{itemize}
 \end{itemize}
 
-Con todo ésto definido, estamos listos para simular una red social en C, la cual permite la creación y conexión de usuarios, visualización y creación de publicaciones en base a nuestras amistades o intereses, y a su vez compartirla, y además la sugerencia de nuevas amistades y publicaciones.
-
-\newpage
 \section{Objetivo Principal}
 
     \rhostart{E}l objetivo principal del proyecto es crear una simulación de una red social eficiente y rápida, combinando armónicamente los distintos tipos de estructuras de datos vistos durante el curso de Estructuras de Datos (grafos, listas, hash tables, colas de prioridad, etc.).
