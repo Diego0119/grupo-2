@@ -102,11 +102,42 @@
 
 \section{Introducción}
 
-    \rhostart{P}OR HACER
 
 \section{Objetivo Principal}
 
-    \rhostart{P}OR HACER
+El objetivo principal de este proyecto fue consolidar y aplicar los conocimientos adquiridos sobre estructuras de datos mediante el desarrollo de un sistema práctico que simula el funcionamiento de una red social. A lo largo del proyecto, buscamos implementar y combinar diversas estructuras de datos, como grafos, tablas hash, listas enlazadas y colas de prioridad, en un contexto que nos permitiera comprender cómo se utilizan en sistemas como las redes sociales.
+
+A través de este proyecto, nos enfocamos en diseñar e integrar algoritmos para optimizar la funcionalidad del sistema, con el fin de que el sistema fuera eficiente. Las funcionalidades clave que implementamos incluyen:
+
+\begin{itemize}
+    \item Crear un perfil de usuario.
+    \item Establecer conexiones entre usuarios, representando las amistades en la red.
+    \item Publicar y visualizar publicaciones propias y de amigos.
+    \item Explorar y recomendar usuarios basándonos en afinidades o popularidad.
+    \item Realizar búsquedas eficientes de usuarios.
+\end{itemize}
+
+Para lograr estos objetivos, hicimos uso de diversas estructuras de datos y algoritmos. Entre ellos:
+
+\begin{itemize}
+    \item \textbf{Grafos}: Utilizamos grafos para representar las conexiones entre los usuarios, donde cada usuario se considera un vértice y cada amistad se representa como una arista en un grafo no dirigido.
+    \item \textbf{Tries o Árboles}: Implementamos tries para realizar búsquedas rápidas de nombres de usuario.
+    \item \textbf{Tablas Hash}: Usamos tablas hash para almacenar perfiles y publicaciones, lo que permitió un acceso rápido a la información.
+    \item \textbf{Colas de prioridad (Heaps)}: Utilizamos colas de prioridad para generar recomendaciones de usuarios y publicaciones basadas en afinidades o popularidad.
+    \item \textbf{Listas enlazadas}: Gestionamos las publicaciones como listas enlazadas de nodos para manejar de manera eficiente las publicaciones de los usuarios.
+\end{itemize}
+
+Además, implementamos varios algoritmos fundamentales, tales como:
+
+\begin{itemize}
+    \item Búsqueda en grafos (BFS/DFS): Para sugerir nuevos amigos entre los amigos de los amigos.
+    \item Caminos cortos (Dijkstra/BFS): Para encontrar usuarios cercanos en la red.
+    \item Similaridad: Calculamos afinidades entre usuarios utilizando métodos como la Similaridad de Jaccard.
+    \item Ordenación: Organizamos las publicaciones y recomendaciones de usuarios de manera eficiente.
+\end{itemize}
+
+A lo largo de este proyecto, consolidamos nuestros conocimientos en estructuras de datos, también aprendimos a integrarlos. Esto nos permitió desarrollar una red social, en la que los usuarios pueden interactuar, crear conexiones, publicar y recibir recomendaciones, todo optimizado mediante las estructuras y algoritmos sugeridos.
+
 
 \section{Plantemiento del desarrollo del proyecto}
 
@@ -305,9 +336,15 @@
 
 \section{Conclusiones}
 
-    \rhostart{P}OR HACER
+    En este proyecto, logramos implementar con éxito una red social simulada que cumple con todas las funcionalidades necesarias. Pudimos crear y conectar usuarios, gestionar publicaciones y compartirlas de acuerdo con los intereses y amistades dentro de la red. Además, implementamos funcionalidades avanzadas, como la recomendación de nuevos usuarios y publicaciones, lo cual añadio un extra a la experiencia de la red social simulada.
 
-    
+    Uno de los aspectos destacables de este proyecto fue la integración del perfil psicológico como una funcionalidad extra. También aprendimos y utilizamos diversas estructuras de datos y algoritmos que resultaron fundamentales para el buen funcionamiento del programa.
+
+    En cuanto a las estructuras de datos, utilizamos grafos para representar las conexiones entre usuarios, lo que nos permitió simular las relaciones de amistad. Los algoritmos de BFS y DFS fueron implementados para explorar las conexiones entre usuarios y gestionar las rutas en la red social de manera eficiente.
+
+    Este proyecto fue una excelente oportunidad para poner en práctica nuestros conocimientos sobre estructuras de datos y algoritmos, nos permitió profundizar en temas como tablas hash, colas de prioridad, listas enlazadas y la similitud de Jaccard. Todo el proceso nos permitió aprender de manera práctica y aplicar conceptos de la teoría de estructuras, lo que fortaleció nuestras habilidades en programación.
+
+    En resumen, el desarrollo de esta red social fue exitoso, cumplimos con todos los objetivos planteados y adquirimos nuevos conocimientos valiosos.
 
 \section{Rho packages}
 
