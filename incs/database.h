@@ -65,20 +65,13 @@ void clear_database(void);
 void confirm_and_cleanup(void);
 int database_exists_and_not_empty(void);
 void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 PendingConnections* load_user_from_file(const char *filename, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
 
-=======
 User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
 void load_database(PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
 void load_connections(PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
->>>>>>> origin/main
-=======
-User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
-void load_database(PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
-void load_connections(PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
->>>>>>> origin/main
+
 
 /* FUNCIONES DE SESION ACTUAL */
 void login(PtrToHashTable graph);
