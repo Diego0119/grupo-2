@@ -91,6 +91,7 @@ UserPosts create_empty_userPosts(void)
  */
 PtrToPostNode insert_post(UserPosts posts, char *content)
 {
+    
     PtrToPostNode newPost = (PtrToPostNode)malloc(sizeof(PostNode));
     if (!newPost)
     {
@@ -101,7 +102,6 @@ PtrToPostNode insert_post(UserPosts posts, char *content)
     newPost->id = jenkins_hash(content);
     newPost->date = *localtime(&t);
     newPost->post = strdup(content);
-
     newPost->next = posts->next;
     posts->next = newPost;
     posts->id++;
@@ -162,6 +162,7 @@ void print_userPosts(UserPosts posts)
         printf("   ID: %d\n", aux->id);
         printf("   Fecha: %s", asctime(&aux->date));
         printf("   %s\n", aux->post);
+        printf("-----------------------------------------------------------------------------\n");
         aux = aux->next;
     }
 }

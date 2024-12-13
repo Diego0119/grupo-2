@@ -35,6 +35,7 @@ int main(int argc, char *argv[]){
     GlobalInterests globalInterestsTable;
     User currentUser;
     heap feed;
+
     // obtener parámetros ingresados por el terminal
     int option=get_option(argc, argv);
     
@@ -45,7 +46,7 @@ int main(int argc, char *argv[]){
         globalInterestsTable = init_global_interests();
         // cargar base de datos si es que existe
         if (database_exists_and_not_empty() && option != 3) {
-            load_all_users(table, graph, globalInterestsTable);
+            load_database(table, graph, globalInterestsTable);
         }
         else {
             if(option==3){
@@ -147,6 +148,7 @@ int main(int argc, char *argv[]){
         print_logo();
         search_posts(&feed, table);
         watch_posts(&feed);
+        free_heap(&feed);
         break;
     
     case 15: /* MOSTRAR USUARIOS RECOMENDADOS*/
