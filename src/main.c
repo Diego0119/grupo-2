@@ -127,6 +127,7 @@ int main(int argc, char *argv[]){
         break;
 
     case 12: /* BORRAR BASE DE DATOS */
+        remove("current.dat");
         clear_database();
         break;
     

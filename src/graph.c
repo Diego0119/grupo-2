@@ -59,12 +59,12 @@ Edge search_user_in_edge(Edge edge, User user)
  * @param user Usuario a buscar la adyacencia anterior
  * @return Edge Adyacencia anterior encontrada o NULL si no se encuentra
  */
-Edge search_previous_in_edge(Edge edge, User user)
-{
-    if (!edge || !user)
-    {
+Edge search_previous_in_edge(Edge edge, User user){
+    
+    if (!edge || !user){
         return NULL;
     }
+
     Edge aux = edge;
     while (aux->next)
     {
@@ -163,11 +163,11 @@ void add_edge(User user1, User user2, GlobalInterests globalInterests)
     if (user1 == user2)
     {
         printf("Un usuario no puede ser amigo de si mismo\n");
-        return;
+        exit(EXIT_FAILURE);
     }
-
+    
     double weight=edge_jaccard(user1, user2, globalInterests);
-
+    
     Edge newEdgeUser1 = (Edge)malloc(sizeof(struct _edge));
     newEdgeUser1->dest = user2;
     newEdgeUser1->weight = weight;
@@ -201,18 +201,16 @@ void add_edge(User user1, User user2, GlobalInterests globalInterests)
  * @note Para usuario 1 elimina a usuario 1 de su lista de seguidos, y para usuario 2 se elimina usuario de su lista de seguidores
  */
 void remove_edge(User user1, User user2)
-{
-
+{   
     Edge aux1 = search_previous_in_edge(user1->following, user2);
     Edge aux2 = search_previous_in_edge(user2->followers, user1);
-    if (!aux1 || !aux2)
-    {
+    if (!aux1 || !aux2){
         return;
     }
 
     Edge toRemove1 = aux1->next;
     Edge toRemove2 = aux2->next;
-
+    
     if (toRemove1)
     {
         aux1->next = toRemove1->next;

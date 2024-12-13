@@ -42,17 +42,18 @@ void save_user_data(User user, GlobalInterests globalInterests) {
         printf("No se pudo crear el archivo para el usuario %s\n", user->username);
         return;
     }
-
+    
     fprintf(fp, "ID: %d\n", user->id);
     fprintf(fp, "Username: %s\n", user->username);
     fprintf(fp, "Password: %s\n", user->password);
     fprintf(fp, "Name: %s\n", user->name);
     fprintf(fp, "Popularity: %d\n", user->popularity);
-
+    
     // Calcular y guardar amigabilidad y categoría
     float f = calculate_friendliness(user);
     const char *cat = classify_friendliness(f);
     fprintf(fp, "Friendliness: %.2f\n", f);
+   
     fprintf(fp, "Category: %s\n", cat);
 
     fprintf(fp, "Interests:\n");
@@ -71,7 +72,7 @@ void save_user_data(User user, GlobalInterests globalInterests) {
         fprintf(fp, "  ------------------------\n");
         aux = aux->next;
     }
-
+    
     fprintf(fp, "Followers:\n");
     Edge e = user->followers->next;
     while (e) {
@@ -85,7 +86,7 @@ void save_user_data(User user, GlobalInterests globalInterests) {
         fprintf(fp, "  %s\n", e->dest->username);
         e = e->next;
     }
-
+    
     fclose(fp);
 }
 
