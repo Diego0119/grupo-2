@@ -86,7 +86,7 @@ struct _postNode{
  * @brief Estructura que almacena un interes
  */
 struct _interest{
-    char **name; /*!< Nombre del interes*/
+    char *name; /*!< Nombre del interes*/
     int globalId; /*!< Index en la tabla de intereses globales */
     int value; /*!< Valor del interes (0 si no la tiene, 1 si la tiene) */
 };
