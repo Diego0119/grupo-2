@@ -195,7 +195,7 @@ typedef enum {
  * 
  * Se añade debug extra para entender el flujo de lectura, especialmente de las publicaciones.
  */
-static PendingConnections* load_user_from_file(const char *filename, PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
+PendingConnections* load_user_from_file(const char *filename, PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
     FILE *fp = fopen(filename,"r");
     if (!fp) {
         return NULL;
@@ -227,130 +227,133 @@ static PendingConnections* load_user_from_file(const char *filename, PtrToHashTa
     struct tm post_date; 
     memset(&post_date, 0, sizeof(post_date));
 
-    while (fgets(line, sizeof(line), fp)) {
-        trim(line);
-        if (strlen(line) == 0) continue;
+ while (fgets(line, sizeof(line), fp)) {
+    trim(line);
+    if (strlen(line) == 0) continue;
 
-        if (strncmp(line,"ID:",3)==0) {
-            sscanf(line,"ID: %d",&id);
-        } else if (strncmp(line,"Username:",9)==0) {
-            char *ptr = line+9; while (*ptr==' ') ptr++;
-            strncpy(username, ptr, 255); username[255]='\0';
-            trim(username);
-        } else if (strncmp(line,"Password:",9)==0) {
-            char *ptr = line+9; while (*ptr==' ') ptr++;
-            strncpy(password, ptr, 255); password[255]='\0';
-            trim(password);
-        } else if (strncmp(line,"Name:",5)==0) {
-            char *ptr = line+5; while (*ptr==' ') ptr++;
-            strncpy(name, ptr, 255); name[255]='\0';
-            trim(name);
-        } else if (strncmp(line,"Popularity:",11)==0) {
-            sscanf(line,"Popularity: %d",&popularity);
-        } else if (strncmp(line,"Friendliness:",13)==0) {
-            sscanf(line,"Friendliness: %f",&friendliness);
-        } else if (strncmp(line,"Category:",9)==0) {
-            char *ptr = line+9; while(*ptr==' ') ptr++;
-            strncpy(category_buf, ptr, 255); category_buf[255]='\0';
-            trim(category_buf);
-        } else if (strncmp(line,"Interests:",10)==0) {
-            state = READ_INTERESTS;
-        } else if (strncmp(line,"Posts:",6)==0) {
-            state = READ_POSTS;
-            post_state = POST_WAIT_ID;
-        } else if (strncmp(line,"Followers:",9)==0) {
-            state = READ_FOLLOWERS;
-        } else if (strncmp(line,"Following:",9)==0) {
-            state = READ_FOLLOWING;
-        } else {
-            if (state == READ_INTERESTS) {
-                char iname[256]; int val;
-                if (sscanf(line,"%255[^:]: %d", iname, &val)==2) {
-                    trim(iname);
-                    for (int i=0; i<globalInterests.numInterests; i++) {
-                        if (strcmp(globalInterests.interestsTable[i], iname)==0) {
-                            tempInterests[i].name = globalInterests.interestsTable[i];
-                            tempInterests[i].value = val;
-                            break;
-                        }
+    if (strncmp(line, "ID:", 3) == 0) {
+        sscanf(line, "ID: %d", &id);
+    } else if (strncmp(line, "Username:", 9) == 0) {
+        char *ptr = line + 9;
+        while (*ptr == ' ') ptr++;
+        // Asegurarse de no exceder el tamaño del buffer
+        snprintf(username, sizeof(username), "%.*s", (int)(sizeof(username) - 1), ptr);
+        trim(username);
+    } else if (strncmp(line, "Password:", 9) == 0) {
+        char *ptr = line + 9;
+        while (*ptr == ' ') ptr++;
+        // Asegurarse de no exceder el tamaño del buffer
+        snprintf(password, sizeof(password), "%.*s", (int)(sizeof(password) - 1), ptr);
+        trim(password);
+    } else if (strncmp(line, "Name:", 5) == 0) {
+        char *ptr = line + 5;
+        while (*ptr == ' ') ptr++;
+        // Asegurarse de no exceder el tamaño del buffer
+        snprintf(name, sizeof(name), "%.*s", (int)(sizeof(name) - 1), ptr);
+        trim(name);
+    } else if (strncmp(line, "Popularity:", 11) == 0) {
+        sscanf(line, "Popularity: %d", &popularity);
+    } else if (strncmp(line, "Friendliness:", 13) == 0) {
+        sscanf(line, "Friendliness: %f", &friendliness);
+    } else if (strncmp(line, "Category:", 9) == 0) {
+        char *ptr = line + 9;
+        while (*ptr == ' ') ptr++;
+        // Asegurarse de no exceder el tamaño del buffer
+        snprintf(category_buf, sizeof(category_buf), "%.*s", (int)(sizeof(category_buf) - 1), ptr);
+        trim(category_buf);
+    } else if (strncmp(line, "Interests:", 10) == 0) {
+        state = READ_INTERESTS;
+    } else if (strncmp(line, "Posts:", 6) == 0) {
+        state = READ_POSTS;
+        post_state = POST_WAIT_ID;
+    } else if (strncmp(line, "Followers:", 9) == 0) {
+        state = READ_FOLLOWERS;
+    } else if (strncmp(line, "Following:", 9) == 0) {
+        state = READ_FOLLOWING;
+    } else {
+        if (state == READ_INTERESTS) {
+            char iname[256]; 
+            int val;
+            if (sscanf(line, "%255[^:]: %d", iname, &val) == 2) {
+                trim(iname);
+                for (int i = 0; i < globalInterests.numInterests; i++) {
+                    if (strcmp(globalInterests.interestsTable[i], iname) == 0) {
+                        tempInterests[i].name = globalInterests.interestsTable[i];
+                        tempInterests[i].value = val;
+                        break;
                     }
                 }
-            } else if (state == READ_POSTS) {
-                // Proceso de posts
-                if (strncmp(line,"PostID:",7)==0) {
-                    if (post_state != POST_WAIT_ID) {
-                        post_state = POST_WAIT_ID;
-                    }
-                    sscanf(line,"PostID: %d",&post_id);
-                    post_state = POST_WAIT_FECHA;
-                } else if (strncmp(line,"Fecha:",6)==0) {
-                    if (post_state != POST_WAIT_FECHA) {
-                        post_state = POST_WAIT_ID;
-                        continue;
-                    }
-                    char date_str[64];
-                    if (sscanf(line,"Fecha: %63[^\n]", date_str)==1) {
-                        int year,mon,day,hour,min,sec;
-                        if (sscanf(date_str,"%d-%d-%d %d:%d:%d",&year,&mon,&day,&hour,&min,&sec)==6) {
-                            post_date.tm_year = year-1900;
-                            post_date.tm_mon = mon-1;
-                            post_date.tm_mday = day;
-                            post_date.tm_hour = hour;
-                            post_date.tm_min = min;
-                            post_date.tm_sec = sec;
-                            post_state = POST_WAIT_CONTENIDO;
-                        } else {
-                            post_state = POST_WAIT_ID;
-                        }
-                    }
-                } else if (strncmp(line,"Contenido:",10)==0) {
-                    if (post_state != POST_WAIT_CONTENIDO) {
-                        post_state = POST_WAIT_ID;
-                        continue;
-                    }
-                    char *cptr = line+10;
-                    while(*cptr==' ') cptr++;
-                    strncpy(post_content, cptr, 511);
-                    post_content[511]='\0';
-                    trim(post_content);
-                    post_state = POST_READY;
-                } else if (strncmp(line,"------------------------",24)==0) {
-                    if (post_state == POST_READY) {
-                        // Insertar el post
-                        PtrToPostNode newP = insert_post(posts, post_content);
-                        if (newP) {
-                            newP->id = post_id;
-                            newP->date = post_date;
-                        } else {
-                        }
-                    }
-                    // Reiniciar estado para el siguiente post
+            }
+        } else if (state == READ_POSTS) {
+            if (strncmp(line, "PostID:", 7) == 0) {
+                if (post_state != POST_WAIT_ID) {
                     post_state = POST_WAIT_ID;
-                    memset(post_content,0,sizeof(post_content));
                 }
-            } else if (state == READ_FOLLOWERS) {
-                // Lectura de seguidores
-                if (strlen(line)>0) {
-                    if (usedFollowers == allocFollowers) {
-                        allocFollowers = allocFollowers==0?4:allocFollowers*2;
-                        followers = realloc(followers, allocFollowers*sizeof(char*));
+                sscanf(line, "PostID: %d", &post_id);
+                post_state = POST_WAIT_FECHA;
+            } else if (strncmp(line, "Fecha:", 6) == 0) {
+                if (post_state != POST_WAIT_FECHA) {
+                    post_state = POST_WAIT_ID;
+                    continue;
+                }
+                char date_str[64];
+                if (sscanf(line, "Fecha: %63[^\n]", date_str) == 1) {
+                    int year, mon, day, hour, min, sec;
+                    if (sscanf(date_str, "%d-%d-%d %d:%d:%d", &year, &mon, &day, &hour, &min, &sec) == 6) {
+                        post_date.tm_year = year - 1900;
+                        post_date.tm_mon = mon - 1;
+                        post_date.tm_mday = day;
+                        post_date.tm_hour = hour;
+                        post_date.tm_min = min;
+                        post_date.tm_sec = sec;
+                        post_state = POST_WAIT_CONTENIDO;
+                    } else {
+                        post_state = POST_WAIT_ID;
                     }
-                    followers[usedFollowers] = strdup(line);
-                    usedFollowers++;
                 }
-            } else if (state == READ_FOLLOWING) {
-                // Lectura de seguidos
-                if (strlen(line)>0) {
-                    if (usedFollowing == allocFollowing) {
-                        allocFollowing = allocFollowing==0?4:allocFollowing*2;
-                        following = realloc(following, allocFollowing*sizeof(char*));
+            } else if (strncmp(line, "Contenido:", 10) == 0) {
+                if (post_state != POST_WAIT_CONTENIDO) {
+                    post_state = POST_WAIT_ID;
+                    continue;
+                }
+                char *cptr = line + 10;
+                while (*cptr == ' ') cptr++;
+                snprintf(post_content, sizeof(post_content), "%.*s", (int)(sizeof(post_content) - 1), cptr);  // Asegurarse de no exceder el tamaño del buffer
+                trim(post_content);
+                post_state = POST_READY;
+            } else if (strncmp(line, "------------------------", 24) == 0) {
+                if (post_state == POST_READY) {
+                    PtrToPostNode newP = insert_post(posts, post_content);
+                    if (newP) {
+                        newP->id = post_id;
+                        newP->date = post_date;
                     }
-                    following[usedFollowing] = strdup(line);
-                    usedFollowing++;
                 }
+                post_state = POST_WAIT_ID;
+                memset(post_content, 0, sizeof(post_content));
+            }
+        } else if (state == READ_FOLLOWERS) {
+            if (strlen(line) > 0) {
+                if (usedFollowers == allocFollowers) {
+                    allocFollowers = allocFollowers == 0 ? 4 : allocFollowers * 2;
+                    followers = realloc(followers, allocFollowers * sizeof(char*));
+                }
+                followers[usedFollowers] = strdup(line);
+                usedFollowers++;
+            }
+        } else if (state == READ_FOLLOWING) {
+            if (strlen(line) > 0) {
+                if (usedFollowing == allocFollowing) {
+                    allocFollowing = allocFollowing == 0 ? 4 : allocFollowing * 2;
+                    following = realloc(following, allocFollowing * sizeof(char*));
+                }
+                following[usedFollowing] = strdup(line);
+                usedFollowing++;
             }
         }
     }
+}
+
 
     fclose(fp);
 
@@ -429,14 +432,14 @@ void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInt
         if (mainUser) {
             for (int i=0; i<current->numFollowers; i++) {
                 User followerUser = search_user(current->followers[i], table);
-                if (followerUser && followerUser!=mainUser) {
+                if (followerUser && followerUser != mainUser) {
                     add_edge(followerUser, mainUser, globalInterests);
                 }
             }
 
             for (int i=0; i<current->numFollowing; i++) {
                 User followingUser = search_user(current->following[i], table);
-                if (followingUser && followingUser!=mainUser) {
+                if (followingUser && followingUser != mainUser) {
                     add_edge(mainUser, followingUser, globalInterests);
                 }
             }
@@ -455,7 +458,6 @@ void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInt
         free(current);
         current = next;
     }
-
 }
 
 /**
@@ -487,7 +489,7 @@ User current_session(PtrToHashTable graph) {
  * @brief Inicia sesión
  */
 void login(PtrToHashTable graph) {
-    FILE *file = fopen("current.dat","w");
+    FILE *file = fopen("current.dat", "w");
     if (!file) {
         printf("ERROR: No se pudo iniciar sesión.\n");
         return;
@@ -495,10 +497,18 @@ void login(PtrToHashTable graph) {
 
     char username[256];
     char password[256];
+    
     printf("Ingrese su nombre de usuario: ");
-    scanf("%255s",username);
+    if (scanf("%255s", username) != 1) {
+        printf("Error al leer el nombre de usuario.\n");
+        return;
+    }
+
     printf("Ingrese su contraseña: ");
-    scanf("%255s",password);
+    if (scanf("%255s", password) != 1) {
+        printf("Error al leer la contraseña.\n");
+        return;
+    }
 
     User user = search_user(username, graph);
     if (!user) {
@@ -513,10 +523,11 @@ void login(PtrToHashTable graph) {
         return;
     }
 
-    fprintf(file,"%s",username);
+    fprintf(file, "%s", username);
     printf("Sesión iniciada correctamente como '%s'.\n", username);
     fclose(file);
 }
+
 
 /**
  * @brief Cierra sesión
@@ -534,30 +545,45 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
     char username[256], password[256], name[256];
 
     printf("Ingrese su nombre de usuario: ");
-    scanf("%255s",username);
+    if (scanf("%255s", username) != 1) {
+        printf("Error al leer el nombre de usuario.\n");
+        return;
+    }
     User user = search_user(username, table);
     while(user) {
         printf("ERROR: '%s' ya existe. Intente otro: ", username);
-        scanf("%255s",username);
+        if (scanf("%255s", username) != 1) {
+            printf("Error al leer el nombre de usuario.\n");
+            return;
+        }
         user = search_user(username, table);
     }
 
     printf("Ingrese su contraseña: ");
-    scanf("%255s",password);
+    if (scanf("%255s", password) != 1) {
+        printf("Error al leer la contraseña.\n");
+        return;
+    }
 
     int c;
-    while ((c = getchar()) != '\n' && c != EOF); // limpiar buffer
+    while ((c = getchar()) != '\n' && c != EOF);
 
     printf("Ingrese su nombre: ");
     if (fgets(name, 256, stdin) != NULL) {
         size_t len = strlen(name);
         if (len > 0 && name[len - 1] == '\n') {
-            name[len - 1] = '\0';
+            name[len - 1] = '\0';  
+        } else {
+            printf("Error al leer el nombre.\n");
+            return;
         }
+    } else {
+        printf("Error al leer el nombre.\n");
+        return;
     }
 
     user = create_new_user(username, password, name, table, graph, globalInterests);
-    if(!user){
+    if (!user) {
         printf("ERROR: No se pudo crear '%s'.\n", username);
         return;
     }
@@ -566,18 +592,21 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
     print_global_interests(globalInterests);
     int option;
     do {
-        scanf("%d",&option);
-        if(option<0 || option>=globalInterests.numInterests){
-            printf("ID no válido.\n");
+        if (scanf("%d", &option) != 1) {
+            printf("Entrada no válida.\n");
+            continue;
         }
-        else if(option>0){
+        if(option < 0 || option >= globalInterests.numInterests) {
+            printf("ID no válido.\n");
+        } else if(option > 0) {
             add_interest(user, globalInterests, option);
         }
-    } while(option>0);
+    } while(option > 0);
 
     save_user_data(user, globalInterests);
     printf("Usuario registrado correctamente.\n");
 }
+
 
 /**
  * @brief Publicar un post

@@ -76,7 +76,7 @@ int get_option(int argc, char *argv[]) {
 		switch(opt){
          // ayuda
 			case 'h':
-            printf("");
+            printf(" ");
 				printf(COLOR_RED COLOR_BOLD"COMANDOS DE DEVGRAPH\n"COLOR_RESET"  -h, --help\t\t\t Muestra esta ayuda\n  -g, --generate <cantidad>\t Genera usuarios aleatorios\n  -c, --clear\t\t\t Borra la base de datos\n  -a, --all\t\t\t Lista todos los usuarios registrados\n\n  -l, --login\t\t\t Inicia sesión\n  -o, --logout\t\t\t Cerrar sesión\n  -r, --register\t\t Registra un nuevo usuario\n  -d, --delete \t\t\t Elimina la cuenta de la sesión actual\n  -e, --edit \t\t\t Permite editar la información de la sesión actual\n\n  -p, --post\t\t\t Publica una publicación\n  -m, --me\t\t\t Muestra el perfil del usuario actual\n  -u, --user <usuario>\t\t Muestra el perfil de un usuario\n  -f, --follow <usuario>\t Sigue a un usuario\n  -n, --unfollow <usuario>\t Deja de seguir a un usuario\n\n  -q, --feed\t\t\t Muestra los posts seleccionados para ti\n  -x, --connect\t\t\t Muestra los usuarios recomendados para ti\n");
 				return 0;
             break;

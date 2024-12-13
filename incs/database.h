@@ -46,7 +46,8 @@ void clear_database(void);
 void confirm_and_cleanup(void);
 int database_exists_and_not_empty(void);
 void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
-static PendingConnections* load_user_from_file(const char *filename, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
+PendingConnections* load_user_from_file(const char *filename, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
+
 
 /* FUNCIONES DE SESION ACTUAL */
 void login(PtrToHashTable graph);

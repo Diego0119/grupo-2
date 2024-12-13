@@ -129,8 +129,9 @@ void delete_userPosts(UserPosts posts)
  *
  * @param user usuario a eliminar
  */
-void delete_user(User user, PtrToHashTable table, Graph graph, GlobalInterests globalInterests)
+void delete_user(User user, PtrToHashTable table, Graph graph, GlobalInterests globalInterests)  
 {
+    (void) globalInterests; 
     delete_from_hash_table(table, user->username);
     remove_user_from_graph(graph, user);
     delete_userPosts(user->posts);
@@ -366,13 +367,22 @@ GlobalInterests init_global_interests(void)
 
     for (int i = 0; i < numInterests; i++)
     {
-        globalInterestTable.interestsTable[i] = (char *)malloc(sizeof(char) * numInterests);
-        fgets(globalInterestTable.interestsTable[i], MAX_CHAR, file_pointer);
-        globalInterestTable.interestsTable[i][strlen(globalInterestTable.interestsTable[i]) - 1] = '\0';
+        globalInterestTable.interestsTable[i] = (char *)malloc(sizeof(char) * MAX_CHAR);
+        if (fgets(globalInterestTable.interestsTable[i], MAX_CHAR, file_pointer) == NULL)
+        {
+            printf("ERROR: No se pudo leer la línea del archivo.\n");
+            exit(EXIT_FAILURE);
+        }
+        
+        size_t len = strlen(globalInterestTable.interestsTable[i]);
+        if (len > 0 && globalInterestTable.interestsTable[i][len - 1] == '\n') {
+            globalInterestTable.interestsTable[i][len - 1] = '\0';
+        }
     }
     fclose(file_pointer);
     return globalInterestTable;
 }
+
 
 /**
  * @brief Libera la lista de intereses globales
@@ -380,12 +390,11 @@ GlobalInterests init_global_interests(void)
  * @param globalInterestTable
  */
 
-void free_global_interests(GlobalInterests globalInterestTable)
-{
-    for (int i = 0; i < globalInterestTable.numInterests; i++)
-    {
-        free(globalInterestTable.interestsTable[i]);
+void free_global_interests(GlobalInterests globalInterestTable) {
+    for (int i = 0; i < globalInterestTable.numInterests; i++) {
+        free(globalInterestTable.interestsTable[i]); 
     }
+    free(globalInterestTable.interestsTable);  
 }
 
 /**
@@ -414,9 +423,8 @@ InterestTable init_user_interests(GlobalInterests globalInterestTable)
  *
  * @param userInterests
  */
-void free_user_interests(InterestTable userInterests)
-{
-    free(userInterests);
+void free_user_interests(InterestTable userInterests) {
+    free(userInterests); 
 }
 
 /**
