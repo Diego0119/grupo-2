@@ -208,27 +208,6 @@ int database_exists_and_not_empty(void) {
 }
 
 /**
- * @brief 
- * 
- * @param str 
- */
-/*static void trim(char *str) {
-    char *start = str;
-    while(*start==' ' || *start=='\t' || *start=='\n') start++;
-    if(*start == 0) {
-        *str = '\0';
-        return;
-    }
-
-    char *end = start + strlen(start) - 1;
-    while(end > start && (*end==' ' || *end=='\t' || *end=='\n'))
-        end--;
-    *(end+1) = '\0';
-
-    if (start != str) memmove(str, start, end - start + 2);
-}
-*/
-/**
  * @brief Carga un usuario desde un archivo y devuelve su PendingConnections.
  * 
  * Se añade debug extra para entender el flujo de lectura, especialmente de las publicaciones.
@@ -250,15 +229,15 @@ User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph
     InterestTable tempInterests = init_user_interests(globalInterests);
     UserPosts posts = create_empty_userPosts();
     
-    fscanf(fp, "%d", &id);
-    fscanf(fp, "%s", username);
-    fscanf(fp, "%s", password);
+    if (fscanf(fp, "%d", &id)==0) exit(EXIT_FAILURE);
+    if (fscanf(fp, "%s", username)==0) exit(EXIT_FAILURE);
+    if (fscanf(fp, "%s", password)==0) exit(EXIT_FAILURE);
     fgetc(fp);
-    fgets(name, sizeof(name), fp);
+    if (fgets(name, sizeof(name), fp) == NULL) exit(EXIT_FAILURE);
     name[strcspn(name, "\n")] = '\0';
-    fscanf(fp, "%d", &popularity);
-    fscanf(fp, "%f", &friendliness);
-    fscanf(fp, "%s", category_buf);
+    if (fscanf(fp, "%d", &popularity)==0) exit(EXIT_FAILURE);
+    if (fscanf(fp, "%f", &friendliness)==0) exit(EXIT_FAILURE);
+    if (fscanf(fp, "%s", category_buf)==0) exit(EXIT_FAILURE);
 
     /* carga intereses*/
     int i = 0;
@@ -287,13 +266,15 @@ User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph
         int post_id;
         struct tm post_date;
         char post_content[1024];
-        fscanf(fp, "%d\n", &post_id);
+        if (fscanf(fp, "%d\n", &post_id)==0) exit(EXIT_FAILURE);
         fgetc(fp);
-        fgets(buffer, sizeof(buffer), fp);
+        if (fgets(buffer, sizeof(buffer), fp) == NULL) exit(EXIT_FAILURE);
         strptime(buffer, "%Y-%m-%d %H:%M:%S", &post_date);
-        fscanf(fp, "%s\n", post_content);
+        if (fscanf(fp, "%s\n", post_content)==0) exit(EXIT_FAILURE);
         fclose(fp);
         insert_post(posts, post_content);
+        posts->next->id = post_id;
+        posts->next->date = post_date;
     }
     closedir(dir);
 
@@ -343,7 +324,7 @@ void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInt
 }
 
 
-void load_connections(PtrToHashTable table, Graph graph, GlobalInterests globalInterests){
+void load_connections(PtrToHashTable table, GlobalInterests globalInterests){
     DIR *dir = opendir("database");
     if (!dir) {
         return; 
@@ -360,7 +341,7 @@ void load_connections(PtrToHashTable table, Graph graph, GlobalInterests globalI
         }
         char username[256];
         for(int i=0; i<2; i++){
-            fscanf(fp, "%s", username);
+            if(fscanf(fp, "%s", username)==0) exit(EXIT_FAILURE);
         }
        
 
@@ -388,7 +369,7 @@ void load_connections(PtrToHashTable table, Graph graph, GlobalInterests globalI
 
 void load_database(PtrToHashTable table, Graph graph, GlobalInterests globalInterests){
     load_all_users(table, graph, globalInterests);
-    load_connections(table, graph, globalInterests);
+    load_connections(table, globalInterests);
 }
 
 /**
@@ -432,9 +413,9 @@ void login(PtrToHashTable graph) {
     char *username=malloc(sizeof(char)*256);
     char *password=malloc(sizeof(char)*256);
     printf("Ingrese su nombre de usuario: ");
-    scanf("%255s",username);
+    if (scanf("%255s",username)==0) exit(EXIT_FAILURE);
     printf("Ingrese su contraseña: ");
-    scanf("%255s",password);
+    if (scanf("%255s",password)==0) exit(EXIT_FAILURE);
 
     User user = search_user(username, graph);
     if (!user) {
@@ -479,17 +460,17 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
 
     char *username=malloc(sizeof(char)*256);
     printf("Ingrese su nombre de usuario: ");
-    scanf("%255s",username);
+    if (scanf("%255s",username)==0) exit(EXIT_FAILURE);
     User user = search_user(username, table);
     while(user) {
         printf(COLOR_RED COLOR_BOLD"ERROR: El nombre de usuario '%s' ya existe. Intente con otro usuario: \n"COLOR_RESET, username);
-        scanf("%s",username);
+        if (scanf("%s",username)==0) exit(EXIT_FAILURE);
         user = search_user(username, table);
     }
 
     char *password=malloc(sizeof(char)*256);
     printf("Ingrese su contraseña: ");
-    scanf("%255s",password);
+    if (scanf("%255s",password)==0) exit(EXIT_FAILURE);
 
     int c;
     while ((c = getchar()) != '\n' && c != EOF); // limpiar buffer
@@ -514,7 +495,7 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
     print_global_interests(globalInterests);
     int option;
     do {
-        scanf("%d",&option);
+        if (scanf("%d",&option)==0) exit(EXIT_FAILURE);
         if(option<0 || option>=globalInterests.numInterests){
             printf(COLOR_RED COLOR_BOLD"ERROR: ID de interes no válido. Intente nuevamente\n"COLOR_RESET);
         }
@@ -604,7 +585,7 @@ void edit_account(User user, GlobalInterests globalInterests, PtrToHashTable tab
     int option;
 
     do {
-        scanf("%d",&option);
+        if (scanf("%d",&option)==0) exit(EXIT_FAILURE);
         if(option<0 || option>3){
             printf("ERROR: Opción inválida. Intente nuevamente\n");
         }
@@ -629,7 +610,7 @@ void edit_account(User user, GlobalInterests globalInterests, PtrToHashTable tab
         case 2:
             printf("Ingrese el nuevo usuario: ");
             char *new_username=malloc(sizeof(char)*256);
-            scanf("%s",new_username);
+            if (scanf("%s",new_username)==0) exit(EXIT_FAILURE);
             User user_aux = search_user(new_username, table);
             if(user_aux){
                 printf("ERROR: El nombre de usuario '%s' ya existe. Intente nuevamente \n", new_username);
@@ -645,7 +626,7 @@ void edit_account(User user, GlobalInterests globalInterests, PtrToHashTable tab
         case 3:
             printf("Ingrese la nueva contraseña: ");
             char *new_password=malloc(sizeof(char)*256);
-            scanf("%s",new_password);
+            if (scanf("%s",new_password)==0) exit(EXIT_FAILURE);
             free(user->password);
             user->password = strdup(new_password);
             printf("Se ha modificado su contraseña a '%s'.\n", user->password);
