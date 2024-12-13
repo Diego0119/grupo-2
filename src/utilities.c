@@ -165,7 +165,7 @@ int line_number_in_file(char *file) {
     int line_number = 0;
     FILE *file_pointer = fopen(file, "r");
     if (!file_pointer) {
-        printf("ERROR: No se pudo abrir el archivo\n");
+        printf("ERROR: No se pudo abrir el archivo '%s'. Por favor asegurese que este archivo existe y esté en el mismo directorio que el programa.\n", file);
         exit(EXIT_FAILURE);
     }
     char c;

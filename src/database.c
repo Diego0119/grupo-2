@@ -526,6 +526,7 @@ void write_post(User user, GlobalInterests globalInterests) {
     insert_post(user->posts, content);
     save_user_data(user, globalInterests);
     free(content);
+    printf("Publicación creada correctamente.\n");
 }
 
 /**

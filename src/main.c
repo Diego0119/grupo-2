@@ -30,10 +30,10 @@
  * @return int 
  */
 int main(int argc, char *argv[]){
-    PtrToHashTable table;
-    Graph graph;
+    PtrToHashTable table = NULL;
+    Graph graph = NULL;
     GlobalInterests globalInterestsTable;
-    User currentUser;
+    User currentUser = NULL;
     heap feed;
 
     // obtener parámetros ingresados por el terminal
@@ -61,7 +61,7 @@ int main(int argc, char *argv[]){
                 generate_users(quantity, table, graph, globalInterestsTable);
                 generate_random_connections(graph, globalInterestsTable);
                 save_all_users(graph, globalInterestsTable);
-                free_all_users(table, graph, globalInterestsTable);
+                free_all_users(table, graph);
             }
             else{
                 printf("No se ha encontrado una base de datos. Ejecute './devgraph -g <cantidad de usuarios>' para generar una.\n");
@@ -172,7 +172,7 @@ int main(int argc, char *argv[]){
 
     // LIBERAR MEMORIA
     if(option > 0 && option != 2){
-        free_all_users(table, graph, globalInterestsTable);
+        free_all_users(table, graph);
         free_graph(graph);
         free_global_interests(globalInterestsTable);
         free_hash_table(table);
