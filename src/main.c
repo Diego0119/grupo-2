@@ -29,23 +29,12 @@
  * @param argv Argumentos ingresados al programa
  * @return int 
  */
-<<<<<<< HEAD
-    int main(int argc, char *argv[]){
-    PtrToHashTable table = NULL;
-    Graph graph = NULL;
-    GlobalInterests globalInterestsTable = {0};  
-    User currentUser = NULL; 
-=======
 int main(int argc, char *argv[]){
     PtrToHashTable table;
     Graph graph;
     GlobalInterests globalInterestsTable;
     User currentUser;
     heap feed;
-<<<<<<< HEAD
->>>>>>> origin/main
-=======
->>>>>>> origin/main
 
     // obtener parámetros ingresados por el terminal
     int option=get_option(argc, argv);

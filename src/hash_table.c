@@ -29,7 +29,6 @@ HashTable* create_hash_table(void) {
     return table;
 }
 
-
 /**
  * @brief Inserta un nuevo elemento en la tabla hash
  * 
@@ -88,9 +87,8 @@ int delete_from_hash_table(HashTable *table, char *key) {
             } else {
                 table->buckets[index] = current->next;
             }
-            free(current->key);  
-            free(current->data);
-            free(current);       
+            free(current->key);
+            free(current);
             return 0;
         }
         previous = current;
@@ -99,7 +97,6 @@ int delete_from_hash_table(HashTable *table, char *key) {
     return -1;
 }
 
-
 /**
  * @brief Libera toda la memoria utilizada por la tabla hash
  * 
@@ -107,21 +104,14 @@ int delete_from_hash_table(HashTable *table, char *key) {
  */
 void free_hash_table(HashTable *table) {
     if (!table) return;
-
     for (int i = 0; i < HASH_TABLE_SIZE; i++) {
         Hashnode *current = table->buckets[i];
         while (current) {
-            printf("Liberando nodo con clave: %s\n", current->key);
-            free(current->key);  
-            if (current->data) {
-                free(current->data); 
-            }
-            Hashnode *next = current->next;
-            free(current);  
-            current = next;
+            Hashnode *temp = current;
+            current = current->next;
+            free(temp->key);
+            free(temp);
         }
     }
-    free(table->buckets);  
-    free(table);  
-    printf("Tabla hash liberada.\n");
+    free(table);
 }
