@@ -106,19 +106,84 @@
 
 \section{Objetivo Principal}
 
-    \rhostart{P}OR HACER
+    \rhostart{E}l objetivo principal del proyecto es crear una simulación de una red social eficiente y rápida, combinando armónicamente los distintos tipos de estructuras de datos vistos durante el curso de Estructuras de Datos (grafos, listas, hash tables, colas de prioridad, etc.).
 
-\section{Plantemiento del desarrollo del proyecto}
+    \subsection{Objetivos secundarios}
+    \begin{itemize}
+        \item Implementar algoritmos de búsqueda eficientes, priorizando el tiempo de respuesta
+        \item Implementar buenas prácticas de codificación
+        \item Reforzar habilidades de trabajo en equipo y coordinación de tareas entre pares
+    \end{itemize}
+
+
+\section{Planteamiento del desarrollo del proyecto}
 
     \rhostart{P}OR HACER
 
 \section{Implementación}
 
-    \rhostart{P}OR HACER
+    La implementación del proyecto fue realizada en lenguaje C, utilizando librerías estándar. El código fue escrito de manera modular, o sea, las funciones fueron separadas en diferentes archivos según su funcionalidad. Esto permitió una mayor manera de organización y mantenimiento del código, así como una mejor comprensión del funcionamiento del programa.
+
+    \subsection{Estructura de directorios}
+    En el directorio principal se encuentran los archivos \texttt{Makefile}, con el cual es posible compilar el programa de manera automática, y el archivo \texttt{README.MD}, que contiene información sobre el proyecto y su funcionamiento. Además, se encuentra el archivo \texttt{subtopics}, que contiene una lista de subtópicos modificable, que se utilizará para el funcionamiento de la aplicación.
+
+    \vspace{0.5cm}
+
+    Dentro del directorio \texttt{src} se encuentran los archivos fuente del programa, que son los siguientes:
+    \begin{itemize}
+        \item \texttt{main.c}: Contiene el flujo principal del programa.
+        \item \texttt{database.c}: Contiene las funciones para la gestión y guardado de la base de datos.
+        \item \texttt{graph.c}: Contiene las funciones para gestionar los grafos y relaciones entre usuarios.
+        \item \texttt{hash\_table.c}: Contiene las funciones para gestionar tablas hash.
+        \item \texttt{users.c}: Contiene las funciones para gestionar usuarios y publicaciones.
+        \item \texttt{utilities.c}: Contiene las funciones de utilidad y testing para el programa.
+        \item \texttt{heaps.c}: Contiene las funciones para gestionar las colas de prioridad.
+    \end{itemize}
+
+    Por otro lado, en el directorio \texttt{incs} se encuentran los archivos de cabeceras correspondiente a cada uno de los archivos fuente.
 
 \section{Gestión del equipo de trabajo}
 
-    \rhostart{P}OR HACER
+    \rhostart{E}l equipo de trabajo constó de 5 personas, uno de ellos designado por el profesor como líder del grupo, con la responsabilidad de coordinar el trabajo y la gestión del proyecto. Debido a la cantidad de personas involucradas, fue fundamental establecer mecanismos de comunicación, coordinación y orden para asegurar la colaboración y la coordinación de los diferentes miembros del equipo. Algunos de estos mecanismos fueron:
+
+    \subsection{Normas de codificación}
+
+        Normas de codificación fueron establecidas para el proyecto, con el objetivo de garantizar la coherencia y la consistencia en la codificación. Estas normas incluían:
+
+        \begin{itemize}
+            \item \textbf{Constantes}: Para las constantes se utilizó la convención de \texttt{SCREAMING\_SNAKE\_CASE}, con el objetivo de diferenciarlas de las variables y funciones.
+            \item \textbf{Variables:} Para las variables comunes se utilizó la convención \texttt{camelCase}
+            \item \textbf{Funciones:} Para las funciones se utilizó la convención \texttt{snake\_case}, así diferenciándose de las variables y constantes.
+            \item \textbf{Tipos de datos:} Para los tipos de datos creados con \texttt{typedef} se utilizó la convención \texttt{PascalCase}, con el objetivo de diferenciarlos de los tipos de datos nativos de C.
+            \item \textbf{Llaves de apertura:} Se estableció la convención de que las llaves de apertura se escribieran en la misma línea que el código que las contiene
+        \end{itemize}
+
+        \begin{lstlisting}[caption={Ejemplo de código, utilizando las normas de codificación}, label={lst:normas_codificacion}, language=C]
+            #define MAX_CHAR 256 // Constante
+            typedef _User *User; // Tipo de dato
+            Graph newGraph; // Variable
+            void print_all_users(Graph graph); // Funcion
+        \end{lstlisting}
+
+    \subsection{Comunicación}
+
+    Un aspecto de suma importancia para el proyecto es la comunicación entre los miembros del equipo, ya que sin ella, no sería posible garantizar la colaboración y la coordinación en el desarrollo del proyecto. Debido al tamaño del equipo y la complejidad del proyecto esto fue un desafío, debido a las diferencias en horarios y responsabilidades académicas de cada miembro. Para resolver este problema fue escencial establecer un medio de comunicación remoto, que permitiera a cada uno comunicarse de manera rápida y en el lugar en que estuviese.
+
+    Se creó un chat en línea con cada integrante del equipo, este chat utilizándose para discutir sobre el desarrollo del proyecto y su organización, así como para compartir información y recursos. 
+
+    \vspace{0.5cm}
+
+    Esto resultó exitoso, ya que las reuniones presenciales resultaron ser extremadamente dificiles de coordinar, la comunicación remota permitiendo a los miembros ver y discutir los detalles del proyecto en el momento del día en que estuviesen disponibles. Sin embargo, esto también implicó consecuencias, ya que dio paso a que fuera fácil que algún miembro del equipo "desapareciese"; sin embargo, estas situaciones fueron manejadas a través de la comunicación por privado con este para consultar su situación.
+
+    \subsection{División del trabajo}
+
+    Al inicio del proyecto se decidió establecer \textbf{objetivos a corto plazo} para cada miembro del equipo, según las estructuras de datos que se deseaban implementar en el proyecto. A cada uno se le asignaron según afinidad, capacidad y gusto propio.
+
+    \vspace{0.5cm}
+
+    Una vez las estructuras de datos hechas, se decidió crear una \textbf{lista de tareas} a realizar, cada miembro con al menos una tarea a realizar. Esta lista fue creada en base a las ideas discutidas por los integrantes del equipo, y se fue actualizando constantemente en función de las necesidades del proyecto.
+
+
 
 \section{Posibles mejoras}
 
@@ -132,19 +197,6 @@
 
     \rhostart{P}OR HACER
 
-    
-
-\section{Rho packages}
-
-        \begin{rhoenv}[frametitle=Environment with custom title]
-            Hello! I am an example of the \textit{rhoenv} included in rhoenvs \LaTeX\ package. Here you can include relevant information or notes about your work. You can modify my title directly in the code.
-        \end{rhoenv}
-
-\section{Codes}
-
-    This class\footnote{Hello there! I am a footnote :)} includes the \textit{listings} package, which offers customized features for adding codes specially for C, C++, \LaTeX\ and Matlab. You can customize the format in \textit{rho class} file.
-
-    \lstinputlisting[caption=Example of matlab code., label={lst:listing-Mat}, language=Matlab]{example.m}
 
     
         
