@@ -229,15 +229,15 @@ User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph
     InterestTable tempInterests = init_user_interests(globalInterests);
     UserPosts posts = create_empty_userPosts();
     
-    if (fscanf(fp, "%d", &id)) exit(EXIT_FAILURE);
-    if (fscanf(fp, "%s", username)) exit(EXIT_FAILURE);
-    if (fscanf(fp, "%s", password)) exit(EXIT_FAILURE);
+    if (fscanf(fp, "%d", &id)==0) exit(EXIT_FAILURE);
+    if (fscanf(fp, "%s", username)==0) exit(EXIT_FAILURE);
+    if (fscanf(fp, "%s", password)==0) exit(EXIT_FAILURE);
     fgetc(fp);
     if (fgets(name, sizeof(name), fp) == NULL) exit(EXIT_FAILURE);
     name[strcspn(name, "\n")] = '\0';
-    if (fscanf(fp, "%d", &popularity)) exit(EXIT_FAILURE);
-    if (fscanf(fp, "%f", &friendliness)) exit(EXIT_FAILURE);
-    if (fscanf(fp, "%s", category_buf)) exit(EXIT_FAILURE);
+    if (fscanf(fp, "%d", &popularity)==0) exit(EXIT_FAILURE);
+    if (fscanf(fp, "%f", &friendliness)==0) exit(EXIT_FAILURE);
+    if (fscanf(fp, "%s", category_buf)==0) exit(EXIT_FAILURE);
 
     /* carga intereses*/
     int i = 0;
@@ -266,11 +266,11 @@ User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph
         int post_id;
         struct tm post_date;
         char post_content[1024];
-        if (fscanf(fp, "%d\n", &post_id)) exit(EXIT_FAILURE);
+        if (fscanf(fp, "%d\n", &post_id)==0) exit(EXIT_FAILURE);
         fgetc(fp);
         if (fgets(buffer, sizeof(buffer), fp) == NULL) exit(EXIT_FAILURE);
         strptime(buffer, "%Y-%m-%d %H:%M:%S", &post_date);
-        if (fscanf(fp, "%s\n", post_content)) exit(EXIT_FAILURE);
+        if (fscanf(fp, "%s\n", post_content)==0) exit(EXIT_FAILURE);
         fclose(fp);
         insert_post(posts, post_content);
         posts->next->id = post_id;
@@ -341,7 +341,7 @@ void load_connections(PtrToHashTable table, GlobalInterests globalInterests){
         }
         char username[256];
         for(int i=0; i<2; i++){
-            if(fscanf(fp, "%s", username)) exit(EXIT_FAILURE);
+            if(fscanf(fp, "%s", username)==0) exit(EXIT_FAILURE);
         }
        
 
