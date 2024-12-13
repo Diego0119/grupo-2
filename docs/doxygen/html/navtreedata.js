@@ -25,8 +25,14 @@
 var NAVTREE =
 [
   [ "DevGraph", "index.html", [
-    [ "Search Simulator 💻🔍", "index.html", "index" ],
     [ "Classes", "annotated.html", [
+      [ "Ejecución del programa", "index.html#autotoc_md1", null ],
+      [ "Comandos disponibles", "index.html#autotoc_md2", null ],
+      [ "Lista de tareas", "index.html#autotoc_md3", [
+        [ "👨‍💻 Desarrollado por:", "index.html#autotoc_md0", null ],
+        [ "Urgente", "index.html#autotoc_md4", null ],
+        [ "Extras", "index.html#autotoc_md5", null ]
+      ] ],
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Members", "functions.html", [

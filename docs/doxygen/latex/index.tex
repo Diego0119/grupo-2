@@ -1,43 +1,58 @@
-\chapter{Search Simulator 💻🔍}
-\hypertarget{index}{}\label{index}\index{Search Simulator 💻🔍@{Search Simulator 💻🔍}}
+\chapter{Dev\+Graph}
+\hypertarget{index}{}\label{index}\index{DevGraph@{DevGraph}}
 \label{index_md_README}%
 \Hypertarget{index_md_README}%
- Este repositorio contiene el desarrollo de una {\bfseries{Social Network}} utilizando {\bfseries{estructuras de datos}}.
+ \doxysection*{Dev\+Graph 🌐💬}
+
+\doxysubsubsection*{Simulación de Social Network}
+
+
+
+  
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{👨‍💻 Desarrollado por\+:}{👨‍💻 Desarrollado por:}}\label{index_autotoc_md2}
-\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{1. Duvan Figueroa 👨‍💻}{1. Duvan Figueroa 👨‍💻}}\label{index_autotoc_md3}
 
-\begin{DoxyItemize}
-\item Estudiante de Ingeniería Civil Infomatica
-\item \href{https://github.com/HisokaMorow1}{\texttt{ Duvan Figueroa}}
-\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{2. Diego Sanhueza 👨‍💻}{2. Diego Sanhueza 👨‍💻}}\label{index_autotoc_md4}
 
-\begin{DoxyItemize}
-\item Estudiante de Ingeniería Infomatica
-\item \href{https://github.com/Diego0119}{\texttt{ Diego Sanhueza}}
-\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{3. Ivan Mansilla 👨‍💻}{3. Ivan Mansilla 👨‍💻}}\label{index_autotoc_md5}
+Este repositorio contiene el desarrollo de una {\bfseries{Social Network}}, para el curso de {\bfseries{Estructuras de Datos}} 2024/2\hypertarget{index_autotoc_md0}{}\doxysubsubsection{\texorpdfstring{👨‍💻 Desarrollado por\+:}{👨‍💻 Desarrollado por:}}\label{index_autotoc_md0}
+\href{https://github.com/HisokaMorow1}{\texttt{ Duvan Figueroa}}, \href{https://github.com/ivnmansi}{\texttt{ Iván Mansilla}}, \href{https://github.com/faguilardc}{\texttt{ Franco Aguilar}}, \href{https://github.com/mihel1}{\texttt{ Miguel Maripillan}} y \href{https://github.com/Diego0119}{\texttt{ Diego Sanhueza}}\hypertarget{index_autotoc_md1}{}\doxysubsection{\texorpdfstring{Ejecución del programa}{Ejecución del programa}}\label{index_autotoc_md1}
+Para ejecutar el programa, siga los siguientes pasos\+:
+\begin{DoxyEnumerate}
+\item Clonar el repositorio
+\item Generar las carpetas necesarias con el comando {\ttfamily make folders}
+\item Compilar el programa con el comando {\ttfamily make}
+\item Ejecutar el programa con {\ttfamily make run} o entrando a la carpeta {\ttfamily build} y ejecutando el archivo {\ttfamily devgraph.\+out} \begin{quote}
+⚠️ Asegurese que el archvivo {\ttfamily subtopics} se encuentre en el mismo directorio del que va a ejecutarse el programa \end{quote}
 
-\begin{DoxyItemize}
-\item Estudiante de Ingeniería Civil Infomatica
-\item \href{https://github.com/ivnmansi}{\texttt{ Ivan Mansilla}}
-\end{DoxyItemize}\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{4. Franco Aguilar 👨‍💻}{4. Franco Aguilar 👨‍💻}}\label{index_autotoc_md6}
-
-\begin{DoxyItemize}
-\item Estudiante de Ingeniería Civil Infomatica
-\item \href{https://github.com/faguilardc}{\texttt{ Franco Aguilar}} ~\newline
-
-\end{DoxyItemize}\hypertarget{index_autotoc_md7}{}\doxysubsection{\texorpdfstring{5. Miguel Maripillan 👨‍💻}{5. Miguel Maripillan 👨‍💻}}\label{index_autotoc_md7}
-
-\begin{DoxyItemize}
-\item Estudiante de Ingeniería Infomatica
-\item \href{https://github.com/mihel1}{\texttt{ Miguel Maripillan}}
-\end{DoxyItemize}\hypertarget{index_autotoc_md8}{}\doxysubsection{\texorpdfstring{6. Nicolás Alvarez 👨‍💻}{6. Nicolás Alvarez 👨‍💻}}\label{index_autotoc_md8}
-
-\begin{DoxyItemize}
-\item Estudiante de Ingeniería Infomatica
-\item \href{https://github.com/nalvarti1}{\texttt{ Nicolas Alvarez}}
-\end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxysection{\texorpdfstring{Lista de tareas}{Lista de tareas}}\label{index_autotoc_md9}
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Comandos disponibles}{Comandos disponibles}}\label{index_autotoc_md2}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Comando   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Descripción    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Comando   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Descripción    }\\\cline{1-2}
+\endhead
+{\ttfamily -\/h, -\/-\/help}   &Muestra la ayuda del programa    \\\cline{1-2}
+{\ttfamily -\/g, -\/-\/generate \texorpdfstring{$<$}{<}cantidad\texorpdfstring{$>$}{>}}   &Genera usuarios aleatorios    \\\cline{1-2}
+{\ttfamily -\/c, -\/-\/clear}   &Borra la base de datos    \\\cline{1-2}
+{\ttfamily -\/a, -\/-\/all}   &Lista todos los usuarios registrados    \\\cline{1-2}
+{\ttfamily -\/t, -\/-\/topics}   &Muestra todos los tópicos disponibles en Dev\+Graph    \\\cline{1-2}
+{\ttfamily -\/l, -\/-\/login}   &Inicia sesión    \\\cline{1-2}
+{\ttfamily -\/o, -\/-\/logout}   &Cerrar sesión    \\\cline{1-2}
+{\ttfamily -\/r, -\/-\/register}   &Registra un nuevo usuario    \\\cline{1-2}
+{\ttfamily -\/d, -\/-\/delete}   &Elimina la cuenta de la sesión iniciada    \\\cline{1-2}
+{\ttfamily -\/e, -\/-\/edit}   &Permite editar la información de la sesión iniciada    \\\cline{1-2}
+{\ttfamily -\/p, -\/-\/post}   &Publica una publicación    \\\cline{1-2}
+{\ttfamily -\/m, -\/-\/me}   &Muestra el perfil del usuario actual    \\\cline{1-2}
+{\ttfamily -\/u, -\/-\/user \texorpdfstring{$<$}{<}usuario\texorpdfstring{$>$}{>}}   &Muestra el perfil de un usuario    \\\cline{1-2}
+{\ttfamily -\/f, -\/-\/follow \texorpdfstring{$<$}{<}usuario\texorpdfstring{$>$}{>}}   &Sigue a un usuario    \\\cline{1-2}
+{\ttfamily -\/n, -\/-\/unfollow \texorpdfstring{$<$}{<}usuario\texorpdfstring{$>$}{>}}   &Deja de seguir a un usuario    \\\cline{1-2}
+{\ttfamily -\/q, -\/-\/feed}   &Muestra los posts seleccionados    \\\cline{1-2}
+{\ttfamily -\/x, -\/-\/connect}   &Muestra los usuarios recomendados   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{Lista de tareas}{Lista de tareas}}\label{index_autotoc_md3}
 
 \begin{DoxyItemize}
 \item \mbox{[}X\mbox{]} Implementar tablas hash (Duván)
@@ -57,14 +72,14 @@
 \item \mbox{[}X\mbox{]} Guardar información de los usuarios (nube) (Miguel)
 \item \mbox{[}X\mbox{]} Cargar usuarios por medio de un txt de entrada (Miguel)
 \item \mbox{[}X\mbox{]} Iniciar sesión y publicar cosas según el usuario iniciado (Iván)
-\item \mbox{[} \mbox{]} Comandos para publicar, borrar, ver usuarios, perfil, publicaciones, etc (Iván)
+\item \mbox{[}X\mbox{]} Comandos para publicar, borrar, ver usuarios, perfil, publicaciones, etc (Iván)
 \item \mbox{[} \mbox{]} Ordenar main para el programa final
-\end{DoxyItemize}\hypertarget{index_autotoc_md10}{}\doxysubsection{\texorpdfstring{Urgente}{Urgente}}\label{index_autotoc_md10}
+\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysubsubsection{\texorpdfstring{Urgente}{Urgente}}\label{index_autotoc_md4}
 
 \begin{DoxyItemize}
 \item \mbox{[} \mbox{]} Arreglar carga y guardado de publicaciones
 \item \mbox{[} \mbox{]} Arreglar carga de seguidores y seguidos
-\end{DoxyItemize}\hypertarget{index_autotoc_md11}{}\doxysubsection{\texorpdfstring{Extras}{Extras}}\label{index_autotoc_md11}
+\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysubsubsection{\texorpdfstring{Extras}{Extras}}\label{index_autotoc_md5}
 
 \begin{DoxyItemize}
 \item \mbox{[}X\mbox{]} Perfil psicológico (Diego)

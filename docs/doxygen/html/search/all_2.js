@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['3_20ivan_20mansilla_20👨‍💻_0',['3. Ivan Mansilla 👨‍💻',['../index.html#autotoc_md5',1,'']]]
+  ['buckets_0',['buckets',['../d4/dc8/struct__hashtable.html#a1223de0d0c56ea30844b97fd5b67079c',1,'_hashtable']]]
 ];

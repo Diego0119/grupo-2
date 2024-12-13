@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DevGraph: Search Simulator 💻🔍</title>
+<title>DevGraph: DevGraph</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,52 +89,72 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Search Simulator 💻🔍 </div></div>
+  <div class="headertitle"><div class="title">DevGraph </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> Este repositorio contiene el desarrollo de una <b>Social Network</b> utilizando <b>estructuras de datos</b>.</p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> </p><h1 align="center">DevGraph 🌐💬</h1>
+<h3 align="center">Simulación de Social Network</h3>
+<p align="center"></p>
+<p><img src="https://img.shields.io/badge/C-00599C?logo=c&amp;logoColor=white" alt="" class="inline"/> <img src="https://img.shields.io/badge/version-1.0-blue?label=version
+  " alt="" class="inline"/> </p>
 <hr  />
-<h1><a class="anchor" id="autotoc_md2"></a>
-👨‍💻 Desarrollado por:</h1>
-<h2><a class="anchor" id="autotoc_md3"></a>
-1. Duvan Figueroa 👨‍💻</h2>
-<ul>
-<li>Estudiante de Ingeniería Civil Infomatica</li>
-<li><a href="https://github.com/HisokaMorow1">Duvan Figueroa</a></li>
-</ul>
-<h2><a class="anchor" id="autotoc_md4"></a>
-2. Diego Sanhueza 👨‍💻</h2>
-<ul>
-<li>Estudiante de Ingeniería Infomatica</li>
-<li><a href="https://github.com/Diego0119">Diego Sanhueza</a></li>
-</ul>
-<h2><a class="anchor" id="autotoc_md5"></a>
-3. Ivan Mansilla 👨‍💻</h2>
-<ul>
-<li>Estudiante de Ingeniería Civil Infomatica</li>
-<li><a href="https://github.com/ivnmansi">Ivan Mansilla</a></li>
-</ul>
-<h2><a class="anchor" id="autotoc_md6"></a>
-4. Franco Aguilar 👨‍💻</h2>
-<ul>
-<li>Estudiante de Ingeniería Civil Infomatica</li>
-<li><a href="https://github.com/faguilardc">Franco Aguilar</a> <br  />
+<p>Este repositorio contiene el desarrollo de una <b>Social Network</b>, para el curso de <b>Estructuras de Datos</b> 2024/2</p>
+<h3><a class="anchor" id="autotoc_md0"></a>
+👨‍💻 Desarrollado por:</h3>
+<p><a href="https://github.com/HisokaMorow1">Duvan Figueroa</a>, <a href="https://github.com/ivnmansi">Iván Mansilla</a>, <a href="https://github.com/faguilardc">Franco Aguilar</a>, <a href="https://github.com/mihel1">Miguel Maripillan</a> y <a href="https://github.com/Diego0119">Diego Sanhueza</a></p>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Ejecución del programa</h2>
+<p>Para ejecutar el programa, siga los siguientes pasos:</p><ol type="1">
+<li>Clonar el repositorio</li>
+<li>Generar las carpetas necesarias con el comando <code>make folders</code></li>
+<li>Compilar el programa con el comando <code>make</code></li>
+<li>Ejecutar el programa con <code>make run</code> o entrando a la carpeta <code>build</code> y ejecutando el archivo <code>devgraph.out</code> <blockquote class="doxtable">
+<p>&zwj;⚠️ Asegurese que el archvivo <code>subtopics</code> se encuentre en el mismo directorio del que va a ejecutarse el programa </p>
+</blockquote>
 </li>
-</ul>
-<h2><a class="anchor" id="autotoc_md7"></a>
-5. Miguel Maripillan 👨‍💻</h2>
-<ul>
-<li>Estudiante de Ingeniería Infomatica</li>
-<li><a href="https://github.com/mihel1">Miguel Maripillan</a></li>
-</ul>
-<h2><a class="anchor" id="autotoc_md8"></a>
-6. Nicolás Alvarez 👨‍💻</h2>
-<ul>
-<li>Estudiante de Ingeniería Infomatica</li>
-<li><a href="https://github.com/nalvarti1">Nicolas Alvarez</a></li>
-</ul>
-<h1><a class="anchor" id="autotoc_md9"></a>
-Lista de tareas</h1>
+</ol>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Comandos disponibles</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Comando   </th><th class="markdownTableHeadNone">Descripción    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>-h, --help</code>   </td><td class="markdownTableBodyNone">Muestra la ayuda del programa    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>-g, --generate &lt;cantidad&gt;</code>   </td><td class="markdownTableBodyNone">Genera usuarios aleatorios    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>-c, --clear</code>   </td><td class="markdownTableBodyNone">Borra la base de datos    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>-a, --all</code>   </td><td class="markdownTableBodyNone">Lista todos los usuarios registrados    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>-t, --topics</code>   </td><td class="markdownTableBodyNone">Muestra todos los tópicos disponibles en DevGraph    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>-l, --login</code>   </td><td class="markdownTableBodyNone">Inicia sesión    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>-o, --logout</code>   </td><td class="markdownTableBodyNone">Cerrar sesión    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>-r, --register</code>   </td><td class="markdownTableBodyNone">Registra un nuevo usuario    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>-d, --delete</code>   </td><td class="markdownTableBodyNone">Elimina la cuenta de la sesión iniciada    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>-e, --edit</code>   </td><td class="markdownTableBodyNone">Permite editar la información de la sesión iniciada    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>-p, --post</code>   </td><td class="markdownTableBodyNone">Publica una publicación    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>-m, --me</code>   </td><td class="markdownTableBodyNone">Muestra el perfil del usuario actual    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>-u, --user &lt;usuario&gt;</code>   </td><td class="markdownTableBodyNone">Muestra el perfil de un usuario    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>-f, --follow &lt;usuario&gt;</code>   </td><td class="markdownTableBodyNone">Sigue a un usuario    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>-n, --unfollow &lt;usuario&gt;</code>   </td><td class="markdownTableBodyNone">Deja de seguir a un usuario    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>-q, --feed</code>   </td><td class="markdownTableBodyNone">Muestra los posts seleccionados    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>-x, --connect</code>   </td><td class="markdownTableBodyNone">Muestra los usuarios recomendados   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Lista de tareas</h2>
 <ul>
 <li>[X] Implementar tablas hash (Duván)</li>
 <li>[ ] Funciones de usuarios basándose en afinidades o popularidad</li>
@@ -153,17 +173,17 @@ Lista de tareas</h1>
 <li>[X] Guardar información de los usuarios (nube) (Miguel)</li>
 <li>[X] Cargar usuarios por medio de un txt de entrada (Miguel)</li>
 <li>[X] Iniciar sesión y publicar cosas según el usuario iniciado (Iván)</li>
-<li>[ ] Comandos para publicar, borrar, ver usuarios, perfil, publicaciones, etc (Iván)</li>
+<li>[X] Comandos para publicar, borrar, ver usuarios, perfil, publicaciones, etc (Iván)</li>
 <li>[ ] Ordenar main para el programa final</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md10"></a>
-Urgente</h2>
+<h3><a class="anchor" id="autotoc_md4"></a>
+Urgente</h3>
 <ul>
 <li>[ ] Arreglar carga y guardado de publicaciones</li>
 <li>[ ] Arreglar carga de seguidores y seguidos</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md11"></a>
-Extras</h2>
+<h3><a class="anchor" id="autotoc_md5"></a>
+Extras</h3>
 <ul>
 <li>[X] Perfil psicológico (Diego)</li>
 <li>[X] Usuarios aleatorios (Diego) </li>

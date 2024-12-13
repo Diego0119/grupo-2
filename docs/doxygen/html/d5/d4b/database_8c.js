@@ -6,6 +6,7 @@ var database_8c =
     [ "current_session", "d5/d4b/database_8c.html#a76f762d2a9063e73e62fa1e7127951ff", null ],
     [ "database_exists_and_not_empty", "d5/d4b/database_8c.html#a84ddec926c8a5475e48c2e6a59741d00", null ],
     [ "delete_account", "d5/d4b/database_8c.html#a13d272cd38e4c062da1f9d46f17bf9c3", null ],
+    [ "edit_account", "d5/d4b/database_8c.html#ad754349fdaa7256297f09a6c77ccd2a2", null ],
     [ "follow", "d5/d4b/database_8c.html#a5c2c93b11c91edd6b02eb8de193bba3f", null ],
     [ "load_all_users", "d5/d4b/database_8c.html#a77103f45cf4c5b241aaad7936989564b", null ],
     [ "login", "d5/d4b/database_8c.html#a2d1946fce4d4e29fa0c79c9d8045fd74", null ],
