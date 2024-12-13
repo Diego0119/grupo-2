@@ -1,34 +1,55 @@
-# Search Simulator 💻🔍
+<h1 align="center">DevGraph 🌐💬</h1>
+<h3 align="center">Simulación de Social Network</h3>
 
-Este repositorio contiene el desarrollo de una **Social Network** utilizando **estructuras de datos**.
+<p align="center">
+  <img src="https://img.shields.io/badge/C-00599C?logo=c&logoColor=white">
+  <img src="https://img.shields.io/badge/version-1.0-blue?label=version
+  ">
+</p>
 
----
+***
 
-## 👨‍💻 Desarrollado por:
+Este repositorio contiene el desarrollo de una **Social Network**, para el curso de **Estructuras de Datos** 2024/2
 
-### 1. Duvan Figueroa 👨‍💻
-- Estudiante de Ingeniería Civil Infomatica
-- [Duvan Figueroa](https://github.com/HisokaMorow1)
 
-### 2. Diego Sanhueza 👨‍💻
-- Estudiante de Ingeniería Infomatica
-- [Diego Sanhueza](https://github.com/Diego0119)
 
-### 3. Ivan Mansilla 👨‍💻
-- Estudiante de Ingeniería Civil Infomatica
-- [Ivan Mansilla](https://github.com/ivnmansi)
+### 👨‍💻 Desarrollado por:
+[Duvan Figueroa](https://github.com/HisokaMorow1), [Iván Mansilla](https://github.com/ivnmansi), [Franco Aguilar](https://github.com/faguilardc), [Miguel Maripillan](https://github.com/mihel1) y [Diego Sanhueza](https://github.com/Diego0119)
 
-### 4. Franco Aguilar 👨‍💻
-- Estudiante de Ingeniería Civil Infomatica
-- [Franco Aguilar](https://github.com/faguilardc)   
+## Ejecución del programa
+Para ejecutar el programa, siga los siguientes pasos:
+1. Clonar el repositorio
+2. Generar las carpetas necesarias con el comando `make folders`
+3. Compilar el programa con el comando `make`
+4. Ejecutar el programa con `make run` o entrando a la carpeta `build` y ejecutando el archivo `devgraph.out`
+> ⚠️ Asegurese que el archvivo `subtopics` se encuentre en el mismo directorio del que va a ejecutarse el programa
 
-### 5. Miguel Maripillan 👨‍💻
-- Estudiante de Ingeniería Infomatica
-- [Miguel Maripillan](https://github.com/mihel1)
+## Comandos disponibles
+| Comando | Descripción |
+| --- | --- |
+| `-h, --help` | Muestra la ayuda del programa |
+| `-g, --generate <cantidad>` | Genera usuarios aleatorios |
+| `-c, --clear` | Borra la base de datos |
+| `-a, --all` | Lista todos los usuarios registrados |
+| `-t, --topics` | Muestra todos los tópicos disponibles en DevGraph |
+| `-l, --login` | Inicia sesión |
+| `-o, --logout` | Cerrar sesión |
+| `-r, --register` | Registra un nuevo usuario |
+| `-d, --delete` | Elimina la cuenta de la sesión iniciada |
+| `-e, --edit` | Permite editar la información de la sesión iniciada |
+| `-p, --post` | Publica una publicación |
+| `-m, --me` | Muestra el perfil del usuario actual |
+| `-u, --user <usuario>` | Muestra el perfil de un usuario |
+| `-f, --follow <usuario>` | Sigue a un usuario |
+| `-n, --unfollow <usuario>` | Deja de seguir a un usuario |
+| `-q, --feed` | Muestra los posts seleccionados |
+| `-x, --connect` | Muestra los usuarios recomendados |
 
-### 6. Nicolás Alvarez 👨‍💻
-- Estudiante de Ingeniería Infomatica
-- [Nicolas Alvarez](https://github.com/nalvarti1)
+
+
+
+
+
 
 ## Lista de tareas
 - [X] Implementar tablas hash (Duván)
@@ -48,7 +69,7 @@ Este repositorio contiene el desarrollo de una **Social Network** utilizando **e
 - [X] Guardar información de los usuarios (nube) (Miguel)
 - [X] Cargar usuarios por medio de un txt de entrada (Miguel)
 - [X] Iniciar sesión y publicar cosas según el usuario iniciado (Iván)
-- [ ] Comandos para publicar, borrar, ver usuarios, perfil, publicaciones, etc (Iván)
+- [X] Comandos para publicar, borrar, ver usuarios, perfil, publicaciones, etc (Iván)
 - [ ] Ordenar main para el programa final 
 
 ### Urgente

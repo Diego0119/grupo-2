@@ -669,3 +669,69 @@ void delete_account(User user) {
     logout();
     printf("Se ha borrado la cuenta de '%s' exitosamente.\n", user->username);
 }
+
+/**
+ * @brief Permite a un usuario editar su información de cuenta
+ * 
+ * @param user Sesión iniciada
+ * @param globalInterests Tabla de intereses globales
+ * @param table Tabla de usuarios
+ */
+void edit_account(User user, GlobalInterests globalInterests, PtrToHashTable table) {
+    
+    printf("Qué información de su cuenta desea modificar?\n");
+    printf("1. Nombre\n2. Usuario\n3. Contraseña\n");
+    int option;
+
+    do {
+        scanf("%d",&option);
+        if(option<0 || option>3){
+            printf("ERROR: Opción inválida. Intente nuevamente\n");
+        }
+    } while(option>3 || option<0);
+    
+    switch(option){
+        case 1: 
+            printf("Ingrese el nuevo nombre: ");
+            char *new_name=malloc(sizeof(char)*256);
+            while (getchar() != '\n');
+            if (fgets(new_name, 256, stdin) != NULL) {
+                size_t len = strlen(new_name);
+                if (len > 0 && new_name[len - 1] == '\n') {
+                    new_name[len - 1] = '\0';
+                }
+            }
+            free(user->name);
+            user->name = strdup(new_name);
+            printf("Se ha modificado su nombre a '%s'.\n", user->name);
+            free(new_name);
+            break;
+        case 2:
+            printf("Ingrese el nuevo usuario: ");
+            char *new_username=malloc(sizeof(char)*256);
+            scanf("%s",new_username);
+            User user_aux = search_user(new_username, table);
+            if(user_aux){
+                printf("ERROR: El nombre de usuario '%s' ya existe. Intente nuevamente \n", new_username);
+                free(new_username);
+                return;
+            }
+            free(user->username);
+            user->username = strdup(new_username);
+            printf("Se ha modificado su nombre de usuario a '%s'.\n", user->username);
+            free(new_username);
+            break;
+
+        case 3:
+            printf("Ingrese la nueva contraseña: ");
+            char *new_password=malloc(sizeof(char)*256);
+            scanf("%s",new_password);
+            free(user->password);
+            user->password = strdup(new_password);
+            printf("Se ha modificado su contraseña a '%s'.\n", user->password);
+            free(new_password);
+            break;
+    }
+    save_user_data(user, globalInterests);
+}
+

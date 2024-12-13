@@ -69,7 +69,7 @@ int main(int argc, char *argv[]){
     }
 
     // verificación para comandos que requieren una sesión iniciada
-    if(option==5||option==6||option==9||option==11){
+    if(option==5||option==6||option==9||option==11||option==13){
         currentUser = current_session(table);
         if(!currentUser){
             printf("ERROR: No se ha iniciado sesión. Ejecute './devgraph -l' para iniciar sesión.\n");
@@ -132,7 +132,7 @@ int main(int argc, char *argv[]){
         break;
     
     case 13: /* EDITAR INFORMACIÓN DEL USUARIO */
-        /* POR HACER */
+        edit_account(currentUser, globalInterestsTable, table);
         break;
     
     case 14: /* MOSTRAR POSTS */
@@ -141,6 +141,11 @@ int main(int argc, char *argv[]){
     
     case 15: /* MOSTRAR USUARIOS RECOMENDADOS*/
         /* POR HACER*/
+        break;
+    
+    case 16: /* MOSTRAR TEMAS */
+        printf("Tópicos de DevGraph:\n");
+        print_global_interests(globalInterestsTable);
         break;
 
     default:

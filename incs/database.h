@@ -57,5 +57,6 @@ void write_post(User user, GlobalInterests globalInterests);
 void follow(User user, char* follow, GlobalInterests globalInterests, PtrToHashTable table);
 void unfollow(User user, char* follow, GlobalInterests globalInterests, PtrToHashTable table);
 void delete_account(User user);
+void edit_account(User user, GlobalInterests globalInterests, PtrToHashTable table);
 
 #endif
