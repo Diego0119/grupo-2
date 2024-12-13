@@ -10,7 +10,6 @@
  * - Miguel Maripillan
  */
 #include "users.h"
-#include "graph.h"
 
 /**
  * @brief Crea un nuevo usuario
@@ -92,6 +91,7 @@ UserPosts create_empty_userPosts(void)
  */
 PtrToPostNode insert_post(UserPosts posts, char *content)
 {
+    
     PtrToPostNode newPost = (PtrToPostNode)malloc(sizeof(PostNode));
     if (!newPost)
     {
@@ -102,7 +102,6 @@ PtrToPostNode insert_post(UserPosts posts, char *content)
     newPost->id = jenkins_hash(content);
     newPost->date = *localtime(&t);
     newPost->post = strdup(content);
-
     newPost->next = posts->next;
     posts->next = newPost;
     posts->id++;
@@ -129,7 +128,7 @@ void delete_userPosts(UserPosts posts)
  *
  * @param user usuario a eliminar
  */
-void delete_user(User user, PtrToHashTable table, Graph graph, GlobalInterests globalInterests)
+void delete_user(User user, PtrToHashTable table, Graph graph)
 {
     delete_from_hash_table(table, user->username);
     remove_user_from_graph(graph, user);
@@ -137,8 +136,7 @@ void delete_user(User user, PtrToHashTable table, Graph graph, GlobalInterests g
     free(user->username);
     free(user->password);
     free(user->name);
-    free(user->following);
-    free(user->followers);
+    free_all_edges(user);
     free_user_interests(user->interests);
     if (user->category) free(user->category);
     free(user);
@@ -164,6 +162,7 @@ void print_userPosts(UserPosts posts)
         printf("   ID: %d\n", aux->id);
         printf("   Fecha: %s", asctime(&aux->date));
         printf("   %s\n", aux->post);
+        printf("-----------------------------------------------------------------------------\n");
         aux = aux->next;
     }
 }
@@ -175,6 +174,7 @@ void print_userPosts(UserPosts posts)
  */
 void print_user(User user, GlobalInterests globalInterestsTable)
 {
+    print_logo();
     printf("ID: %d\n", user->id);
     printf("Nombre: %s\n", user->name);
     printf("Usuario: %s\n", user->username);
@@ -256,13 +256,13 @@ void print_all_users(Graph graph)
  * @param table Tabla hash de usuarios
  * @param graph Grafo de usuarios
  */
-void free_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInterests)
+void free_all_users(PtrToHashTable table, Graph graph)
 {
     GraphList aux = graph->graphUsersList->next;
     while (aux)
     {
         GraphList next = aux->next;
-        delete_user(aux, table, graph, globalInterests);
+        delete_user(aux, table, graph);
         aux = next;
     }
 }
@@ -360,14 +360,14 @@ GlobalInterests init_global_interests(void)
     FILE *file_pointer = fopen("subtopics", "r");
     if (!file_pointer)
     {
-        printf("ERROR: No se pudo abrir el archivo\n");
+        printf("ERROR: No se pudo abrir el archivo 'subtopics'. Por favor asegurese que este archivo existe y esté en el mismo directorio que el programa.\n");
         exit(EXIT_FAILURE);
     }
 
     for (int i = 0; i < numInterests; i++)
     {
         globalInterestTable.interestsTable[i] = (char *)malloc(sizeof(char) * numInterests);
-        fgets(globalInterestTable.interestsTable[i], MAX_CHAR, file_pointer);
+        if (fgets(globalInterestTable.interestsTable[i], MAX_CHAR, file_pointer) == NULL) exit(EXIT_FAILURE);
         globalInterestTable.interestsTable[i][strlen(globalInterestTable.interestsTable[i]) - 1] = '\0';
     }
     fclose(file_pointer);
@@ -386,6 +386,7 @@ void free_global_interests(GlobalInterests globalInterestTable)
     {
         free(globalInterestTable.interestsTable[i]);
     }
+    free(globalInterestTable.interestsTable);
 }
 
 /**
@@ -480,6 +481,21 @@ double edge_jaccard(User user1, User user2, GlobalInterests globalInterestTable)
  */
 void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInterests globalInterests)
 {
+    struct stat directory;
+    if(stat("database", &directory) == 0){
+        printf("Ya existe una base de datos. Desea sobreescribirla? (1. Sí, 2. No)\n");
+        int option;
+        do {
+            if(scanf("%d", &option)==0) exit(EXIT_FAILURE);
+            if(option < 1 || option > 2){
+                printf("Opción inválida. Intente nuevamente\n");
+            }
+        } while(option < 1 || option > 2);
+        if(option == 2){
+            return;
+        }
+        clear_database();
+    }
     printf("Creando usuarios, por favor espere...\n");
 
     const char *names[] = {

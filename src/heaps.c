@@ -155,25 +155,6 @@ void heapify_down(heap* h, int index)
 }
 
 /**
- * @brief función para imprimir el heap
- *
- * @param h cola de prioridad
- */
-void print_heap(heap* h)
-{
-    if (h->size == 0) {
-        printf("el heap está vacío.\n");
-        return;
-    }
-
-    printf("contenido del heap: %d\n", h->size);
-    for (int i = 0; i < h->size; i++) {
-        printf("usuario: %s, prioridad: %d, contenido: %s\n",
-            h->posts[i].user_name, h->posts[i].priority, h->posts[i].content);
-    }
-}
-
-/**
  * @brief función para visualizar publicaciones del heap en consola y orden de prioridad
  *
  * @param h cola de prioridad
