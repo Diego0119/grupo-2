@@ -66,10 +66,8 @@ Edge search_previous_in_edge(Edge edge, User user){
     }
 
     Edge aux = edge;
-    while (aux->next)
-    {
-        if (aux->next->dest == user)
-        {
+    while (aux->next){
+        if (aux->next->dest == user){
             return aux;
         }
         aux = aux->next;
@@ -200,34 +198,30 @@ void add_edge(User user1, User user2, GlobalInterests globalInterests)
  *
  * @note Para usuario 1 elimina a usuario 1 de su lista de seguidos, y para usuario 2 se elimina usuario de su lista de seguidores
  */
-void remove_edge(User user1, User user2)
-{   
-        if (!user1 || !user2) {
+void remove_edge(User user1, User user2){
+
+    if (!user1 || !user2) {
         return;
     }
     if (!user1->following || !user2->followers) {
         return;
     }
-
-
     Edge aux1 = search_previous_in_edge(user1->following, user2);
     Edge aux2 = search_previous_in_edge(user2->followers, user1);
     if (!aux1 || !aux2){
+        
         return;
     }
-
     Edge toRemove1 = aux1->next;
     Edge toRemove2 = aux2->next;
     
-    if (toRemove1)
-    {
+    if (toRemove1){
         aux1->next = toRemove1->next;
         free(toRemove1);
         user1->numFollowing--;
     }
 
-    if (toRemove2)
-    {
+    if (toRemove2){
         aux2->next = toRemove2->next;
         free(toRemove2);
         user2->numFollowers--;

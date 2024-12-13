@@ -142,27 +142,9 @@ void save_all_users(Graph graph, GlobalInterests globalInterests) {
  * @brief Elimina todos los archivos y la carpeta database.
  */
 void clear_database(void) {
-    DIR *dir = opendir("database");
-    if (!dir) {
-        return;
+    if(!system("rm -rf database")){
+        printf("Se ha eliminado la base de datos.\n");
     }
-
-    struct dirent *entry;
-    char path[512];
-
-    while ((entry = readdir(dir)) != NULL) {
-        if (strcmp(entry->d_name, ".")==0 || strcmp(entry->d_name, "..")==0) continue;
-        snprintf(path, sizeof(path), "database/%s/posts", entry->d_name);
-        delete_all_in_directory(path);
-        rmdir(path);
-        snprintf(path, sizeof(path), "database/%s", entry->d_name);
-        delete_all_in_directory(path);
-        rmdir(path);
-    }
-    closedir(dir);
-
-    rmdir("database");
-    printf("Se han eliminado todos los datos de la base de datos.\n");
 }
 
 /**
@@ -237,11 +219,13 @@ User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph
     name[strcspn(name, "\n")] = '\0';
     if (fscanf(fp, "%d", &popularity)==0) exit(EXIT_FAILURE);
     if (fscanf(fp, "%f", &friendliness)==0) exit(EXIT_FAILURE);
-    if (fscanf(fp, "%s", category_buf)==0) exit(EXIT_FAILURE);
+    fgetc(fp);
+    if (fgets(category_buf, sizeof(category_buf), fp) == NULL) exit(EXIT_FAILURE);
+    category_buf[strcspn(category_buf, "\n")] = '\0';
 
     /* carga intereses*/
     int i = 0;
-    while (fscanf(fp, "%d", &tempInterests[i].value) == 1) {
+    while (fscanf(fp, "%d", &tempInterests[i].value) == 1 && i<globalInterests.numInterests-1) {
         tempInterests[i].name = globalInterests.interestsTable[i];
         i++;
     }
@@ -501,11 +485,12 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
         }
         else if(option>0){
             add_interest(user, globalInterests, option);
+            printf("Se ha añadido el interes %s.\n", globalInterests.interestsTable[option]);
         }
     } while(option != 0);
 
     save_user_data(user, globalInterests);
-    printf("Usuario registrado correctamente.\n");
+    printf("Usuario registrado correctamente. Ahora puedes iniciar sesión y conectar con otros usuarios.\n");
 }
 
 /**
@@ -549,7 +534,7 @@ void follow(User user, char* follow, GlobalInterests globalInterests, PtrToHashT
 void unfollow(User user, char* follow, GlobalInterests globalInterests, PtrToHashTable table) {
     User to_unfollow = search_user(follow, table);
     if(!to_unfollow){
-        printf("ERROR: '%s' no encontrado.\n", follow);
+        printf("ERROR: '%s' no es un usuario que exista.\n", follow);
         return;
     }
     // Llamada a remove_edge
@@ -563,11 +548,18 @@ void unfollow(User user, char* follow, GlobalInterests globalInterests, PtrToHas
  * @brief Borrar la cuenta del usuario actual
  */
 void delete_account(User user) {
-    DIR *dir = opendir("database");
-    if (!dir) {
-        return;
-    }
-    closedir(dir);
+    char path[512];
+    snprintf(path, sizeof(path), "database/%s_data/data.dat", user->username);
+    remove(path);
+    snprintf(path, sizeof(path), "database/%s_data/following.dat", user->username);
+    remove(path);
+    snprintf(path, sizeof(path), "database/%s_data/followers.dat", user->username);
+    remove(path);
+    snprintf(path, sizeof(path), "database/%s_data/posts", user->username);
+    delete_all_in_directory(path);
+    rmdir(path);
+    snprintf(path, sizeof(path), "database/%s_data", user->username);
+    rmdir(path);
     logout();
     printf("Se ha borrado la cuenta de '%s' exitosamente.\n", user->username);
 }

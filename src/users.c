@@ -730,7 +730,7 @@ void add_interest(User user, GlobalInterests globalInterestTable, int interestId
 }
 
 void print_global_interests(GlobalInterests globalInterestTable){
-    for(int i=0; i<globalInterestTable.numInterests; i++){
+    for(int i=1; i<globalInterestTable.numInterests-1; i++){
         printf("- %d. %s\n", i, globalInterestTable.interestsTable[i]);
     }
 }
