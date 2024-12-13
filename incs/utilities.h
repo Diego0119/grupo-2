@@ -40,5 +40,6 @@ unsigned int jenkins_hash(char* key);
 int get_option(int argc, char *argv[]);
 int line_number_in_file(char *file);
 void delete_all_in_directory(const char *directory);
+void print_logo(void);
 
 #endif

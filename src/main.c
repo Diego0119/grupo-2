@@ -39,12 +39,12 @@ int main(int argc, char *argv[]){
     int option=get_option(argc, argv);
     
     // si no se llama a ayuda o hay error, se inician las estructuras de datos
-    if(option > 0 && option != 2 && option != 12){
+    if(option > 0 && option != 2){
         table = create_hash_table();
         graph = initialize_graph();
         globalInterestsTable = init_global_interests();
         // cargar base de datos si es que existe
-        if (database_exists_and_not_empty()) {
+        if (database_exists_and_not_empty() && option != 3) {
             load_all_users(table, graph, globalInterestsTable);
         }
         else {
@@ -112,9 +112,11 @@ int main(int argc, char *argv[]){
             printf("ERROR: Usuario no encontrado\n");
             return 0;
         }
+        print_logo();
         print_user(user, globalInterestsTable);
         break;
     case 8: /* VER TODOS LOS USUARIOS */
+        print_logo();
         print_all_users(graph);
         break;
     
@@ -136,17 +138,21 @@ int main(int argc, char *argv[]){
         break;
     
     case 13: /* EDITAR INFORMACIÓN DEL USUARIO */
+        print_logo();
         edit_account(currentUser, globalInterestsTable, table);
         break;
     
     case 14: /* MOSTRAR POSTS */
+        print_logo();
         search_posts(&feed, table);
         watch_posts(&feed);
         break;
     
     case 15: /* MOSTRAR USUARIOS RECOMENDADOS*/
+        print_logo();
         search_new_possible_friends(&feed, table, globalInterestsTable, currentUser);
         watch_suggestions(&feed);
+        free_heap(&feed);
         //dijkstra(graph, currentUser);
         //BFS(graph, currentUser);
         break;
@@ -167,7 +173,6 @@ int main(int argc, char *argv[]){
         free_graph(graph);
         free_global_interests(globalInterestsTable);
         free_hash_table(table);
-        free_heap(&feed);
     }
 
     return 0;

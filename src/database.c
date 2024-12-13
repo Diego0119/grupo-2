@@ -488,6 +488,8 @@ void login(PtrToHashTable graph) {
         return;
     }
 
+    print_logo();
+
     // leer usuario y contraseña
     char *username=malloc(sizeof(char)*256);
     char *password=malloc(sizeof(char)*256);
@@ -499,7 +501,7 @@ void login(PtrToHashTable graph) {
     // verificar si los datos son correctos
     User user = search_user(username, graph);
     if (!user) {
-        printf("ERROR: Usuario no existe. Intente nuevamente\n");
+        printf(COLOR_RED COLOR_BOLD"ERROR: Usuario no existe. Intente nuevamente\n"COLOR_RESET);
         free(username);
         free(password);
         fclose(file);
@@ -526,7 +528,13 @@ void login(PtrToHashTable graph) {
  * 
  */
 void logout(void) {
-    remove("current.dat");
+    if(remove("current.dat")==0){
+        print_logo();
+        printf(COLOR_RED COLOR_BOLD"Se ha cerrado sesión exitosamente. Nos vemos pronto...\n"COLOR_RESET);
+    }
+    else {
+        printf(COLOR_RED COLOR_BOLD"ERROR: No hay una sesión iniciada\n"COLOR_RESET);
+    }
 }
 
 /**
@@ -538,12 +546,15 @@ void logout(void) {
  */
 void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
     // leer usuario y contraseña
+
+    print_logo();
+
     char *username=malloc(sizeof(char)*256);
     printf("Ingrese su nombre de usuario: ");
     scanf("%s",username);
     User user = search_user(username, table);
     while(user) {
-        printf("ERROR: El nombre de usuario '%s' ya existe. Intente con otro usuario: \n", username);
+        printf(COLOR_RED COLOR_BOLD"ERROR: El nombre de usuario '%s' ya existe. Intente con otro usuario: \n"COLOR_RESET, username);
         scanf("%s",username);
         user = search_user(username, table);
     }
@@ -564,7 +575,7 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
 
     user = create_new_user(username, password, name, table, graph, globalInterests);
     if(!user){
-        printf("ERROR: No se pudo crear el usuario '%s'.\n", username);
+        printf(COLOR_RED COLOR_BOLD"ERROR: No se pudo crear el usuario '%s'.\n"COLOR_RESET, username);
     }
     free(name);
     free(username);
@@ -578,12 +589,12 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
     do {
         scanf("%d",&option);
         if(option<0 || option>=globalInterests.numInterests){
-            printf("ERROR: ID de interes no válido. Intente nuevamente\n");
+            printf(COLOR_RED COLOR_BOLD"ERROR: ID de interes no válido. Intente nuevamente\n"COLOR_RESET);
         }
         else {
         add_interest(user, globalInterests, option);
         }
-    } while(option>0);
+    } while(option != 0);
 
     save_user_data(user, globalInterests);
 
@@ -597,7 +608,9 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
  * @param globalInterests Tabla de intereses globales
  */
 void write_post(User user, GlobalInterests globalInterests) {
-    printf("Publicando como '%s'. Escriba el contenido de la publicación:\n\n", user->username);
+    print_logo();
+    printf(COLOR_RED COLOR_BOLD"Publicando como '%s'. Escriba el contenido de la publicación:\n\n"COLOR_RESET, user->username);
+    printf("-----------------------------------------------------------------------------\n");
     char *content=malloc(sizeof(char)*1028);
     if (fgets(content, 512, stdin) != NULL) {
         size_t len = strlen(content);
@@ -605,6 +618,7 @@ void write_post(User user, GlobalInterests globalInterests) {
             content[len - 1] = '\0';
         }
     }
+    printf("-----------------------------------------------------------------------------\n");
     insert_post(user->posts, content);
     free(content);
     save_user_data(user, globalInterests);

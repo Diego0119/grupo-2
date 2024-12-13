@@ -10,7 +10,6 @@
  * - Miguel Maripillan
  */
 #include "users.h"
-#include "graph.h"
 
 /**
  * @brief Crea un nuevo usuario
@@ -174,6 +173,7 @@ void print_userPosts(UserPosts posts)
  */
 void print_user(User user, GlobalInterests globalInterestsTable)
 {
+    print_logo();
     printf("ID: %d\n", user->id);
     printf("Nombre: %s\n", user->name);
     printf("Usuario: %s\n", user->username);
@@ -480,6 +480,21 @@ double edge_jaccard(User user1, User user2, GlobalInterests globalInterestTable)
  */
 void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInterests globalInterests)
 {
+    struct stat directory;
+    if(stat("database", &directory) == 0){
+        printf("Ya existe una base de datos. Desea sobreescribirla? (1. Sí, 2. No)\n");
+        int option;
+        do {
+            scanf("%d", &option);
+            if(option < 1 || option > 2){
+                printf("Opción inválida. Intente nuevamente\n");
+            }
+        } while(option < 1 || option > 2);
+        if(option == 2){
+            return;
+        }
+        clear_database();
+    }
     printf("Creando usuarios, por favor espere...\n");
 
     const char *names[] = {

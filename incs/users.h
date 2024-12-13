@@ -18,10 +18,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 #include "utilities.h"
 #include "hash_table.h"
 #include "graph.h"
+#include "database.h"
 
 /*usuarios individuales*/
 typedef struct _user _User;
