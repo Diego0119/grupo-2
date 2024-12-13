@@ -42,6 +42,9 @@ int main(int argc, char *argv[]){
     GlobalInterests globalInterestsTable;
     User currentUser;
     heap feed;
+<<<<<<< HEAD
+>>>>>>> origin/main
+=======
 >>>>>>> origin/main
 
     // obtener parámetros ingresados por el terminal

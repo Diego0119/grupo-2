@@ -233,8 +233,15 @@ static void trim(char *str) {
  * 
  * Se añade debug extra para entender el flujo de lectura, especialmente de las publicaciones.
  */
+<<<<<<< HEAD
 PendingConnections* load_user_from_file(const char *filename, PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
     FILE *fp = fopen(filename,"r");
+=======
+User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
+    char buffer[128];
+    sprintf(buffer, "%s/data.dat", filename);
+    FILE *fp = fopen(buffer,"r");
+>>>>>>> origin/main
     if (!fp) {
         return NULL;
     }
@@ -258,6 +265,7 @@ PendingConnections* load_user_from_file(const char *filename, PtrToHashTable tab
     fscanf(fp, "%f", &friendliness);
     fscanf(fp, "%s", category_buf);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     char **followers = NULL;
     int allocFollowers = 0, usedFollowers = 0;
@@ -410,6 +418,14 @@ PendingConnections* load_user_from_file(const char *filename, PtrToHashTable tab
         i++;
     }
 >>>>>>> origin/main
+=======
+    /* carga intereses*/
+    int i = 0;
+    while (fscanf(fp, "%d", &tempInterests[i].value) == 1) {
+        tempInterests[i].name = globalInterests.interestsTable[i];
+        i++;
+    }
+>>>>>>> origin/main
     fclose(fp);
     
     /* carga publicaciones */
@@ -503,6 +519,7 @@ void load_connections(PtrToHashTable table, Graph graph, GlobalInterests globalI
             continue;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
     }
     closedir(dir);
 
@@ -544,6 +561,14 @@ void load_connections(PtrToHashTable table, Graph graph, GlobalInterests globalI
         current = next;
     }
 =======
+=======
+        char username[256];
+        for(int i=0; i<2; i++){
+            fscanf(fp, "%s", username);
+        }
+       
+
+>>>>>>> origin/main
         User currentUser=search_user(username, table);
         
         if(!currentUser){
@@ -569,6 +594,9 @@ void load_connections(PtrToHashTable table, Graph graph, GlobalInterests globalI
 void load_database(PtrToHashTable table, Graph graph, GlobalInterests globalInterests){
     load_all_users(table, graph, globalInterests);
     load_connections(table, graph, globalInterests);
+<<<<<<< HEAD
+>>>>>>> origin/main
+=======
 >>>>>>> origin/main
 }
 
@@ -608,15 +636,21 @@ void login(PtrToHashTable graph) {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     char username[256];
     char password[256];
     
 =======
+=======
+>>>>>>> origin/main
     print_logo();
 
     // leer usuario y contraseña
     char *username=malloc(sizeof(char)*256);
     char *password=malloc(sizeof(char)*256);
+<<<<<<< HEAD
+>>>>>>> origin/main
+=======
 >>>>>>> origin/main
     printf("Ingrese su nombre de usuario: ");
     if (scanf("%255s", username) != 1) {
@@ -681,11 +715,16 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
     User user = search_user(username, table);
     while(user) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         printf("ERROR: '%s' ya existe. Intente otro: ", username);
         if (scanf("%255s", username) != 1) {
             printf("Error al leer el nombre de usuario.\n");
             return;
         }
+=======
+        printf(COLOR_RED COLOR_BOLD"ERROR: El nombre de usuario '%s' ya existe. Intente con otro usuario: \n"COLOR_RESET, username);
+        scanf("%s",username);
+>>>>>>> origin/main
 =======
         printf(COLOR_RED COLOR_BOLD"ERROR: El nombre de usuario '%s' ya existe. Intente con otro usuario: \n"COLOR_RESET, username);
         scanf("%s",username);
@@ -702,8 +741,13 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
 
     int c;
 <<<<<<< HEAD
+<<<<<<< HEAD
     while ((c = getchar()) != '\n' && c != EOF);
 
+=======
+    while ((c = getchar()) != '\n' && c != EOF); // limpiar buffer
+    char *name=malloc(sizeof(char)*256);
+>>>>>>> origin/main
 =======
     while ((c = getchar()) != '\n' && c != EOF); // limpiar buffer
     char *name=malloc(sizeof(char)*256);
@@ -724,9 +768,14 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
 
     user = create_new_user(username, password, name, table, graph, globalInterests);
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (!user) {
         printf("ERROR: No se pudo crear '%s'.\n", username);
         return;
+=======
+    if(!user){
+        printf(COLOR_RED COLOR_BOLD"ERROR: No se pudo crear el usuario '%s'.\n"COLOR_RESET, username);
+>>>>>>> origin/main
 =======
     if(!user){
         printf(COLOR_RED COLOR_BOLD"ERROR: No se pudo crear el usuario '%s'.\n"COLOR_RESET, username);
@@ -748,6 +797,9 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
         scanf("%d",&option);
         if(option<0 || option>=globalInterests.numInterests){
             printf(COLOR_RED COLOR_BOLD"ERROR: ID de interes no válido. Intente nuevamente\n"COLOR_RESET);
+<<<<<<< HEAD
+>>>>>>> origin/main
+=======
 >>>>>>> origin/main
         }
         if(option < 0 || option >= globalInterests.numInterests) {
@@ -756,7 +808,11 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
             add_interest(user, globalInterests, option);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
     } while(option > 0);
+=======
+    } while(option != 0);
+>>>>>>> origin/main
 =======
     } while(option != 0);
 >>>>>>> origin/main

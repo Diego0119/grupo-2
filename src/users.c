@@ -395,7 +395,11 @@ void free_global_interests(GlobalInterests globalInterestTable) {
         free(globalInterestTable.interestsTable[i]); 
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     free(globalInterestTable.interestsTable);  
+=======
+    free(globalInterestTable.interestsTable);
+>>>>>>> origin/main
 =======
     free(globalInterestTable.interestsTable);
 >>>>>>> origin/main
