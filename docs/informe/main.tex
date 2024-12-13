@@ -149,7 +149,163 @@ Con todo ésto definido, estamos listos para simular una red social en C, la cua
 \newpage
 \section{Planteamiento del desarrollo del proyecto}
 
-    \rhostart{P}OR HACER
+    \subsection{Grafos}
+    Un grafo es una estructura de datos utilizada para modelar relaciones entre entidades.
+    En este caso, se utilizarán grafos para representar nuestra red social, donde cada nodo será un usuario.
+    Se detallarán las características principales que contiene el grafo desarrollado, explicando las decisiones tomadas. 
+    Para implementar el grafo, se utilizó la representación de listas de adyacencia, dado que esta es eficiente en términos de memoria y se adapta bien a grafos dispersos.
+
+    \subsubsection{Estructuras de Datos}
+    \begin{itemize}
+        \item Nodo: Representa cada conexión entre vértices.
+        \item Lista: Almacena todos los nodos conectados a un vértice específico.
+        \item Grafo: Contiene el número total de vértices y un arreglo de listas.
+    \end{itemize}
+
+    \subsubsection{Creación del Grafo}
+    La función \texttt{crearGrafo} inicializa un grafo con un número especificado de vértices.
+
+    \begin{verbatim}
+    Grafo* crearGrafo(int numVertices) {
+        Grafo* grafo = malloc(sizeof(Grafo));
+        grafo->numVertices = numVertices;
+        grafo->listas = malloc(numVertices * sizeof(Lista));
+
+        for (int i = 0; i < numVertices; i++) {
+            grafo->listas[i].cabeza = NULL;
+        }
+
+        return grafo;
+    }
+    \end{verbatim}
+
+    \subsubsection{Adición de Aristas}
+    La función \texttt{agregarArista} añade una conexión (arista) entre dos usuarios.
+
+    \begin{verbatim}
+    void agregarArista(Grafo* grafo, int origen, int destino) {
+        Nodo* nuevoNodo = malloc(sizeof(Nodo));
+        nuevoNodo->vertice = destino;
+        nuevoNodo->siguiente = grafo->listas[origen].cabeza;
+        grafo->listas[origen].cabeza = nuevoNodo;
+
+        // Para grafos no dirigidos
+        nuevoNodo = malloc(sizeof(Nodo));
+        nuevoNodo->vertice = origen;
+        nuevoNodo->siguiente = grafo->listas[destino].cabeza;
+        grafo->listas[destino].cabeza = nuevoNodo;
+    }
+    \end{verbatim}
+
+    \subsection{Generación de usuarios aleatorios}
+    La generación de usuarios aleatorios es un proceso común en simulaciones y pruebas de software. 
+    En este caso, se diseñó un algoritmo para generar nombres de usuarios aleatorios utilizando listas predefinidas de nombres y apellidos, combinándolos de forma aleatoria, lo que permite crear usuarios en nuestra red social.
+    Estos usuarios posteriormente serán usados para conectarlos, crear sus intereses, analizar su perfil y generar un perfil psicológico.
+
+    \subsubsection{Proceso de Generación}
+    \begin{itemize}
+        \item \textbf{Definición de Listas:} Se crearon dos listas predefinidas: una para los nombres y otra para los apellidos, que contienen un conjunto variado de cadenas de texto representando nombres comunes.
+        \item \textbf{Selección Aleatoria:} Para cada usuario, se selecciona aleatoriamente un nombre y un apellido de sus respectivas listas usando la función \texttt{rand()}.
+        \item \textbf{Concatenación:} Una vez seleccionados el nombre y apellido, se concatenan para formar un nombre completo.
+        \item \textbf{Asignación:} El nombre generado se asigna al campo correspondiente del usuario.
+    \end{itemize}
+
+    \subsubsection{Ejemplo de Código}
+    \begin{verbatim}
+    const char *nombres[] = {"Carlos", "María", "Pedro", "Ana"};
+    const char *apellidos[] = {"Pérez", "Gómez", "Rodríguez", "López"};
+
+    for (int i = 0; i < quantity; i++) {
+        int nameIndex = rand() % numNames;
+        int usernameIndex = rand() % numUsernames;
+        int passwordIndex = rand() % numPasswords;
+
+        char *name = strdup(names[nameIndex]);
+        char *username = strdup(usernames[usernameIndex]);
+        char *password = strdup(passwords[passwordIndex]);
+
+        if (search_in_hash_table(table, username)) {
+            printf("Advertencia: El nombre de usuario '%s' ya existe. Saltando...\n", username);
+            free(name);
+            free(username);
+            free(password);
+            continue;
+        }
+
+        User newUser = create_new_user(username, password, name, table, graph, globalInterests);
+        if (!newUser) {
+            printf("Error al crear el usuario '%s'.\n", username);
+            free(name);
+            free(username);
+            free(password);
+            continue;
+        }
+
+        for(int i=0; i<rand()%globalInterests.numInterests; i++) {
+            add_interest(newUser, globalInterests, rand()% globalInterests.numInterests);
+        }
+
+        printf("Usuario creado: %s (%s)\n", name, username);
+
+        free(name);
+        free(username);
+        free(password);
+    }
+    \end{verbatim}
+
+    \subsubsection{Ventajas y Limitaciones}
+    \textbf{Ventajas:}
+    \begin{itemize}
+        \item Permite simular usuarios según la cantidad indicada por el usuario.
+        \item Garantiza la variabilidad en los datos generados.
+    \end{itemize}
+    \textbf{Limitaciones:}
+    \begin{itemize}
+        \item La calidad de los nombres generados depende del tamaño y diversidad de las listas predefinidas.
+        \item En escenarios de gran escala, es posible que se repitan nombres si las listas son pequeñas.
+    \end{itemize}
+
+    \subsection{Conexión entre Usuarios}
+    La conexión entre usuarios en el sistema se implementa mediante un grafo, donde cada nodo representa un usuario y las aristas indican la relación entre ellos.
+    Esta estructura permite modelar redes sociales o sistemas similares.
+
+    \subsubsection{Proceso de Creación de Conexiones}
+    \begin{itemize}
+        \item \textbf{Inicialización del Grafo:} El grafo se inicializa en memoria, permitiendo agregar nodos y conexiones dinámicamente.
+        \item \textbf{Selección Aleatoria de Conexiones:} Se selecciona aleatoriamente un número de conexiones para cada usuario, limitado por un valor máximo.
+        \item \textbf{Verificación de Conexiones:} Se verifica que las conexiones no sean duplicadas ni auto-conexiones.
+        \item \textbf{Establecimiento de Conexiones:} Si la conexión es válida, se actualiza la lista de conexiones de ambos usuarios.
+    \end{itemize}
+
+    \subsubsection{Ventajas y Limitaciones}
+    \textbf{Ventajas:}
+    \begin{itemize}
+        \item Proporciona una forma sencilla y efectiva de simular una red de usuarios.
+        \item La implementación dinámica permite adaptarse a cambios en el tamaño del sistema.
+    \end{itemize}
+    \textbf{Limitaciones:}
+    \begin{itemize}
+        \item La selección aleatoria podría generar distribuciones desiguales de conexiones.
+        \item En sistemas de gran escala, el proceso puede ser computacionalmente costoso.
+    \end{itemize}
+
+    \subsection{Implementación de Dijkstra}
+    El algoritmo de Dijkstra es una técnica eficiente para encontrar la ruta más corta en un grafo ponderado.
+    En este caso, se utiliza para encontrar usuarios cercanos en la red social, asignando un peso entre las conexiones. 
+
+    \subsubsection{Descripción del Algoritmo}
+    Este algoritmo se utiliza para calcular las distancias mínimas desde un nodo fuente hacia todos los demás nodos. 
+    Una vez que se calculan las distancias, es posible filtrar a los usuarios más cercanos mediante un parámetro.
+
+    \subsubsection{Estructura de Datos}
+    \begin{verbatim}
+    struct _edge {
+        User dest; /*!< Usuario destino */
+        double weight; /*!< Peso de la arista */
+        Edge next; /*!< Siguiente en la lista de aristas */
+    };
+    \end{verbatim}
+
 
     \subsection{Planteamiento para las recomendaciones de amistades y publicaciones}
 
@@ -202,7 +358,6 @@ Con todo ésto definido, estamos listos para simular una red social en C, la cua
 
 \newpage
 \section{Gestión del equipo de trabajo}
-
     \rhostart{E}l equipo de trabajo constó de 5 personas, uno de ellos designado por el profesor como líder del grupo, con la responsabilidad de coordinar el trabajo y la gestión del proyecto. Debido a la cantidad de personas involucradas, fue fundamental establecer mecanismos de comunicación, coordinación y orden para asegurar la colaboración y la coordinación de los diferentes miembros del equipo. Algunos de estos mecanismos fueron:
 
     \subsection{Normas de codificación}
@@ -241,6 +396,25 @@ Con todo ésto definido, estamos listos para simular una red social en C, la cua
     \vspace{0.5cm}
 
     Una vez las estructuras de datos hechas, se decidió crear una \textbf{lista de tareas} a realizar, cada miembro con al menos una tarea a realizar. Esta lista fue creada en base a las ideas discutidas por los integrantes del equipo, y se fue actualizando constantemente en función de las necesidades del proyecto.
+
+    A continuación, se presenta una descripción detallada de las tareas asignadas y realizadas por cada miembro del equipo:
+    
+    \begin{itemize}
+        \item \textbf{Duvan Figueroa:} \\
+        Duvan se encargó de la implementación de las \textbf{tablas hash} que permiten el almacenamiento eficiente de datos en la red social. Además, trabajó en la \textbf{organización de publicaciones}, gestionando cómo se almacenan y visualizan las publicaciones en la plataforma.
+    
+        \item \textbf{Diego Sanhueza:} \\
+        Diego fue responsable de la implementación de la \textbf{estructura de grafos} en conjunto con Miguel, lo que facilita la representación de las conexiones entre usuarios. También desarrolló el \textbf{algoritmo de Dijkstra} para encontrar usuarios cercanos basados en la ubicación o afinidades. Además, trabajó en la creación de perfiles psicológicos de los usuarios y en la implementación de \textbf{usuarios aleatorios} para probar el sistema.
+    
+        \item \textbf{Iván Mansilla:} \\
+        Iván implementó las \textbf{listas enlazadas} para manejar las publicaciones, así como la creación de \textbf{estructuras de usuarios}, las cuales incluyen la lista enlazada de publicaciones. También se encargó de agregar \textbf{temas/tópicos} en la estructura de usuarios y publicaciones, y de implementar el índice \textbf{Jaccard} para medir las similitudes entre usuarios y publicaciones. Además, fue responsable de la asignación de intereses a los usuarios y de la implementación de funcionalidades para \textbf{iniciar sesión} y \textbf{publicar} según el usuario iniciado. Por último, implementó los comandos para publicar, borrar, ver usuarios, perfil, publicaciones, entre otros.
+    
+        \item \textbf{Franco Aguilar:} \\
+        Franco fue responsable de la implementación de \textbf{colas de prioridad}, que permiten gestionar las tareas de manera eficiente y priorizar las acciones dentro de la red social.
+    
+        \item \textbf{Miguel Maripillan:} \\
+        Miguel trabajó en conjunto con Diego en la implementación de la \textbf{estructura de grafos} y los \textbf{algoritmos BFS/DFS} para explorar las conexiones entre usuarios de manera eficiente. Además, se encargó del \textbf{almacenamiento de la información de los usuarios} en la nube y de la \textbf{carga de usuarios} a través de un archivo \texttt{txt} de entrada.
+    \end{itemize}
 
 
 \newpage
