@@ -74,7 +74,7 @@ int main(int argc, char *argv[]){
     }
 
     // verificación para comandos que requieren una sesión iniciada
-    if(option==5||option==6||option==9||option==11||option==13||option==14||option==15){
+    if(option==5||option==6||option==9||option==10||option==11||option==13||option==14||option==15){
         currentUser = current_session(table);
         if(!currentUser){
             printf("ERROR: No se ha iniciado sesión. Ejecute './devgraph -l' para iniciar sesión.\n");
