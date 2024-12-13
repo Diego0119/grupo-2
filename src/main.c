@@ -69,7 +69,7 @@ int main(int argc, char *argv[]){
     }
 
     // verificación para comandos que requieren una sesión iniciada
-    if(option==5||option==6||option==9||option==11||option==13){
+    if(option==5||option==6||option==9||option==11||option==13||option==14||option==15){
         currentUser = current_session(table);
         if(!currentUser){
             printf("ERROR: No se ha iniciado sesión. Ejecute './devgraph -l' para iniciar sesión.\n");
@@ -136,11 +136,12 @@ int main(int argc, char *argv[]){
         break;
     
     case 14: /* MOSTRAR POSTS */
-        /* POR HACER*/
+        printf("??");
+        dijkstra(graph, currentUser);
         break;
     
     case 15: /* MOSTRAR USUARIOS RECOMENDADOS*/
-        /* POR HACER*/
+        printf("??");
         break;
     
     case 16: /* MOSTRAR TEMAS */
