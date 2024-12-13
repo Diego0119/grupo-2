@@ -202,6 +202,14 @@ void add_edge(User user1, User user2, GlobalInterests globalInterests)
  */
 void remove_edge(User user1, User user2)
 {   
+        if (!user1 || !user2) {
+        return;
+    }
+    if (!user1->following || !user2->followers) {
+        return;
+    }
+
+
     Edge aux1 = search_previous_in_edge(user1->following, user2);
     Edge aux2 = search_previous_in_edge(user2->followers, user1);
     if (!aux1 || !aux2){

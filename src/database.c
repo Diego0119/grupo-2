@@ -1,6 +1,8 @@
 /**
  * @file database.c
- * @brief Funciones para la gestión y guardado de la base de datos
+ * @brief Funciones para la gestión y guardado de la base de datos, incluyendo carga y guardado de usuarios y publicaciones,
+ *        así como la lógica de seguir y dejar de seguir usuarios.
+ * 
  * @authors
  * - Iván Mansilla
  * - Franco Aguilar
@@ -19,7 +21,6 @@ void create_database_dir(void){
     struct stat st = {0};
     if (stat("database", &st) == -1) {
         if (mkdir("database", 0777) == -1) {
-            perror("Error al crear carpeta database");
             exit(EXIT_FAILURE);
         }
     }
@@ -32,28 +33,25 @@ void create_database_dir(void){
  * @param globalInterests Tabla de intereses globales
  */
 void save_user_data(User user, GlobalInterests globalInterests) {
-    if (!user) return;
 
     char filename[512];
     snprintf(filename, sizeof(filename), "database/%s_data", user->username);
 
     FILE *fp = fopen(filename, "w");
-    if (!fp) {
-        printf("No se pudo crear el archivo para el usuario %s\n", user->username);
+    if(!fp){
         return;
     }
-    
+
     fprintf(fp, "ID: %d\n", user->id);
     fprintf(fp, "Username: %s\n", user->username);
     fprintf(fp, "Password: %s\n", user->password);
     fprintf(fp, "Name: %s\n", user->name);
     fprintf(fp, "Popularity: %d\n", user->popularity);
-    
-    // Calcular y guardar amigabilidad y categoría
+
+    // Amigabilidad y categoría
     float f = calculate_friendliness(user);
     const char *cat = classify_friendliness(f);
     fprintf(fp, "Friendliness: %.2f\n", f);
-   
     fprintf(fp, "Category: %s\n", cat);
 
     fprintf(fp, "Interests:\n");
@@ -62,17 +60,17 @@ void save_user_data(User user, GlobalInterests globalInterests) {
     }
 
     fprintf(fp, "Posts:\n");
-    PtrToPostNode aux = user->posts->next;
-    while (aux) {
+    PtrToPostNode postAux = user->posts->next;
+    while (postAux) {
         char buffer[128];
-        strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", &aux->date);
-        fprintf(fp, "  PostID: %d\n", aux->id);
+        strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", &postAux->date);
+        fprintf(fp, "  PostID: %d\n", postAux->id);
         fprintf(fp, "  Fecha: %s\n", buffer);
-        fprintf(fp, "  Contenido: %s\n", aux->post);
+        fprintf(fp, "  Contenido: %s\n", postAux->post);
         fprintf(fp, "  ------------------------\n");
-        aux = aux->next;
+        postAux = postAux->next;
     }
-    
+
     fprintf(fp, "Followers:\n");
     Edge e = user->followers->next;
     while (e) {
@@ -86,15 +84,12 @@ void save_user_data(User user, GlobalInterests globalInterests) {
         fprintf(fp, "  %s\n", e->dest->username);
         e = e->next;
     }
-    
+
     fclose(fp);
 }
 
 /**
- * @brief Guarda todos los usuarios del grafo en la carpeta database.
- *
- * @param graph Grafo con usuarios
- * @param globalInterests Tabla global de intereses
+ * @brief Guarda todos los usuarios en la carpeta database.
  */
 void save_all_users(Graph graph, GlobalInterests globalInterests) {
     create_database_dir();
@@ -105,7 +100,6 @@ void save_all_users(Graph graph, GlobalInterests globalInterests) {
         currentUser = currentUser->next;
     }
 
-    printf("Se han guardado todos los datos de los usuarios en la carpeta 'database'.\n");
 }
 
 /**
@@ -121,9 +115,7 @@ void clear_database(void) {
     char path[512];
 
     while ((entry = readdir(dir)) != NULL) {
-        if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) {
-            continue;
-        }
+        if (strcmp(entry->d_name, ".")==0 || strcmp(entry->d_name, "..")==0) continue;
         snprintf(path, sizeof(path), "database/%s", entry->d_name);
         remove(path);
     }
@@ -134,30 +126,28 @@ void clear_database(void) {
 }
 
 /**
- * @brief Pregunta al usuario si desea mantener o eliminar la base de datos.
+ * @brief Pregunta si se desea mantener o eliminar la base de datos.
  */
 void confirm_and_cleanup(void) {
     int opcion;
     printf("¿Desea mantener los datos guardados?\n");
-    printf("1. Sí, conservar.\n");
+    printf("1. Sí\n");
     printf("2. No, eliminar todo.\n");
     printf("Elige una opción: ");
     if (scanf("%d", &opcion) != 1) {
-        printf("Entrada no válida, se conservarán los datos por defecto.\n");
+        printf("Entrada no válida, se conservarán los datos.\n");
         return;
     }
 
     if (opcion == 2) {
         clear_database();
     } else {
-        printf("Se conservarán los datos en 'database'.\n");
+        printf("Se conservarán los datos.\n");
     }
 }
 
 /**
- * @brief Verifica si la carpeta database existe y contiene datos.
- *
- * @return 1 si existe y contiene al menos un archivo, 0 de lo contrario.
+ * @brief Verifica si la carpeta database existe y no está vacía.
  */
 int database_exists_and_not_empty(void) {
     DIR *dir = opendir("database");
@@ -176,84 +166,84 @@ int database_exists_and_not_empty(void) {
     return has_files;
 }
 
-/**
- * @brief Elimina espacios en blanco al inicio y al final de una cadena
- * 
- * @param str 
- */
 static void trim(char *str) {
-    char *end;
-    while(*str==' ' || *str=='\t' || *str=='\n') str++;
-    if(*str == 0) return;
+    char *start = str;
+    while(*start==' ' || *start=='\t' || *start=='\n') start++;
+    if(*start == 0) {
+        *str = '\0';
+        return;
+    }
 
-    end = str + strlen(str) - 1;
-    while(end > str && (*end==' ' || *end=='\t' || *end=='\n')) end--;
+    char *end = start + strlen(start) - 1;
+    while(end > start && (*end==' ' || *end=='\t' || *end=='\n'))
+        end--;
     *(end+1) = '\0';
+
+    if (start != str) memmove(str, start, end - start + 2);
 }
 
+/* Estado para parsing de publicaciones */
+typedef enum {
+    POST_WAIT_ID,
+    POST_WAIT_FECHA,
+    POST_WAIT_CONTENIDO,
+    POST_READY
+} PostState;
+
 /**
- * @brief Carga un usuario desde un archivo
+ * @brief Carga un usuario desde un archivo y devuelve su PendingConnections.
  * 
- * @param filename Nombre del archivo
- * @param table Tabla hash de usuarios
- * @param graph Grafo de usuarios
- * @param globalInterests Tabla de intereses globales
- * @return PendingConnections* 
+ * Se añade debug extra para entender el flujo de lectura, especialmente de las publicaciones.
  */
 static PendingConnections* load_user_from_file(const char *filename, PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
     FILE *fp = fopen(filename,"r");
     if (!fp) {
-        printf("No se pudo abrir el archivo %s\n", filename);
         return NULL;
     }
 
     int id = 0;
-    char username[256]={0};
-    char password[256]={0};
-    char name[256]={0};
+    char username[256]="";
+    char password[256]="";
+    char name[256]="";
     int popularity = 0;
     float friendliness = 0.0f;
-    char category_buf[256]={0};
+    char category_buf[256]="";
 
     InterestTable tempInterests = init_user_interests(globalInterests);
     UserPosts posts = create_empty_userPosts();
 
     char **followers = NULL;
-    int allocFollowers = 0;
-    int usedFollowers = 0;
+    int allocFollowers = 0, usedFollowers = 0;
 
     char **following = NULL;
-    int allocFollowing = 0;
-    int usedFollowing = 0;
+    int allocFollowing = 0, usedFollowing = 0;
 
     enum State {READ_MAIN, READ_INTERESTS, READ_POSTS, READ_FOLLOWERS, READ_FOLLOWING} state = READ_MAIN;
 
     char line[512];
-    int post_state=0; 
-    int post_id=0;
-    char post_content[512];
-    struct tm post_date;
+    PostState post_state = POST_WAIT_ID;
+    int post_id = 0;
+    char post_content[512]="";
+    struct tm post_date; 
+    memset(&post_date, 0, sizeof(post_date));
 
     while (fgets(line, sizeof(line), fp)) {
         trim(line);
-        if (strlen(line)==0) continue;
+        if (strlen(line) == 0) continue;
 
         if (strncmp(line,"ID:",3)==0) {
             sscanf(line,"ID: %d",&id);
         } else if (strncmp(line,"Username:",9)==0) {
             char *ptr = line+9; while (*ptr==' ') ptr++;
-            strncpy(username, ptr, 255);
-            username[255]='\0';
+            strncpy(username, ptr, 255); username[255]='\0';
             trim(username);
         } else if (strncmp(line,"Password:",9)==0) {
             char *ptr = line+9; while (*ptr==' ') ptr++;
-            strncpy(password, ptr, 255);
-            password[255]='\0';
+            strncpy(password, ptr, 255); password[255]='\0';
             trim(password);
         } else if (strncmp(line,"Name:",5)==0) {
             char *ptr = line+5; while (*ptr==' ') ptr++;
-            strncpy(name, ptr, 255);
-            name[255]='\0';
+            strncpy(name, ptr, 255); name[255]='\0';
             trim(name);
         } else if (strncmp(line,"Popularity:",11)==0) {
             sscanf(line,"Popularity: %d",&popularity);
@@ -261,13 +251,13 @@ static PendingConnections* load_user_from_file(const char *filename, PtrToHashTa
             sscanf(line,"Friendliness: %f",&friendliness);
         } else if (strncmp(line,"Category:",9)==0) {
             char *ptr = line+9; while(*ptr==' ') ptr++;
-            strncpy(category_buf, ptr, 255);
-            category_buf[255]='\0';
+            strncpy(category_buf, ptr, 255); category_buf[255]='\0';
             trim(category_buf);
         } else if (strncmp(line,"Interests:",10)==0) {
             state = READ_INTERESTS;
         } else if (strncmp(line,"Posts:",6)==0) {
             state = READ_POSTS;
+            post_state = POST_WAIT_ID;
         } else if (strncmp(line,"Followers:",9)==0) {
             state = READ_FOLLOWERS;
         } else if (strncmp(line,"Following:",9)==0) {
@@ -275,7 +265,8 @@ static PendingConnections* load_user_from_file(const char *filename, PtrToHashTa
         } else {
             if (state == READ_INTERESTS) {
                 char iname[256]; int val;
-                if (sscanf(line," %255[^:]: %d", iname, &val)==2) {
+                if (sscanf(line,"%255[^:]: %d", iname, &val)==2) {
+                    trim(iname);
                     for (int i=0; i<globalInterests.numInterests; i++) {
                         if (strcmp(globalInterests.interestsTable[i], iname)==0) {
                             tempInterests[i].name = globalInterests.interestsTable[i];
@@ -285,39 +276,61 @@ static PendingConnections* load_user_from_file(const char *filename, PtrToHashTa
                     }
                 }
             } else if (state == READ_POSTS) {
+                // Proceso de posts
                 if (strncmp(line,"PostID:",7)==0) {
-                    sscanf(line,"PostID: %d",&post_id);
-                    post_state=1;
-                } else if (strncmp(line,"Fecha:",6)==0) {
-                    char date_str[64];
-                    sscanf(line,"Fecha: %63[^\n]", date_str);
-                    memset(&post_date,0,sizeof(post_date));
-                    int year,mon,day,hour,min,sec;
-                    if (sscanf(date_str,"%d-%d-%d %d:%d:%d",&year,&mon,&day,&hour,&min,&sec)==6) {
-                        post_date.tm_year = year-1900;
-                        post_date.tm_mon = mon-1;
-                        post_date.tm_mday = day;
-                        post_date.tm_hour = hour;
-                        post_date.tm_min = min;
-                        post_date.tm_sec = sec;
+                    if (post_state != POST_WAIT_ID) {
+                        post_state = POST_WAIT_ID;
                     }
-                    post_state=2;
+                    sscanf(line,"PostID: %d",&post_id);
+                    post_state = POST_WAIT_FECHA;
+                } else if (strncmp(line,"Fecha:",6)==0) {
+                    if (post_state != POST_WAIT_FECHA) {
+                        post_state = POST_WAIT_ID;
+                        continue;
+                    }
+                    char date_str[64];
+                    if (sscanf(line,"Fecha: %63[^\n]", date_str)==1) {
+                        int year,mon,day,hour,min,sec;
+                        if (sscanf(date_str,"%d-%d-%d %d:%d:%d",&year,&mon,&day,&hour,&min,&sec)==6) {
+                            post_date.tm_year = year-1900;
+                            post_date.tm_mon = mon-1;
+                            post_date.tm_mday = day;
+                            post_date.tm_hour = hour;
+                            post_date.tm_min = min;
+                            post_date.tm_sec = sec;
+                            post_state = POST_WAIT_CONTENIDO;
+                        } else {
+                            post_state = POST_WAIT_ID;
+                        }
+                    }
                 } else if (strncmp(line,"Contenido:",10)==0) {
+                    if (post_state != POST_WAIT_CONTENIDO) {
+                        post_state = POST_WAIT_ID;
+                        continue;
+                    }
                     char *cptr = line+10;
                     while(*cptr==' ') cptr++;
                     strncpy(post_content, cptr, 511);
                     post_content[511]='\0';
-                    post_state=3;
-                } else if (strncmp(line,"------------------------",24)==0 && post_state==3) {
-                    PtrToPostNode newP = insert_post(posts, post_content);
-                    if (newP) {
-                        newP->date = post_date;
+                    trim(post_content);
+                    post_state = POST_READY;
+                } else if (strncmp(line,"------------------------",24)==0) {
+                    if (post_state == POST_READY) {
+                        // Insertar el post
+                        PtrToPostNode newP = insert_post(posts, post_content);
+                        if (newP) {
+                            newP->id = post_id;
+                            newP->date = post_date;
+                        } else {
+                        }
                     }
-                    post_state=0;
+                    // Reiniciar estado para el siguiente post
+                    post_state = POST_WAIT_ID;
+                    memset(post_content,0,sizeof(post_content));
                 }
             } else if (state == READ_FOLLOWERS) {
+                // Lectura de seguidores
                 if (strlen(line)>0) {
-                    trim(line);
                     if (usedFollowers == allocFollowers) {
                         allocFollowers = allocFollowers==0?4:allocFollowers*2;
                         followers = realloc(followers, allocFollowers*sizeof(char*));
@@ -326,8 +339,8 @@ static PendingConnections* load_user_from_file(const char *filename, PtrToHashTa
                     usedFollowers++;
                 }
             } else if (state == READ_FOLLOWING) {
+                // Lectura de seguidos
                 if (strlen(line)>0) {
-                    trim(line);
                     if (usedFollowing == allocFollowing) {
                         allocFollowing = allocFollowing==0?4:allocFollowing*2;
                         following = realloc(following, allocFollowing*sizeof(char*));
@@ -341,6 +354,7 @@ static PendingConnections* load_user_from_file(const char *filename, PtrToHashTa
 
     fclose(fp);
 
+    // Crear el usuario real en memoria
     User newUser = create_new_user(username, password, name, table, graph, globalInterests);
     if (!newUser) {
         free(tempInterests);
@@ -352,6 +366,7 @@ static PendingConnections* load_user_from_file(const char *filename, PtrToHashTa
         return NULL;
     }
 
+    // Asignar intereses y posts al nuevo usuario
     free_user_interests(newUser->interests);
     newUser->interests = tempInterests;
 
@@ -371,16 +386,12 @@ static PendingConnections* load_user_from_file(const char *filename, PtrToHashTa
     pc->numFollowing = usedFollowing;
     pc->next = NULL;
 
+
     return pc;
 }
 
 /**
- * @brief Carga todos los usuarios desde los archivos en la carpeta database, restaurando el estado anterior.
- *        Se debe llamar antes de generar usuarios aleatorios.
- *
- * @param table Tabla hash de usuarios
- * @param graph Grafo de usuarios
- * @param globalInterests Tabla de intereses globales
+ * @brief Carga todos los usuarios desde database.
  */
 void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
     DIR *dir = opendir("database");
@@ -445,14 +456,10 @@ void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInt
         current = next;
     }
 
-    //printf("Se ha cargado la base de datos con los usuarios existentes.\n");
 }
 
 /**
- * @brief Verifica si hay una sesión iniciada y si es válida.
- * 
- * @param graph Tabla hash de usuarios
- * @return user, si está la sesión iniciada, NULL si no o no es válida la sesión
+ * @brief Obtiene el usuario de la sesión actual, si existe.
  */
 User current_session(PtrToHashTable graph) {
     FILE *file = fopen("current.dat","r");
@@ -460,31 +467,29 @@ User current_session(PtrToHashTable graph) {
         return NULL;
     }
     
-    char *username=malloc(sizeof(char)*256);
-    fscanf(file,"%s",username);
-    fclose(file);
-    
-    User user = search_user(username, graph);
-
-    if (!user) {
-        logout(); // sesión iniciada no es válida, entonces se borra la sesión
+    char userTemp[256];
+    if (fscanf(file,"%255s",userTemp)!=1) {
+        fclose(file);
         return NULL;
     }
-    free(username);
+    fclose(file);
+
+    User user = search_user(userTemp, graph);
+    if (!user) {
+        logout();
+        return NULL;
+    }
+
     return user;
 }
 
 /**
- * @brief Inicia sesión en la red social
- * 
- * @param username Usuario a iniciar sesión
- * @param password Contraseña
- * @param graph Tabla hash de usuarios
+ * @brief Inicia sesión
  */
 void login(PtrToHashTable graph) {
     FILE *file = fopen("current.dat","w");
     if (!file) {
-        printf("ERROR: No se pudo iniciar sesión. Verifique los permisos de su sistema.\n");
+        printf("ERROR: No se pudo iniciar sesión.\n");
         return;
     }
 
@@ -494,11 +499,10 @@ void login(PtrToHashTable graph) {
     char *username=malloc(sizeof(char)*256);
     char *password=malloc(sizeof(char)*256);
     printf("Ingrese su nombre de usuario: ");
-    scanf("%s",username);
+    scanf("%255s",username);
     printf("Ingrese su contraseña: ");
-    scanf("%s",password);
+    scanf("%255s",password);
 
-    // verificar si los datos son correctos
     User user = search_user(username, graph);
     if (!user) {
         printf(COLOR_RED COLOR_BOLD"ERROR: Usuario no existe. Intente nuevamente\n"COLOR_RESET);
@@ -508,24 +512,19 @@ void login(PtrToHashTable graph) {
         return;
     }
 
-    if (strcmp(user->password, password)) {
-        printf("ERROR: Contraseña incorrecta. Intente nuevamente.\n");
-        free(username);
-        free(password);
+    if (strcmp(user->password, password) != 0) {
+        printf("ERROR: Contraseña incorrecta.\n");
         fclose(file);
         return;
     }
-    // guardar usuario en el archivo actual.dat
+
     fprintf(file,"%s",username);
     printf("Sesión iniciada correctamente como '%s'.\n", username);
-    free(username);
-    free(password);
     fclose(file);
 }
 
 /**
- * @brief Cierra sesión en la red social
- * 
+ * @brief Cierra sesión
  */
 void logout(void) {
     if(remove("current.dat")==0){
@@ -538,11 +537,7 @@ void logout(void) {
 }
 
 /**
- * @brief Registra un usuario nuevo en la red social
- * 
- * @param table Tabla hash de usuarios
- * @param graph Grafo de usuarios
- * @param globalInterests Tabla de intereses globales
+ * @brief Registra un nuevo usuario
  */
 void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
     // leer usuario y contraseña
@@ -551,7 +546,7 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
 
     char *username=malloc(sizeof(char)*256);
     printf("Ingrese su nombre de usuario: ");
-    scanf("%s",username);
+    scanf("%255s",username);
     User user = search_user(username, table);
     while(user) {
         printf(COLOR_RED COLOR_BOLD"ERROR: El nombre de usuario '%s' ya existe. Intente con otro usuario: \n"COLOR_RESET, username);
@@ -561,9 +556,10 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
 
     char *password=malloc(sizeof(char)*256);
     printf("Ingrese su contraseña: ");
-    scanf("%s",password);
+    scanf("%255s",password);
 
-    while (getchar() != '\n');
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF); // limpiar buffer
     char *name=malloc(sizeof(char)*256);
     printf("Ingrese su nombre: ");
     if (fgets(name, 256, stdin) != NULL) {
@@ -577,35 +573,29 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
     if(!user){
         printf(COLOR_RED COLOR_BOLD"ERROR: No se pudo crear el usuario '%s'.\n"COLOR_RESET, username);
     }
-    free(name);
     free(username);
     free(password);
+    free(name);
 
-    // selección de intereses
-    printf("Bienvenido/a %s a DevGraph! Por favor, ingrese el ID de los intereses que mas se ajusten consigo\n", user->name);
+    printf("Bienvenido/a %s a DevGraph! Ingrese ID de intereses (0 para terminar)\n", user->name);
     print_global_interests(globalInterests);
-    printf("Ingrese la opción deseada (0 para terminar)\n ");
     int option;
     do {
         scanf("%d",&option);
         if(option<0 || option>=globalInterests.numInterests){
             printf(COLOR_RED COLOR_BOLD"ERROR: ID de interes no válido. Intente nuevamente\n"COLOR_RESET);
         }
-        else {
-        add_interest(user, globalInterests, option);
+        else if(option>0){
+            add_interest(user, globalInterests, option);
         }
     } while(option != 0);
 
     save_user_data(user, globalInterests);
-
-    printf("Usuario registrado correctamente! Ahora puedes iniciar sesión y conectarte con otros usuarios.\n");
+    printf("Usuario registrado correctamente.\n");
 }
 
 /**
- * @brief Permite a un usuario publicar un post, guardandolo en la base de datos
- * 
- * @param user Sesión iniciada
- * @param globalInterests Tabla de intereses globales
+ * @brief Publicar un post
  */
 void write_post(User user, GlobalInterests globalInterests) {
     print_logo();
@@ -614,71 +604,54 @@ void write_post(User user, GlobalInterests globalInterests) {
     char *content=malloc(sizeof(char)*1028);
     if (fgets(content, 512, stdin) != NULL) {
         size_t len = strlen(content);
-        if (len > 0 && content[len - 1] == '\n') {
-            content[len - 1] = '\0';
+        if (len > 0 && content[len-1] == '\n') {
+            content[len-1] = '\0';
         }
     }
     printf("-----------------------------------------------------------------------------\n");
     insert_post(user->posts, content);
     free(content);
     save_user_data(user, globalInterests);
-    printf("\nPublicación publicada correctamente.\n");
 }
 
 /**
- * @brief Permite a un usuario seguir a otro, y guarda dicha información en la base de datos
- * 
- * @param user Sesión iniciada
- * @param follow Nombre de usuario de la persona a seguir
- * @param globalInterests Tabla de intereses globales
- * @param table Tabla hash de usuarios
+ * @brief Seguir a un usuario
  */
 void follow(User user, char* follow, GlobalInterests globalInterests, PtrToHashTable table) {
     User to_follow = search_user(follow, table);
-        if(!to_follow){
-            printf("ERROR: Usuario no encontrado\n");
-            return 0;
-        }
-        add_edge(user, to_follow, globalInterests);
-        save_user_data(user, globalInterests);
-        printf("Se ha seguido a '%s'.\n", to_follow->username);
+    if(!to_follow){
+        printf("ERROR: Usuario '%s' no encontrado.\n", follow);
+        return;
+    }
+    add_edge(user, to_follow, globalInterests);
+    save_user_data(user, globalInterests);
+    printf("Ahora sigues a '%s'.\n", to_follow->username);
 }
 
 /**
- * @brief Permite a un usuario dejar de seguir a otro, y guarda dicha información en la base de datos
- * 
- * @param user Sesión iniciada
- * @param follow Nombre de usuario de la persona a seguir
- * @param globalInterests Tabla de intereses globales
- * @param table Tabla hash de usuarios
+ * @brief Dejar de seguir a un usuario
  */
 void unfollow(User user, char* follow, GlobalInterests globalInterests, PtrToHashTable table) {
     User to_unfollow = search_user(follow, table);
-        if(!to_unfollow){
-            printf("ERROR: Usuario no encontrado\n");
-            return 0;
-        }
-        remove_edge(user, to_unfollow);
-        save_user_data(user, globalInterests);
-        printf("Se ha dejado de seguir a '%s'.\n", to_unfollow->username);
+    if(!to_unfollow){
+        printf("ERROR: '%s' no encontrado.\n", follow);
+        return;
+    }
+    // Llamada a remove_edge
+    remove_edge(user, to_unfollow);
+    // Guardar datos
+    save_user_data(user, globalInterests);
+    printf("Has dejado de seguir a '%s'.\n", to_unfollow->username);
 }
 
 /**
- * @brief Elimina el usuario de la sesión actual de la base de datos
- * 
- * @param user Sesión iniciada
+ * @brief Borrar la cuenta del usuario actual
  */
 void delete_account(User user) {
     DIR *dir = opendir("database");
     if (!dir) {
         return;
     }
-
-    struct dirent *entry;
-    char path[512];
-
-    snprintf(path, sizeof(path), "database/%s_data", user->username);
-    remove(path);
     closedir(dir);
     logout();
     printf("Se ha borrado la cuenta de '%s' exitosamente.\n", user->username);

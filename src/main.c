@@ -106,7 +106,7 @@ int main(int argc, char *argv[]){
         print_user(currentUser, globalInterestsTable);
         break;
 
-    case 7: /* VER USUARIO */
+    case 7: {/* VER USUARIO */
         User user = search_user(argv[2], table);
         if(!user){
             printf("ERROR: Usuario no encontrado\n");
@@ -115,6 +115,7 @@ int main(int argc, char *argv[]){
         print_logo();
         print_user(user, globalInterestsTable);
         break;
+    }
     case 8: /* VER TODOS LOS USUARIOS */
         print_logo();
         print_all_users(graph);
