@@ -34,6 +34,7 @@ int main(int argc, char *argv[]){
     Graph graph;
     GlobalInterests globalInterestsTable;
     User currentUser;
+    heap feed;
     // obtener parámetros ingresados por el terminal
     int option=get_option(argc, argv);
     
@@ -136,12 +137,15 @@ int main(int argc, char *argv[]){
         break;
     
     case 14: /* MOSTRAR POSTS */
-        printf("??");
-        dijkstra(graph, currentUser);
+        search_posts(&feed, table);
+        watch_posts(&feed);
         break;
     
     case 15: /* MOSTRAR USUARIOS RECOMENDADOS*/
-        printf("??");
+        search_new_possible_friends(&feed, table, globalInterestsTable, currentUser);
+        watch_suggestions(&feed);
+        //dijkstra(graph, currentUser);
+        //BFS(graph, currentUser);
         break;
     
     case 16: /* MOSTRAR TEMAS */
@@ -159,6 +163,7 @@ int main(int argc, char *argv[]){
         free_all_users(table, graph, globalInterestsTable);
         free_graph(graph);
         free_global_interests(globalInterestsTable);
+        free_heap(&feed);
     }
 
     return 0;
