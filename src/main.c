@@ -30,10 +30,10 @@
  * @return int 
  */
 int main(int argc, char *argv[]){
-    PtrToHashTable table;
-    Graph graph;
+    PtrToHashTable table = NULL;
+    Graph graph = NULL;
     GlobalInterests globalInterestsTable;
-    User currentUser;
+    User currentUser = NULL;
     heap feed;
 
     // obtener parámetros ingresados por el terminal

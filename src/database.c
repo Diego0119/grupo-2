@@ -212,7 +212,7 @@ int database_exists_and_not_empty(void) {
  * 
  * @param str 
  */
-static void trim(char *str) {
+/*static void trim(char *str) {
     char *start = str;
     while(*start==' ' || *start=='\t' || *start=='\n') start++;
     if(*start == 0) {
@@ -227,7 +227,7 @@ static void trim(char *str) {
 
     if (start != str) memmove(str, start, end - start + 2);
 }
-
+*/
 /**
  * @brief Carga un usuario desde un archivo y devuelve su PendingConnections.
  * 
