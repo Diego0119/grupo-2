@@ -46,37 +46,3 @@ Para ejecutar el programa, siga los siguientes pasos:
 | `-x, --connect` | Muestra los usuarios recomendados |
 
 
-
-
-
-
-
-## Lista de tareas
-- [X] Implementar tablas hash (Duván)
-- [ ] Funciones de usuarios basándose en afinidades o popularidad
-- [X] Organizar publicaciones (Duván)
-- [X] Estructura de grafos (Diego y Miguel)
-- [X] Algoritmos BFS/DFS (Miguel)
-- [X] Implementar Dijkstra para encontrar usuarios cercanos (Diego)
-- [X] Implementar las listas enlazadas para manejar las publicaciones (Iván)
-- [X] Crear estructuras de usuarios (contempla la lista enlazada de publicaciones) (Iván)
-- [X] Agregar temas/tópicos en la estructura de usuarios y publicaciones (Iván)
-- [X] Implementar Jaccard en usuarios y publicaciones (Iván)
-- [X] Asignación de intereses a usuarios (Iván)
-- [X] Implementar colas de prioridad (Franco)
-- [ ] Algoritmo de recomendación de publicaciones
-- [ ] Algoritmo de recomendación de usuarios
-- [X] Guardar información de los usuarios (nube) (Miguel)
-- [X] Cargar usuarios por medio de un txt de entrada (Miguel)
-- [X] Iniciar sesión y publicar cosas según el usuario iniciado (Iván)
-- [X] Comandos para publicar, borrar, ver usuarios, perfil, publicaciones, etc (Iván)
-- [ ] Ordenar main para el programa final 
-
-### Urgente
-- [ ] Arreglar carga y guardado de publicaciones
-- [ ] Arreglar carga de seguidores y seguidos
-
-### Extras
-- [X] Perfil psicológico (Diego)
-- [X] Usuarios aleatorios (Diego)
-
