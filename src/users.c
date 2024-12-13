@@ -128,7 +128,7 @@ void delete_userPosts(UserPosts posts)
  *
  * @param user usuario a eliminar
  */
-void delete_user(User user, PtrToHashTable table, Graph graph, GlobalInterests globalInterests)
+void delete_user(User user, PtrToHashTable table, Graph graph)
 {
     delete_from_hash_table(table, user->username);
     remove_user_from_graph(graph, user);
@@ -256,13 +256,13 @@ void print_all_users(Graph graph)
  * @param table Tabla hash de usuarios
  * @param graph Grafo de usuarios
  */
-void free_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInterests)
+void free_all_users(PtrToHashTable table, Graph graph)
 {
     GraphList aux = graph->graphUsersList->next;
     while (aux)
     {
         GraphList next = aux->next;
-        delete_user(aux, table, graph, globalInterests);
+        delete_user(aux, table, graph);
         aux = next;
     }
 }
@@ -360,14 +360,14 @@ GlobalInterests init_global_interests(void)
     FILE *file_pointer = fopen("subtopics", "r");
     if (!file_pointer)
     {
-        printf("ERROR: No se pudo abrir el archivo\n");
+        printf("ERROR: No se pudo abrir el archivo 'subtopics'. Por favor asegurese que este archivo existe y esté en el mismo directorio que el programa.\n");
         exit(EXIT_FAILURE);
     }
 
     for (int i = 0; i < numInterests; i++)
     {
         globalInterestTable.interestsTable[i] = (char *)malloc(sizeof(char) * numInterests);
-        fgets(globalInterestTable.interestsTable[i], MAX_CHAR, file_pointer);
+        if (fgets(globalInterestTable.interestsTable[i], MAX_CHAR, file_pointer) == NULL) exit(EXIT_FAILURE);
         globalInterestTable.interestsTable[i][strlen(globalInterestTable.interestsTable[i]) - 1] = '\0';
     }
     fclose(file_pointer);
@@ -486,7 +486,7 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
         printf("Ya existe una base de datos. Desea sobreescribirla? (1. Sí, 2. No)\n");
         int option;
         do {
-            scanf("%d", &option);
+            if(scanf("%d", &option)==0) exit(EXIT_FAILURE);
             if(option < 1 || option > 2){
                 printf("Opción inválida. Intente nuevamente\n");
             }

@@ -105,9 +105,9 @@ struct _globalInterests{
 
 // Funciones para gestionar usuarios
 User create_new_user(char *username, char *password, char *name, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
-void delete_user(User user, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
+void delete_user(User user, PtrToHashTable table, Graph graph);
 User search_user(char *username, PtrToHashTable table);
-void free_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
+void free_all_users(PtrToHashTable table, Graph graph);
 void increment_popularity(User user);
 
 // funciones de impresión
