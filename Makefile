@@ -1,5 +1,5 @@
 CC=gcc
-EXEC=program.out
+EXEC=devgraph.out
 GRUPO=G1
 NTAR=2
 
@@ -39,7 +39,7 @@ send:
 
 run: build/$(EXEC)
 	./build/$(EXEC) -s f
-
+	
 # docs: build/$(EXEC2)
 # 	./build/$(EXEC2) -d 5 -c 50
 

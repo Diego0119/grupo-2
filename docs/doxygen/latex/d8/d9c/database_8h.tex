@@ -66,7 +66,9 @@ void \mbox{\hyperlink{database_8h_a5c2c93b11c91edd6b02eb8de193bba3f}{follow}} (\
 void \mbox{\hyperlink{database_8h_a27d66932dd0c4411d8baa6acc4b717af}{unfollow}} (\mbox{\hyperlink{struct__user}{User}} user, char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{database_8c_a5c2c93b11c91edd6b02eb8de193bba3f}{follow}}, \mbox{\hyperlink{struct__globalInterests}{Global\+Interests}} global\+Interests, \mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}} table)
 \begin{DoxyCompactList}\small\item\em Permite a un usuario dejar de seguir a otro, y guarda dicha información en la base de datos. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{database_8h_a13d272cd38e4c062da1f9d46f17bf9c3}{delete\+\_\+account}} (\mbox{\hyperlink{struct__user}{User}} user)
-\begin{DoxyCompactList}\small\item\em Elimina el usuario de la sesión actual de la base de datos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Elimina el usuario de la sesión actual de la base de datos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{database_8h_ad754349fdaa7256297f09a6c77ccd2a2}{edit\+\_\+account}} (\mbox{\hyperlink{struct__user}{User}} user, \mbox{\hyperlink{struct__globalInterests}{Global\+Interests}} global\+Interests, \mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}} table)
+\begin{DoxyCompactList}\small\item\em Permite a un usuario editar su información de cuenta. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -130,6 +132,25 @@ Elimina el usuario de la sesión actual de la base de datos.
 
 \begin{DoxyParams}{Parameters}
 {\em user} & Sesión iniciada \\
+\hline
+\end{DoxyParams}
+\Hypertarget{database_8h_ad754349fdaa7256297f09a6c77ccd2a2}\label{database_8h_ad754349fdaa7256297f09a6c77ccd2a2} 
+\index{database.h@{database.h}!edit\_account@{edit\_account}}
+\index{edit\_account@{edit\_account}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{edit\_account()}{edit\_account()}}
+{\footnotesize\ttfamily void edit\+\_\+account (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__user}{User}}}]{user,  }\item[{\mbox{\hyperlink{struct__globalInterests}{Global\+Interests}}}]{global\+Interests,  }\item[{\mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}}}]{table }\end{DoxyParamCaption})}
+
+
+
+Permite a un usuario editar su información de cuenta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Sesión iniciada \\
+\hline
+{\em global\+Interests} & Tabla de intereses globales \\
+\hline
+{\em table} & Tabla de usuarios \\
 \hline
 \end{DoxyParams}
 \Hypertarget{database_8h_a5c2c93b11c91edd6b02eb8de193bba3f}\label{database_8h_a5c2c93b11c91edd6b02eb8de193bba3f} 

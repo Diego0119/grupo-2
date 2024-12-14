@@ -30,10 +30,12 @@
  * @return int 
  */
 int main(int argc, char *argv[]){
-    PtrToHashTable table;
-    Graph graph;
+    PtrToHashTable table = NULL;
+    Graph graph = NULL;
     GlobalInterests globalInterestsTable;
-    User currentUser;
+    User currentUser = NULL;
+    heap feed;
+
     // obtener parámetros ingresados por el terminal
     int option=get_option(argc, argv);
     
@@ -43,14 +45,15 @@ int main(int argc, char *argv[]){
         graph = initialize_graph();
         globalInterestsTable = init_global_interests();
         // cargar base de datos si es que existe
-        if (database_exists_and_not_empty()) {
-            load_all_users(table, graph, globalInterestsTable);
+        if (database_exists_and_not_empty() && option != 3) {
+            load_database(table, graph, globalInterestsTable);
         }
         else {
             if(option==3){
                 int quantity;
                 if(sscanf(argv[2], "%d", &quantity)!=1){
                     printf("ERROR: No se pudo leer la cantidad de usuarios a generar\n");
+                    free_hash_table(table);
                     free_graph(graph);
                     free_global_interests(globalInterestsTable);
                     exit(EXIT_FAILURE);
@@ -58,9 +61,12 @@ int main(int argc, char *argv[]){
                 generate_users(quantity, table, graph, globalInterestsTable);
                 generate_random_connections(graph, globalInterestsTable);
                 save_all_users(graph, globalInterestsTable);
+                free_all_users(table, graph);
+                printf(COLOR_BLUE "Se han generado %d usuarios exitosamente\n", quantity);
             }
             else{
                 printf("No se ha encontrado una base de datos. Ejecute './devgraph -g <cantidad de usuarios>' para generar una.\n");
+                free_hash_table(table);
                 free_graph(graph);
                 free_global_interests(globalInterestsTable);
                 exit(EXIT_FAILURE);
@@ -69,7 +75,7 @@ int main(int argc, char *argv[]){
     }
 
     // verificación para comandos que requieren una sesión iniciada
-    if(option==5||option==6||option==9||option==11){
+    if(option==5||option==6||option==9||option==10||option==11||option==13||option==14||option==15){
         currentUser = current_session(table);
         if(!currentUser){
             printf("ERROR: No se ha iniciado sesión. Ejecute './devgraph -l' para iniciar sesión.\n");
@@ -102,15 +108,18 @@ int main(int argc, char *argv[]){
         print_user(currentUser, globalInterestsTable);
         break;
 
-    case 7: /* VER USUARIO */
+    case 7: {/* VER USUARIO */
         User user = search_user(argv[2], table);
         if(!user){
             printf("ERROR: Usuario no encontrado\n");
             return 0;
         }
+        print_logo();
         print_user(user, globalInterestsTable);
         break;
+    }
     case 8: /* VER TODOS LOS USUARIOS */
+        print_logo();
         print_all_users(graph);
         break;
     
@@ -128,19 +137,33 @@ int main(int argc, char *argv[]){
 
     case 12: /* BORRAR BASE DE DATOS */
         remove("current.dat");
-        clear_database();
+        clear_database(graph);
         break;
     
     case 13: /* EDITAR INFORMACIÓN DEL USUARIO */
-        /* POR HACER */
+        print_logo();
+        edit_account(currentUser, globalInterestsTable, table);
         break;
     
     case 14: /* MOSTRAR POSTS */
-        /* POR HACER*/
+        print_logo();
+        search_posts(&feed, table);
+        watch_posts(&feed);
+        free_heap(&feed);
         break;
     
     case 15: /* MOSTRAR USUARIOS RECOMENDADOS*/
-        /* POR HACER*/
+        print_logo();
+        search_new_possible_friends(&feed, table, globalInterestsTable, currentUser);
+        watch_suggestions(&feed);
+        free_heap(&feed);
+        //dijkstra(graph, currentUser);
+        //BFS(graph, currentUser);
+        break;
+    
+    case 16: /* MOSTRAR TEMAS */
+        printf("Tópicos de DevGraph:\n");
+        print_global_interests(globalInterestsTable);
         break;
 
     default:
@@ -150,9 +173,10 @@ int main(int argc, char *argv[]){
 
     // LIBERAR MEMORIA
     if(option > 0 && option != 2){
-        free_all_users(table, graph, globalInterestsTable);
+        free_all_users(table, graph);
         free_graph(graph);
         free_global_interests(globalInterestsTable);
+        free_hash_table(table);
     }
 
     return 0;

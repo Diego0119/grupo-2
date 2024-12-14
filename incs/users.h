@@ -18,10 +18,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 #include "utilities.h"
 #include "hash_table.h"
 #include "graph.h"
+#include "database.h"
 
 /*usuarios individuales*/
 typedef struct _user _User;
@@ -86,7 +89,7 @@ struct _postNode{
  * @brief Estructura que almacena un interes
  */
 struct _interest{
-    char **name; /*!< Nombre del interes*/
+    char *name; /*!< Nombre del interes*/
     int globalId; /*!< Index en la tabla de intereses globales */
     int value; /*!< Valor del interes (0 si no la tiene, 1 si la tiene) */
 };
@@ -102,9 +105,9 @@ struct _globalInterests{
 
 // Funciones para gestionar usuarios
 User create_new_user(char *username, char *password, char *name, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
-void delete_user(User user, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
+void delete_user(User user, PtrToHashTable table, Graph graph);
 User search_user(char *username, PtrToHashTable table);
-void free_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
+void free_all_users(PtrToHashTable table, Graph graph);
 void increment_popularity(User user);
 
 // funciones de impresión

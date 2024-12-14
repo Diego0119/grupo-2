@@ -100,8 +100,10 @@
 
 %----------------------------------------------------------
 
+\newpage
 \section{Introducción}
 
+<<<<<<< HEAD
 
 \section{Objetivo Principal}
 
@@ -138,8 +140,50 @@ Además, implementamos varios algoritmos fundamentales, tales como:
 
 A lo largo de este proyecto, consolidamos nuestros conocimientos en estructuras de datos, también aprendimos a integrarlos. Esto nos permitió desarrollar una red social, en la que los usuarios pueden interactuar, crear conexiones, publicar y recibir recomendaciones, todo optimizado mediante las estructuras y algoritmos sugeridos.
 
+=======
+\rhostart{U}na red social es una aplicación diseñada para conectar a las personas y permitirles compartir información a través de publicaciones. Estas plataformas toman en cuenta los intereses y preferencias de los usuarios, ayudándoles a formar comunidades, establecer amistades y ver contenido relevante basado en sus gustos o conexiones.
 
-\section{Plantemiento del desarrollo del proyecto}
+DevGraph es una simulación de una red social que se enfoca en la creación de usuarios, la conexión entre ellos, la visualización y creación de publicaciones, y la posibilidad de compartirlas. Además, incluye algoritmos que simulan sugerencias de nuevos amigos y publicaciones relevantes para los usuarios.
+
+Para su implementación en C, se utilizaron algoritmos y estructuras de datos para simular DevGraph como:
+
+\begin{itemize}
+
+\item \textbf{Estructuras de datos:}
+\begin{itemize}
+\item \textbf{Grafos:} En representación de las conexiones entre usuarios, donde cada persona corresponde a un vértice y cada conexión una arista en un grafo dirigido.
+\item \textbf{Tablas Hash:} Para una busqueda eficiente de datos en la red social.
+\item \textbf{Colas de prioridad (Heap):} Para crearon recomendaciones de usuarios y publicaciones en base a nuestros intereses o amigos.
+\item \textbf{Listas enlazadas:} Para manejar publicaciones como listas enlazadas de nodos.
+\end{itemize}
+\item \textbf{Algoritmos:}
+\begin{itemize}
+\item \textbf{Algoritmo de caminos cortos (Dijkstra):} Para calcular la distancia de un nodo a otro en un grafo y de ésta manera encontrar usuarios cercanos en la red.
+\item \textbf{Similaridad de Jaccard:} la cual mide el peso del enlace en base a los intereses comunes entre dos usuarios.
+\end{itemize}
+\item \textbf{Funcionalidades adicionales:}
+\begin{itemize}
+\item Generación de usuarios aleatorios.
+\item Almacenamiento y recuperación de datos.
+\item Perfíl psicológico.
+\end{itemize}
+\end{itemize}
+
+\section{Objetivo Principal}
+
+    \rhostart{E}l objetivo principal del proyecto es crear una simulación de una red social eficiente y rápida, combinando armónicamente los distintos tipos de estructuras de datos vistos durante el curso de Estructuras de Datos (grafos, listas, hash tables, colas de prioridad, etc.).
+>>>>>>> main
+
+    \subsection{Objetivos secundarios}
+    \begin{itemize}
+        \item Implementar algoritmos de búsqueda eficientes, priorizando el tiempo de respuesta.
+        \item Implementar buenas prácticas de codificación.
+        \item Reforzar habilidades de trabajo en equipo y coordinación de tareas entre pares.
+        \item Reforzar habilidades de investigación y análisis de datos.
+    \end{itemize}
+
+\newpage
+\section{Planteamiento del desarrollo del proyecto}
 
     \subsection{Grafos}
     Un grafo es una estructura de datos utilizada para modelar relaciones entre entidades.
@@ -299,15 +343,97 @@ A lo largo de este proyecto, consolidamos nuestros conocimientos en estructuras 
     \end{verbatim}
 
 
+    \subsection{Planteamiento para las recomendaciones de amistades y publicaciones}
+
+    Para lograr estas recomendaciones se decidió utilizar colas de prioridad (heaps) para guardar las recomendaciones de amistades y las publicaciones, y ordenarlas de manera que cuando extraigamos un elemento de la cola, este sea el máximo o el mínimo, dependiendo del tipo de cola.
+    
+    Para simular las recomendaciones de amistades, se planteo utilizar Dijkstra o BFS para calcular la distancia de un nodo a otro en un grado y así simular sugerencia de amigos de amigos. Además, se planteo utilizar Jaccard para calcular la similitud entre los usuarios, para poder calcular cuántos usuarios comparten un interes común con otro.
+
+    Para simular las publicaciones, se planteo que primero se mostrarían las publicaciones de los usuarios a los que seguimos, seguidos de estas publicaciones, vendrán aquellas publicaciones recomendadas en base a los usuarios con los que tenemos intereses comunes (jaccard).
+
+\newpage
 \section{Implementación}
 
-    \rhostart{P}OR HACER
+    \rhostart{L}a implementación del proyecto fue realizada en lenguaje C, utilizando librerías estándar. Donde el código fue escrito de manera modular, o sea, las funciones fueron separadas en diferentes archivos según su funcionalidad. Esto permitió una mayor manera de organización y mantenimiento del código, así como una mejor comprensión del funcionamiento del programa.
 
+    \subsection{Estructura de directorios}
+    En el directorio principal se encuentran los archivos \texttt{Makefile}, con el cual es posible compilar el programa de manera automática, y el archivo \texttt{README.MD}, que contiene información sobre el proyecto y su funcionamiento. Además, se encuentra el archivo \texttt{subtopics}, que contiene una lista de subtópicos modificable, que se utilizará para el funcionamiento de la aplicación.
+
+    \vspace{0.5cm}
+
+    Dentro del directorio \texttt{src} se encuentran los archivos fuente del programa, que son los siguientes:
+    \begin{itemize}
+        \item \texttt{main.c}: Contiene el flujo principal del programa.
+        \item \texttt{database.c}: Contiene las funciones para la gestión y guardado de la base de datos.
+        \item \texttt{graph.c}: Contiene las funciones para gestionar los grafos y relaciones entre usuarios.
+        \item \texttt{hash\_table.c}: Contiene las funciones para gestionar tablas hash.
+        \item \texttt{users.c}: Contiene las funciones para gestionar usuarios y publicaciones.
+        \item \texttt{utilities.c}: Contiene las funciones de utilidad y testing para el programa.
+        \item \texttt{heaps.c}: Contiene las funciones para gestionar las colas de prioridad (heaps) para publicaciones y sugerencias de amistades.
+    \end{itemize}
+
+    Por otro lado, en el directorio \texttt{incs} se encuentran los archivos de cabeceras correspondiente a cada uno de los archivos fuente.
+
+    \subsection{Colas de prioridad (heaps)}
+    La cola de prioridad es una estructura de datos que se utilizó para almacenar sugerencias de amistades con respecto a sus intereses y amigos de amigos, y publicaciones en base a nuestros intereses y/o amigos.
+
+    Para las sugerencias de amigos de amigos se utilizó el algoritmo de Dijkstra para calcular la distancia de un nodo a otro en un grafo, y de ésta manera lograr encontrar usuarios cercanos en la red con amigos en común. Una vez calculada la distancia, ésta se utilizará como prioridad para la sugerencia de amistad, para que los usuarios con amigos en común se ordenen de menor a mayor distancia.
+
+    Para la sugerencia de amistades según los intereses de los usuarios, se utilizó el algoritmo de similaridad de Jaccard, que mide la proporción entre la intersección y la unión de los conjuntos de intereses o conexiones compartidas entre dos usuarios. Este algoritmo se utilizó para calcular la similitud entre los usuarios donde mientras menor sea el resultado, más similar serán sus intereses.
+
+    Para la visualización de publicaciones se considerarán prioridad las publicaciones de nuestros seguidos, y luego de éstas las publicaciones de aquellos usuarios con los que tengamos intereses comunes calculado previamente con jaccard como lo hicimos con la sugerencia de amistades según los intereses.
+
+    Esta cola de prioridad (heap), es una estructura de datos que organiza elementos de manera que siempre se pueda tener acceso rápido al elemento de menor o mayor prioridad, dependiendo del tipo de heap (mínimo o máximo). En nuestro caso trabajamos con el máximo, es decir que el elemento con mayor prioridad será el primero en la cola (se encuentra en la raiz). Para mantener las propiedades de ésta estructura, se implementaron funciones para insertar, extraer máximos y mínimos, funciones para ordenar la cola de prioridad.
+
+    Las principales funciones que fueron implementadas para mantener estas propiedades de la cola de prioridad (heap) fueron las de heapify\_up y heapify\_down.
+
+    \begin{itemize}
+        \item \textbf{heapify\_up:} Esta función ordena la cola prioridad de manera que, al insertar un nuevo elemento al final de la cola, este es comparado con su padre, intercambiándolos si la prioridad del nuevo elemento es mayor. Esto se repite hasta que se cumpla la propiedad o el elemento llegue a la raiz de la cola.
+        \item \textbf{heapify\_down:} Esta función ordena la cola de prioridad de manera que, después de eliminar o extraer el máximo elemento de la cola, el elemento al final de la cola es ubicado en la raiz de la cola y se compara con sus hijos, se intercambia si la prioridad de del hijo mayor es mayor a la del elemento en la raiz (padre). Esto continúa hasta que se cumpla la propiedad o el elemento no tenga más hijos.
+    \end{itemize}
+
+\newpage
 \section{Gestión del equipo de trabajo}
+    \rhostart{E}l equipo de trabajo constó de 5 personas, uno de ellos designado por el profesor como líder del grupo, con la responsabilidad de coordinar el trabajo y la gestión del proyecto. Debido a la cantidad de personas involucradas, fue fundamental establecer mecanismos de comunicación, coordinación y orden para asegurar la colaboración y la coordinación de los diferentes miembros del equipo. Algunos de estos mecanismos fueron:
 
-    A continuación, se presenta una descripción detallada de las tareas asignadas y realizadas por cada miembro del equipo.
-    
-    \subsection{Miembros del equipo y sus contribuciones}
+    \subsection{Normas de codificación}
+
+        Las normas de codificación fueron establecidas para el proyecto, con el objetivo de garantizar la coherencia y la consistencia en la codificación. Estas normas incluían:
+
+        \begin{itemize}
+            \item \textbf{Constantes}: Para las constantes se utilizó la convención de \texttt{SCREAMING\_SNAKE\_CASE}, con el objetivo de diferenciarlas de las variables y funciones.
+            \item \textbf{Variables:} Para las variables comunes se utilizó la convención \texttt{camelCase}
+            \item \textbf{Funciones:} Para las funciones se utilizó la convención \texttt{snake\_case}, así diferenciándose de las variables y constantes.
+            \item \textbf{Tipos de datos:} Para los tipos de datos creados con \texttt{typedef} se utilizó la convención \texttt{PascalCase}, con el objetivo de diferenciarlos de los tipos de datos nativos de C.
+            \item \textbf{Llaves de apertura:} Se estableció la convención de que las llaves de apertura se escribieran en la misma línea que el código que las contiene
+        \end{itemize}
+
+        \begin{lstlisting}[caption={Ejemplo de código, utilizando las normas de codificación}, label={lst:normas_codificacion}, language=C]
+            #define MAX_CHAR 256 // Constante
+            typedef _User *User; // Tipo de dato
+            Graph newGraph; // Variable
+            void print_all_users(Graph graph); // Funcion
+        \end{lstlisting}
+
+    \subsection{Comunicación}
+
+    Un aspecto de gran importancia para el proyecto es la comunicación entre los miembros del equipo, ya que sin ella, no sería posible garantizar la colaboración y la coordinación en el desarrollo del proyecto. Debido al tamaño del equipo y la complejidad del proyecto esto fue un desafío, debido a las diferencias en horarios y responsabilidades académicas de cada miembro. Para resolver este problema fue escencial establecer un medio de comunicación remoto, que permitiera a cada uno comunicarse de manera rápida y en el lugar en que estuviese.
+
+    Se creó un chat en línea con cada integrante del equipo, el cual se utilizó para discutir sobre el desarrollo del proyecto y su organización, así como para compartir información y recursos.
+
+    \vspace{0.5cm}
+
+    Esto resultó exitoso, ya que las reuniones presenciales resultaron ser extremadamente dificiles de coordinar. La comunicación remota nos permitió a los miembros ver y discutir los detalles del proyecto en el momento del día en que estuviesen disponibles. Sin embargo, esto también implicó consecuencias, ya que dio paso a que fuera fácil que algún miembro del equipo "desapareciese"; sin embargo, estas situaciones fueron manejadas a través de la comunicación por privado con éste para consultar su situación.
+
+    \subsection{División del trabajo}
+
+    Al inicio del proyecto se decidió establecer \textbf{objetivos a corto plazo} para cada miembro del equipo, según las estructuras de datos que se deseaban implementar en el proyecto. A cada uno se le asignaron según afinidad, capacidad y gusto propio.
+
+    \vspace{0.5cm}
+
+    Una vez las estructuras de datos hechas, se decidió crear una \textbf{lista de tareas} a realizar, cada miembro con al menos una tarea a realizar. Esta lista fue creada en base a las ideas discutidas por los integrantes del equipo, y se fue actualizando constantemente en función de las necesidades del proyecto.
+
+    A continuación, se presenta una descripción detallada de las tareas asignadas y realizadas por cada miembro del equipo:
     
     \begin{itemize}
         \item \textbf{Duvan Figueroa:} \\
@@ -326,14 +452,28 @@ A lo largo de este proyecto, consolidamos nuestros conocimientos en estructuras 
         Miguel trabajó en conjunto con Diego en la implementación de la \textbf{estructura de grafos} y los \textbf{algoritmos BFS/DFS} para explorar las conexiones entre usuarios de manera eficiente. Además, se encargó del \textbf{almacenamiento de la información de los usuarios} en la nube y de la \textbf{carga de usuarios} a través de un archivo \texttt{txt} de entrada.
     \end{itemize}
 
+
+\newpage
 \section{Posibles mejoras}
 
-    \rhostart{P}OR HACER
+    \rhostart{E}n este punto se presentarán las posibles mejoras que se podrían realizar en este programa, las cuales pueden ser varias dado el tiempo y complejidad asignado a este proyecto.
 
+    \begin{itemize}
+        \item Mejoras en la interacción con el usuario: al visualizar las publicaciones recomendadas y sugerencias de amigos se podría incluir una función para guardar publicaciones que le gustaron al usuario y además agregar una opción para seguir a otro usuario.
+        \vspace{0.3cm}
+        \item Inclusión de más topicos: En este proyecto para los intereses se utilizaron intereses comunes con respecto a la programación, pero existen muchos otros temas de interes generales que podrían ser agregados para simular una red social más amplia.
+        \vspace{0.3cm}
+        \item Implementación de un sistema de mensajería: En este proyecto se utilizó una interfaz de línea de comandos para interactuar con el programa, pero se podría implementar un sistema de mensajería para permitir a los usuarios comunicarse entre sí y con otros usuarios.
+        \vspace{0.3cm}
+        \item La creación de grupos o comunidades: Para este tipo de programas es posible crear grupos o comunidades en la red social con respecto a un tema o usuario en particular, para que los usuarios puedan conectarse con otros usuarios de la misma comunidad.
+    \end{itemize}
+
+\newpage
 \section{Ejemplo de uso}
 
     \rhostart{P}OR HACER
 
+\newpage
 \section{Conclusiones}
 
     En este proyecto, logramos implementar con éxito una red social simulada que cumple con todas las funcionalidades necesarias. Pudimos crear y conectar usuarios, gestionar publicaciones y compartirlas de acuerdo con los intereses y amistades dentro de la red. Además, implementamos funcionalidades avanzadas, como la recomendación de nuevos usuarios y publicaciones, lo cual añadio un extra a la experiencia de la red social simulada.
@@ -362,6 +502,7 @@ A lo largo de este proyecto, consolidamos nuestros conocimientos en estructuras 
         
 %----------------------------------------------------------
 
+\newpage
 \section{Referencias}
 
 

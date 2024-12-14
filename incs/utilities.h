@@ -16,6 +16,7 @@
 #include <getopt.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <dirent.h>
 #include "hash_table.h"
 
 #define MAX_CHAR 256
@@ -32,10 +33,13 @@
 #define COLOR_BOLD "\033[1m"
 #define COLOR_UNDERLINE "\033[4m"
 #define COLOR_RESET "\033[0m"
+#define CLEAN_SCREEN "\033[2J"
 
 
 unsigned int jenkins_hash(char* key);
 int get_option(int argc, char *argv[]);
 int line_number_in_file(char *file);
+void delete_all_in_directory(const char *directory);
+void print_logo(void);
 
 #endif
