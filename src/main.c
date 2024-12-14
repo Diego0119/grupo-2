@@ -57,11 +57,8 @@ int main(int argc, char *argv[]){
                     printf("ERROR: cantidad de usuarios inválida\n");
                     free_structures_and_exit(table, graph, globalInterestsTable);
                 }
-                if(quantity>50000 && quantity<100000){
-                    printf(COLOR_RED "WARNING: La cantidad de usuarios generados puede ser muy grande y presentarse un tiempo de espera alto.\n");
-                }
-                if(quantity>=100000){
-                    printf(COLOR_RED "ERROR: La cantidad de usuarios generados es demasiado alta. Intente generar menos de 100.000 usuarios.\n");
+                if(quantity>50000){
+                    printf(COLOR_RED "ERROR: La cantidad de usuarios generados es demasiado alta y puede tener problemas de rendimiento. Intente generar menos de 50.000 usuarios.\n");
                     free_structures_and_exit(table, graph, globalInterestsTable);
                 }
                 generate_database(quantity, table, graph, globalInterestsTable);
@@ -135,6 +132,7 @@ int main(int argc, char *argv[]){
         break;
 
     case 12: /* BORRAR BASE DE DATOS */
+        printf("Preparando, por favor espere...\n");
         remove("current.dat");
         clear_database(graph);
         break;

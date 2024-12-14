@@ -526,11 +526,13 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
 /**
  * @brief Genera conexiones aleatorias entre usuarios.
  *
- * @param quantity Cantidad de usuarios en el grafo.
- * @param graph El grafo de usuarios.
+ * @param graph Grafo de usuarios
+ * @param globalInterests Tabla de intereses globales
  */
 void generate_random_connections(Graph graph, GlobalInterests globalInterests){
     PtrToUser currentUser = graph->graphUsersList;
+
+    printf("Generando conexiones... Por favor espere\n");
 
     for (int i = 0; i < graph->usersNumber; i++){
         if (currentUser == NULL){

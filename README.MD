@@ -25,9 +25,6 @@ Para ejecutar el programa, siga los siguientes pasos:
 5. Para comenzar a utilizar el programa, debe generar usuarios con el comando `.devgraph.out -g <cantidad de usuarios>`
 > ⚠️ Asegurese que el archivo `subtopics` se encuentre en el mismo directorio del que va a ejecutarse el programa
 
-> ⚠️ Tenga en cuenta en cuenta que el máximo número de usuarios que se pueden generar es de 100.000
- 
-
 ## Comandos disponibles
 
 | Comando | Descripción |

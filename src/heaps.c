@@ -267,7 +267,7 @@ void search_new_possible_friends(heap* h, PtrToHashTable table, GlobalInterests 
         while (current) {
             User u = (User)current->data;
             double jaccard = edge_jaccard(currentUser, u, globalInterestsTable);
-            if (jaccard <= 0.73 && currentUser->username != u->username) {
+            if (jaccard <= 0.5 && currentUser->username != u->username) {
                 int j = 0;
                 char interest[1024] = "intereses comunes: \n\t";
                 while (j <= globalInterestsTable.numInterests) {
