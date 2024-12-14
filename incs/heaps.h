@@ -52,15 +52,17 @@ void heapify_down(heap* h, int index); // Función para hacer heapify_down (rest
 void extract_max(heap* h, int option); // Función para extraer el máximo (el nodo más relevante)
 void extract_min(heap* h, int option); // Función para extraer el mínimo (el nodo menos relevante)
 void print_heap(heap* h); // Función para imprimir el heap
+void free_heap(heap* h); // Función para liberar memoria del heap
 
 // funciones para gestionar publicaciones y sugerencias
 void insert_new_item(heap* h, const char* user_name, double priority, const char* content); // Función para insertar una publicación en el heap
 void watch_posts(heap* h); // Función para ver publicaciones del heap
 void watch_suggestions_friends_of_friends(heap* h); // Función para ver sugerencias del heap
 void watch_suggestions_by_interests(heap* h); // Función para ver sugerencias del heap
-void search_posts(heap* h, PtrToHashTable table); // Función para buscar publicaciones para colocar en el heap
+void search_posts_in_my_follows(heap* h, User currentUser); // Función para buscar publicaciones de mis seguidos para colocar en el heap
+void search_posts_by_interests(heap* h, PtrToHashTable table, GlobalInterests globalInterestsTable, User currentUser); // Función para buscar publicaciones de interes del usuario para colocar en el heap
 void search_new_possible_friends(heap* h, PtrToHashTable table, GlobalInterests globalInterestsTable, User currentUser); // Función para buscar usuarios con intereses similares a los de un usuario
-void free_heap(heap* h); // Función para liberar memoria del heap
-void dijkstra(heap* h, Graph graph, User source);
+void dijkstra(heap* h, Graph graph, User source); // Calcula la distancia de un user a otro en un grafo
+void generate_posts_for_everyone(Graph graph, GlobalInterests globalInterests); // Función para generar publicaciones aleatorias para todos los usuarios
 
 #endif

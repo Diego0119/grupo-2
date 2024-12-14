@@ -30,6 +30,8 @@
  * @return int 
  */
 int main(int argc, char *argv[]){
+    srand(time(0)^clock());
+
     PtrToHashTable table = NULL;
     Graph graph = NULL;
     GlobalInterests globalInterestsTable;
@@ -147,8 +149,9 @@ int main(int argc, char *argv[]){
     
     case 14: /* MOSTRAR POSTS */
         print_logo();
-        printf("Aun funciono");
-        search_posts(&feed, table);
+        generate_posts_for_everyone(graph, globalInterestsTable);
+        search_posts_in_my_follows(&feed, currentUser);
+        search_posts_by_interests(&feed, table, globalInterestsTable, currentUser);
         watch_posts(&feed);
         free_heap(&feed);
         break;

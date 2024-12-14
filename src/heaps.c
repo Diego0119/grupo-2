@@ -26,7 +26,6 @@ void insert_new_item(heap* h, const char* user_name, double priority, const char
         printf("el heap está lleno.\n");
         return;
     }
-
     post new_post;
     new_post.user_name = strdup(user_name);
     new_post.content = strdup(content);
@@ -207,15 +206,40 @@ void watch_posts(heap* h)
  * @param h cola de prioridad
  * @param table Puntero a la tabla hash
  */
-void search_posts(heap* h, PtrToHashTable table)
+void search_posts_in_my_follows(heap* h, User currentUser)
+{
+    if (!currentUser || currentUser->numFollowing == 0) {
+        return;
+    }
+
+    for (int i = 0; i < currentUser->numFollowing; i++) {
+        User u = currentUser->following->next->dest;
+        while (u->posts->next != NULL) {
+            insert_new_item(h, u->username, 0, u->posts->next->post);
+            u->posts = u->posts->next;
+        }
+        currentUser->following = currentUser->following->next;
+    }
+}
+
+/**
+ * @brief función para buscar publicaciones para colocar en el heap
+ *
+ * @param h cola de prioridad
+ * @param table Puntero a la tabla hash
+ */
+void search_posts_by_interests(heap* h, PtrToHashTable table, GlobalInterests globalInterestsTable, User currentUser)
 {
     for (int i = 0; i < HASH_TABLE_SIZE; i++) {
         Hashnode *current = table->buckets[i];
         while (current) {
             User u = (User)current->data;
-            if (u->popularity >= 0 && u->posts->next != NULL) {
-                //printf("%s\n", u->posts->post);
-                insert_new_item(h, u->username, u->popularity, u->posts->post);
+            double jaccard = edge_jaccard(currentUser, u, globalInterestsTable);
+            if (jaccard <= 1 && currentUser->username != u->username) {
+                while (u->posts->next != NULL) {
+                    insert_new_item(h, u->username, jaccard, u->posts->next->post);
+                    u->posts = u->posts->next;
+                }
             }
             current = current->next;
         }
@@ -251,8 +275,6 @@ void search_new_possible_friends(heap* h, PtrToHashTable table, GlobalInterests 
             User u = (User)current->data;
             double jaccard = edge_jaccard(currentUser, u, globalInterestsTable);
             if (jaccard <= 0.73 && currentUser->username != u->username) {
-                //printf("hay interes de %f con %s\n", jaccard, u->username);
-                //printf("%s\n", u->friendliness);
                 int i = 0;
                 char interest[1024] = "intereses comunes: \n\t";
                 while (i <= globalInterestsTable.numInterests) {
@@ -262,7 +284,6 @@ void search_new_possible_friends(heap* h, PtrToHashTable table, GlobalInterests 
                     }
                     i++;
                 }
-                //printf("%s \n\n", interest);
                 insert_new_item(h, u->username, jaccard, interest); // usamos esta función de los posts por que insertar una sugerencia en el heap es igual a insertar un post
             }
             current = current->next;
@@ -278,6 +299,12 @@ void search_new_possible_friends(heap* h, PtrToHashTable table, GlobalInterests 
 void watch_suggestions_friends_of_friends(heap* h)
 {
     printf("\t\tSUGERENCIAS DE AMISTAD DE AMIGOS DE AMIGOS\n\n");
+
+    if (h->size == 0) {
+        printf("No hay sugerencias de amistad de amigos de amigos.\n\n");
+        return;
+    }
+
     while(h->size > 0) {
         extract_min(h, 3); // extraemos el minimo dado que usamos distancia de jaccard, es decir mientras menor número de jaccard, entonces mayor similitud
     }
@@ -365,4 +392,36 @@ void dijkstra(heap* h, Graph graph, User source)
     }
 
     free(table);
+}
+
+void generate_posts_for_everyone(Graph graph, GlobalInterests globalInterests) {
+    
+    int option = 0;
+    printf("¿Desea generar publicaciones aleatorias para todos los usuarios? (1. Sí, 2. No)\n");
+    if (scanf("%d", &option) != 1) {
+        printf("Entrada no válida. Intente nuevamente\n");
+        return;
+    }
+    if (option == 2) {
+        return;
+    }
+
+    GraphList aux = graph->graphUsersList->next;
+    while (aux) {
+        int cant = 0;
+        for(int i=0; i<rand()%globalInterests.numInterests; i++){
+            if(aux->interests[i].value==1){
+                cant++;
+            }
+        }
+        if (cant == 0) {
+            aux = aux->next;
+            continue;
+        }
+        aux->posts = generate_random_posts(aux, globalInterests);
+        printf("Publicaciones creadas para %s\n", aux->username);
+        save_user_data(aux, globalInterests);
+
+        aux = aux->next;
+    }
 }
