@@ -61,7 +61,7 @@ struct _user{
     UserPosts posts; /*!< puntero a la lista de posts*/ 
     /* GRAFO */
     Edge following;   /*!< lista de adyacencia de usuarios que sigue*/
-    Edge followers;   /*!< lista de adyacencia de usuarios que sigue*/
+    Edge followers;   /*!< lista de adyacencia de usuarios que le siguen*/
     int numFollowing; /*!< número de usuarios que sigue */
     int numFollowers; /*!< número de usuarios que lo siguen */
     PtrToUser next;   /* siguiente en la lista del grafo */
@@ -142,6 +142,8 @@ double edge_jaccard(User user1, User user2, GlobalInterests globalInterestTable)
 // generar conexiones y usuarios
 void generate_random_connections(Graph graph, GlobalInterests globalInterests);
 void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
+UserPosts generate_random_posts(User user, GlobalInterests globalInterests);
+char* generate_post(char* buffer, size_t longitud, User user, GlobalInterests globalInterests);
 
 float calculate_friendliness(User user);
 void print_friendliness_table(Graph graph);

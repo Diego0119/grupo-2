@@ -81,6 +81,49 @@ UserPosts create_empty_userPosts(void)
     return posts;
 }
 
+// Función para generar una publicación aleatoria
+char* generate_post(char* buffer, size_t longitud, User user, GlobalInterests globalInterests) {
+    const char* acompanamiento[] = {
+        "Me gusta el tema: ", "Aveces pienso en ", "Como programador sé hacer ", "Soy el the best developer con respecto a ",
+        "Quieres conocerme? soy fan de ", "Lo mejor es ", "Quieres aprender sobre ", "Mi pasión está en ", "Siempre hablo de ",
+        "En mis ratos libres disfruto de "
+    };
+
+    int acompanamientos = sizeof(acompanamiento) / sizeof(acompanamiento[0]);
+
+    // Elegir un texto de acompañamiento y un interés válido al azar
+    const char* acomp = acompanamiento[rand() % acompanamientos];
+    int aux = rand() % globalInterests.numInterests;
+
+    while (user->interests[aux].value == 0) {
+        aux = rand() % globalInterests.numInterests;
+    }
+
+    const char* inter = globalInterests.interestsTable[aux];
+
+    snprintf(buffer, longitud, "%s%s", acomp, inter);
+
+    return buffer;
+}
+
+// Función para generar publicaciones aleatorias
+UserPosts generate_random_posts(User user, GlobalInterests globalInterests) {
+    int numPosts = rand() % 5 + 1; // Generar entre 1 y 10 publicaciones
+    char* content = malloc(1024 * sizeof(char));
+    if (!content) {
+        perror("Error al asignar memoria");
+        exit(EXIT_FAILURE);
+    }
+
+    for (int i = 0; i < numPosts; i++) {
+        content = generate_post(content, 1024, user, globalInterests);
+        insert_post(user->posts, content); // Copia el contenido
+    }
+
+    free(content); // Libera el buffer
+    return user->posts;
+}
+
 /**
  * @brief Crea un post en la lista de posts
  *
@@ -243,7 +286,7 @@ void print_all_users(Graph graph)
     printf("Usuarios (%d):\n", graph->usersNumber);
     while (aux)
     {
-        printf("- %s\n", aux->username);
+        printf("- %s, popularidad: %d \n", aux->username, aux->popularity);
         aux = aux->next;
     }
 }
@@ -522,9 +565,7 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
     int numNames = sizeof(names) / sizeof(names[0]);
     int numUsernames = sizeof(usernames) / sizeof(usernames[0]);
     int numPasswords = sizeof(passwords) / sizeof(passwords[0]);
-
     srand(time(0)^clock());
-
     for (int i = 0; i < quantity; i++)
     {
         int nameIndex = rand() % numNames;
@@ -555,12 +596,10 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
             free(password);
             continue;
         }
-
         for(int i=0; i<rand()%globalInterests.numInterests; i++){
             add_interest(newUser, globalInterests, rand()% globalInterests.numInterests);
         }
-
-        //printf("%d. Usuario creado: %s (%s)\n", i, name, username);
+        printf("%d. Usuario creado: %s (%s)\n", i, name, username);
 
         free(name);
         free(password);

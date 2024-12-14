@@ -246,7 +246,7 @@ User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph
         fgetc(fp);
         if (fgets(buffer, sizeof(buffer), fp) == NULL) exit(EXIT_FAILURE);
         strptime(buffer, "%Y-%m-%d %H:%M:%S", &post_date);
-        if (fscanf(fp, "%s\n", post_content)==0) exit(EXIT_FAILURE);
+        if (fgets(post_content, sizeof(post_content), fp)==0) exit(EXIT_FAILURE);
         fclose(fp);
         insert_post(posts, post_content);
         posts->next->id = post_id;
@@ -268,7 +268,6 @@ User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph
     newUser->category = strdup(category_buf);
     return newUser;
 }
-
 
 /**
  * @brief Carga todos los usuarios desde la base de datos.

@@ -12,6 +12,7 @@
 
 #ifndef DATABASE_H
 #define DATABASE_H
+#define _XOPEN_SOURCE 700
 
 #include <stdio.h>
 #include <stdlib.h>
