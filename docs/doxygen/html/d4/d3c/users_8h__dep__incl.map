@@ -1,41 +1,42 @@
 <map id="incs/users.h" name="incs/users.h">
-<area shape="rect" id="Node000001" title="Cabecera para users.c." alt="" coords="314,5,413,31"/>
-<area shape="rect" id="Node000002" href="$d8/d9c/database_8h.html" title="Cabecera para database.c." alt="" coords="66,225,190,251"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="302,34,252,50,200,75,151,109,131,130,114,153,108,171,107,190,118,224,113,226,102,191,103,170,109,151,127,126,148,105,197,70,250,45,300,29"/>
-<area shape="rect" id="Node000004" href="$d0/d29/main_8c.html" title="Flujo principal del programa." alt="" coords="272,372,362,397"/>
-<area shape="poly" id="edge25_Node000001_Node000004" title=" " alt="" coords="301,34,212,55,116,84,74,102,39,121,17,142,11,153,9,164,9,239,11,286,18,304,33,322,50,333,74,343,138,358,272,377,271,382,137,364,73,348,48,338,30,326,13,306,5,287,4,239,4,163,6,151,13,139,36,117,71,97,114,79,211,49,300,29"/>
-<area shape="rect" id="Node000005" href="$d6/df3/graph_8h.html" title="Cabecera para graph.c." alt="" coords="264,79,365,104"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="342,43,318,80,313,77,338,40"/>
-<area shape="rect" id="Node000006" href="$de/df0/utilities_8h.html" title="Cabecera para utilities.c." alt="" coords="358,152,471,177"/>
-<area shape="poly" id="edge24_Node000001_Node000006" title=" " alt="" coords="368,43,386,100,407,151,403,153,381,102,363,45"/>
-<area shape="rect" id="Node000008" href="$dc/d8b/heaps_8h.html" title="Cabecera para heaps.c." alt="" coords="615,299,718,324"/>
-<area shape="poly" id="edge23_Node000001_Node000008" title=" " alt="" coords="395,36,452,77,535,145,610,224,640,263,662,297,657,300,635,266,606,227,532,149,449,81,392,40"/>
-<area shape="rect" id="Node000013" href="$d2/d9e/users_8c.html" title="Implementación de las funciones para gestionar usuarios y publicaciones." alt="" coords="670,79,761,104"/>
-<area shape="poly" id="edge26_Node000001_Node000013" title=" " alt="" coords="427,29,671,78,670,83,426,35"/>
-<area shape="poly" id="edge2_Node000002_Node000001" title=" " alt="" coords="127,212,125,182,127,166,133,151,151,126,172,104,222,69,274,44,321,28,323,33,276,49,225,74,176,108,155,129,138,153,133,167,131,182,132,211"/>
-<area shape="rect" id="Node000003" href="$d5/d4b/database_8c.html" title="Funciones para la gestión y guardado de la base de datos, incluyendo carga y guardado de usuarios y p..." alt="" coords="44,299,160,324"/>
-<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="121,265,109,299,104,298,116,263"/>
-<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="152,257,232,322,301,370,298,374,229,326,149,262"/>
-<area shape="poly" id="edge7_Node000005_Node000001" title=" " alt="" coords="336,67,360,30,365,32,340,70"/>
-<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="301,117,275,148,243,179,199,207,157,228,155,223,197,203,239,175,271,145,296,113"/>
-<area shape="poly" id="edge22_Node000005_Node000004" title=" " alt="" coords="305,117,285,167,269,226,269,250,278,285,290,319,313,371,308,373,285,321,273,287,264,251,264,225,280,165,300,115"/>
-<area shape="poly" id="edge8_Node000005_Node000006" title=" " alt="" coords="343,110,399,150,396,154,340,114"/>
-<area shape="rect" id="Node000012" href="$d1/d2a/graph_8c.html" title="Implementación de funciones para gestionar grafos y relaciones entre usuarios." alt="" coords="136,152,229,177"/>
-<area shape="poly" id="edge21_Node000005_Node000012" title=" " alt="" coords="282,113,205,154,203,149,280,108"/>
-<area shape="poly" id="edge18_Node000006_Node000001" title=" " alt="" coords="410,140,392,83,370,32,375,30,397,81,415,138"/>
-<area shape="poly" id="edge9_Node000006_Node000002" title=" " alt="" coords="356,183,175,228,173,223,354,178"/>
-<area shape="poly" id="edge19_Node000006_Node000004" title=" " alt="" coords="413,192,398,252,362,322,328,373,323,370,357,320,393,250,408,191"/>
-<area shape="rect" id="Node000007" href="$d4/ddb/hash__table_8h.html" title="Cabecera para hash_table.c." alt="" coords="460,225,595,251"/>
-<area shape="poly" id="edge10_Node000006_Node000007" title=" " alt="" coords="438,183,504,223,501,227,435,187"/>
-<area shape="rect" id="Node000011" href="$d7/db6/utilities_8c.html" title="Funciones de utilidad y testing para el programa." alt="" coords="279,225,384,251"/>
-<area shape="poly" id="edge20_Node000006_Node000011" title=" " alt="" coords="392,188,347,227,343,223,389,184"/>
-<area shape="poly" id="edge14_Node000007_Node000001" title=" " alt="" coords="515,214,481,153,451,116,418,81,373,33,377,29,422,77,455,112,486,151,519,212"/>
-<area shape="poly" id="edge17_Node000007_Node000004" title=" " alt="" coords="501,261,335,374,332,370,498,256"/>
-<area shape="poly" id="edge15_Node000007_Node000006" title=" " alt="" coords="503,220,438,180,441,175,506,215"/>
-<area shape="poly" id="edge11_Node000007_Node000008" title=" " alt="" coords="563,254,645,296,642,301,561,259"/>
-<area shape="rect" id="Node000010" href="$d2/daf/hash__table_8c.html" title="Implementación de funciones para gestionar tablas hash, usuarios y publicaciones." alt="" coords="464,299,591,324"/>
-<area shape="poly" id="edge16_Node000007_Node000010" title=" " alt="" coords="530,264,530,299,525,299,525,264"/>
-<area shape="poly" id="edge13_Node000008_Node000004" title=" " alt="" coords="602,328,363,377,361,372,601,323"/>
-<area shape="rect" id="Node000009" href="$d5/d4f/heaps_8c.html" title="Funciones para gestionar colas de prioridad." alt="" coords="619,372,714,397"/>
-<area shape="poly" id="edge12_Node000008_Node000009" title=" " alt="" coords="669,338,669,372,664,372,664,338"/>
+<area shape="rect" id="Node000001" title="Cabecera para users.c." alt="" coords="344,5,443,31"/>
+<area shape="rect" id="Node000002" href="$d8/d9c/database_8h.html" title="Cabecera para database.c." alt="" coords="114,225,238,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="331,29,271,43,205,66,173,83,144,102,117,126,96,153,92,163,92,172,103,192,124,209,147,223,144,227,120,213,99,195,87,174,87,162,91,151,113,122,140,98,171,78,203,61,270,38,330,24"/>
+<area shape="rect" id="Node000004" href="$d0/d29/main_8c.html" title="Flujo principal del programa." alt="" coords="305,372,394,397"/>
+<area shape="poly" id="edge26_Node000001_Node000004" title=" " alt="" coords="331,32,234,51,128,80,80,98,42,118,17,140,10,152,8,164,8,239,10,262,17,281,27,299,41,314,77,339,121,357,169,369,219,377,305,382,304,387,218,382,168,375,119,362,74,344,37,318,23,302,12,283,5,263,3,239,3,163,5,150,13,137,39,114,78,93,126,75,233,46,330,27"/>
+<area shape="rect" id="Node000005" href="$d6/df3/graph_8h.html" title="Cabecera para graph.c." alt="" coords="293,79,395,104"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="372,43,347,80,343,77,367,40"/>
+<area shape="rect" id="Node000006" href="$dc/d8b/heaps_8h.html" title="Cabecera para heaps.c." alt="" coords="639,299,742,324"/>
+<area shape="poly" id="edge24_Node000001_Node000006" title=" " alt="" coords="457,22,584,40,642,56,665,66,680,77,712,116,720,136,725,156,724,199,716,251,708,278,699,300,694,297,703,276,711,250,719,199,720,157,715,138,707,119,677,81,662,70,640,61,583,46,456,27"/>
+<area shape="rect" id="Node000008" href="$de/df0/utilities_8h.html" title="Cabecera para utilities.c." alt="" coords="387,152,501,177"/>
+<area shape="poly" id="edge25_Node000001_Node000008" title=" " alt="" coords="398,43,416,100,437,151,432,153,411,102,393,45"/>
+<area shape="rect" id="Node000013" href="$d2/d9e/users_8c.html" title="Implementación de las funciones para gestionar usuarios y publicaciones." alt="" coords="576,79,667,104"/>
+<area shape="poly" id="edge27_Node000001_Node000013" title=" " alt="" coords="444,32,585,76,584,81,442,37"/>
+<area shape="poly" id="edge2_Node000002_Node000001" title=" " alt="" coords="149,219,132,205,118,189,110,170,115,151,137,123,163,99,193,79,224,62,287,39,343,25,344,30,289,44,226,67,195,84,167,103,141,126,120,153,116,170,122,186,136,202,153,215"/>
+<area shape="rect" id="Node000003" href="$d5/d4b/database_8c.html" title="Funciones para la gestión y guardado de la base de datos, incluyendo carga y guardado de usuarios y p..." alt="" coords="94,299,210,324"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="170,265,158,299,153,298,165,263"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="202,258,337,370,334,374,199,262"/>
+<area shape="poly" id="edge10_Node000005_Node000001" title=" " alt="" coords="365,67,390,30,394,32,370,70"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="321,115,191,227,188,223,318,111"/>
+<area shape="poly" id="edge23_Node000005_Node000004" title=" " alt="" coords="347,117,352,372,346,372,342,118"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="352,117,361,149,376,185,397,220,427,248,457,259,512,272,640,298,639,303,511,278,455,264,424,253,393,224,371,187,356,150,346,119"/>
+<area shape="poly" id="edge11_Node000005_Node000008" title=" " alt="" coords="373,110,429,150,426,154,370,114"/>
+<area shape="rect" id="Node000012" href="$d1/d2a/graph_8c.html" title="Implementación de funciones para gestionar grafos y relaciones entre usuarios." alt="" coords="117,152,211,177"/>
+<area shape="poly" id="edge22_Node000005_Node000012" title=" " alt="" coords="304,111,194,154,192,149,302,106"/>
+<area shape="poly" id="edge9_Node000006_Node000004" title=" " alt="" coords="626,329,395,377,394,371,625,323"/>
+<area shape="rect" id="Node000007" href="$d5/d4f/heaps_8c.html" title="Funciones para gestionar colas de prioridad." alt="" coords="643,372,738,397"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="693,338,693,372,688,372,688,338"/>
+<area shape="poly" id="edge19_Node000008_Node000001" title=" " alt="" coords="440,140,422,83,400,32,405,30,427,81,445,138"/>
+<area shape="poly" id="edge12_Node000008_Node000002" title=" " alt="" coords="388,183,220,228,219,223,387,178"/>
+<area shape="poly" id="edge20_Node000008_Node000004" title=" " alt="" coords="436,191,357,373,352,371,431,189"/>
+<area shape="rect" id="Node000009" href="$d4/ddb/hash__table_8h.html" title="Cabecera para hash_table.c." alt="" coords="567,225,702,251"/>
+<area shape="poly" id="edge13_Node000008_Node000009" title=" " alt="" coords="481,180,598,223,596,228,479,185"/>
+<area shape="rect" id="Node000011" href="$d7/db6/utilities_8c.html" title="Funciones de utilidad y testing para el programa." alt="" coords="438,225,543,251"/>
+<area shape="poly" id="edge21_Node000008_Node000011" title=" " alt="" coords="461,187,485,224,481,227,457,190"/>
+<area shape="poly" id="edge15_Node000009_Node000001" title=" " alt="" coords="610,218,405,33,408,29,613,214"/>
+<area shape="poly" id="edge18_Node000009_Node000004" title=" " alt="" coords="584,258,532,277,477,301,414,339,365,374,362,370,411,335,475,296,530,272,583,253"/>
+<area shape="poly" id="edge14_Node000009_Node000006" title=" " alt="" coords="655,260,684,297,680,300,650,263"/>
+<area shape="poly" id="edge16_Node000009_Node000008" title=" " alt="" coords="597,223,481,180,482,175,599,218"/>
+<area shape="rect" id="Node000010" href="$d2/daf/hash__table_8c.html" title="Implementación de funciones para gestionar tablas hash, usuarios y publicaciones." alt="" coords="489,299,615,324"/>
+<area shape="poly" id="edge17_Node000009_Node000010" title=" " alt="" coords="613,262,567,300,564,296,609,258"/>
 </map>

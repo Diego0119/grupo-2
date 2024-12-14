@@ -42,9 +42,9 @@ typedef struct _graph *Graph;
 #define CLEAN_SCREEN "\033[2J"
 
 
-unsigned int jenkins_hash(char* key);
+unsigned int jenkins_hash(const char* key);
 int get_option(int argc, char *argv[]);
-int line_number_in_file(char *file);
+int line_number_in_file(const char *file);
 void delete_all_in_directory(const char *directory);
 void print_logo(void);
 void free_structures_and_exit(PtrToHashTable table, Graph graph, GlobalInterests globalInterestsTable);

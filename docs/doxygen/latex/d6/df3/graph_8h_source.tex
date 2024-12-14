@@ -14,42 +14,42 @@
 \DoxyCodeLine{00021\ }
 \DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{users_8h}{users.h}}"{}}}
 \DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__user}{\_user}}\ \mbox{\hyperlink{struct__user}{\_User}};}
-\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__user}{\_User}}\ *\mbox{\hyperlink{graph_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}};}
-\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__user}{\_User}}\ *\mbox{\hyperlink{graph_8h_a2c5b04877efe5e43f9d0988ed6d00ada}{PtrToUser}};}
-\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__globalInterests}{\_globalInterests}}\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}};}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__edge}{\_edge}}\ *\mbox{\hyperlink{graph_8h_a6515921c52024d62e2a51b22e9eed1d1}{Edge}};}
-\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__user}{PtrToUser}}\ \mbox{\hyperlink{graph_8h_aa98453dd12c31cba60d895d9659fbb5d}{GraphList}};}
-\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__graph}{\_graph}}\ *\mbox{\hyperlink{graph_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}};}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00037\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__edge}{\_edge}}\{}
-\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{struct__user}{User}}\ \mbox{\hyperlink{struct__edge_abe194a54539827f4d861d3b460d8eb8b}{dest}};\ }
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct__edge_af27ed2b8efb696415e256dc2378d7df9}{weight}};\ }
-\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{struct__edge}{Edge}}\ \mbox{\hyperlink{struct__edge_ab416fc5536034c679526f12a74ac7af0}{next}};\ }
-\DoxyCodeLine{00041\ \};}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00047\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__graph}{\_graph}}\{}
-\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{struct__user}{GraphList}}\ \mbox{\hyperlink{struct__graph_a9dc3eeaa9ddbe7809220c7b47bb4889b}{graphUsersList}};\ }
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__graph_a2f1331b13b03f1d431945cfb74cba3d9}{usersNumber}};\ }
-\DoxyCodeLine{00050\ \};}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \textcolor{comment}{/*\ FUNCIONES\ DE\ EDGE\ */}}
-\DoxyCodeLine{00053\ \mbox{\hyperlink{struct__edge}{Edge}}\ \mbox{\hyperlink{graph_8h_a1caf8c58c50411466450e68efeb9beee}{init\_empty\_edge}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00054\ \mbox{\hyperlink{struct__edge}{Edge}}\ \mbox{\hyperlink{graph_8h_a8346e4b4a067b1e5630a1790c3c29cc0}{search\_user\_in\_edge}}(\mbox{\hyperlink{struct__edge}{Edge}}\ edge,\ \mbox{\hyperlink{struct__user}{User}}\ user);}
-\DoxyCodeLine{00055\ \mbox{\hyperlink{struct__edge}{Edge}}\ \mbox{\hyperlink{graph_8h_abf9f24585384d89e637bd258922e64db}{search\_previous\_in\_edge}}(\mbox{\hyperlink{struct__edge}{Edge}}\ edge,\ \mbox{\hyperlink{struct__user}{User}}\ user);}
-\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a4d6718ee3e14fdfec3f71cf10d4aea0a}{add\_edge}}(\mbox{\hyperlink{struct__user}{User}}\ user1,\ \mbox{\hyperlink{struct__user}{User}}\ user2,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
-\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a3e633b4d8bf50863870e67bf4ca97319}{remove\_edge}}(\mbox{\hyperlink{struct__user}{User}}\ user1,\ \mbox{\hyperlink{struct__user}{User}}\ user2);}
-\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a6d6724321b00dccfe21c27cebcbcadd0}{free\_all\_edges}}(\mbox{\hyperlink{struct__user}{User}}\ user);}
-\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a7ad1db7176aabe57d636a695b0867b02}{BFS}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__user}{User}}\ startUser);}
-\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a69f981e84ed63e0fdedec6ad4629447c}{DFS}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__user}{User}}\ startUser);}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \textcolor{comment}{/*\ FUNCIONES\ DE\ GRAPH*/}}
-\DoxyCodeLine{00063\ \mbox{\hyperlink{struct__graph}{Graph}}\ \mbox{\hyperlink{graph_8h_a701b25df107a52bf6b2dc39817a185b5}{initialize\_graph}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a10d20aea4764e2b54197726d92b3e637}{add\_user\_to\_graph}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__user}{User}}\ user);}
-\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a6c33d80720eb130a585010c03b36d10a}{remove\_user\_from\_graph}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__user}{User}}\ user);}
-\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a98b572e88ce31a63314b60ae9351fa37}{dijkstra}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__user}{User}}\ source);}
-\DoxyCodeLine{00067\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{graph_8h_a1f2002999a93188dbe535bd83b2d8582}{dijkstra\_table\_index}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__user}{User}}\ source);}
+\DoxyCodeLine{00024\ \textcolor{comment}{/*\ typedefs\ para\ evitar\ errores\ de\ compilación\ */}}
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__user}{\_user}}\ \mbox{\hyperlink{struct__user}{\_User}};}
+\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__user}{\_User}}\ *\mbox{\hyperlink{graph_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}};}
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__user}{\_User}}\ *\mbox{\hyperlink{graph_8h_a2c5b04877efe5e43f9d0988ed6d00ada}{PtrToUser}};}
+\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__globalInterests}{\_globalInterests}}\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}};}
+\DoxyCodeLine{00029\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__edge}{\_edge}}\ *\mbox{\hyperlink{graph_8h_a6515921c52024d62e2a51b22e9eed1d1}{Edge}};}
+\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__user}{PtrToUser}}\ \mbox{\hyperlink{graph_8h_aa98453dd12c31cba60d895d9659fbb5d}{GraphList}};}
+\DoxyCodeLine{00033\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__graph}{\_graph}}\ *\mbox{\hyperlink{graph_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__edge}{\_edge}}\{}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{struct__user}{User}}\ \mbox{\hyperlink{struct__edge_abe194a54539827f4d861d3b460d8eb8b}{dest}};\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct__edge_af27ed2b8efb696415e256dc2378d7df9}{weight}};\ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{struct__edge}{Edge}}\ \mbox{\hyperlink{struct__edge_ab416fc5536034c679526f12a74ac7af0}{next}};\ }
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__graph}{\_graph}}\{}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{struct__user}{GraphList}}\ \mbox{\hyperlink{struct__graph_a9dc3eeaa9ddbe7809220c7b47bb4889b}{graphUsersList}};\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__graph_a2f1331b13b03f1d431945cfb74cba3d9}{usersNumber}};\ }
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{comment}{/*\ FUNCIONES\ DE\ EDGE\ */}}
+\DoxyCodeLine{00055\ \mbox{\hyperlink{struct__edge}{Edge}}\ \mbox{\hyperlink{graph_8h_a1caf8c58c50411466450e68efeb9beee}{init\_empty\_edge}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00056\ \mbox{\hyperlink{struct__edge}{Edge}}\ \mbox{\hyperlink{graph_8h_a8346e4b4a067b1e5630a1790c3c29cc0}{search\_user\_in\_edge}}(\mbox{\hyperlink{struct__edge}{Edge}}\ edge,\ \mbox{\hyperlink{struct__user}{User}}\ user);}
+\DoxyCodeLine{00057\ \mbox{\hyperlink{struct__edge}{Edge}}\ \mbox{\hyperlink{graph_8h_abf9f24585384d89e637bd258922e64db}{search\_previous\_in\_edge}}(\mbox{\hyperlink{struct__edge}{Edge}}\ edge,\ \mbox{\hyperlink{struct__user}{User}}\ user);}
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a4d6718ee3e14fdfec3f71cf10d4aea0a}{add\_edge}}(\mbox{\hyperlink{struct__user}{User}}\ user1,\ \mbox{\hyperlink{struct__user}{User}}\ user2,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a3e633b4d8bf50863870e67bf4ca97319}{remove\_edge}}(\mbox{\hyperlink{struct__user}{User}}\ user1,\ \mbox{\hyperlink{struct__user}{User}}\ user2);}
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a6d6724321b00dccfe21c27cebcbcadd0}{free\_all\_edges}}(\mbox{\hyperlink{struct__user}{User}}\ user);}
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a7ad1db7176aabe57d636a695b0867b02}{BFS}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__user}{User}}\ startUser);}
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a69f981e84ed63e0fdedec6ad4629447c}{DFS}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__user}{User}}\ startUser);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{comment}{/*\ FUNCIONES\ DE\ GRAPH*/}}
+\DoxyCodeLine{00065\ \mbox{\hyperlink{struct__graph}{Graph}}\ \mbox{\hyperlink{graph_8h_a701b25df107a52bf6b2dc39817a185b5}{initialize\_graph}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a10d20aea4764e2b54197726d92b3e637}{add\_user\_to\_graph}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__user}{User}}\ user);}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a6c33d80720eb130a585010c03b36d10a}{remove\_user\_from\_graph}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__user}{User}}\ user);}
 \DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_aa69532d3e5630c6949bf8e76a663fe2b}{free\_graph}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph);}
 \DoxyCodeLine{00069\ }
 \DoxyCodeLine{00070\ \textcolor{comment}{/*\ FUNCIONES\ DE\ AFINIDAD*/}}

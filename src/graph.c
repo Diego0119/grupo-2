@@ -30,24 +30,6 @@ Edge init_empty_edge(void){
 }
 
 /**
- * @brief Busca un usuario dentro de una lista de adyacencia
- *
- * @param edge Lista de adyacencia
- * @param user Usuario a buscar
- * @return Edge Adyacencia encontrada o NULL si no se encuentra
- */
-Edge search_user_in_edge(Edge edge, User user){
-    Edge aux = edge;
-    while (aux->dest != user){
-        if (!aux->next){
-            return NULL;
-        }
-        aux = aux->next;
-    }
-    return aux;
-}
-
-/**
  * @brief Busca la adyacencia anterior a un usuario en una lista de adyacencia
  *
  * @param edge Lista de adyacencia
@@ -127,8 +109,7 @@ void add_user_to_graph(Graph graph, User user){
  */
 void remove_user_from_graph(Graph graph, User user){
     GraphList aux = graph->graphUsersList;
-    while (aux->next != user)
-    {
+    while (aux->next != user){
         aux = aux->next;
     }
     aux->next = user->next;
@@ -142,12 +123,13 @@ void remove_user_from_graph(Graph graph, User user){
  *
  * @param user1 Usuario 1 que añade a Usuario 2
  * @param user2 Usuario 2 será añadido por usuario 1
- * @param weigth Peso de la conexion
+ * @param globalInterests Tabla de intereses globales
+ * 
+ * @note El peso de la conexión será el índice de distancia de jaccard entre ambos usuarios
  */
 void add_edge(User user1, User user2, GlobalInterests globalInterests){
 
-    if (user1 == user2)
-    {
+    if (user1 == user2){
         printf("Un usuario no puede ser amigo de si mismo\n");
         exit(EXIT_FAILURE);
     }
@@ -162,8 +144,7 @@ void add_edge(User user1, User user2, GlobalInterests globalInterests){
     newEdgeUser2->dest = user1;
     newEdgeUser2->weight = weight;
 
-    if (!newEdgeUser1 || !newEdgeUser2)
-    {
+    if (!newEdgeUser1 || !newEdgeUser2){
         printf("Error al crear enlace entre usuarios\n");
         return;
     }
@@ -226,8 +207,7 @@ void remove_edge(User user1, User user2){
 void free_all_edges(User user){
     // Liberar todas las conexiones de la lista de seguidos
     Edge current = user->following->next;
-    while (current)
-    {
+    while (current){
         Edge next = current->next;
         remove_edge(user, current->dest);
         current = next;
@@ -236,8 +216,7 @@ void free_all_edges(User user){
 
     // Liberar todas las conexiones de la lista de seguidores
     current = user->followers->next;
-    while (current)
-    {
+    while (current){
         Edge next = current->next;
         remove_edge(current->dest, user);
         current = next;
@@ -245,28 +224,4 @@ void free_all_edges(User user){
     user->numFollowers = 0;
 }
 
-/**
- * @brief Devuelve índice de un usuario según su posición en el grafo
- *
- * @param graph Grafo
- * @param source Usuario a obtener index
- * @return int
- *
- * @note Se utiliza para el algoritmo \link dijkstra \endlink
- */
-int dijkstra_table_index(Graph graph, User source){
-    int i = 0;
-    GraphList aux = graph->graphUsersList->next;
-    while (aux)
-    {
-        if (aux == source)
-        {
-            return i;
-            break;
-        }
-        aux = aux->next;
-        i++;
-    }
-    printf("Error: No se encontro el usuario en el grafo\n");
-    return -1;
-}
+

@@ -2,8 +2,8 @@
 <area shape="rect" id="Node000001" title="función para buscar sugerencias de amistades para colocar en el heap" alt="" coords="5,23,165,63"/>
 <area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#a9c564038c86f55e7ad802f912e004869" title="Calcula la DIFERENCIA de jaccard entre dos usuarios." alt="" coords="225,5,333,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,30,210,24,211,30,166,35"/>
-<area shape="rect" id="Node000003" href="$d5/d4f/heaps_8c.html#a9d4ba1e7623f5833342662bb0044f4ed" title="función para insertar una nueva publicación en el heap" alt="" coords="213,55,344,80"/>
+<area shape="rect" id="Node000003" href="$d5/d4f/heaps_8c.html#a9d4ba1e7623f5833342662bb0044f4ed" title="Función para insertar una nueva publicación en el heap." alt="" coords="213,55,344,80"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="166,51,200,55,199,60,166,56"/>
-<area shape="rect" id="Node000004" href="$d5/d4f/heaps_8c.html#ae554c4bbe601908038441685f46ffb58" title="función para asegurar que el heap mantenga la propiedad (heapify_up)" alt="" coords="392,55,485,80"/>
+<area shape="rect" id="Node000004" href="$d5/d4f/heaps_8c.html#ae554c4bbe601908038441685f46ffb58" title="Función para asegurar que el heap mantenga la propiedad (heapify_up)" alt="" coords="392,55,485,80"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="344,65,378,65,378,70,344,70"/>
 </map>

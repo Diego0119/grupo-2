@@ -17,20 +17,20 @@
  * @param username Nombre de usuario
  * @param password Contraseña
  * @param name Nombre completo
+ * @param table Tabla hash
+ * @param graph Grafo de usuarios
+ * @param globalInterests Tabla de intereses globales
  * @note Primero inicializar tabla hash, grafo e intereses globales
  * @return User
  */
-User create_new_user(char *username, char *password, char *name, PtrToHashTable table, Graph graph, GlobalInterests globalInterests)
-{
-    if (search_in_hash_table(table, username))
-    {
+User create_new_user(const char *username, const char *password, const char *name, PtrToHashTable table, Graph graph, GlobalInterests globalInterests){
+    if (search_in_hash_table(table, username)){
         printf("Error: El nombre de usuario '%s' ya existe\n", username);
         return NULL;
     }
 
     User user = (User)malloc(sizeof(_User));
-    if (!user)
-    {
+    if (!user){
         printf("ERROR: No hay memoria suficiente\n");
         exit(EXIT_FAILURE);
     }
@@ -61,14 +61,12 @@ User create_new_user(char *username, char *password, char *name, PtrToHashTable 
 
 /**
  * @brief Crea lista enlazada de posts vacía
- * @note Centinela contiene fecha en que se crea la lista, o sea, cuando se creó el usuario, y el id es la cantidad de posts que tiene el usuario
+ * @note ID del centinela es la cantidad de posts que tiene el usuario
  * @return UserPosts
  */
-UserPosts create_empty_userPosts(void)
-{
+UserPosts create_empty_userPosts(void){
     UserPosts posts = (UserPosts)malloc(sizeof(PostNode));
-    if (!posts)
-    {
+    if (!posts){
         printf("ERROR: No hay memoria suficiente\n");
         exit(EXIT_FAILURE);
     }
@@ -81,7 +79,15 @@ UserPosts create_empty_userPosts(void)
     return posts;
 }
 
-// Función para generar una publicación aleatoria
+/**
+ * @brief Función para crear una publicación aleatoria
+ * 
+ * @param buffer Buffer de caracteres
+ * @param longitud Longitud del buffer
+ * @param user Usuario al que se va a publicar
+ * @param globalInterests Tabla de intereses globales
+ * @return char* 
+ */
 char* generate_post(char* buffer, size_t longitud, User user, GlobalInterests globalInterests) {
     const char* acompanamiento[] = {
         "Me gusta el tema: ", "Aveces pienso en ", "Como programador sé hacer ", "Soy el the best developer con respecto a ",
@@ -105,9 +111,17 @@ char* generate_post(char* buffer, size_t longitud, User user, GlobalInterests gl
     return buffer;
 }
 
-// Función para generar publicaciones aleatorias
+/**
+ * @brief Crea una lista de publicaciones aleatorias
+ * 
+ * @param user Usuario al que se va a publicar
+ * @param globalInterests Lista de intereses globales
+ * @return UserPosts 
+ * 
+ * @note Se generan entre 1 y 10 publicaciones
+ */
 UserPosts generate_random_posts(User user, GlobalInterests globalInterests) {
-    int numPosts = rand()%5 + 1; // Generar entre 1 y 10 publicaciones
+    int numPosts = rand()%10 + 1;
     char* content = malloc(1024 * sizeof(char));
     if (!content) {
         perror("Error al asignar memoria");
@@ -117,8 +131,6 @@ UserPosts generate_random_posts(User user, GlobalInterests globalInterests) {
         content = generate_post(content, 1024, user, globalInterests);
         insert_post(user->posts, content); // Copia el contenido
     }
-
-
     free(content); // Libera el buffer
     return user->posts;
 }
@@ -131,12 +143,10 @@ UserPosts generate_random_posts(User user, GlobalInterests globalInterests) {
  * @note Inserta al principio de la lista y guarda la fecha de la máquina en el momento de crear el post.
  * @return PtrToPostNode
  */
-PtrToPostNode insert_post(UserPosts posts, char *content)
-{
+PtrToPostNode insert_post(UserPosts posts, char *content){
     
     PtrToPostNode newPost = (PtrToPostNode)malloc(sizeof(PostNode));
-    if (!newPost)
-    {
+    if (!newPost){
         printf("ERROR: No hay memoria suficiente\n");
         exit(EXIT_FAILURE);
     }
@@ -155,10 +165,8 @@ PtrToPostNode insert_post(UserPosts posts, char *content)
  *
  * @param posts Lista de posts
  */
-void delete_userPosts(UserPosts posts)
-{
-    if (posts->next != NULL)
-    {
+void delete_userPosts(UserPosts posts){
+    if (posts->next != NULL){
         delete_userPosts(posts->next);
     }
     free(posts->post);
@@ -169,9 +177,10 @@ void delete_userPosts(UserPosts posts)
  * @brief Elimina un usuario
  *
  * @param user usuario a eliminar
+ * @param table Tabla hash
+ * @param graph Grafo de usuarios
  */
-void delete_user(User user, PtrToHashTable table, Graph graph)
-{
+void delete_user(User user, PtrToHashTable table, Graph graph){
     delete_from_hash_table(table, user->username);
     remove_user_from_graph(graph, user);
     delete_userPosts(user->posts);
@@ -189,18 +198,14 @@ void delete_user(User user, PtrToHashTable table, Graph graph)
  *
  * @param posts Lista de posts
  */
-
-void print_userPosts(UserPosts posts)
-{
-    if (posts->next == NULL)
-    {
+void print_userPosts(UserPosts posts){
+    if (posts->next == NULL){
         printf("No hay publicaciones\n");
         return;
     }
 
     PtrToPostNode aux = posts->next;
-    while (aux != NULL)
-    {
+    while (aux != NULL){
         printf("   Fecha: %s", asctime(&aux->date));
         printf("   %s\n", aux->post);
         printf("   ----------------------------------------------------------------\n");
@@ -212,15 +217,14 @@ void print_userPosts(UserPosts posts)
  * @brief Imprime toda la información de un usuario
  *
  * @param user Usuario
+ * @param globalInterestsTable Tabla de intereses globales
  */
-void print_user(User user, GlobalInterests globalInterestsTable)
-{
+void print_user(User user, GlobalInterests globalInterestsTable){
     print_logo();
     printf("Nombre: %s\n", user->name);
     printf("Usuario: %s\n", user->username);
     //printf("Contraseña: %s\n", user->password);
     printf("Popularidad (%d) | Seguidores (%d) | Seguidos (%d)\n", user->popularity, user->numFollowers, user->numFollowing);
-    // Mostrar amigabilidad y categoría
     printf("Amigabilidad: %.2f\n", user->friendliness);
     printf("Categoría: %s\n", user->category ? user->category : "Desconocida");
     printf("Le gusta: ");
@@ -236,8 +240,7 @@ void print_user(User user, GlobalInterests globalInterestsTable)
  * @param table Tabla hash de usuarios
  * @return User
  */
-User search_user(char *username, PtrToHashTable table)
-{
+User search_user(char *username, PtrToHashTable table){
     User u = search_in_hash_table(table, username);
     return u;
 }
@@ -247,12 +250,14 @@ User search_user(char *username, PtrToHashTable table)
  *
  * @param user Usuario
  */
-void print_followers(User user)
-{
+void print_followers(User user){
     Edge aux = user->followers->next;
     printf("Seguidores de %s:\n", user->username);
-    while (aux)
-    {
+    if(user->numFollowers==0){
+        printf("No hay seguidores\n");
+        return;
+    }
+    while (aux){
         printf("- %s\n", aux->dest->username);
         aux = aux->next;
     }
@@ -263,12 +268,15 @@ void print_followers(User user)
  *
  * @param user Usuario
  */
-void print_following(User user)
-{
+void print_following(User user){
+    print_logo();
     Edge aux = user->following->next;
     printf("Seguidos de %s:\n", user->username);
-    while (aux)
-    {
+    if(user->numFollowing==0){
+        printf("No hay seguidos\n");
+        return;
+    }
+    while (aux){
         printf("- %s\n", aux->dest->username);
         aux = aux->next;
     }
@@ -279,12 +287,11 @@ void print_following(User user)
  *
  * @param graph Grafo de usuarios
  */
-void print_all_users(Graph graph)
-{
+void print_all_users(Graph graph){
+    print_logo();
     GraphList aux = graph->graphUsersList->next;
     printf("Usuarios (%d):\n", graph->usersNumber);
-    while (aux)
-    {
+    while (aux){
         printf("- %s, popularidad: %d \n", aux->username, aux->popularity);
         aux = aux->next;
     }
@@ -296,8 +303,7 @@ void print_all_users(Graph graph)
  * @param table Tabla hash de usuarios
  * @param graph Grafo de usuarios
  */
-void free_all_users(PtrToHashTable table, Graph graph)
-{
+void free_all_users(PtrToHashTable table, Graph graph){
     GraphList aux = graph->graphUsersList->next;
     while (aux)
     {
@@ -307,81 +313,6 @@ void free_all_users(PtrToHashTable table, Graph graph)
     }
 }
 
-/**
- * @brief Incrementa la popularidad de un usuario
- *
- * @param user Puntero al usuario
- */
-void increment_popularity(User user)
-{
-    if (user)
-        user->popularity++;
-}
-
-
-/**
- * @brief Sugerir usuarios populares basados en popularidad
- *
- * @param table Tabla hash que contiene los usuarios
- */
-void suggest_popular_users(HashTable *table)
-{
-    printf("Usuarios populares:\n");
-    for (int i = 0; i < HASH_TABLE_SIZE; i++)
-    {
-        Hashnode *current = table->buckets[i];
-        while (current)
-        {
-            User u = (User)current->data;
-            if (u->popularity > 10)
-            {
-                printf("- %s (Popularidad: %d)\n", u->username, u->popularity);
-            }
-            current = current->next;
-        }
-    }
-}
-
-/**
- * @brief Ordena las publicaciones de un usuario por fecha
- *
- * @param user Puntero al usuario
- */
-void sort_posts(User user)
-{
-    if (!user || !user->posts)
-        return;
-
-    int swapped;
-    PtrToPostNode ptr1;
-    PtrToPostNode lptr = NULL;
-
-    do
-    {
-        swapped = 0;
-        ptr1 = user->posts->next;
-
-        while (ptr1 && ptr1->next != lptr)
-        {
-            if (difftime(mktime(&ptr1->date), mktime(&ptr1->next->date)) < 0)
-            {
-                char *temp_content = ptr1->post;
-                struct tm temp_date = ptr1->date;
-
-                ptr1->post = ptr1->next->post;
-                ptr1->date = ptr1->next->date;
-
-                ptr1->next->post = temp_content;
-                ptr1->next->date = temp_date;
-
-                swapped = 1;
-            }
-            ptr1 = ptr1->next;
-        }
-        lptr = ptr1;
-    } while (swapped);
-}
-
 /* FUNCIONES DE INTERESES */
 
 /**
@@ -389,8 +320,7 @@ void sort_posts(User user)
  *
  * @return GlobalInterests
  */
-GlobalInterests init_global_interests(void)
-{
+GlobalInterests init_global_interests(void){
     int numInterests = line_number_in_file("subtopics");
 
     GlobalInterests globalInterestTable;
@@ -398,14 +328,12 @@ GlobalInterests init_global_interests(void)
     globalInterestTable.numInterests = numInterests;
 
     FILE *file_pointer = fopen("subtopics", "r");
-    if (!file_pointer)
-    {
+    if (!file_pointer){
         printf("ERROR: No se pudo abrir el archivo 'subtopics'. Por favor asegurese que este archivo existe y esté en el mismo directorio que el programa.\n");
         exit(EXIT_FAILURE);
     }
 
-    for (int i = 0; i < numInterests; i++)
-    {
+    for (int i = 0; i < numInterests; i++){
         globalInterestTable.interestsTable[i] = (char *)malloc(sizeof(char) * numInterests);
         if (fgets(globalInterestTable.interestsTable[i], MAX_CHAR, file_pointer) == NULL) exit(EXIT_FAILURE);
         globalInterestTable.interestsTable[i][strlen(globalInterestTable.interestsTable[i]) - 1] = '\0';
@@ -420,10 +348,8 @@ GlobalInterests init_global_interests(void)
  * @param globalInterestTable
  */
 
-void free_global_interests(GlobalInterests globalInterestTable)
-{
-    for (int i = 0; i < globalInterestTable.numInterests; i++)
-    {
+void free_global_interests(GlobalInterests globalInterestTable){
+    for (int i = 0; i < globalInterestTable.numInterests; i++){
         free(globalInterestTable.interestsTable[i]);
     }
     free(globalInterestTable.interestsTable);
@@ -436,12 +362,10 @@ void free_global_interests(GlobalInterests globalInterestTable)
  * @return InterestTable
  */
 
-InterestTable init_user_interests(GlobalInterests globalInterestTable)
-{
+InterestTable init_user_interests(GlobalInterests globalInterestTable){
     InterestTable userInterests = (InterestTable)malloc(globalInterestTable.numInterests * sizeof(Interest));
 
-    for (int i = 0; i < globalInterestTable.numInterests; i++)
-    {
+    for (int i = 0; i < globalInterestTable.numInterests; i++){
         userInterests[i].value = 0;
         userInterests[i].globalId = i;
         userInterests[i].name = globalInterestTable.interestsTable[i];
@@ -455,8 +379,7 @@ InterestTable init_user_interests(GlobalInterests globalInterestTable)
  *
  * @param userInterests
  */
-void free_user_interests(InterestTable userInterests)
-{
+void free_user_interests(InterestTable userInterests){
     free(userInterests);
 }
 
@@ -466,8 +389,7 @@ void free_user_interests(InterestTable userInterests)
  * @param userInterests
  * @param globalInterestTable
  */
-void print_user_interests(InterestTable userInterests, GlobalInterests globalInterestTable)
-{
+void print_user_interests(InterestTable userInterests, GlobalInterests globalInterestTable){
     for (int i = 0; i < globalInterestTable.numInterests; i++)
     {
         if(userInterests[i].value==1){
@@ -491,8 +413,7 @@ double edge_jaccard(User user1, User user2, GlobalInterests globalInterestTable)
 
     int diff = 0, same = 0;
 
-    for (int i = 0; i < globalInterestTable.numInterests; i++)
-    {
+    for (int i = 0; i < globalInterestTable.numInterests; i++){
         if (user1->interests[i].value == 1 && user2->interests[i].value == 1)
         {
             same++;
@@ -565,8 +486,7 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
     int numUsernames = sizeof(usernames) / sizeof(usernames[0]);
     int numPasswords = sizeof(passwords) / sizeof(passwords[0]);
     srand(time(0)^clock());
-    for (int i = 0; i < quantity; i++)
-    {
+    for (int i = 0; i < quantity; i++){
         int nameIndex = rand() % numNames;
         int usernameIndex = rand() % numUsernames;
         int passwordIndex = rand() % numPasswords;
@@ -578,8 +498,7 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
         snprintf(username, sizeof(username), "%s%d", usernames[usernameIndex], num);
         char *password = strdup(passwords[passwordIndex]);
 
-        if (search_in_hash_table(table, username))
-        {
+        if (search_in_hash_table(table, username)){
             //printf("Advertencia: El nombre de usuario '%s' ya existe. Generando otro usuario...\n", username);
             free(name);
             free(password);
@@ -588,14 +507,13 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
         }
 
         User newUser = create_new_user(username, password, name, table, graph, globalInterests);
-        if (!newUser)
-        {
+        if (!newUser){
             //printf("Error al crear el usuario '%s'.\n", username);
             free(name);
             free(password);
             continue;
         }
-        for(int i=0; i<rand()%globalInterests.numInterests; i++){
+        for(int j=0; j<rand()%globalInterests.numInterests; j++){
             add_interest(newUser, globalInterests, rand()% globalInterests.numInterests);
         }
         printf("%d. Usuario creado: %s (%s)\n", i, name, username);
@@ -611,14 +529,11 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
  * @param quantity Cantidad de usuarios en el grafo.
  * @param graph El grafo de usuarios.
  */
-void generate_random_connections(Graph graph, GlobalInterests globalInterests)
-{
+void generate_random_connections(Graph graph, GlobalInterests globalInterests){
     PtrToUser currentUser = graph->graphUsersList;
 
-    for (int i = 0; i < graph->usersNumber; i++)
-    {
-        if (currentUser == NULL)
-        {
+    for (int i = 0; i < graph->usersNumber; i++){
+        if (currentUser == NULL){
             printf("La lista de usuarios está vacía.\n");
             return;
         }
@@ -627,14 +542,12 @@ void generate_random_connections(Graph graph, GlobalInterests globalInterests)
 
         currentUser = graph->graphUsersList->next;
 
-        for (int i = 0; i < randomIndex; i++)
-        {
+        for (int j = 0; j < randomIndex; j++){
             if (currentUser->next != NULL)
             {
                 currentUser = currentUser->next;
             }
-            else
-            {
+            else{
                 printf("Error: la lista es más corta de lo esperado.\n");
                 return;
             }
@@ -645,18 +558,15 @@ void generate_random_connections(Graph graph, GlobalInterests globalInterests)
         User randomUser = graph->graphUsersList->next;
         int random_index = rand() % graph->usersNumber;
 
-        for (int j = 0; j < random_index; j++)
-        {
+        for (int j = 0; j < random_index; j++){
             randomUser = randomUser->next;
         }
 
-        if (randomUser != currentUser)
-        {
+        if (randomUser != currentUser){
             add_edge(currentUser, randomUser, globalInterests);
             //printf("Conectando el usuario '%s' con '%s'.\n", currentUser->username, randomUser->username);
         }
-        else
-        {
+        else{
             //printf("No se puede conectar el usuario '%s' consigo mismo.\n", currentUser->username);
         }
     }
@@ -670,53 +580,24 @@ void generate_random_connections(Graph graph, GlobalInterests globalInterests)
  *         Valores más altos indican mayor amigabilidad.
  */
 
-float calculate_friendliness(User user)
-{
-    if (user == NULL)
-    {
+float calculate_friendliness(User user){
+    if (user == NULL){
         return -1.0f;
     }
 
-    if (user->numFollowing == 0 && user->numFollowers == 0)
-    {
+    if (user->numFollowing == 0 && user->numFollowers == 0){
         return 0.0f;
     }
 
     float friendliness = 0.0f;
-    if (user->numFollowing > 0)
-    {
+    if (user->numFollowing > 0){
         friendliness = ((float)user->numFollowers / (float)user->numFollowing) + (float)user->numFollowers;
     }
-    else
-    {
+    else{
         friendliness = (float)user->numFollowers;
     }
 
     return friendliness;
-}
-
-/**
- * @brief Imprime una tabla de amigabilidad para todos los usuarios en el grafo.
- *
- * @param graph Grafo que contiene la lista de usuarios a evaluar.
- */
-
-void print_friendliness_table(Graph graph)
-{
-    printf("=============================================================\n");
-    printf("| %-20s | %-15s | %-20s |\n", "Usuario", "Amigabilidad", "Categoría");
-    printf("=============================================================\n");
-
-    PtrToUser currentUser = graph->graphUsersList;
-    while (currentUser != NULL)
-    {
-        float friendliness = currentUser->friendliness;
-        const char *category = currentUser->category ? currentUser->category : classify_friendliness(friendliness);
-        printf("| %-20s | %-15.2f | %-20s |\n", currentUser->username ? currentUser->username : "(null)", friendliness, category);
-        currentUser = currentUser->next;
-    }
-
-    printf("=============================================================\n");
 }
 
 /**
@@ -726,8 +607,7 @@ void print_friendliness_table(Graph graph)
  * @param friendliness Puntaje de amigabilidad calculado.
  * @return const char* Categoría textual que describe el nivel de amigabilidad.
  */
-const char *classify_friendliness(float friendliness)
-{
+const char *classify_friendliness(float friendliness){
     if (friendliness <= 0)
     {
         return "Nada amigable";

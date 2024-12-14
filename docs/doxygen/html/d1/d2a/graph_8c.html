@@ -197,16 +197,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a6d6724321b00dccfe21c27cebcbcadd0" id="r_a6d6724321b00dccfe21c27cebcbcadd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d2a/graph_8c.html#a6d6724321b00dccfe21c27cebcbcadd0">free_all_edges</a> (<a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a> user)</td></tr>
 <tr class="memdesc:a6d6724321b00dccfe21c27cebcbcadd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libera todas las adyacencias de un usuario.  <br /></td></tr>
 <tr class="separator:a6d6724321b00dccfe21c27cebcbcadd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f2002999a93188dbe535bd83b2d8582" id="r_a1f2002999a93188dbe535bd83b2d8582"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d2a/graph_8c.html#a1f2002999a93188dbe535bd83b2d8582">dijkstra_table_index</a> (<a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a> graph, <a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a> source)</td></tr>
-<tr class="memdesc:a1f2002999a93188dbe535bd83b2d8582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve índice de un usuario según su posición en el grafo.  <br /></td></tr>
-<tr class="separator:a1f2002999a93188dbe535bd83b2d8582"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98b572e88ce31a63314b60ae9351fa37" id="r_a98b572e88ce31a63314b60ae9351fa37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d2a/graph_8c.html#a98b572e88ce31a63314b60ae9351fa37">dijkstra</a> (<a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a> graph, <a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a> source)</td></tr>
-<tr class="memdesc:a98b572e88ce31a63314b60ae9351fa37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Algoritmo de Dijkstra.  <br /></td></tr>
-<tr class="separator:a98b572e88ce31a63314b60ae9351fa37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ad1db7176aabe57d636a695b0867b02" id="r_a7ad1db7176aabe57d636a695b0867b02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d2a/graph_8c.html#a7ad1db7176aabe57d636a695b0867b02">BFS</a> (<a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a> graph, <a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a> startUser)</td></tr>
-<tr class="separator:a7ad1db7176aabe57d636a695b0867b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69f981e84ed63e0fdedec6ad4629447c" id="r_a69f981e84ed63e0fdedec6ad4629447c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d2a/graph_8c.html#a69f981e84ed63e0fdedec6ad4629447c">DFS</a> (<a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a> graph, <a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a> startUser)</td></tr>
-<tr class="separator:a69f981e84ed63e0fdedec6ad4629447c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementación de funciones para gestionar grafos y relaciones entre usuarios. </p>
@@ -257,10 +247,11 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">user1</td><td>Usuario 1 que añade a Usuario 2 </td></tr>
     <tr><td class="paramname">user2</td><td>Usuario 2 será añadido por usuario 1 </td></tr>
-    <tr><td class="paramname">weigth</td><td>Peso de la conexion </td></tr>
+    <tr><td class="paramname">globalInterests</td><td>Tabla de intereses globales</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>El peso de la conexión será el índice de distancia de jaccard entre ambos usuarios </dd></dl>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -280,23 +271,25 @@ Functions</h2></td></tr>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d2a/graph_8c_a4d6718ee3e14fdfec3f71cf10d4aea0a_icgraph.png" border="0" usemap="#ad1/d2a/graph_8c_a4d6718ee3e14fdfec3f71cf10d4aea0a_icgraph" alt=""/></div>
 <map name="ad1/d2a/graph_8c_a4d6718ee3e14fdfec3f71cf10d4aea0a_icgraph" id="ad1/d2a/graph_8c_a4d6718ee3e14fdfec3f71cf10d4aea0a_icgraph">
-<area shape="rect" title="Añade una adyacencia entre dos usuarios." alt="" coords="561,82,647,107"/>
-<area shape="rect" href="../../d5/d4b/database_8c.html#a5c2c93b11c91edd6b02eb8de193bba3f" title="Seguir a un usuario." alt="" coords="415,31,477,57"/>
-<area shape="poly" title=" " alt="" coords="550,80,477,56,479,51,551,75"/>
-<area shape="rect" href="../../d2/d9e/users_8c.html#aa608289825b004627ba2258665dec9bc" title="Genera conexiones aleatorias entre usuarios." alt="" coords="108,83,331,109"/>
-<area shape="poly" title=" " alt="" coords="547,97,331,98,331,93,547,92"/>
-<area shape="rect" href="../../d5/d4b/database_8c.html#a01f812e0547c932313f6b755ade7ac73" title="Carga todas las conexiones (aristas) de los usuarios desde la base de datos." alt="" coords="379,133,513,158"/>
-<area shape="poly" title=" " alt="" coords="551,114,487,135,486,130,549,109"/>
-<area shape="poly" title=" " alt="" coords="473,20,465,13,446,10,430,12,421,17,419,22,424,30,419,33,414,23,417,13,428,7,446,5,468,8,477,17"/>
-<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,59,60,85"/>
-<area shape="poly" title=" " alt="" coords="401,34,342,21,268,11,188,10,148,15,109,24,75,40,49,61,46,57,73,36,107,19,147,9,187,5,269,5,343,16,402,29"/>
-<area shape="rect" href="../../d5/d4b/database_8c.html#a27d66932dd0c4411d8baa6acc4b717af" title="Dejar de seguir a un usuario." alt="" coords="180,34,259,59"/>
-<area shape="poly" title=" " alt="" coords="401,47,259,49,259,43,401,42"/>
-<area shape="poly" title=" " alt="" coords="167,56,61,71,60,66,166,51"/>
-<area shape="poly" title=" " alt="" coords="107,84,60,78,60,73,107,79"/>
-<area shape="rect" href="../../d5/d4b/database_8c.html#abf714cec1175e6736bc91b758979c959" title="Carga la base de datos en su totalidad." alt="" coords="161,133,278,158"/>
-<area shape="poly" title=" " alt="" coords="364,148,278,148,278,143,364,143"/>
-<area shape="poly" title=" " alt="" coords="146,136,107,124,74,106,48,87,51,83,77,101,109,119,148,131"/>
+<area shape="rect" title="Añade una adyacencia entre dos usuarios." alt="" coords="573,81,659,106"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a5c2c93b11c91edd6b02eb8de193bba3f" title="Seguir a un usuario." alt="" coords="383,32,445,57"/>
+<area shape="poly" title=" " alt="" coords="559,80,525,71,445,53,446,48,526,66,561,75"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#aa608289825b004627ba2258665dec9bc" title="Genera conexiones aleatorias entre usuarios." alt="" coords="303,81,525,106"/>
+<area shape="poly" title=" " alt="" coords="559,96,526,96,526,91,559,91"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a01f812e0547c932313f6b755ade7ac73" title="Carga todas las conexiones (aristas) de los usuarios desde la base de datos." alt="" coords="347,130,481,156"/>
+<area shape="poly" title=" " alt="" coords="561,112,526,122,478,133,477,128,525,117,559,107"/>
+<area shape="poly" title=" " alt="" coords="450,22,440,14,414,10,393,12,382,17,379,23,385,30,381,33,374,23,378,14,391,7,414,5,442,9,453,18"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,57,60,82"/>
+<area shape="poly" title=" " alt="" coords="369,33,315,21,250,11,178,10,143,14,109,22,75,38,49,59,46,55,73,34,107,17,142,8,178,4,250,6,316,15,370,28"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a27d66932dd0c4411d8baa6acc4b717af" title="Dejar de seguir a un usuario." alt="" coords="142,32,221,57"/>
+<area shape="poly" title=" " alt="" coords="369,47,221,47,221,42,369,42"/>
+<area shape="poly" title=" " alt="" coords="129,56,61,68,60,63,128,51"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a926d471e7af9c84c25aa798a87ad89fd" title="Genera en su totalidad una base de datos." alt="" coords="108,81,255,106"/>
+<area shape="poly" title=" " alt="" coords="289,96,255,96,255,91,289,91"/>
+<area shape="poly" title=" " alt="" coords="94,82,60,77,61,71,95,77"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#abf714cec1175e6736bc91b758979c959" title="Carga la base de datos en su totalidad." alt="" coords="123,130,240,156"/>
+<area shape="poly" title=" " alt="" coords="332,146,240,146,240,140,332,140"/>
+<area shape="poly" title=" " alt="" coords="122,128,107,121,49,85,52,80,109,117,124,123"/>
 </map>
 </div>
 
@@ -343,208 +336,25 @@ Functions</h2></td></tr>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d2a/graph_8c_a10d20aea4764e2b54197726d92b3e637_icgraph.png" border="0" usemap="#ad1/d2a/graph_8c_a10d20aea4764e2b54197726d92b3e637_icgraph" alt=""/></div>
 <map name="ad1/d2a/graph_8c_a10d20aea4764e2b54197726d92b3e637_icgraph" id="ad1/d2a/graph_8c_a10d20aea4764e2b54197726d92b3e637_icgraph">
-<area shape="rect" title="Añade un usuario (ya creado) al grafo." alt="" coords="823,56,968,81"/>
-<area shape="rect" href="../../d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="643,56,775,81"/>
-<area shape="poly" title=" " alt="" coords="809,71,775,71,775,66,809,66"/>
-<area shape="rect" href="../../d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833" title="Genera usuarios aleatorios." alt="" coords="273,5,396,31"/>
-<area shape="poly" title=" " alt="" coords="643,56,594,46,490,33,396,24,397,19,490,27,595,41,645,50"/>
-<area shape="rect" href="../../d5/d4b/database_8c.html#a1e51423ffa4b06685c5d230c770eb278" title="Carga un usuario desde un archivo." alt="" coords="444,56,595,81"/>
-<area shape="poly" title=" " alt="" coords="629,71,595,71,595,66,629,66"/>
+<area shape="rect" title="Añade un usuario (ya creado) al grafo." alt="" coords="847,55,992,80"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="667,55,799,80"/>
+<area shape="poly" title=" " alt="" coords="833,70,799,70,799,65,833,65"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833" title="Genera usuarios aleatorios." alt="" coords="482,5,605,31"/>
+<area shape="poly" title=" " alt="" coords="670,54,593,33,594,28,671,49"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a1e51423ffa4b06685c5d230c770eb278" title="Carga un usuario desde un archivo." alt="" coords="468,55,619,80"/>
+<area shape="poly" title=" " alt="" coords="653,70,619,70,619,65,653,65"/>
 <area shape="rect" href="../../d5/d4b/database_8c.html#a116abf50656b08636a9f449c3f46e2cd" title="Registra un nuevo usuario en la base de datos." alt="" coords="113,105,220,131"/>
-<area shape="poly" title=" " alt="" coords="646,87,595,97,491,108,388,115,220,120,220,115,387,110,491,103,594,91,645,82"/>
+<area shape="poly" title=" " alt="" coords="670,86,619,95,508,108,398,115,220,121,220,115,397,110,508,102,618,90,669,81"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a926d471e7af9c84c25aa798a87ad89fd" title="Genera en su totalidad una base de datos." alt="" coords="273,5,420,31"/>
+<area shape="poly" title=" " alt="" coords="468,21,420,21,420,15,468,15"/>
 <area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,56,60,81"/>
-<area shape="poly" title=" " alt="" coords="260,25,186,33,109,46,61,61,60,56,107,41,186,27,259,20"/>
-<area shape="rect" href="../../d5/d4b/database_8c.html#a77103f45cf4c5b241aaad7936989564b" title="Carga todos los usuarios desde la base de datos." alt="" coords="277,56,392,81"/>
-<area shape="poly" title=" " alt="" coords="430,71,392,71,392,66,430,66"/>
+<area shape="poly" title=" " alt="" coords="260,25,186,33,109,46,61,61,60,56,107,41,185,28,259,20"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a77103f45cf4c5b241aaad7936989564b" title="Carga todos los usuarios desde la base de datos." alt="" coords="289,55,404,80"/>
+<area shape="poly" title=" " alt="" coords="454,70,404,70,404,65,454,65"/>
 <area shape="rect" href="../../d5/d4b/database_8c.html#abf714cec1175e6736bc91b758979c959" title="Carga la base de datos en su totalidad." alt="" coords="108,56,225,81"/>
-<area shape="poly" title=" " alt="" coords="264,71,226,71,226,66,264,66"/>
+<area shape="poly" title=" " alt="" coords="276,71,226,71,226,66,276,65"/>
 <area shape="poly" title=" " alt="" coords="94,71,60,71,60,66,94,66"/>
 <area shape="poly" title=" " alt="" coords="118,103,59,81,61,76,120,98"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a7ad1db7176aabe57d636a695b0867b02" name="a7ad1db7176aabe57d636a695b0867b02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ad1db7176aabe57d636a695b0867b02">&#9670;&#160;</a></span>BFS()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BFS </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a>&#160;</td>
-          <td class="paramname"><em>graph</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a>&#160;</td>
-          <td class="paramname"><em>startUser</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d1/d2a/graph_8c_a7ad1db7176aabe57d636a695b0867b02_cgraph.png" border="0" usemap="#ad1/d2a/graph_8c_a7ad1db7176aabe57d636a695b0867b02_cgraph" alt=""/></div>
-<map name="ad1/d2a/graph_8c_a7ad1db7176aabe57d636a695b0867b02_cgraph" id="ad1/d2a/graph_8c_a7ad1db7176aabe57d636a695b0867b02_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,52,31"/>
-<area shape="rect" href="../../d1/d2a/graph_8c.html#a1f2002999a93188dbe535bd83b2d8582" title="Devuelve índice de un usuario según su posición en el grafo." alt="" coords="100,5,255,31"/>
-<area shape="poly" title=" " alt="" coords="52,15,86,15,86,21,52,21"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a69f981e84ed63e0fdedec6ad4629447c" name="a69f981e84ed63e0fdedec6ad4629447c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69f981e84ed63e0fdedec6ad4629447c">&#9670;&#160;</a></span>DFS()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DFS </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a>&#160;</td>
-          <td class="paramname"><em>graph</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a>&#160;</td>
-          <td class="paramname"><em>startUser</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d1/d2a/graph_8c_a69f981e84ed63e0fdedec6ad4629447c_cgraph.png" border="0" usemap="#ad1/d2a/graph_8c_a69f981e84ed63e0fdedec6ad4629447c_cgraph" alt=""/></div>
-<map name="ad1/d2a/graph_8c_a69f981e84ed63e0fdedec6ad4629447c_cgraph" id="ad1/d2a/graph_8c_a69f981e84ed63e0fdedec6ad4629447c_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,52,31"/>
-<area shape="rect" href="../../d1/d2a/graph_8c.html#a1f2002999a93188dbe535bd83b2d8582" title="Devuelve índice de un usuario según su posición en el grafo." alt="" coords="100,5,255,31"/>
-<area shape="poly" title=" " alt="" coords="52,15,86,15,86,21,52,21"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a98b572e88ce31a63314b60ae9351fa37" name="a98b572e88ce31a63314b60ae9351fa37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98b572e88ce31a63314b60ae9351fa37">&#9670;&#160;</a></span>dijkstra()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dijkstra </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a>&#160;</td>
-          <td class="paramname"><em>graph</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a>&#160;</td>
-          <td class="paramname"><em>source</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Algoritmo de Dijkstra. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">graph</td><td>Grafo </td></tr>
-    <tr><td class="paramname">source</td><td>Usuario fuente</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>Solo devuelve distancias entre las adyacencias de seguidos </dd></dl>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d1/d2a/graph_8c_a98b572e88ce31a63314b60ae9351fa37_cgraph.png" border="0" usemap="#ad1/d2a/graph_8c_a98b572e88ce31a63314b60ae9351fa37_cgraph" alt=""/></div>
-<map name="ad1/d2a/graph_8c_a98b572e88ce31a63314b60ae9351fa37_cgraph" id="ad1/d2a/graph_8c_a98b572e88ce31a63314b60ae9351fa37_cgraph">
-<area shape="rect" title="Algoritmo de Dijkstra." alt="" coords="5,5,76,31"/>
-<area shape="rect" href="../../d1/d2a/graph_8c.html#a1f2002999a93188dbe535bd83b2d8582" title="Devuelve índice de un usuario según su posición en el grafo." alt="" coords="124,5,279,31"/>
-<area shape="poly" title=" " alt="" coords="76,15,110,15,110,21,76,21"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a1f2002999a93188dbe535bd83b2d8582" name="a1f2002999a93188dbe535bd83b2d8582"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f2002999a93188dbe535bd83b2d8582">&#9670;&#160;</a></span>dijkstra_table_index()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int dijkstra_table_index </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a>&#160;</td>
-          <td class="paramname"><em>graph</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a>&#160;</td>
-          <td class="paramname"><em>source</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Devuelve índice de un usuario según su posición en el grafo. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">graph</td><td>Grafo </td></tr>
-    <tr><td class="paramname">source</td><td>Usuario a obtener index </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>int</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Se utiliza para el algoritmo <a class="el" href="../../d1/d2a/graph_8c.html#a98b572e88ce31a63314b60ae9351fa37">dijkstra</a> </dd></dl>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d1/d2a/graph_8c_a1f2002999a93188dbe535bd83b2d8582_icgraph.png" border="0" usemap="#ad1/d2a/graph_8c_a1f2002999a93188dbe535bd83b2d8582_icgraph" alt=""/></div>
-<map name="ad1/d2a/graph_8c_a1f2002999a93188dbe535bd83b2d8582_icgraph" id="ad1/d2a/graph_8c_a1f2002999a93188dbe535bd83b2d8582_icgraph">
-<area shape="rect" title="Devuelve índice de un usuario según su posición en el grafo." alt="" coords="124,55,279,80"/>
-<area shape="rect" href="../../d1/d2a/graph_8c.html#a7ad1db7176aabe57d636a695b0867b02" title=" " alt="" coords="17,5,64,31"/>
-<area shape="poly" title=" " alt="" coords="146,53,63,27,65,22,147,48"/>
-<area shape="rect" href="../../d1/d2a/graph_8c.html#a69f981e84ed63e0fdedec6ad4629447c" title=" " alt="" coords="17,55,64,80"/>
-<area shape="poly" title=" " alt="" coords="110,70,64,70,64,65,110,65"/>
-<area shape="rect" href="../../d1/d2a/graph_8c.html#a98b572e88ce31a63314b60ae9351fa37" title="Algoritmo de Dijkstra." alt="" coords="5,104,76,129"/>
-<area shape="poly" title=" " alt="" coords="147,87,77,109,75,103,145,82"/>
 </map>
 </div>
 
@@ -574,11 +384,11 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Libera también las adyacencias de los usuarios que lo siguen o sigue </dd></dl>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d2a/graph_8c_a6d6724321b00dccfe21c27cebcbcadd0_cgraph.png" border="0" usemap="#ad1/d2a/graph_8c_a6d6724321b00dccfe21c27cebcbcadd0_cgraph" alt=""/></div>
 <map name="ad1/d2a/graph_8c_a6d6724321b00dccfe21c27cebcbcadd0_cgraph" id="ad1/d2a/graph_8c_a6d6724321b00dccfe21c27cebcbcadd0_cgraph">
 <area shape="rect" title="Libera todas las adyacencias de un usuario." alt="" coords="5,5,123,31"/>
@@ -588,11 +398,11 @@ Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="281,15,316,15,316,21,281,21"/>
 </map>
 </div>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d2a/graph_8c_a6d6724321b00dccfe21c27cebcbcadd0_icgraph.png" border="0" usemap="#ad1/d2a/graph_8c_a6d6724321b00dccfe21c27cebcbcadd0_icgraph" alt=""/></div>
 <map name="ad1/d2a/graph_8c_a6d6724321b00dccfe21c27cebcbcadd0_icgraph" id="ad1/d2a/graph_8c_a6d6724321b00dccfe21c27cebcbcadd0_icgraph">
 <area shape="rect" title="Libera todas las adyacencias de un usuario." alt="" coords="653,5,771,31"/>
@@ -635,25 +445,27 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Ejecutar despues de </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d2/d9e/users_8c.html#aefba9a925655e4df5dba3e7433342f78" title="Libera la memoria de todos los usuarios de la red social.">free_all_users</a> </dd></dl>
-<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d2a/graph_8c_aa69532d3e5630c6949bf8e76a663fe2b_icgraph.png" border="0" usemap="#ad1/d2a/graph_8c_aa69532d3e5630c6949bf8e76a663fe2b_icgraph" alt=""/></div>
 <map name="ad1/d2a/graph_8c_aa69532d3e5630c6949bf8e76a663fe2b_icgraph" id="ad1/d2a/graph_8c_aa69532d3e5630c6949bf8e76a663fe2b_icgraph">
-<area shape="rect" title="Libera la memoria de un grafo." alt="" coords="509,107,601,132"/>
-<area shape="rect" href="../../d7/db6/utilities_8c.html#a3b744f7d0a58cbf2362aacdd02caa1db" title=" " alt="" coords="279,56,461,81"/>
-<area shape="poly" title=" " alt="" coords="496,106,417,84,418,79,497,101"/>
+<area shape="rect" title="Libera la memoria de un grafo." alt="" coords="704,107,796,132"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a3b744f7d0a58cbf2362aacdd02caa1db" title="Libera todas las estructuras del programa y sale del programa con EXIT_FAILURE." alt="" coords="473,56,656,81"/>
+<area shape="poly" title=" " alt="" coords="690,106,611,84,613,79,692,101"/>
 <area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,81,60,107"/>
-<area shape="poly" title=" " alt="" coords="496,119,60,98,60,93,496,114"/>
-<area shape="rect" href="../../d1/d2a/graph_8c.html#a701b25df107a52bf6b2dc39817a185b5" title="Inicializa un grafo vacío." alt="" coords="108,157,231,183"/>
-<area shape="poly" title=" " alt="" coords="496,135,462,141,339,157,231,168,231,162,338,151,461,135,495,129"/>
-<area shape="rect" href="../../d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833" title="Genera usuarios aleatorios." alt="" coords="108,5,231,31"/>
-<area shape="poly" title=" " alt="" coords="305,55,220,33,221,28,306,50"/>
-<area shape="poly" title=" " alt="" coords="265,79,60,95,60,89,265,74"/>
-<area shape="poly" title=" " alt="" coords="133,39,109,52,57,83,54,79,107,48,130,35"/>
-<area shape="poly" title=" " alt="" coords="130,153,107,140,54,109,57,105,109,136,133,149"/>
+<area shape="poly" title=" " alt="" coords="690,120,60,98,60,92,691,115"/>
+<area shape="rect" href="../../d1/d2a/graph_8c.html#a701b25df107a52bf6b2dc39817a185b5" title="Inicializa un grafo vacío." alt="" coords="303,157,425,183"/>
+<area shape="poly" title=" " alt="" coords="691,135,656,141,534,157,426,168,425,162,533,151,656,135,690,129"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833" title="Genera usuarios aleatorios." alt="" coords="303,5,425,31"/>
+<area shape="poly" title=" " alt="" coords="500,55,414,33,416,28,501,50"/>
+<area shape="poly" title=" " alt="" coords="460,76,61,95,60,90,459,71"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a926d471e7af9c84c25aa798a87ad89fd" title="Genera en su totalidad una base de datos." alt="" coords="108,5,255,31"/>
+<area shape="poly" title=" " alt="" coords="289,21,255,21,255,15,289,15"/>
+<area shape="poly" title=" " alt="" coords="138,39,109,52,56,83,53,79,107,48,135,34"/>
+<area shape="poly" title=" " alt="" coords="289,171,201,163,153,154,107,141,76,126,50,109,53,105,78,121,109,135,154,148,201,157,289,166"/>
 </map>
 </div>
 
@@ -677,28 +489,30 @@ Functions</h2></td></tr>
 
 <p>Inicia una lista de adyacencia vacía. </p>
 <dl class="section return"><dt>Returns</dt><dd>Edge </dd></dl>
-<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d2a/graph_8c_a1caf8c58c50411466450e68efeb9beee_icgraph.png" border="0" usemap="#ad1/d2a/graph_8c_a1caf8c58c50411466450e68efeb9beee_icgraph" alt=""/></div>
 <map name="ad1/d2a/graph_8c_a1caf8c58c50411466450e68efeb9beee_icgraph" id="ad1/d2a/graph_8c_a1caf8c58c50411466450e68efeb9beee_icgraph">
-<area shape="rect" title="Inicia una lista de adyacencia vacía." alt="" coords="823,56,953,81"/>
-<area shape="rect" href="../../d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="643,56,775,81"/>
-<area shape="poly" title=" " alt="" coords="809,71,775,71,775,66,809,66"/>
-<area shape="rect" href="../../d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833" title="Genera usuarios aleatorios." alt="" coords="273,5,396,31"/>
-<area shape="poly" title=" " alt="" coords="643,56,594,46,490,33,396,24,397,19,490,27,595,41,645,50"/>
-<area shape="rect" href="../../d5/d4b/database_8c.html#a1e51423ffa4b06685c5d230c770eb278" title="Carga un usuario desde un archivo." alt="" coords="444,56,595,81"/>
-<area shape="poly" title=" " alt="" coords="629,71,595,71,595,66,629,66"/>
+<area shape="rect" title="Inicia una lista de adyacencia vacía." alt="" coords="847,55,977,80"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="667,55,799,80"/>
+<area shape="poly" title=" " alt="" coords="833,70,799,70,799,65,833,65"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833" title="Genera usuarios aleatorios." alt="" coords="482,5,605,31"/>
+<area shape="poly" title=" " alt="" coords="670,54,593,33,594,28,671,49"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a1e51423ffa4b06685c5d230c770eb278" title="Carga un usuario desde un archivo." alt="" coords="468,55,619,80"/>
+<area shape="poly" title=" " alt="" coords="653,70,619,70,619,65,653,65"/>
 <area shape="rect" href="../../d5/d4b/database_8c.html#a116abf50656b08636a9f449c3f46e2cd" title="Registra un nuevo usuario en la base de datos." alt="" coords="113,105,220,131"/>
-<area shape="poly" title=" " alt="" coords="646,87,595,97,491,108,388,115,220,120,220,115,387,110,491,103,594,91,645,82"/>
+<area shape="poly" title=" " alt="" coords="670,86,619,95,508,108,398,115,220,121,220,115,397,110,508,102,618,90,669,81"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a926d471e7af9c84c25aa798a87ad89fd" title="Genera en su totalidad una base de datos." alt="" coords="273,5,420,31"/>
+<area shape="poly" title=" " alt="" coords="468,21,420,21,420,15,468,15"/>
 <area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,56,60,81"/>
-<area shape="poly" title=" " alt="" coords="260,25,186,33,109,46,61,61,60,56,107,41,186,27,259,20"/>
-<area shape="rect" href="../../d5/d4b/database_8c.html#a77103f45cf4c5b241aaad7936989564b" title="Carga todos los usuarios desde la base de datos." alt="" coords="277,56,392,81"/>
-<area shape="poly" title=" " alt="" coords="430,71,392,71,392,66,430,66"/>
+<area shape="poly" title=" " alt="" coords="260,25,186,33,109,46,61,61,60,56,107,41,185,28,259,20"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a77103f45cf4c5b241aaad7936989564b" title="Carga todos los usuarios desde la base de datos." alt="" coords="289,55,404,80"/>
+<area shape="poly" title=" " alt="" coords="454,70,404,70,404,65,454,65"/>
 <area shape="rect" href="../../d5/d4b/database_8c.html#abf714cec1175e6736bc91b758979c959" title="Carga la base de datos en su totalidad." alt="" coords="108,56,225,81"/>
-<area shape="poly" title=" " alt="" coords="264,71,226,71,226,66,264,66"/>
+<area shape="poly" title=" " alt="" coords="276,71,226,71,226,66,276,65"/>
 <area shape="poly" title=" " alt="" coords="94,71,60,71,60,66,94,66"/>
 <area shape="poly" title=" " alt="" coords="118,103,59,81,61,76,120,98"/>
 </map>
@@ -724,11 +538,11 @@ Functions</h2></td></tr>
 
 <p>Inicializa un grafo vacío. </p>
 <dl class="section return"><dt>Returns</dt><dd>Graph </dd></dl>
-<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d2a/graph_8c_a701b25df107a52bf6b2dc39817a185b5_cgraph.png" border="0" usemap="#ad1/d2a/graph_8c_a701b25df107a52bf6b2dc39817a185b5_cgraph" alt=""/></div>
 <map name="ad1/d2a/graph_8c_a701b25df107a52bf6b2dc39817a185b5_cgraph" id="ad1/d2a/graph_8c_a701b25df107a52bf6b2dc39817a185b5_cgraph">
 <area shape="rect" title="Inicializa un grafo vacío." alt="" coords="5,5,128,31"/>
@@ -736,11 +550,11 @@ Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="128,15,162,15,162,21,128,21"/>
 </map>
 </div>
-<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d2a/graph_8c_a701b25df107a52bf6b2dc39817a185b5_icgraph.png" border="0" usemap="#ad1/d2a/graph_8c_a701b25df107a52bf6b2dc39817a185b5_icgraph" alt=""/></div>
 <map name="ad1/d2a/graph_8c_a701b25df107a52bf6b2dc39817a185b5_icgraph" id="ad1/d2a/graph_8c_a701b25df107a52bf6b2dc39817a185b5_icgraph">
 <area shape="rect" title="Inicializa un grafo vacío." alt="" coords="108,5,231,31"/>
@@ -786,11 +600,11 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Para usuario 1 elimina a usuario 1 de su lista de seguidos, y para usuario 2 se elimina usuario de su lista de seguidores </dd></dl>
-<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d2a/graph_8c_a3e633b4d8bf50863870e67bf4ca97319_cgraph.png" border="0" usemap="#ad1/d2a/graph_8c_a3e633b4d8bf50863870e67bf4ca97319_cgraph" alt=""/></div>
 <map name="ad1/d2a/graph_8c_a3e633b4d8bf50863870e67bf4ca97319_cgraph" id="ad1/d2a/graph_8c_a3e633b4d8bf50863870e67bf4ca97319_cgraph">
 <area shape="rect" title="Permite que un usuario deje de seguir a otro." alt="" coords="5,5,116,31"/>
@@ -798,11 +612,11 @@ Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="116,15,151,15,151,21,116,21"/>
 </map>
 </div>
-<div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d2a/graph_8c_a3e633b4d8bf50863870e67bf4ca97319_icgraph.png" border="0" usemap="#ad1/d2a/graph_8c_a3e633b4d8bf50863870e67bf4ca97319_icgraph" alt=""/></div>
 <map name="ad1/d2a/graph_8c_a3e633b4d8bf50863870e67bf4ca97319_icgraph" id="ad1/d2a/graph_8c_a3e633b4d8bf50863870e67bf4ca97319_icgraph">
 <area shape="rect" title="Permite que un usuario deje de seguir a otro." alt="" coords="819,49,929,75"/>
@@ -860,11 +674,11 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>No elimina al usuario en si, lo saca del grafo y libera sus conexiones </dd></dl>
-<div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d2a/graph_8c_a6c33d80720eb130a585010c03b36d10a_cgraph.png" border="0" usemap="#ad1/d2a/graph_8c_a6c33d80720eb130a585010c03b36d10a_cgraph" alt=""/></div>
 <map name="ad1/d2a/graph_8c_a6c33d80720eb130a585010c03b36d10a_cgraph" id="ad1/d2a/graph_8c_a6c33d80720eb130a585010c03b36d10a_cgraph">
 <area shape="rect" title="Elimina un usuario del grafo." alt="" coords="5,5,195,31"/>
@@ -876,11 +690,11 @@ Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="519,15,553,15,553,21,519,21"/>
 </map>
 </div>
-<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d2a/graph_8c_a6c33d80720eb130a585010c03b36d10a_icgraph.png" border="0" usemap="#ad1/d2a/graph_8c_a6c33d80720eb130a585010c03b36d10a_icgraph" alt=""/></div>
 <map name="ad1/d2a/graph_8c_a6c33d80720eb130a585010c03b36d10a_icgraph" id="ad1/d2a/graph_8c_a6c33d80720eb130a585010c03b36d10a_icgraph">
 <area shape="rect" title="Elimina un usuario del grafo." alt="" coords="416,5,605,31"/>
@@ -930,11 +744,11 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Edge Adyacencia anterior encontrada o NULL si no se encuentra </dd></dl>
-<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d2a/graph_8c_abf9f24585384d89e637bd258922e64db_icgraph.png" border="0" usemap="#ad1/d2a/graph_8c_abf9f24585384d89e637bd258922e64db_icgraph" alt=""/></div>
 <map name="ad1/d2a/graph_8c_abf9f24585384d89e637bd258922e64db_icgraph" id="ad1/d2a/graph_8c_abf9f24585384d89e637bd258922e64db_icgraph">
 <area shape="rect" title="Busca la adyacencia anterior a un usuario en una lista de adyacencia." alt="" coords="977,49,1164,75"/>

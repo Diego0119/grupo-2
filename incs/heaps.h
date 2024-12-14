@@ -23,17 +23,21 @@ typedef struct _post post;
 #include "hash_table.h"
 #include "graph.h"
 
-#define MAX_HEAP_SIZE 100000 // recomendamos que sea una cantidad equivalente a la generación de usuarios o más
+/**
+ * @def MAX_HEAP_SIZE
+ * @brief Cantidad máxima de elementos en el heap
+ */
+#define MAX_HEAP_SIZE 100000
 
 /**
  * @struct _post
  * @brief Estructura que almacena los datos de una publicación
  */
 struct _post {
-    char* user_name;  // Nombre del usuario (único para cada usuario)
-    char* name;       // Nombre real
-    double priority;  // Prioridad (por ejemplo, basado en intereses del usuario)
-    char* content;    // Contenido de la publicación
+    char* user_name;  /*!< Nombre de usuario */
+    char* name;       /*!< Nombre real */
+    double priority;  /*!< Prioridad (por ejemplo, basado en intereses del usuario) */
+    char* content;    /*!< Contenido de la publicación */
 };
 
 /**
@@ -41,8 +45,8 @@ struct _post {
  * @brief Estructura para el heap
  */
 struct _heap {
-    post posts[MAX_HEAP_SIZE]; // Arreglo de publicaciones y sugerencias, se trabaja como arreglo por que en este tipo de casos es más eficiente que un arreglo dinámico
-    int size; // Este tamaño refleja el número de elementos en el heap
+    post posts[MAX_HEAP_SIZE]; /*!< Arreglo de publicaciones y sugerencias, se trabaja como arreglo por que en este tipo de casos es más eficiente que un arreglo dinámico */
+    int size; /*!< Número de elementos en el heap */
 };
 
 
@@ -63,5 +67,6 @@ void search_posts_in_my_follows(heap* h, User currentUser); // Función para bus
 void search_posts_by_interests(heap* h, PtrToHashTable table, GlobalInterests globalInterestsTable, User currentUser); // Función para buscar publicaciones de interes del usuario para colocar en el heap
 void search_new_possible_friends(heap* h, PtrToHashTable table, GlobalInterests globalInterestsTable, User currentUser); // Función para buscar usuarios con intereses similares a los de un usuario
 void dijkstra(heap* h, Graph graph, User source); // Calcula la distancia de un user a otro en un grafo
+int dijkstra_table_index(Graph graph, User source);
 
 #endif

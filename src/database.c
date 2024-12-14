@@ -170,7 +170,7 @@ int database_exists_and_not_empty(void) {
     if (!dir) {
         return 0;
     }
-    struct dirent *entry;
+    const struct dirent *entry;
     int has_files = 0;
     while ((entry = readdir(dir)) != NULL) {
         if (strcmp(entry->d_name,".")!=0 && strcmp(entry->d_name,"..")!=0) {
@@ -209,8 +209,8 @@ User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph
     UserPosts posts = create_empty_userPosts();
     
     if (fscanf(fp, "%d", &id)==0) exit(EXIT_FAILURE);
-    if (fscanf(fp, "%s", username)==0) exit(EXIT_FAILURE);
-    if (fscanf(fp, "%s", password)==0) exit(EXIT_FAILURE);
+    if (fscanf(fp, "%255s", username)==0) exit(EXIT_FAILURE);
+    if (fscanf(fp, "%255s", password)==0) exit(EXIT_FAILURE);
     fgetc(fp);
     if (fgets(name, sizeof(name), fp) == NULL) exit(EXIT_FAILURE);
     name[strcspn(name, "\n")] = '\0';
@@ -235,7 +235,7 @@ User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph
         return NULL;
     }
    
-    struct dirent *entry;
+    const struct dirent *entry;
     while ((entry = readdir(dir)) != NULL) {
         if (strcmp(entry->d_name, ".")==0 || strcmp(entry->d_name, "..")==0) continue;
         char path[512];
@@ -289,7 +289,7 @@ void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInt
         return; 
     }
 
-    struct dirent *entry;
+    const struct dirent *entry;
     while ((entry = readdir(dir)) != NULL) {
         if (strcmp(entry->d_name, ".")==0 || strcmp(entry->d_name, "..")==0) continue;
 
@@ -320,7 +320,7 @@ void load_connections(PtrToHashTable table, GlobalInterests globalInterests){
     if (!dir) {
         return; 
     }
-    struct dirent *entry;
+    const struct dirent *entry;
     while ((entry = readdir(dir)) != NULL) {
         if (strcmp(entry->d_name, ".")==0 || strcmp(entry->d_name, "..")==0) continue;
         char path[512];
@@ -332,7 +332,7 @@ void load_connections(PtrToHashTable table, GlobalInterests globalInterests){
         }
         char username[256];
         for(int i=0; i<2; i++){
-            if(fscanf(fp, "%s", username)==0) exit(EXIT_FAILURE);
+            if(fscanf(fp, "%255s", username)==0) exit(EXIT_FAILURE);
         }
        
 
@@ -433,11 +433,15 @@ void login(PtrToHashTable graph) {
     if (strcmp(user->password, password) != 0) {
         printf("ERROR: Contraseña incorrecta.\n");
         fclose(file);
+        free(username);
+        free(password);
         return;
     }
 
     fprintf(file,"%s",username);
     printf("Sesión iniciada correctamente como '%s'.\n", username);
+    free(username);
+    free(password);
     fclose(file);
 }
 
@@ -470,7 +474,7 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
     User user = search_user(username, table);
     while(user) {
         printf(COLOR_RED COLOR_BOLD"ERROR: El nombre de usuario '%s' ya existe. Intente con otro usuario: \n"COLOR_RESET, username);
-        if (scanf("%s",username)==0) exit(EXIT_FAILURE);
+        if (scanf("%255s",username)==0) exit(EXIT_FAILURE);
         user = search_user(username, table);
     }
 
@@ -502,7 +506,7 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
     int option;
     do {
         if (scanf("%d",&option)==0) exit(EXIT_FAILURE);
-        if(option<0 || option>=globalInterests.numInterests){
+        if(option<0 || option>=globalInterests.numInterests-1){
             printf(COLOR_RED COLOR_BOLD"ERROR: ID de interes no válido. Intente nuevamente\n"COLOR_RESET);
         }
         else if(option>0){
@@ -610,7 +614,7 @@ void delete_account(User user) {
 }
 
 /**
- * @brief Permite a un usuario editar su información de cuenta
+ * @brief Permite a un usuario editar la información de su cuenta
  * 
  * @param user Sesión iniciada
  * @param globalInterests Tabla de intereses globales
@@ -648,7 +652,7 @@ void edit_account(User user, GlobalInterests globalInterests, PtrToHashTable tab
         case 2:
             printf("Ingrese el nuevo usuario: ");
             char *new_username=malloc(sizeof(char)*256);
-            if (scanf("%s",new_username)==0) exit(EXIT_FAILURE);
+            if (scanf("%255s",new_username)==0) exit(EXIT_FAILURE);
             User user_aux = search_user(new_username, table);
             if(user_aux){
                 printf("ERROR: El nombre de usuario '%s' ya existe. Intente nuevamente \n", new_username);
@@ -664,7 +668,7 @@ void edit_account(User user, GlobalInterests globalInterests, PtrToHashTable tab
         case 3:
             printf("Ingrese la nueva contraseña: ");
             char *new_password=malloc(sizeof(char)*256);
-            if (scanf("%s",new_password)==0) exit(EXIT_FAILURE);
+            if (scanf("%255s",new_password)==0) exit(EXIT_FAILURE);
             free(user->password);
             user->password = strdup(new_password);
             printf("Se ha modificado su contraseña a '%s'.\n", user->password);
@@ -674,6 +678,14 @@ void edit_account(User user, GlobalInterests globalInterests, PtrToHashTable tab
     save_user_data(user, globalInterests);
 }
 
+/**
+ * @brief Genera en su totalidad una base de datos
+ * 
+ * @param quantity Cantidad de usuarios a generar
+ * @param table Tabla hash de usuarios
+ * @param graph Grafo de usuarios
+ * @param globalInterests Tabla de intereses globales
+ */
 void generate_database(int quantity, PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
     generate_users(quantity, table, graph, globalInterests);
     generate_random_connections(graph, globalInterests);

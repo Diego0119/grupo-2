@@ -19,7 +19,8 @@ Include dependency graph for utilities.\+h\+:\nopagebreak
 \includegraphics[width=350pt]{de/dfc/utilities_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -74,9 +75,9 @@ int \mbox{\hyperlink{utilities_8h_a0ea8ae37a046313ec525e076e6005dcb}{line\+\_\+n
 void \mbox{\hyperlink{utilities_8h_a160d24be9bf39cc47705ace34ff13582}{delete\+\_\+all\+\_\+in\+\_\+directory}} (const char \texorpdfstring{$\ast$}{*}directory)
 \begin{DoxyCompactList}\small\item\em Elimina todos los archivos en un directorio. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{utilities_8h_a73eb533269566775275da2ac91350562}{print\+\_\+logo}} (void)
-\item 
-void \mbox{\hyperlink{utilities_8h_a3b744f7d0a58cbf2362aacdd02caa1db}{free\+\_\+structures\+\_\+and\+\_\+exit}} (\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table, \mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests\+Table)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Imprime el logo del programa. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utilities_8h_a3b744f7d0a58cbf2362aacdd02caa1db}{free\+\_\+structures\+\_\+and\+\_\+exit}} (\mbox{\hyperlink{database_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table, \mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests\+Table)
+\begin{DoxyCompactList}\small\item\em Libera todas las estructuras del programa y sale del programa con EXIT\+\_\+\+FAILURE. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -207,7 +208,8 @@ Elimina todos los archivos en un directorio.
 {\em directory} & Nombre del directorio \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -218,16 +220,31 @@ Here is the caller graph for this function\+:\nopagebreak
 \index{utilities.h@{utilities.h}!free\_structures\_and\_exit@{free\_structures\_and\_exit}}
 \index{free\_structures\_and\_exit@{free\_structures\_and\_exit}!utilities.h@{utilities.h}}
 \doxysubsubsection{\texorpdfstring{free\_structures\_and\_exit()}{free\_structures\_and\_exit()}}
-{\footnotesize\ttfamily void free\+\_\+structures\+\_\+and\+\_\+exit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{table,  }\item[{\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests\+Table }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void free\+\_\+structures\+\_\+and\+\_\+exit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{table,  }\item[{\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests\+Table }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:\nopagebreak
+
+
+Libera todas las estructuras del programa y sale del programa con EXIT\+\_\+\+FAILURE. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Tabla hash de usuarios \\
+\hline
+{\em graph} & Grafo de usuarios \\
+\hline
+{\em global\+Interests\+Table} & Tabla de intereses globales \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{de/df0/utilities_8h_a3b744f7d0a58cbf2362aacdd02caa1db_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -254,7 +271,8 @@ Indice del programa.
 \begin{DoxyReturn}{Returns}
 int Retorna número de la opción seleccionada 
 \end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -286,7 +304,8 @@ Calcula el hash de un string.
 \begin{DoxyReturn}{Returns}
 unsigned int 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -324,7 +343,12 @@ Here is the caller graph for this function\+:\nopagebreak
 \doxysubsubsection{\texorpdfstring{print\_logo()}{print\_logo()}}
 {\footnotesize\ttfamily void print\+\_\+logo (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:\nopagebreak
+
+
+Imprime el logo del programa. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

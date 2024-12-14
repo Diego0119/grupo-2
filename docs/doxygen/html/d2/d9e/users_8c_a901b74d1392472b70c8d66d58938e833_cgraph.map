@@ -8,7 +8,7 @@
 <area shape="poly" id="edge17_Node000001_Node000010" title=" " alt="" coords="128,276,359,297,403,302,403,307,358,302,128,281"/>
 <area shape="rect" id="Node000011" href="$d5/d4b/database_8c.html#a84ddec926c8a5475e48c2e6a59741d00" title="Verifica si la carpeta database existe y no está vacía." alt="" coords="188,311,347,351"/>
 <area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="113,284,185,305,183,310,111,289"/>
-<area shape="rect" id="Node000012" href="$d7/db6/utilities_8c.html#a3b744f7d0a58cbf2362aacdd02caa1db" title=" " alt="" coords="176,393,359,419"/>
+<area shape="rect" id="Node000012" href="$d7/db6/utilities_8c.html#a3b744f7d0a58cbf2362aacdd02caa1db" title="Libera todas las estructuras del programa y sale del programa con EXIT_FAILURE." alt="" coords="176,393,359,419"/>
 <area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="83,285,124,321,177,361,223,385,220,390,175,366,120,325,79,289"/>
 <area shape="rect" id="Node000004" href="$d1/d2a/graph_8c.html#a10d20aea4764e2b54197726d92b3e637" title="Añade un usuario (ya creado) al grafo." alt="" coords="425,5,571,31"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="332,203,357,188,371,171,378,153,380,116,382,78,390,59,405,40,411,35,415,39,409,44,395,61,388,79,385,116,383,154,375,173,360,192,335,208"/>

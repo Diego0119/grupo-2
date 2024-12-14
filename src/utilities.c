@@ -19,7 +19,7 @@
  * @param key 
  * @return unsigned int
  */
-unsigned int jenkins_hash(char* key)
+unsigned int jenkins_hash(const char* key)
 {
    unsigned int hash = 0;
 
@@ -69,16 +69,19 @@ int get_option(int argc, char *argv[]) {
         {"feed", no_argument, 0, 'q'},
         {"connect", no_argument, 0, 'x'},
         {"topics", no_argument, 0, 't'},
+        {"followlist", no_argument, 0, 'v'},
+        {"followerlist", no_argument, 0, 'w'},
+
         {0, 0, 0, 0}
     };
 
-    while((opt = getopt_long(argc, argv, ":hlog:rpmu:af:n:dceqxt", long_options, &opt_index)) != -1){
+    while((opt = getopt_long(argc, argv, ":hlog:rpmu:af:n:dceqxtwv", long_options, &opt_index)) != -1){
 
 		switch(opt){
          // ayuda
 			case 'h':
             print_logo();
-				printf(COLOR_RED COLOR_BOLD"COMANDOS DE DEVGRAPH\n"COLOR_RESET"  -h, --help\t\t\t Muestra esta ayuda\n  -g, --generate <cantidad>\t Genera usuarios aleatorios\n  -c, --clear\t\t\t Borra la base de datos\n  -a, --all\t\t\t Lista todos los usuarios registrados\n  -t, --topics \t\t\t Muestra todos los tópicos disponibles en DevGraph\n\n  -l, --login\t\t\t Inicia sesión\n  -o, --logout\t\t\t Cerrar sesión\n  -r, --register\t\t Registra un nuevo usuario\n  -d, --delete \t\t\t Elimina la cuenta de la sesión actual\n  -e, --edit \t\t\t Permite editar la información de la sesión actual\n\n  -p, --post\t\t\t Publica una publicación\n  -m, --me\t\t\t Muestra el perfil del usuario actual\n  -u, --user <usuario>\t\t Muestra el perfil de un usuario\n  -f, --follow <usuario>\t Sigue a un usuario\n  -n, --unfollow <usuario>\t Deja de seguir a un usuario\n\n  -q, --feed\t\t\t Muestra los posts seleccionados para ti\n  -x, --connect\t\t\t Muestra los usuarios recomendados para ti\n");
+				printf(COLOR_BOLD"COMANDOS DE DEVGRAPH\n-h, --help\t\t\t Muestra esta ayuda\n  -g, --generate <cantidad>\t Genera usuarios aleatorios\n  -c, --clear\t\t\t Borra la base de datos\n  -a, --all\t\t\t Lista todos los usuarios registrados\n  -t, --topics \t\t\t Muestra todos los tópicos disponibles en DevGraph\n\n  -l, --login\t\t\t Inicia sesión\n  -o, --logout\t\t\t Cerrar sesión\n  -r, --register\t\t Registra un nuevo usuario\n  -d, --delete \t\t\t Elimina la cuenta de la sesión actual\n  -e, --edit \t\t\t Permite editar la información de la sesión actual\n\n  -p, --post\t\t\t Publica una publicación\n  -m, --me\t\t\t Muestra el perfil del usuario actual\n  -u, --user <usuario>\t\t Muestra el perfil de un usuario\n  -f, --follow <usuario>\t Sigue a un usuario\n  -n, --unfollow <usuario>\t Deja de seguir a un usuario\n  -w, --followerlist\t\t Muestra tus seguidores\n  -v, --followlist\t\t Muestra tus seguidos\n\n  -q, --feed\t\t\t Muestra los posts seleccionados para ti\n  -x, --connect\t\t\t Muestra los usuarios recomendados para ti\n");
 				return 0;
             break;
          // iniciar sesión
@@ -145,6 +148,14 @@ int get_option(int argc, char *argv[]) {
          case 't':
             return 16;
             break;
+         // Mostrar seguidores del usuario
+         case 'w':
+            return 17;
+            break;
+         // Mostrar seguidos del usuario
+         case 'v':
+            return 18;
+            break;
 			default:
 				printf("'./devgraph -h' para mostrar ayuda\n");
             return -1;
@@ -161,7 +172,7 @@ int get_option(int argc, char *argv[]) {
  * @param file Nombre del archivo
  * @return int Número de líneas en el archivo
  */
-int line_number_in_file(char *file) {
+int line_number_in_file(const char *file) {
     int line_number = 0;
     FILE *file_pointer = fopen(file, "r");
     if (!file_pointer) {
@@ -182,7 +193,7 @@ int line_number_in_file(char *file) {
  * @param directory Nombre del directorio
  */
 void delete_all_in_directory(const char *directory) {
-    struct dirent *entry;
+    const struct dirent *entry;
     DIR *dir = opendir(directory);
     if (!dir) {
         perror("No se pudo abrir el directorio");
@@ -208,6 +219,10 @@ void delete_all_in_directory(const char *directory) {
     closedir(dir);
 }
 
+/**
+ * @brief Imprime el logo del programa
+ * 
+ */
 void print_logo(void){
    printf(CLEAN_SCREEN);
    printf("    .___            ________                    .__     \n");
@@ -219,6 +234,13 @@ void print_logo(void){
    printf("\n\n");
 }
 
+/**
+ * @brief Libera todas las estructuras del programa y sale del programa con EXIT_FAILURE
+ * 
+ * @param table Tabla hash de usuarios
+ * @param graph Grafo de usuarios
+ * @param globalInterestsTable Tabla de intereses globales
+ */
 void free_structures_and_exit(PtrToHashTable table, Graph graph, GlobalInterests globalInterestsTable){
     free_hash_table(table);
     free_graph(graph);

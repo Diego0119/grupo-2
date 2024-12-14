@@ -1,14 +1,21 @@
 <map id="insert_post" name="insert_post">
-<area shape="rect" id="Node000001" title="Crea un post en la lista de posts." alt="" coords="635,31,729,56"/>
-<area shape="rect" id="Node000002" href="$d5/d4b/database_8c.html#a1e51423ffa4b06685c5d230c770eb278" title="Carga un usuario desde un archivo." alt="" coords="436,5,587,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="621,37,587,32,588,27,621,32"/>
-<area shape="rect" id="Node000006" href="$d5/d4b/database_8c.html#a83dfa88ced51dd9165e817e89f8ddc63" title="Publicar un post desde un usuario." alt="" coords="285,56,376,81"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="621,50,376,68,376,63,620,45"/>
-<area shape="rect" id="Node000003" href="$d5/d4b/database_8c.html#a77103f45cf4c5b241aaad7936989564b" title="Carga todos los usuarios desde la base de datos." alt="" coords="273,5,388,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="422,21,388,21,388,15,422,15"/>
-<area shape="rect" id="Node000004" href="$d5/d4b/database_8c.html#abf714cec1175e6736bc91b758979c959" title="Carga la base de datos en su totalidad." alt="" coords="108,5,225,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="259,21,226,21,226,15,259,15"/>
-<area shape="rect" id="Node000005" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,31,60,56"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="95,34,61,41,60,36,94,29"/>
-<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="271,66,60,48,60,43,272,61"/>
+<area shape="rect" id="Node000001" title="Crea un post en la lista de posts." alt="" coords="724,69,819,94"/>
+<area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#a0b42257a0acbc35fbebf03fda14ccf8d" title="Crea una lista de publicaciones aleatorias." alt="" coords="497,17,676,42"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="712,67,632,45,633,40,713,62"/>
+<area shape="rect" id="Node000006" href="$d5/d4b/database_8c.html#a1e51423ffa4b06685c5d230c770eb278" title="Carga un usuario desde un archivo." alt="" coords="511,69,662,94"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="710,84,662,84,662,79,710,79"/>
+<area shape="rect" id="Node000009" href="$d5/d4b/database_8c.html#a83dfa88ced51dd9165e817e89f8ddc63" title="Publicar un post desde un usuario." alt="" coords="331,119,421,145"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="717,100,676,109,538,126,422,133,422,128,537,121,676,104,715,95"/>
+<area shape="rect" id="Node000003" href="$d2/d9e/users_8c.html#afd45a31abe49e3ac81f1b65dc575a3f8" title=" " alt="" coords="303,5,449,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="484,30,450,29,450,24,484,25"/>
+<area shape="rect" id="Node000004" href="$d5/d4b/database_8c.html#a926d471e7af9c84c25aa798a87ad89fd" title="Genera en su totalidad una base de datos." alt="" coords="108,17,255,42"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="289,30,255,30,255,25,289,24"/>
+<area shape="rect" id="Node000005" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,69,60,94"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="132,49,61,75,59,69,131,44"/>
+<area shape="rect" id="Node000007" href="$d5/d4b/database_8c.html#a77103f45cf4c5b241aaad7936989564b" title="Carga todos los usuarios desde la base de datos." alt="" coords="319,70,433,95"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="497,85,434,85,434,80,497,79"/>
+<area shape="rect" id="Node000008" href="$d5/d4b/database_8c.html#abf714cec1175e6736bc91b758979c959" title="Carga la base de datos en su totalidad." alt="" coords="123,69,240,94"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="305,85,240,84,240,79,305,80"/>
+<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="109,84,60,84,60,79,109,79"/>
+<area shape="poly" id="edge10_Node000009_Node000005" title=" " alt="" coords="317,133,218,126,107,109,60,95,61,89,109,104,219,121,317,128"/>
 </map>

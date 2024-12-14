@@ -25,23 +25,18 @@
 #include "users.h"
 #include "graph.h"
 #include "utilities.h"
-#define _XOPEN_SOURCE 700
 
-/*usuarios individuales*/
+/* typedefs para evitar errores de compilación */
 typedef struct _user _User;
 typedef _User *User;
 typedef _User *PtrToUser;
-
 typedef struct _postNode PostNode;
 typedef PostNode *PtrToPostNode;
 typedef PtrToPostNode PostsPosition;
 typedef PtrToPostNode UserPosts;
-
 typedef struct _interest Interest;
 typedef Interest *InterestTable;
 typedef Interest *PtrToInterest;
-
-/* typedefs para evitar errores de compilación */
 typedef struct _globalInterests GlobalInterests;
 typedef struct _edge *Edge;
 typedef struct _graph *Graph;

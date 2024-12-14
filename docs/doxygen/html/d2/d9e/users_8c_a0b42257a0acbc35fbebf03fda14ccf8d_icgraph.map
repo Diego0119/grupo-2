@@ -1,0 +1,9 @@
+<map id="generate_random_posts" name="generate_random_posts">
+<area shape="rect" id="Node000001" title="Crea una lista de publicaciones aleatorias." alt="" coords="497,13,676,38"/>
+<area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#afd45a31abe49e3ac81f1b65dc575a3f8" title=" " alt="" coords="303,5,449,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="484,28,450,28,450,23,484,23"/>
+<area shape="rect" id="Node000003" href="$d5/d4b/database_8c.html#a926d471e7af9c84c25aa798a87ad89fd" title="Genera en su totalidad una base de datos." alt="" coords="108,13,255,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="289,28,255,28,255,23,289,23"/>
+<area shape="rect" id="Node000004" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,13,60,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>

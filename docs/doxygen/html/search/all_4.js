@@ -15,8 +15,8 @@ var searchData=
   ['desarrollado_20por_3a_12',['👨‍💻 Desarrollado por:',['../index.html#autotoc_md0',1,'']]],
   ['dest_13',['dest',['../dd/d44/struct__edge.html#abe194a54539827f4d861d3b460d8eb8b',1,'_edge']]],
   ['devgraph_14',['DevGraph',['../index.html',1,'']]],
-  ['dfs_15',['dfs',['../d1/d2a/graph_8c.html#a69f981e84ed63e0fdedec6ad4629447c',1,'DFS(Graph graph, User startUser):&#160;graph.c'],['../d6/df3/graph_8h.html#a69f981e84ed63e0fdedec6ad4629447c',1,'DFS(Graph graph, User startUser):&#160;graph.c']]],
-  ['dijkstra_16',['dijkstra',['../d1/d2a/graph_8c.html#a98b572e88ce31a63314b60ae9351fa37',1,'dijkstra(Graph graph, User source):&#160;graph.c'],['../d6/df3/graph_8h.html#a98b572e88ce31a63314b60ae9351fa37',1,'dijkstra(Graph graph, User source):&#160;graph.c']]],
-  ['dijkstra_5ftable_5findex_17',['dijkstra_table_index',['../d1/d2a/graph_8c.html#a1f2002999a93188dbe535bd83b2d8582',1,'dijkstra_table_index(Graph graph, User source):&#160;graph.c'],['../d6/df3/graph_8h.html#a1f2002999a93188dbe535bd83b2d8582',1,'dijkstra_table_index(Graph graph, User source):&#160;graph.c']]],
+  ['dfs_15',['DFS',['../d6/df3/graph_8h.html#a69f981e84ed63e0fdedec6ad4629447c',1,'graph.h']]],
+  ['dijkstra_16',['dijkstra',['../d5/d4f/heaps_8c.html#a919387d008e20821575938dcb68be5a9',1,'dijkstra(heap *h, Graph graph, User source):&#160;heaps.c'],['../dc/d8b/heaps_8h.html#a919387d008e20821575938dcb68be5a9',1,'dijkstra(heap *h, Graph graph, User source):&#160;heaps.c']]],
+  ['dijkstra_5ftable_5findex_17',['dijkstra_table_index',['../d5/d4f/heaps_8c.html#a1f2002999a93188dbe535bd83b2d8582',1,'dijkstra_table_index(Graph graph, User source):&#160;heaps.c'],['../dc/d8b/heaps_8h.html#a1f2002999a93188dbe535bd83b2d8582',1,'dijkstra_table_index(Graph graph, User source):&#160;heaps.c']]],
   ['disponibles_18',['Comandos disponibles',['../index.html#autotoc_md2',1,'']]]
 ];

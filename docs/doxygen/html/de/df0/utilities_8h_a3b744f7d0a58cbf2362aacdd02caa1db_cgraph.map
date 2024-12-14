@@ -1,5 +1,5 @@
 <map id="free_structures_and_exit" name="free_structures_and_exit">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,188,80"/>
+<area shape="rect" id="Node000001" title="Libera todas las estructuras del programa y sale del programa con EXIT_FAILURE." alt="" coords="5,55,188,80"/>
 <area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#a5b739812b015806f1a10bb82b97ce588" title="Libera la lista de intereses globales." alt="" coords="236,5,395,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,52,244,31,246,36,154,57"/>
 <area shape="rect" id="Node000003" href="$d1/d2a/graph_8c.html#aa69532d3e5630c6949bf8e76a663fe2b" title="Libera la memoria de un grafo." alt="" coords="269,55,361,80"/>

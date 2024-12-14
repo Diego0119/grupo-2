@@ -18,7 +18,8 @@ Include dependency graph for graph.\+h\+:\nopagebreak
 \includegraphics[width=350pt]{d1/dd5/graph_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -74,10 +75,6 @@ void \mbox{\hyperlink{graph_8h_a10d20aea4764e2b54197726d92b3e637}{add\+\_\+user\
 \begin{DoxyCompactList}\small\item\em Añade un usuario (ya creado) al grafo. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{graph_8h_a6c33d80720eb130a585010c03b36d10a}{remove\+\_\+user\+\_\+from\+\_\+graph}} (\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph, \mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} user)
 \begin{DoxyCompactList}\small\item\em Elimina un usuario del grafo. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{graph_8h_a98b572e88ce31a63314b60ae9351fa37}{dijkstra}} (\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph, \mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} source)
-\begin{DoxyCompactList}\small\item\em Algoritmo de Dijkstra. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{graph_8h_a1f2002999a93188dbe535bd83b2d8582}{dijkstra\+\_\+table\+\_\+index}} (\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph, \mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} source)
-\begin{DoxyCompactList}\small\item\em Devuelve índice de un usuario según su posición en el grafo. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{graph_8h_aa69532d3e5630c6949bf8e76a663fe2b}{free\+\_\+graph}} (\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph)
 \begin{DoxyCompactList}\small\item\em Libera la memoria de un grafo. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{graph_8h_abbbf934b5ee71eff94b3ca03af42175a}{calculate\+\_\+affinity}} (\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph, int user1\+\_\+id, int user2\+\_\+id)
@@ -162,9 +159,12 @@ Añade una adyacencia entre dos usuarios.
 \hline
 {\em user2} & Usuario 2 será añadido por usuario 1 \\
 \hline
-{\em weigth} & Peso de la conexion \\
+{\em global\+Interests} & Tabla de intereses globales\\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+El peso de la conexión será el índice de distancia de jaccard entre ambos usuarios 
+\end{DoxyNote}
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -172,7 +172,8 @@ Here is the call graph for this function\+:\nopagebreak
 \includegraphics[width=261pt]{d6/df3/graph_8h_a4d6718ee3e14fdfec3f71cf10d4aea0a_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -196,7 +197,8 @@ Añade un usuario (ya creado) al grafo.
 {\em user} & Usuario a añadir \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -209,13 +211,6 @@ Here is the caller graph for this function\+:\nopagebreak
 \doxysubsubsection{\texorpdfstring{BFS()}{BFS()}}
 {\footnotesize\ttfamily void BFS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}}}]{start\+User }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=267pt]{d6/df3/graph_8h_a7ad1db7176aabe57d636a695b0867b02_cgraph}
-\end{center}
-\end{figure}
 \Hypertarget{graph_8h_abbbf934b5ee71eff94b3ca03af42175a}\label{graph_8h_abbbf934b5ee71eff94b3ca03af42175a} 
 \index{graph.h@{graph.h}!calculate\_affinity@{calculate\_affinity}}
 \index{calculate\_affinity@{calculate\_affinity}!graph.h@{graph.h}}
@@ -228,70 +223,6 @@ Here is the call graph for this function\+:\nopagebreak
 \doxysubsubsection{\texorpdfstring{DFS()}{DFS()}}
 {\footnotesize\ttfamily void DFS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}}}]{start\+User }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=267pt]{d6/df3/graph_8h_a69f981e84ed63e0fdedec6ad4629447c_cgraph}
-\end{center}
-\end{figure}
-\Hypertarget{graph_8h_a98b572e88ce31a63314b60ae9351fa37}\label{graph_8h_a98b572e88ce31a63314b60ae9351fa37} 
-\index{graph.h@{graph.h}!dijkstra@{dijkstra}}
-\index{dijkstra@{dijkstra}!graph.h@{graph.h}}
-\doxysubsubsection{\texorpdfstring{dijkstra()}{dijkstra()}}
-{\footnotesize\ttfamily void dijkstra (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}}}]{source }\end{DoxyParamCaption})}
-
-
-
-Algoritmo de Dijkstra. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em graph} & Grafo \\
-\hline
-{\em source} & Usuario fuente\\
-\hline
-\end{DoxyParams}
-\begin{DoxyNote}{Note}
-Solo devuelve distancias entre las adyacencias de seguidos 
-\end{DoxyNote}
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=285pt]{d6/df3/graph_8h_a98b572e88ce31a63314b60ae9351fa37_cgraph}
-\end{center}
-\end{figure}
-\Hypertarget{graph_8h_a1f2002999a93188dbe535bd83b2d8582}\label{graph_8h_a1f2002999a93188dbe535bd83b2d8582} 
-\index{graph.h@{graph.h}!dijkstra\_table\_index@{dijkstra\_table\_index}}
-\index{dijkstra\_table\_index@{dijkstra\_table\_index}!graph.h@{graph.h}}
-\doxysubsubsection{\texorpdfstring{dijkstra\_table\_index()}{dijkstra\_table\_index()}}
-{\footnotesize\ttfamily int dijkstra\+\_\+table\+\_\+index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}}}]{source }\end{DoxyParamCaption})}
-
-
-
-Devuelve índice de un usuario según su posición en el grafo. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em graph} & Grafo \\
-\hline
-{\em source} & Usuario a obtener index \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-int
-\end{DoxyReturn}
-\begin{DoxyNote}{Note}
-Se utiliza para el algoritmo \doxylink{graph_8c_a98b572e88ce31a63314b60ae9351fa37}{dijkstra} 
-\end{DoxyNote}
-Here is the caller graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=285pt]{d6/df3/graph_8h_a1f2002999a93188dbe535bd83b2d8582_icgraph}
-\end{center}
-\end{figure}
 \Hypertarget{graph_8h_a6d6724321b00dccfe21c27cebcbcadd0}\label{graph_8h_a6d6724321b00dccfe21c27cebcbcadd0} 
 \index{graph.h@{graph.h}!free\_all\_edges@{free\_all\_edges}}
 \index{free\_all\_edges@{free\_all\_edges}!graph.h@{graph.h}}
@@ -345,7 +276,8 @@ Ejecutar despues de
 \begin{DoxySeeAlso}{See also}
 \doxylink{users_8c_aefba9a925655e4df5dba3e7433342f78}{free\+\_\+all\+\_\+users} 
 \end{DoxySeeAlso}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -365,7 +297,8 @@ Inicia una lista de adyacencia vacía.
 \begin{DoxyReturn}{Returns}
 Edge 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

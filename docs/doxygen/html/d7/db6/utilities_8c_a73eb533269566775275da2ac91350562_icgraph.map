@@ -1,32 +1,41 @@
 <map id="print_logo" name="print_logo">
-<area shape="rect" id="Node000001" title=" " alt="" coords="604,217,691,242"/>
-<area shape="rect" id="Node000002" href="$d7/db6/utilities_8c.html#a757e6e51479badedfcf23bae4d05ec9a" title="Indice del programa." alt="" coords="123,14,214,39"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="638,204,628,170,611,130,587,92,554,61,513,39,468,23,421,14,374,10,285,11,215,20,214,15,285,6,374,4,422,9,469,18,515,34,558,56,591,88,616,128,633,168,643,202"/>
-<area shape="rect" id="Node000003" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,242,60,267"/>
-<area shape="poly" id="edge13_Node000001_Node000003" title=" " alt="" coords="618,210,555,168,480,128,446,116,401,105,367,100,340,100,277,105,228,105,188,103,151,107,110,127,82,153,62,185,48,217,40,243,35,241,43,215,57,183,78,150,106,123,150,102,188,97,228,100,277,100,340,95,367,95,402,100,448,111,483,123,557,163,621,205"/>
-<area shape="rect" id="Node000004" href="$d5/d4b/database_8c.html#a2d1946fce4d4e29fa0c79c9d8045fd74" title="Inicia sesión." alt="" coords="312,115,367,141"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="594,215,366,139,368,134,595,210"/>
-<area shape="rect" id="Node000005" href="$d5/d4b/database_8c.html#ac79c3b2234769c7fd497702cf88e21bf" title="Cierra sesión." alt="" coords="471,217,534,242"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="590,232,534,232,534,227,590,227"/>
-<area shape="rect" id="Node000009" href="$d2/d9e/users_8c.html#a35b00484b2f280f381c1f3015de40b10" title="Imprime toda la información de un usuario." alt="" coords="125,367,212,393"/>
-<area shape="poly" id="edge14_Node000001_Node000009" title=" " alt="" coords="594,249,211,370,209,365,592,244"/>
-<area shape="rect" id="Node000010" href="$d5/d4b/database_8c.html#a116abf50656b08636a9f449c3f46e2cd" title="Registra un nuevo usuario en la base de datos." alt="" coords="449,387,556,413"/>
-<area shape="poly" id="edge16_Node000001_Node000010" title=" " alt="" coords="633,255,601,304,558,358,523,389,520,385,554,354,596,301,629,252"/>
-<area shape="rect" id="Node000011" href="$d5/d4b/database_8c.html#a83dfa88ced51dd9165e817e89f8ddc63" title="Publicar un post desde un usuario." alt="" coords="457,462,548,487"/>
-<area shape="poly" id="edge18_Node000001_Node000011" title=" " alt="" coords="640,256,609,334,586,381,558,426,522,464,518,460,554,422,581,378,604,332,635,254"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="124,48,110,60,79,107,58,159,45,207,38,242,33,241,40,206,53,158,74,105,106,57,120,44"/>
-<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="298,127,256,127,208,131,157,142,109,162,86,180,67,202,42,243,38,241,63,199,83,176,107,158,155,137,207,126,256,122,298,122"/>
-<area shape="poly" id="edge12_Node000005_Node000003" title=" " alt="" coords="457,218,401,207,318,199,254,199,190,209,109,228,61,245,59,240,107,223,188,203,253,194,319,193,402,201,458,213"/>
-<area shape="rect" id="Node000006" href="$d5/d4b/database_8c.html#a76f762d2a9063e73e62fa1e7127951ff" title="Obtiene el usuario de la sesión iniciada actualmente, si existe." alt="" coords="277,217,401,242"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="457,232,401,232,401,227,457,227"/>
-<area shape="rect" id="Node000007" href="$d5/d4b/database_8c.html#a13d272cd38e4c062da1f9d46f17bf9c3" title="Borrar la cuenta de un usuario de la base de datos." alt="" coords="279,267,400,293"/>
-<area shape="poly" id="edge8_Node000005_Node000007" title=" " alt="" coords="459,245,382,270,380,265,457,240"/>
-<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="264,238,60,255,60,250,263,233"/>
-<area shape="poly" id="edge11_Node000007_Node000003" title=" " alt="" coords="265,277,60,259,60,254,265,271"/>
-<area shape="rect" id="Node000008" href="$d5/d4b/database_8c.html#ac7dd8a7af5b71944a8e8a5787ba710f0" title="Elimina la base de datos en su totalidad." alt="" coords="108,318,229,343"/>
-<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="283,299,213,320,212,315,282,294"/>
-<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="129,313,107,301,54,270,57,265,109,296,132,309"/>
-<area shape="poly" id="edge15_Node000009_Node000003" title=" " alt="" coords="116,363,106,357,84,335,64,311,38,269,43,266,69,308,88,332,110,353,119,359"/>
-<area shape="poly" id="edge17_Node000010_Node000003" title=" " alt="" coords="451,419,379,436,290,446,242,446,195,440,149,427,107,406,89,392,74,375,53,337,40,298,33,268,38,267,45,297,58,335,79,372,93,389,109,402,151,422,196,434,242,440,289,441,378,431,450,414"/>
-<area shape="poly" id="edge19_Node000011_Node000003" title=" " alt="" coords="444,491,371,501,282,503,236,499,190,489,146,472,106,449,86,429,69,406,47,355,36,305,32,268,37,267,41,304,52,353,74,404,90,426,110,444,149,468,191,484,236,493,282,498,370,496,444,485"/>
+<area shape="rect" id="Node000001" title="Imprime el logo del programa." alt="" coords="604,399,691,425"/>
+<area shape="rect" id="Node000002" href="$d7/db6/utilities_8c.html#a757e6e51479badedfcf23bae4d05ec9a" title="Indice del programa." alt="" coords="123,21,214,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="640,386,630,311,612,214,587,124,571,90,554,67,515,42,472,24,425,14,378,9,287,13,215,25,214,20,287,8,378,4,426,9,473,19,518,37,558,63,576,87,592,122,617,213,635,310,646,385"/>
+<area shape="rect" id="Node000003" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,325,60,350"/>
+<area shape="poly" id="edge13_Node000001_Node000003" title=" " alt="" coords="639,386,630,344,614,291,589,236,554,187,519,154,486,135,449,123,401,112,316,91,245,80,213,82,180,90,146,106,110,131,89,152,72,177,51,233,40,286,37,325,32,324,35,285,45,231,68,175,85,149,106,127,143,102,178,85,212,77,245,75,317,86,402,107,450,118,488,130,522,150,558,184,593,234,619,289,635,342,644,385"/>
+<area shape="rect" id="Node000004" href="$d5/d4b/database_8c.html#a2d1946fce4d4e29fa0c79c9d8045fd74" title="Inicia sesión." alt="" coords="312,122,367,147"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="636,387,607,314,584,274,554,238,508,202,456,175,406,156,366,144,367,138,408,151,458,170,511,198,558,234,588,271,612,312,641,385"/>
+<area shape="rect" id="Node000005" href="$d5/d4b/database_8c.html#ac79c3b2234769c7fd497702cf88e21bf" title="Cierra sesión." alt="" coords="471,249,534,274"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="623,391,514,276,518,272,627,388"/>
+<area shape="rect" id="Node000009" href="$d2/d9e/users_8c.html#a360a3e27e03a0155ccfe3cdc28f9abe1" title="Imprime todos los usuarios de la red social." alt="" coords="110,374,227,399"/>
+<area shape="poly" id="edge14_Node000001_Node000009" title=" " alt="" coords="590,410,556,408,227,392,228,386,556,403,591,405"/>
+<area shape="rect" id="Node000010" href="$d2/d9e/users_8c.html#a6314922df43861bd6d37310fda8fad29" title="Imprime los seguidos de un usuario." alt="" coords="280,425,399,450"/>
+<area shape="poly" id="edge16_Node000001_Node000010" title=" " alt="" coords="590,419,399,435,399,430,590,414"/>
+<area shape="rect" id="Node000011" href="$d2/d9e/users_8c.html#a35b00484b2f280f381c1f3015de40b10" title="Imprime toda la información de un usuario." alt="" coords="125,475,212,501"/>
+<area shape="poly" id="edge18_Node000001_Node000011" title=" " alt="" coords="591,428,557,436,402,464,213,487,212,481,401,459,555,431,590,423"/>
+<area shape="rect" id="Node000012" href="$d5/d4b/database_8c.html#a116abf50656b08636a9f449c3f46e2cd" title="Registra un nuevo usuario en la base de datos." alt="" coords="449,526,556,551"/>
+<area shape="poly" id="edge20_Node000001_Node000012" title=" " alt="" coords="628,438,596,473,558,509,529,528,526,524,554,505,593,469,624,434"/>
+<area shape="rect" id="Node000013" href="$d5/d4f/heaps_8c.html#ad9bb334d8c3a3484ee92945e1f6f2d31" title="Función para visualizar publicaciones del heap en consola y orden de prioridad." alt="" coords="451,575,554,601"/>
+<area shape="poly" id="edge22_Node000001_Node000013" title=" " alt="" coords="639,439,608,500,585,534,558,565,539,577,536,573,554,561,581,531,603,498,634,436"/>
+<area shape="rect" id="Node000014" href="$d5/d4b/database_8c.html#a83dfa88ced51dd9165e817e89f8ddc63" title="Publicar un post desde un usuario." alt="" coords="457,626,548,651"/>
+<area shape="poly" id="edge24_Node000001_Node000014" title=" " alt="" coords="643,439,632,477,615,524,591,572,558,615,540,628,537,624,554,612,586,569,610,522,627,476,638,438"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="123,55,110,67,88,100,72,136,50,210,39,278,37,325,31,324,34,277,44,209,67,134,84,97,106,64,119,51"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="298,132,255,130,206,133,155,145,131,155,110,169,92,185,77,205,56,249,44,292,38,325,33,324,38,291,51,248,73,202,88,182,106,165,129,151,153,140,205,128,255,125,298,127"/>
+<area shape="poly" id="edge12_Node000005_Node000003" title=" " alt="" coords="458,248,448,244,424,227,415,219,401,213,367,206,340,205,278,213,189,222,152,231,109,253,88,269,70,289,43,326,39,323,65,286,84,266,107,248,151,226,188,216,277,208,340,200,368,201,402,208,417,215,428,222,451,239,460,243"/>
+<area shape="rect" id="Node000006" href="$d5/d4b/database_8c.html#a76f762d2a9063e73e62fa1e7127951ff" title="Obtiene el usuario de la sesión iniciada actualmente, si existe." alt="" coords="277,223,401,249"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="457,257,401,248,402,243,458,252"/>
+<area shape="rect" id="Node000007" href="$d5/d4b/database_8c.html#a13d272cd38e4c062da1f9d46f17bf9c3" title="Borrar la cuenta de un usuario de la base de datos." alt="" coords="279,274,400,299"/>
+<area shape="poly" id="edge8_Node000005_Node000007" title=" " alt="" coords="458,271,400,280,400,275,457,266"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="264,247,188,262,109,288,77,306,50,326,47,322,74,302,107,283,186,257,263,242"/>
+<area shape="poly" id="edge11_Node000007_Node000003" title=" " alt="" coords="265,293,189,301,109,315,61,329,60,324,107,309,188,296,264,288"/>
+<area shape="rect" id="Node000008" href="$d5/d4b/database_8c.html#ac7dd8a7af5b71944a8e8a5787ba710f0" title="Elimina la base de datos en su totalidad." alt="" coords="108,325,229,350"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="283,306,213,327,212,322,282,301"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="94,340,60,340,60,335,94,335"/>
+<area shape="poly" id="edge15_Node000009_Node000003" title=" " alt="" coords="119,372,59,350,61,345,121,367"/>
+<area shape="poly" id="edge17_Node000010_Node000003" title=" " alt="" coords="266,444,188,437,146,428,107,413,86,400,67,384,41,352,45,349,71,380,89,396,109,408,148,423,188,432,267,438"/>
+<area shape="poly" id="edge19_Node000011_Node000003" title=" " alt="" coords="123,471,106,458,82,431,63,401,37,352,42,349,67,399,87,428,110,454,126,466"/>
+<area shape="poly" id="edge21_Node000012_Node000003" title=" " alt="" coords="436,556,363,566,277,567,232,562,187,552,145,537,106,514,87,497,71,476,50,430,38,385,32,351,38,350,43,384,55,428,76,473,91,493,110,510,148,532,189,547,233,557,277,562,362,561,435,551"/>
+<area shape="poly" id="edge23_Node000013_Node000003" title=" " alt="" coords="440,606,366,618,278,621,232,616,188,607,145,590,106,566,83,543,65,515,51,484,42,453,33,393,31,351,36,350,38,393,47,451,56,482,69,512,87,539,110,562,148,585,189,601,233,611,278,616,366,613,439,601"/>
+<area shape="poly" id="edge25_Node000014_Node000003" title=" " alt="" coords="444,657,370,671,280,675,234,671,188,661,145,645,106,619,91,599,77,569,55,490,41,409,33,351,38,350,46,408,60,489,82,567,95,597,110,615,148,640,190,656,235,666,280,670,369,665,443,652"/>
 </map>

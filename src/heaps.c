@@ -13,15 +13,14 @@
 #include "heaps.h"
 
 /**
- * @brief función para insertar una nueva publicación en el heap
+ * @brief Función para insertar una nueva publicación en el heap
  *
- * @param h cola de prioridad
- * @param user_name nombre del usuario
- * @param priority prioridad de la publicación o de la sugerencia
- * @param content contenido de la publicación o de la sugerencia
+ * @param h Cola de prioridad
+ * @param user_name Nombre del usuario
+ * @param priority Prioridad de la publicación o de la sugerencia
+ * @param content Contenido de la publicación o de la sugerencia
  */
-void insert_new_item(heap* h, const char* user_name, double priority, const char* content)
-{
+void insert_new_item(heap* h, const char* user_name, double priority, const char* content){
     if (h->size >= MAX_HEAP_SIZE - 1) {
         return;
     }
@@ -32,6 +31,8 @@ void insert_new_item(heap* h, const char* user_name, double priority, const char
     // Verificar si strdup falló
     if (new_post.user_name == NULL || new_post.content == NULL) {
         printf("Error al asignar memoria para las cadenas de texto.\n");
+        free(new_post.user_name);
+        free(new_post.content);
         return;
     }
 
@@ -45,13 +46,12 @@ void insert_new_item(heap* h, const char* user_name, double priority, const char
 
 
 /**
- * @brief función para asegurar que el heap mantenga la propiedad (heapify_up)
+ * @brief Función para asegurar que el heap mantenga la propiedad (heapify_up)
  *
- * @param h cola de prioridad
- * @param index índice del nodo que debe ajustarse
+ * @param h Cola de prioridad
+ * @param index Índice del nodo que debe ajustarse
  */
-void heapify_up(heap* h, int index)
-{
+void heapify_up(heap* h, int index){
     while (index > 0 && h->posts[index].priority > h->posts[(index - 1) / 2].priority) {
         // intercambiar
         post temp = h->posts[index];
@@ -63,13 +63,12 @@ void heapify_up(heap* h, int index)
 }
 
 /**
- * @brief función para extraer el máximo (el nodo más prioritario) y lo muestra (se utiliza en la función ver_posts)
+ * @brief Función para extraer el máximo (el nodo más prioritario) y lo muestra (se utiliza en la función ver_posts)
  *
- * @param h cola de prioridad
- * @param option opción para personalizar el formato de salida
+ * @param h Cola de prioridad
+ * @param option Opción para personalizar el formato de salida
  */
-void extract_max(heap* h, int option)
-{
+void extract_max(heap* h, int option){
     if (h->size == 0) {
         printf("\nno hay más recomendaciones, intente más tarde\n");
         return;
@@ -88,13 +87,12 @@ void extract_max(heap* h, int option)
 }
 
 /**
- * @brief función para extraer el mínimo (el nodo menos prioritario) y mostrarlo.
+ * @brief Función para extraer el mínimo (el nodo menos prioritario) y mostrarlo.
  *
- * @param h cola de prioridad
- * @param option opción para personalizar el formato de salida
+ * @param h Cola de prioridad
+ * @param option Opción para personalizar el formato de salida
  */
-void extract_min(heap* h, int option)
-{
+void extract_min(heap* h, int option){
     if (h->size == 0) {
         printf("No hay elementos en el heap.\n");
         return;
@@ -126,13 +124,12 @@ void extract_min(heap* h, int option)
 }
 
 /**
- * @brief función para hacer heapify_down (restaurar la propiedad después de extraer el máximo)
+ * @brief Función para hacer heapify_down (restaurar la propiedad después de extraer el máximo)
  *
- * @param h cola de prioridad
- * @param index índice del nodo
+ * @param h Cola de prioridad
+ * @param index Índice del nodo
  */
-void heapify_down(heap* h, int index)
-{
+void heapify_down(heap* h, int index){
     int left = 2 * index + 1;
     int right = 2 * index + 2;
     int largest = index;
@@ -154,12 +151,11 @@ void heapify_down(heap* h, int index)
 }
 
 /**
- * @brief función para visualizar publicaciones del heap en consola y orden de prioridad
+ * @brief Función para visualizar publicaciones del heap en consola y orden de prioridad
  *
  * @param h cola de prioridad
  */
-void watch_posts(heap* h)
-{
+void watch_posts(heap* h){
     int opcion = 1;
 
     while (opcion != 2) {
@@ -207,8 +203,7 @@ void watch_posts(heap* h)
  * @param h cola de prioridad
  * @param table Puntero a la tabla hash
  */
-void search_posts_in_my_follows(heap* h, User currentUser)
-{
+void search_posts_in_my_follows(heap* h, User currentUser){
     if (!currentUser || currentUser->numFollowing == 0) {
         return;
     }
@@ -229,8 +224,7 @@ void search_posts_in_my_follows(heap* h, User currentUser)
  * @param h cola de prioridad
  * @param table Puntero a la tabla hash
  */
-void search_posts_by_interests(heap* h, PtrToHashTable table, GlobalInterests globalInterestsTable, User currentUser)
-{
+void search_posts_by_interests(heap* h, PtrToHashTable table, GlobalInterests globalInterestsTable, User currentUser){
     for (int i = 0; i < HASH_TABLE_SIZE; i++) {
         Hashnode *current = table->buckets[i];
         while (current) {
@@ -252,8 +246,7 @@ void search_posts_by_interests(heap* h, PtrToHashTable table, GlobalInterests gl
  *
  * @param h cola de prioridad
  */
-void free_heap(heap* h)
-{
+void free_heap(heap* h){
     for (int i = 0; i < h->size; i++) {
         if (h->posts[i].content) free(h->posts[i].content);
         if (h->posts[i].user_name) free(h->posts[i].user_name);
@@ -268,22 +261,21 @@ void free_heap(heap* h)
  * @param globalInterestsTable Tabla de intereses globales
  * @param currentUser Usuario actual
  */
-void search_new_possible_friends(heap* h, PtrToHashTable table, GlobalInterests globalInterestsTable, User currentUser)
-{
+void search_new_possible_friends(heap* h, PtrToHashTable table, GlobalInterests globalInterestsTable, User currentUser){
     for (int i = 0; i < HASH_TABLE_SIZE; i++) {
         Hashnode *current = table->buckets[i];
         while (current) {
             User u = (User)current->data;
             double jaccard = edge_jaccard(currentUser, u, globalInterestsTable);
             if (jaccard <= 0.73 && currentUser->username != u->username) {
-                int i = 0;
+                int j = 0;
                 char interest[1024] = "intereses comunes: \n\t";
-                while (i <= globalInterestsTable.numInterests) {
-                    if (u->interests[i].value == 1 && currentUser->interests[i].value == 1) {
-                        strcat(interest, u->interests[i].name);
+                while (j <= globalInterestsTable.numInterests) {
+                    if (u->interests[j].value == 1 && currentUser->interests[j].value == 1) {
+                        strcat(interest, u->interests[j].name);
                         strcat(interest, " ");
                     }
-                    i++;
+                    j++;
                 }
                 insert_new_item(h, u->username, jaccard, interest); // usamos esta función de los posts por que insertar una sugerencia en el heap es igual a insertar un post
             }
@@ -297,8 +289,7 @@ void search_new_possible_friends(heap* h, PtrToHashTable table, GlobalInterests 
  *
  * @param h cola de prioridad
  */
-void watch_suggestions_friends_of_friends(heap* h)
-{
+void watch_suggestions_friends_of_friends(heap* h){
     printf("\t\tSUGERENCIAS DE AMISTAD DE AMIGOS DE AMIGOS\n\n");
     
     if (h->size == 0) {
@@ -317,20 +308,48 @@ void watch_suggestions_friends_of_friends(heap* h)
  *
  * @param h cola de prioridad
  */
-void watch_suggestions_by_interests(heap* h)
-{
+void watch_suggestions_by_interests(heap* h){
     printf("\t\tSUGERENCIAS DE AMISTAD POR INTERESES\n\n");
     while(h->size > 0) {
         extract_min(h, 2); // extraemos el minimo dado que usamos distancia de jaccard, es decir mientras menor número de jaccard, entonces mayor similitud
     }
 }
 
-void dijkstra(heap* h, Graph graph, User source)
-{
+
+/**
+ * @brief Devuelve índice de un usuario según su posición en el grafo
+ *
+ * @param graph Grafo
+ * @param source Usuario a obtener index
+ * @return int
+ *
+ * @note Se utiliza para el algoritmo \link dijkstra \endlink
+ */
+int dijkstra_table_index(Graph graph, User source){
+    int i = 0;
+    GraphList aux = graph->graphUsersList->next;
+    while (aux){
+        if (aux == source){
+            return i;
+        }
+        aux = aux->next;
+        i++;
+    }
+    printf("Error: No se encontro el usuario en el grafo\n");
+    return -1;
+}
+
+/**
+ * @brief Algoritmo de Dijkstra para caminos cortos, aplicado a la sugerencia de amistades
+ * 
+ * @param h Heap
+ * @param graph Grafo de usuarios
+ * @param source Usuario del que se obtendrá los caminos cortos
+ */
+void dijkstra(heap* h, Graph graph, User source){
 
     /* Inicialización de la tabla de distancias */
-    struct dijkstra_table
-    {
+    struct dijkstra_table{
         User user;
         double distance;
         int visited;
@@ -338,8 +357,7 @@ void dijkstra(heap* h, Graph graph, User source)
     int usersNumber = graph->usersNumber;
     struct dijkstra_table *table = malloc(sizeof(struct dijkstra_table) * usersNumber);
     User user_aux = graph->graphUsersList->next;
-    for (int i = 0; i < usersNumber; i++)
-    {
+    for (int i = 0; i < usersNumber; i++){
         table[i].user = user_aux;
         table[i].distance = INT_MAX;
         table[i].visited = 0;
@@ -350,16 +368,13 @@ void dijkstra(heap* h, Graph graph, User source)
     table[sourceIndex].user = source;
     table[sourceIndex].distance = 0;
 
-    for (int i = 0; i < usersNumber; i++)
-    {
+    for (int i = 0; i < usersNumber; i++){
         // Seleccionar el nodo no visitado con la distancia más pequeña
         int u = -1;
         int minDistance = INT_MAX;
         // Buscar el nodo con la distancia más corta
-        for (int j = 0; j < usersNumber; j++)
-        {
-            if (!table[j].visited && table[j].distance < minDistance)
-            {
+        for (int j = 0; j < usersNumber; j++){
+            if (!table[j].visited && table[j].distance < minDistance){
                 u = j;
                 minDistance = table[j].distance;
             }
@@ -372,8 +387,7 @@ void dijkstra(heap* h, Graph graph, User source)
         User currentUser = table[u].user;
         // Recorrer los siguiendo del usuario
         Edge edge = currentUser->following->next;
-        while (edge != NULL)
-        {
+        while (edge != NULL){
             int v = dijkstra_table_index(graph, edge->dest);
             if (table[u].distance + edge->weight < table[v].distance)
             {
@@ -384,10 +398,8 @@ void dijkstra(heap* h, Graph graph, User source)
     }
 
     // Imprimir distancias
-    for (int i = 0; i < usersNumber; i++)
-    {
-        if (table[i].distance != INT_MAX && source->username != table[i].user->username)
-        {
+    for (int i = 0; i < usersNumber; i++){
+        if (table[i].distance != INT_MAX && source->username != table[i].user->username){
             insert_new_item(h, table[i].user->username, table[i].distance, table[i].user->username);
         }
     }

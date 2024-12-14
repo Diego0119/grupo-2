@@ -107,11 +107,10 @@ struct _globalInterests{
 };
 
 // Funciones para gestionar usuarios
-User create_new_user(char *username, char *password, char *name, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
+User create_new_user(const char *username, const char *password, const char *name, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
 void delete_user(User user, PtrToHashTable table, Graph graph);
 User search_user(char *username, PtrToHashTable table);
 void free_all_users(PtrToHashTable table, Graph graph);
-void increment_popularity(User user);
 
 // funciones de impresión
 void print_user(User user, GlobalInterests globalInterestsTable);
@@ -119,7 +118,6 @@ void print_all_users(Graph graph);
 void print_followers(User user);
 void print_following(User user);
 void print_user_interests(InterestTable userInterests, GlobalInterests globalInterestsTable);
-void suggest_popular_users(HashTable *table);
 
 // Funciones para gestionar publicaciones
 UserPosts create_empty_userPosts(void);
@@ -128,7 +126,6 @@ PtrToPostNode search_post(UserPosts posts, int postId);
 void delete_post(UserPosts posts, int postId); /*PENDIENTE*/
 void delete_userPosts(UserPosts posts);
 void print_userPosts(UserPosts posts);
-void sort_posts(User user);
 
 // funciones de intereses
 GlobalInterests init_global_interests(void);
@@ -147,6 +144,5 @@ char* generate_post(char* buffer, size_t longitud, User user, GlobalInterests gl
 void generate_posts_for_everyone(Graph graph, GlobalInterests globalInterests);
 
 float calculate_friendliness(User user);
-void print_friendliness_table(Graph graph);
 const char *classify_friendliness(float friendliness);
 #endif

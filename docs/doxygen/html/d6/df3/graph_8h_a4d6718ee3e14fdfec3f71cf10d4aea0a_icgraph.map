@@ -1,19 +1,21 @@
 <map id="add_edge" name="add_edge">
-<area shape="rect" id="Node000001" title="Añade una adyacencia entre dos usuarios." alt="" coords="561,82,647,107"/>
-<area shape="rect" id="Node000002" href="$d5/d4b/database_8c.html#a5c2c93b11c91edd6b02eb8de193bba3f" title="Seguir a un usuario." alt="" coords="415,31,477,57"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="550,80,477,56,479,51,551,75"/>
-<area shape="rect" id="Node000005" href="$d2/d9e/users_8c.html#aa608289825b004627ba2258665dec9bc" title="Genera conexiones aleatorias entre usuarios." alt="" coords="108,83,331,109"/>
-<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="547,97,331,98,331,93,547,92"/>
-<area shape="rect" id="Node000006" href="$d5/d4b/database_8c.html#a01f812e0547c932313f6b755ade7ac73" title="Carga todas las conexiones (aristas) de los usuarios desde la base de datos." alt="" coords="379,133,513,158"/>
-<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="551,114,487,135,486,130,549,109"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="473,20,465,13,446,10,430,12,421,17,419,22,424,30,419,33,414,23,417,13,428,7,446,5,468,8,477,17"/>
-<area shape="rect" id="Node000003" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,59,60,85"/>
-<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="401,34,342,21,268,11,188,10,148,15,109,24,75,40,49,61,46,57,73,36,107,19,147,9,187,5,269,5,343,16,402,29"/>
-<area shape="rect" id="Node000004" href="$d5/d4b/database_8c.html#a27d66932dd0c4411d8baa6acc4b717af" title="Dejar de seguir a un usuario." alt="" coords="180,34,259,59"/>
-<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="401,47,259,49,259,43,401,42"/>
-<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="167,56,61,71,60,66,166,51"/>
-<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="107,84,60,78,60,73,107,79"/>
-<area shape="rect" id="Node000007" href="$d5/d4b/database_8c.html#abf714cec1175e6736bc91b758979c959" title="Carga la base de datos en su totalidad." alt="" coords="161,133,278,158"/>
-<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="364,148,278,148,278,143,364,143"/>
-<area shape="poly" id="edge10_Node000007_Node000003" title=" " alt="" coords="146,136,107,124,74,106,48,87,51,83,77,101,109,119,148,131"/>
+<area shape="rect" id="Node000001" title="Añade una adyacencia entre dos usuarios." alt="" coords="573,81,659,106"/>
+<area shape="rect" id="Node000002" href="$d5/d4b/database_8c.html#a5c2c93b11c91edd6b02eb8de193bba3f" title="Seguir a un usuario." alt="" coords="383,32,445,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="559,80,525,71,445,53,446,48,526,66,561,75"/>
+<area shape="rect" id="Node000005" href="$d2/d9e/users_8c.html#aa608289825b004627ba2258665dec9bc" title="Genera conexiones aleatorias entre usuarios." alt="" coords="303,81,525,106"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="559,96,526,96,526,91,559,91"/>
+<area shape="rect" id="Node000007" href="$d5/d4b/database_8c.html#a01f812e0547c932313f6b755ade7ac73" title="Carga todas las conexiones (aristas) de los usuarios desde la base de datos." alt="" coords="347,130,481,156"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="561,112,526,122,478,133,477,128,525,117,559,107"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="450,22,440,14,414,10,393,12,382,17,379,23,385,30,381,33,374,23,378,14,391,7,414,5,442,9,453,18"/>
+<area shape="rect" id="Node000003" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,57,60,82"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="369,33,315,21,250,11,178,10,143,14,109,22,75,38,49,59,46,55,73,34,107,17,142,8,178,4,250,6,316,15,370,28"/>
+<area shape="rect" id="Node000004" href="$d5/d4b/database_8c.html#a27d66932dd0c4411d8baa6acc4b717af" title="Dejar de seguir a un usuario." alt="" coords="142,32,221,57"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="369,47,221,47,221,42,369,42"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="129,56,61,68,60,63,128,51"/>
+<area shape="rect" id="Node000006" href="$d5/d4b/database_8c.html#a926d471e7af9c84c25aa798a87ad89fd" title="Genera en su totalidad una base de datos." alt="" coords="108,81,255,106"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="289,96,255,96,255,91,289,91"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="94,82,60,77,61,71,95,77"/>
+<area shape="rect" id="Node000008" href="$d5/d4b/database_8c.html#abf714cec1175e6736bc91b758979c959" title="Carga la base de datos en su totalidad." alt="" coords="123,130,240,156"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="332,146,240,146,240,140,332,140"/>
+<area shape="poly" id="edge11_Node000008_Node000003" title=" " alt="" coords="122,128,107,121,49,85,52,80,109,117,124,123"/>
 </map>

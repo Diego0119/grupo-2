@@ -1,0 +1,9 @@
+<map id="dijkstra" name="dijkstra">
+<area shape="rect" id="Node000001" title="Algoritmo de Dijkstra para caminos cortos, aplicado a la sugerencia de amistades." alt="" coords="5,31,76,56"/>
+<area shape="rect" id="Node000002" href="$d5/d4f/heaps_8c.html#a1f2002999a93188dbe535bd83b2d8582" title="Devuelve índice de un usuario según su posición en el grafo." alt="" coords="124,5,279,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,35,110,30,111,35,77,40"/>
+<area shape="rect" id="Node000003" href="$d5/d4f/heaps_8c.html#a9d4ba1e7623f5833342662bb0044f4ed" title="Función para insertar una nueva publicación en el heap." alt="" coords="136,55,267,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="77,46,123,53,122,58,76,51"/>
+<area shape="rect" id="Node000004" href="$d5/d4f/heaps_8c.html#ae554c4bbe601908038441685f46ffb58" title="Función para asegurar que el heap mantenga la propiedad (heapify_up)" alt="" coords="327,55,420,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="267,65,313,65,313,70,267,70"/>
+</map>

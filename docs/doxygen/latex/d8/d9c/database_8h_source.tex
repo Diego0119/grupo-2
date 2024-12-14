@@ -5,69 +5,61 @@
 \DoxyCodeLine{00001\ }
 \DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ DATABASE\_H}}
 \DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ DATABASE\_H}}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <string.h>}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <sys/stat.h>}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <dirent.h>}}
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <time.h>}}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{users_8h}{users.h}}"{}}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{graph_8h}{graph.h}}"{}}}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utilities_8h}{utilities.h}}"{}}}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{comment}{/*usuarios\ individuales*/}}
-\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__user}{\_user}}\ \mbox{\hyperlink{struct__user}{\_User}};}
-\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__user}{\_User}}\ *\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}};}
-\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__user}{\_User}}\ *\mbox{\hyperlink{database_8h_a2c5b04877efe5e43f9d0988ed6d00ada}{PtrToUser}};}
-\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ \_XOPEN\_SOURCE\ 700}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <sys/stat.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <dirent.h>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{users_8h}{users.h}}"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{graph_8h}{graph.h}}"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utilities_8h}{utilities.h}}"{}}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{/*\ typedefs\ para\ evitar\ errores\ de\ compilación\ */}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__user}{\_user}}\ \mbox{\hyperlink{struct__user}{\_User}};}
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__user}{\_User}}\ *\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}};}
+\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__user}{\_User}}\ *\mbox{\hyperlink{database_8h_a2c5b04877efe5e43f9d0988ed6d00ada}{PtrToUser}};}
 \DoxyCodeLine{00033\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__postNode}{\_postNode}}\ \mbox{\hyperlink{struct__postNode}{PostNode}};}
 \DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__postNode}{PostNode}}\ *\mbox{\hyperlink{database_8h_a5cb694b39358fae2f528f7a0980bfb7a}{PtrToPostNode}};}
 \DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__postNode}{PtrToPostNode}}\ \mbox{\hyperlink{database_8h_a2f85ad161697dc3ec334887c217c0633}{PostsPosition}};}
 \DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__postNode}{PtrToPostNode}}\ \mbox{\hyperlink{database_8h_a9103b753f9f11f673fb1f33cb4edddb6}{UserPosts}};}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__interest}{\_interest}}\ \mbox{\hyperlink{struct__interest}{Interest}};}
-\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__interest}{Interest}}\ *\mbox{\hyperlink{database_8h_a67cdeb4bceb57805c2aaa33ff4ce3ba7}{InterestTable}};}
-\DoxyCodeLine{00040\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__interest}{Interest}}\ *\mbox{\hyperlink{database_8h_ae7a621af163e3f5b90588a75211be51f}{PtrToInterest}};}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{comment}{/*\ typedefs\ para\ evitar\ errores\ de\ compilación\ */}}
-\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__globalInterests}{\_globalInterests}}\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}};}
-\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__edge}{\_edge}}\ *\mbox{\hyperlink{database_8h_a6515921c52024d62e2a51b22e9eed1d1}{Edge}};}
-\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__graph}{\_graph}}\ *\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}};}
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__interest}{\_interest}}\ \mbox{\hyperlink{struct__interest}{Interest}};}
+\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__interest}{Interest}}\ *\mbox{\hyperlink{database_8h_a67cdeb4bceb57805c2aaa33ff4ce3ba7}{InterestTable}};}
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__interest}{Interest}}\ *\mbox{\hyperlink{database_8h_ae7a621af163e3f5b90588a75211be51f}{PtrToInterest}};}
+\DoxyCodeLine{00040\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__globalInterests}{\_globalInterests}}\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__edge}{\_edge}}\ *\mbox{\hyperlink{database_8h_a6515921c52024d62e2a51b22e9eed1d1}{Edge}};}
+\DoxyCodeLine{00042\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__graph}{\_graph}}\ *\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}};}
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__hashnode}{\_hashnode}}\ \mbox{\hyperlink{struct__hashnode}{Hashnode}};}
+\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__hashtable}{\_hashtable}}\ \mbox{\hyperlink{struct__hashtable}{HashTable}};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__hashtable}{HashTable}}*\ \mbox{\hyperlink{database_8h_a7e056d7659ae1acde513c0dbf0a43833}{PtrToHashTable}};}
 \DoxyCodeLine{00046\ }
-\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__pending__connections}{\_pending\_connections}}\ \{}
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct__pending__connections_afd47bd5b1f1d13ee081f69515fe47689}{username}};\ }
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{char}\ **\mbox{\hyperlink{struct__pending__connections_a3087378d61c85157b721f82135f056ec}{followers}};\ }
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__pending__connections_abcf982d8be1a024573b3c397696b9766}{numFollowers}};\ }
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{char}\ **\mbox{\hyperlink{struct__pending__connections_a32ca8a4799bcb3e4bb4bc7cb21cc75ff}{following}};\ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__pending__connections_ac20463850ff421c25141c444ddf5de0f}{numFollowing}};\ }
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__pending__connections}{\_pending\_connections}}\ *\mbox{\hyperlink{struct__pending__connections_abce451f6500fe70e9d06c1c85b729cfc}{next}};\ }
-\DoxyCodeLine{00058\ \}\ \mbox{\hyperlink{database_8h_a4ec489969b7367ea392a10a2ef07bcc6}{PendingConnections}};}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \textcolor{comment}{/*\ FUNCIONES\ DE\ CARGA\ Y\ GUARDADO\ DE\ LA\ BASE\ DE\ DATOS\ */}}
-\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a396f9e338551f945a1e511c2d32ae9c0}{create\_database\_dir}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_abdee669a4d0bab54b2af1fa5f0a04cc1}{save\_user\_data}}(\mbox{\hyperlink{struct__user}{User}}\ user,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
-\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a403ac5de2bde8804588c7739d023f6f1}{save\_all\_users}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
-\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_ac7dd8a7af5b71944a8e8a5787ba710f0}{clear\_database}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph);}
-\DoxyCodeLine{00065\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{database_8h_a84ddec926c8a5475e48c2e6a59741d00}{database\_exists\_and\_not\_empty}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a77103f45cf4c5b241aaad7936989564b}{load\_all\_users}}(\mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
-\DoxyCodeLine{00067\ \mbox{\hyperlink{struct__user}{User}}\ \mbox{\hyperlink{database_8h_a1e51423ffa4b06685c5d230c770eb278}{load\_user\_from\_file}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
-\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_abf714cec1175e6736bc91b758979c959}{load\_database}}(\mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
-\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a01f812e0547c932313f6b755ade7ac73}{load\_connections}}(\mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \textcolor{comment}{/*\ FUNCIONES\ DE\ SESION\ ACTUAL\ */}}
-\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a2d1946fce4d4e29fa0c79c9d8045fd74}{login}}(\mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ graph);}
-\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_ac79c3b2234769c7fd497702cf88e21bf}{logout}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00074\ \mbox{\hyperlink{struct__user}{User}}\ \mbox{\hyperlink{database_8h_a76f762d2a9063e73e62fa1e7127951ff}{current\_session}}(\mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ graph);}
-\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a116abf50656b08636a9f449c3f46e2cd}{register\_user}}(\mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
-\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a83dfa88ced51dd9165e817e89f8ddc63}{write\_post}}(\mbox{\hyperlink{struct__user}{User}}\ user,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
-\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a5c2c93b11c91edd6b02eb8de193bba3f}{follow}}(\mbox{\hyperlink{struct__user}{User}}\ user,\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{database_8h_a5c2c93b11c91edd6b02eb8de193bba3f}{follow}},\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table);}
-\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a27d66932dd0c4411d8baa6acc4b717af}{unfollow}}(\mbox{\hyperlink{struct__user}{User}}\ user,\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{database_8h_a5c2c93b11c91edd6b02eb8de193bba3f}{follow}},\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table);}
-\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a13d272cd38e4c062da1f9d46f17bf9c3}{delete\_account}}(\mbox{\hyperlink{struct__user}{User}}\ user);}
-\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_ad754349fdaa7256297f09a6c77ccd2a2}{edit\_account}}(\mbox{\hyperlink{struct__user}{User}}\ user,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table);}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00047\ \textcolor{comment}{/*\ FUNCIONES\ DE\ CARGA\ Y\ GUARDADO\ DE\ LA\ BASE\ DE\ DATOS\ */}}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a396f9e338551f945a1e511c2d32ae9c0}{create\_database\_dir}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_abdee669a4d0bab54b2af1fa5f0a04cc1}{save\_user\_data}}(\mbox{\hyperlink{struct__user}{User}}\ user,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a403ac5de2bde8804588c7739d023f6f1}{save\_all\_users}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_ac7dd8a7af5b71944a8e8a5787ba710f0}{clear\_database}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph);}
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{database_8h_a84ddec926c8a5475e48c2e6a59741d00}{database\_exists\_and\_not\_empty}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a77103f45cf4c5b241aaad7936989564b}{load\_all\_users}}(\mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
+\DoxyCodeLine{00054\ \mbox{\hyperlink{struct__user}{User}}\ \mbox{\hyperlink{database_8h_a1e51423ffa4b06685c5d230c770eb278}{load\_user\_from\_file}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_abf714cec1175e6736bc91b758979c959}{load\_database}}(\mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a01f812e0547c932313f6b755ade7ac73}{load\_connections}}(\mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{comment}{/*\ FUNCIONES\ DE\ SESIONES\ */}}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a2d1946fce4d4e29fa0c79c9d8045fd74}{login}}(\mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ graph);}
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_ac79c3b2234769c7fd497702cf88e21bf}{logout}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00061\ \mbox{\hyperlink{struct__user}{User}}\ \mbox{\hyperlink{database_8h_a76f762d2a9063e73e62fa1e7127951ff}{current\_session}}(\mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ graph);}
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a116abf50656b08636a9f449c3f46e2cd}{register\_user}}(\mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a83dfa88ced51dd9165e817e89f8ddc63}{write\_post}}(\mbox{\hyperlink{struct__user}{User}}\ user,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a5c2c93b11c91edd6b02eb8de193bba3f}{follow}}(\mbox{\hyperlink{struct__user}{User}}\ user,\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{database_8h_a5c2c93b11c91edd6b02eb8de193bba3f}{follow}},\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table);}
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a27d66932dd0c4411d8baa6acc4b717af}{unfollow}}(\mbox{\hyperlink{struct__user}{User}}\ user,\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{database_8h_a5c2c93b11c91edd6b02eb8de193bba3f}{follow}},\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table);}
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a13d272cd38e4c062da1f9d46f17bf9c3}{delete\_account}}(\mbox{\hyperlink{struct__user}{User}}\ user);}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_ad754349fdaa7256297f09a6c77ccd2a2}{edit\_account}}(\mbox{\hyperlink{struct__user}{User}}\ user,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table);}
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{database_8h_a926d471e7af9c84c25aa798a87ad89fd}{generate\_database}}(\textcolor{keywordtype}{int}\ quantity,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

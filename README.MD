@@ -49,5 +49,7 @@ Para ejecutar el programa, siga los siguientes pasos:
 | `-n, --unfollow <usuario>` | Deja de seguir a un usuario |
 | `-q, --feed` | Muestra los posts seleccionados |
 | `-x, --connect` | Muestra los usuarios recomendados |
+| `-w, --followerlist` | Muestra tus seguidores |
+| `-v, --followlist` | Muestra tus seguidos |
 
 

@@ -1,6 +1,6 @@
 <map id="_hashtable" name="_hashtable">
-<area shape="rect" id="Node000001" title="Estructura principal de la tabla hash." alt="" coords="5,93,99,119"/>
-<area shape="rect" id="Node000002" href="$df/d01/struct__hashnode.html" title="Nodo individual en la tabla hash." alt="" coords="6,5,98,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,45,55,93,49,93,49,45"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="113,9,125,18,116,26,98,29,98,23,114,21,119,18,110,14"/>
+<area shape="rect" id="Node000001" title="Estructura principal de la tabla hash." alt="" coords="5,153,91,219"/>
+<area shape="rect" id="Node000002" href="$df/d01/struct__hashnode.html" title="Nodo individual en la tabla hash." alt="" coords="6,5,90,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,91,51,137,45,137,45,91"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="91,32,109,36,117,48,114,56,108,60,105,56,110,53,111,48,106,40,90,37"/>
 </map>

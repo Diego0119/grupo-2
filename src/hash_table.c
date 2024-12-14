@@ -37,7 +37,7 @@ HashTable* create_hash_table(void) {
  * @param data Puntero a los datos
  * @return int 0 si se inserta correctamente, -1 si hay un error
  */
-int insert_into_hash_table(HashTable *table, char *key, void *data) {
+int insert_into_hash_table(HashTable *table, const char *key, void *data) {
     if (!table || !key) return -1;
     unsigned int index = jenkins_hash(key);
     Hashnode *new_node = (Hashnode *)malloc(sizeof(Hashnode));
@@ -56,7 +56,7 @@ int insert_into_hash_table(HashTable *table, char *key, void *data) {
  * @param key Clave del elemento a buscar
  * @return void* Puntero a los datos encontrados o NULL si no existe
  */
-void *search_in_hash_table(HashTable *table, char *key) {
+void *search_in_hash_table(HashTable *table, const char *key) {
     if (!table || !key) return NULL;
     unsigned int index = jenkins_hash(key);
     Hashnode *current = table->buckets[index];

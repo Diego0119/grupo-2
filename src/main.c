@@ -76,7 +76,7 @@ int main(int argc, char *argv[]){
     }
 
     // verificación para comandos que requieren una sesión iniciada
-    if(option==5||option==6||option==9||option==10||option==11||option==13||option==14||option==15){
+    if(option==5||option==6||option==9||option==10||option==11||option==13||option==14||option==15||option==17||option==18){
         currentUser = current_session(table);
         if(!currentUser){
             printf("ERROR: No se ha iniciado sesión. Ejecute './devgraph -l' para iniciar sesión.\n");
@@ -145,7 +145,6 @@ int main(int argc, char *argv[]){
         break;
     
     case 14: /* MOSTRAR POSTS */
-        print_logo();
         search_posts_in_my_follows(&feed, currentUser);
         search_posts_by_interests(&feed, table, globalInterestsTable, currentUser);
         watch_posts(&feed);
@@ -164,6 +163,14 @@ int main(int argc, char *argv[]){
     case 16: /* MOSTRAR TEMAS */
         printf("Tópicos de DevGraph:\n");
         print_global_interests(globalInterestsTable);
+        break;
+    
+    case 17: /* MOSTRAR SEGUIDORES DEL USUARIO */
+        print_followers(currentUser);
+        break;
+    
+    case 18: /* MOSTRAR SEGUIDOS DEL USUARIO */
+        print_following(currentUser);
         break;
 
     default:

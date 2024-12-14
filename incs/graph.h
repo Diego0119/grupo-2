@@ -21,10 +21,12 @@
 
 #include "users.h"
 
+/* typedefs para evitar errores de compilación */
 typedef struct _user _User;
 typedef _User *User;
 typedef _User *PtrToUser;
 typedef struct _globalInterests GlobalInterests;
+/* -------------------------------------------- */
 
 typedef struct _edge *Edge;
 typedef PtrToUser GraphList;
@@ -51,20 +53,15 @@ struct _graph{
 
 /* FUNCIONES DE EDGE */
 Edge init_empty_edge(void);
-Edge search_user_in_edge(Edge edge, User user);
 Edge search_previous_in_edge(Edge edge, User user);
 void add_edge(User user1, User user2, GlobalInterests globalInterests);
 void remove_edge(User user1, User user2);
 void free_all_edges(User user);
-void BFS(Graph graph, User startUser);
-void DFS(Graph graph, User startUser);
 
 /* FUNCIONES DE GRAPH*/
 Graph initialize_graph(void);
 void add_user_to_graph(Graph graph, User user);
 void remove_user_from_graph(Graph graph, User user);
-//void dijkstra(Graph graph, User source);
-int dijkstra_table_index(Graph graph, User source);
 void free_graph(Graph graph);
 
 /* FUNCIONES DE AFINIDAD*/

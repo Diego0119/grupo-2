@@ -14,8 +14,6 @@ var graph_8h =
     [ "BFS", "d6/df3/graph_8h.html#a7ad1db7176aabe57d636a695b0867b02", null ],
     [ "calculate_affinity", "d6/df3/graph_8h.html#abbbf934b5ee71eff94b3ca03af42175a", null ],
     [ "DFS", "d6/df3/graph_8h.html#a69f981e84ed63e0fdedec6ad4629447c", null ],
-    [ "dijkstra", "d6/df3/graph_8h.html#a98b572e88ce31a63314b60ae9351fa37", null ],
-    [ "dijkstra_table_index", "d6/df3/graph_8h.html#a1f2002999a93188dbe535bd83b2d8582", null ],
     [ "free_all_edges", "d6/df3/graph_8h.html#a6d6724321b00dccfe21c27cebcbcadd0", null ],
     [ "free_graph", "d6/df3/graph_8h.html#aa69532d3e5630c6949bf8e76a663fe2b", null ],
     [ "init_empty_edge", "d6/df3/graph_8h.html#a1caf8c58c50411466450e68efeb9beee", null ],
