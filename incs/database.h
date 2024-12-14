@@ -70,5 +70,6 @@ void follow(User user, char* follow, GlobalInterests globalInterests, PtrToHashT
 void unfollow(User user, char* follow, GlobalInterests globalInterests, PtrToHashTable table);
 void delete_account(User user);
 void edit_account(User user, GlobalInterests globalInterests, PtrToHashTable table);
+void generate_database(int quantity, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
 
 #endif

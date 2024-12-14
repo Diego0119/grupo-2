@@ -23,7 +23,6 @@
 void insert_new_item(heap* h, const char* user_name, double priority, const char* content)
 {
     if (h->size >= MAX_HEAP_SIZE - 1) {
-        printf("el heap está lleno.\n");
         return;
     }
     post new_post;
@@ -164,6 +163,8 @@ void watch_posts(heap* h)
     int opcion = 1;
 
     while (opcion != 2) {
+        printf(CLEAN_SCREEN);
+        print_logo();
         printf("\n\t\tPUBLICACIONES\n");
 
         // Verifica si hay publicaciones y extrae la más relevante (máximo)
@@ -299,7 +300,7 @@ void search_new_possible_friends(heap* h, PtrToHashTable table, GlobalInterests 
 void watch_suggestions_friends_of_friends(heap* h)
 {
     printf("\t\tSUGERENCIAS DE AMISTAD DE AMIGOS DE AMIGOS\n\n");
-
+    
     if (h->size == 0) {
         printf("No hay sugerencias de amistad de amigos de amigos.\n\n");
         return;
@@ -392,36 +393,4 @@ void dijkstra(heap* h, Graph graph, User source)
     }
 
     free(table);
-}
-
-void generate_posts_for_everyone(Graph graph, GlobalInterests globalInterests) {
-    
-    int option = 0;
-    printf("¿Desea generar publicaciones aleatorias para todos los usuarios? (1. Sí, 2. No)\n");
-    if (scanf("%d", &option) != 1) {
-        printf("Entrada no válida. Intente nuevamente\n");
-        return;
-    }
-    if (option == 2) {
-        return;
-    }
-
-    GraphList aux = graph->graphUsersList->next;
-    while (aux) {
-        int cant = 0;
-        for(int i=0; i<rand()%globalInterests.numInterests; i++){
-            if(aux->interests[i].value==1){
-                cant++;
-            }
-        }
-        if (cant == 0) {
-            aux = aux->next;
-            continue;
-        }
-        aux->posts = generate_random_posts(aux, globalInterests);
-        printf("Publicaciones creadas para %s\n", aux->username);
-        save_user_data(aux, globalInterests);
-
-        aux = aux->next;
-    }
 }

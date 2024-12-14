@@ -64,9 +64,7 @@ int main(int argc, char *argv[]){
                     printf(COLOR_RED "ERROR: La cantidad de usuarios generados es demasiado alta. Intente generar menos de 100.000 usuarios.\n");
                     free_structures_and_exit(table, graph, globalInterestsTable);
                 }
-                generate_users(quantity, table, graph, globalInterestsTable);
-                generate_random_connections(graph, globalInterestsTable);
-                save_all_users(graph, globalInterestsTable);
+                generate_database(quantity, table, graph, globalInterestsTable);
                 free_all_users(table, graph);
                 printf(COLOR_BLUE "Se han generado %d usuarios exitosamente\n", quantity);
             }
@@ -148,7 +146,6 @@ int main(int argc, char *argv[]){
     
     case 14: /* MOSTRAR POSTS */
         print_logo();
-        generate_posts_for_everyone(graph, globalInterestsTable);
         search_posts_in_my_follows(&feed, currentUser);
         search_posts_by_interests(&feed, table, globalInterestsTable, currentUser);
         watch_posts(&feed);

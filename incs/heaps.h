@@ -23,7 +23,7 @@ typedef struct _post post;
 #include "hash_table.h"
 #include "graph.h"
 
-#define MAX_HEAP_SIZE 1000 // recomendamos que sea una cantidad equivalente a la generación de usuarios o más
+#define MAX_HEAP_SIZE 100000 // recomendamos que sea una cantidad equivalente a la generación de usuarios o más
 
 /**
  * @struct _post
@@ -63,6 +63,5 @@ void search_posts_in_my_follows(heap* h, User currentUser); // Función para bus
 void search_posts_by_interests(heap* h, PtrToHashTable table, GlobalInterests globalInterestsTable, User currentUser); // Función para buscar publicaciones de interes del usuario para colocar en el heap
 void search_new_possible_friends(heap* h, PtrToHashTable table, GlobalInterests globalInterestsTable, User currentUser); // Función para buscar usuarios con intereses similares a los de un usuario
 void dijkstra(heap* h, Graph graph, User source); // Calcula la distancia de un user a otro en un grafo
-void generate_posts_for_everyone(Graph graph, GlobalInterests globalInterests); // Función para generar publicaciones aleatorias para todos los usuarios
 
 #endif

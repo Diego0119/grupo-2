@@ -36,8 +36,8 @@ void create_database_dir(void){
  * @param globalInterests Tabla de intereses globales
  */
 void save_user_data(User user, GlobalInterests globalInterests){
+    
     if (!user) return;
-
     char filename[512];
     struct stat st = {0};
     FILE *fp;
@@ -46,6 +46,7 @@ void save_user_data(User user, GlobalInterests globalInterests){
     snprintf(filename, sizeof(filename), "database/%s_data", user->username);
     if (stat(filename, &st) == -1) {
         if (mkdir(filename, 0777) == -1) {
+            printf("ERROR: No se pudo crear el directorio '%s'\n", filename);
             exit(EXIT_FAILURE);
         }
     }
@@ -53,6 +54,7 @@ void save_user_data(User user, GlobalInterests globalInterests){
     snprintf(filename, sizeof(filename), "database/%s_data/data.dat", user->username);
     fp = fopen(filename, "w");
     if(!fp){
+        printf("ERROR: No se pudo guardar el archivo '%s'\n", filename);
         return;
     }
     fprintf(fp, "%d\n", user->id);
@@ -120,8 +122,11 @@ void save_user_data(User user, GlobalInterests globalInterests){
         fp=fopen(filename,"a");
         fprintf(fp, "%d\n", postAux->id); // postID
         fprintf(fp, "%s\n", buffer); // fecha
-        fprintf(fp, "%s\n", postAux->post); // contenido
+        if(postAux->post!=NULL){
+            fprintf(fp, "%s\n", postAux->post); // contenido
+        }
         postAux = postAux->next;
+        fclose(fp);
         
     }
 
@@ -247,6 +252,7 @@ User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph
         if (fgets(buffer, sizeof(buffer), fp) == NULL) exit(EXIT_FAILURE);
         strptime(buffer, "%Y-%m-%d %H:%M:%S", &post_date);
         if (fgets(post_content, sizeof(post_content), fp)==0) exit(EXIT_FAILURE);
+        post_content[strcspn(post_content, "\n")] = '\0';
         fclose(fp);
         insert_post(posts, post_content);
         posts->next->id = post_id;
@@ -666,4 +672,11 @@ void edit_account(User user, GlobalInterests globalInterests, PtrToHashTable tab
             break;
     }
     save_user_data(user, globalInterests);
+}
+
+void generate_database(int quantity, PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
+    generate_users(quantity, table, graph, globalInterests);
+    generate_random_connections(graph, globalInterests);
+    generate_posts_for_everyone(graph, globalInterests);
+    save_all_users(graph, globalInterests);
 }

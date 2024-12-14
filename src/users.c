@@ -88,7 +88,6 @@ char* generate_post(char* buffer, size_t longitud, User user, GlobalInterests gl
         "Quieres conocerme? soy fan de ", "Lo mejor es ", "Quieres aprender sobre ", "Mi pasión está en ", "Siempre hablo de ",
         "En mis ratos libres disfruto de "
     };
-
     int acompanamientos = sizeof(acompanamiento) / sizeof(acompanamiento[0]);
 
     // Elegir un texto de acompañamiento y un interés válido al azar
@@ -98,7 +97,7 @@ char* generate_post(char* buffer, size_t longitud, User user, GlobalInterests gl
     while (user->interests[aux].value == 0) {
         aux = rand() % globalInterests.numInterests;
     }
-
+    
     const char* inter = globalInterests.interestsTable[aux];
 
     snprintf(buffer, longitud, "%s%s", acomp, inter);
@@ -108,17 +107,17 @@ char* generate_post(char* buffer, size_t longitud, User user, GlobalInterests gl
 
 // Función para generar publicaciones aleatorias
 UserPosts generate_random_posts(User user, GlobalInterests globalInterests) {
-    int numPosts = rand() % 5 + 1; // Generar entre 1 y 10 publicaciones
+    int numPosts = rand()%5 + 1; // Generar entre 1 y 10 publicaciones
     char* content = malloc(1024 * sizeof(char));
     if (!content) {
         perror("Error al asignar memoria");
         exit(EXIT_FAILURE);
-    }
-
+    } 
     for (int i = 0; i < numPosts; i++) {
         content = generate_post(content, 1024, user, globalInterests);
         insert_post(user->posts, content); // Copia el contenido
     }
+
 
     free(content); // Libera el buffer
     return user->posts;
@@ -603,7 +602,6 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
 
         free(name);
         free(password);
-
     }
 }
 
@@ -759,5 +757,36 @@ void add_interest(User user, GlobalInterests globalInterestTable, int interestId
 void print_global_interests(GlobalInterests globalInterestTable){
     for(int i=1; i<globalInterestTable.numInterests-1; i++){
         printf("- %d. %s\n", i, globalInterestTable.interestsTable[i]);
+    }
+}
+
+void generate_posts_for_everyone(Graph graph, GlobalInterests globalInterests) {
+    
+    int option = 0;
+    printf("¿Desea generar publicaciones aleatorias para todos los usuarios? (1. Sí, 2. No)\n");
+    if (scanf("%d", &option) != 1) {
+        printf("Entrada no válida. Intente nuevamente\n");
+        return;
+    }
+    if (option == 2) {
+        return;
+    }
+
+    GraphList aux = graph->graphUsersList->next;
+    while (aux) {
+        int cant = 0;
+        for(int i=0; i<rand()%globalInterests.numInterests; i++){
+            if(aux->interests[i].value==1){
+                cant++;
+            }
+        }
+        if (cant == 0) {
+            aux = aux->next;
+            continue;
+        }
+        aux->posts = generate_random_posts(aux, globalInterests);
+        printf("Publicaciones creadas para %s\n", aux->username);
+
+        aux = aux->next;
     }
 }

@@ -30,6 +30,7 @@ clean:
 	rm -f $(OBJ_FILES) $(OBJ2_FILES)
 	rm -rf build/$(EXEC) build/$(EXEC2)
 	rm -f doc*.txt
+	rm -fr build/database
 
 folders:
 	mkdir -p src src2 obj incs build docs

@@ -144,6 +144,7 @@ void generate_random_connections(Graph graph, GlobalInterests globalInterests);
 void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
 UserPosts generate_random_posts(User user, GlobalInterests globalInterests);
 char* generate_post(char* buffer, size_t longitud, User user, GlobalInterests globalInterests);
+void generate_posts_for_everyone(Graph graph, GlobalInterests globalInterests);
 
 float calculate_friendliness(User user);
 void print_friendliness_table(Graph graph);
