@@ -63,7 +63,7 @@ void DFS(Graph graph, User startUser);
 Graph initialize_graph(void);
 void add_user_to_graph(Graph graph, User user);
 void remove_user_from_graph(Graph graph, User user);
-void dijkstra(Graph graph, User source);
+//void dijkstra(Graph graph, User source);
 int dijkstra_table_index(Graph graph, User source);
 void free_graph(Graph graph);
 

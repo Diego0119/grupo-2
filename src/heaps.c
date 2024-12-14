@@ -116,8 +116,9 @@ void extract_min(heap* h, int option)
     } else if (option == 2) {
         printf("Hay interés de %f con %s\n", h->posts[minIndex].priority, h->posts[minIndex].user_name);
         printf("%s\n\n", h->posts[minIndex].content);
+    } else if (option == 3) {
+        printf("Hay cercania de %f con %s\n", h->posts[minIndex].priority, h->posts[minIndex].user_name);
     }
-
     // Mover el último nodo al lugar del mínimo
     h->posts[minIndex] = h->posts[h->size - 1];
     h->size--;
@@ -249,7 +250,7 @@ void search_new_possible_friends(heap* h, PtrToHashTable table, GlobalInterests 
         while (current) {
             User u = (User)current->data;
             double jaccard = edge_jaccard(currentUser, u, globalInterestsTable);
-            if (jaccard <= 1 && currentUser->username != u->username) {
+            if (jaccard <= 0.73 && currentUser->username != u->username) {
                 //printf("hay interes de %f con %s\n", jaccard, u->username);
                 //printf("%s\n", u->friendliness);
                 int i = 0;
@@ -274,10 +275,94 @@ void search_new_possible_friends(heap* h, PtrToHashTable table, GlobalInterests 
  *
  * @param h cola de prioridad
  */
-void watch_suggestions(heap* h)
+void watch_suggestions_friends_of_friends(heap* h)
 {
-    printf("\t\tSUGERENCIAS DE AMISTAD\n");
+    printf("\t\tSUGERENCIAS DE AMISTAD DE AMIGOS DE AMIGOS\n\n");
+    while(h->size > 0) {
+        extract_min(h, 3); // extraemos el minimo dado que usamos distancia de jaccard, es decir mientras menor número de jaccard, entonces mayor similitud
+    }
+    printf("\n");
+}
+
+/**
+ * @brief función para visualizar sugerencias de amistad en base a la similitud de los usuarios
+ *
+ * @param h cola de prioridad
+ */
+void watch_suggestions_by_interests(heap* h)
+{
+    printf("\t\tSUGERENCIAS DE AMISTAD POR INTERESES\n\n");
     while(h->size > 0) {
         extract_min(h, 2); // extraemos el minimo dado que usamos distancia de jaccard, es decir mientras menor número de jaccard, entonces mayor similitud
     }
+}
+
+void dijkstra(heap* h, Graph graph, User source)
+{
+
+    /* Inicialización de la tabla de distancias */
+    struct dijkstra_table
+    {
+        User user;
+        double distance;
+        int visited;
+    };
+    int usersNumber = graph->usersNumber;
+    struct dijkstra_table *table = malloc(sizeof(struct dijkstra_table) * usersNumber);
+    User user_aux = graph->graphUsersList->next;
+    for (int i = 0; i < usersNumber; i++)
+    {
+        table[i].user = user_aux;
+        table[i].distance = INT_MAX;
+        table[i].visited = 0;
+        user_aux = user_aux->next;
+    }
+
+    int sourceIndex = dijkstra_table_index(graph, source);
+    table[sourceIndex].user = source;
+    table[sourceIndex].distance = 0;
+
+    for (int i = 0; i < usersNumber; i++)
+    {
+        // Seleccionar el nodo no visitado con la distancia más pequeña
+        int u = -1;
+        int minDistance = INT_MAX;
+        // Buscar el nodo con la distancia más corta
+        for (int j = 0; j < usersNumber; j++)
+        {
+            if (!table[j].visited && table[j].distance < minDistance)
+            {
+                u = j;
+                minDistance = table[j].distance;
+            }
+        }
+        // Si no se encontró ningún nodo accesible, salimos
+        if (u == -1)
+            break;
+        table[u].visited = 1;
+
+        User currentUser = table[u].user;
+        // Recorrer los siguiendo del usuario
+        Edge edge = currentUser->following->next;
+        while (edge != NULL)
+        {
+            int v = dijkstra_table_index(graph, edge->dest);
+            if (table[u].distance + edge->weight < table[v].distance)
+            {
+                table[v].distance = table[u].distance + edge->weight;
+            }
+            edge = edge->next;
+        }
+    }
+
+    // Imprimir distancias
+    for (int i = 0; i < usersNumber; i++)
+    {
+        if (table[i].distance != INT_MAX && source->username != table[i].user->username)
+        {
+            insert_new_item(h, table[i].user->username, table[i].distance, table[i].user->username);
+        }
+    }
+
+    free(table);
 }

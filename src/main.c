@@ -146,6 +146,7 @@ int main(int argc, char *argv[]){
     
     case 14: /* MOSTRAR POSTS */
         print_logo();
+        printf("Aun funciono");
         search_posts(&feed, table);
         watch_posts(&feed);
         free_heap(&feed);
@@ -153,11 +154,11 @@ int main(int argc, char *argv[]){
     
     case 15: /* MOSTRAR USUARIOS RECOMENDADOS*/
         print_logo();
+        dijkstra(&feed, graph, currentUser);
+        watch_suggestions_friends_of_friends(&feed);
         search_new_possible_friends(&feed, table, globalInterestsTable, currentUser);
-        watch_suggestions(&feed);
+        watch_suggestions_by_interests(&feed);
         free_heap(&feed);
-        //dijkstra(graph, currentUser);
-        //BFS(graph, currentUser);
         break;
     
     case 16: /* MOSTRAR TEMAS */
