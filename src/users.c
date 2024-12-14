@@ -479,22 +479,12 @@ double edge_jaccard(User user1, User user2, GlobalInterests globalInterestTable)
  * @param table Tabla hash que contiene los usuarios
  * @param graph El grafo de los usuarios
  */
-void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInterests globalInterests)
-{
+void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInterests globalInterests){
     if(database_exists_and_not_empty()!=0){
-        printf("Ya existe una base de datos. Desea sobreescribirla? (1. Sí, 2. No)\n");
-        int option;
-        do {
-            if(scanf("%d", &option)==0) exit(EXIT_FAILURE);
-            if(option < 1 || option > 2){
-                printf("Opción inválida. Intente nuevamente\n");
-            }
-        } while(option < 1 || option > 2);
-        if(option == 2){
-            return;
-        }
-        clear_database(graph);
+        printf("Ya existe una base de datos. Ejecute './devgraph.out -c' para borrarla.\n");
+        free_structures_and_exit(table, graph, globalInterests);
     }
+
     printf("Creando usuarios, por favor espere...\n");
 
     const char *names[] = {
@@ -552,7 +542,7 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
 
         if (search_in_hash_table(table, username))
         {
-            printf("Advertencia: El nombre de usuario '%s' ya existe. Generando otro usuario...\n", username);
+            //printf("Advertencia: El nombre de usuario '%s' ya existe. Generando otro usuario...\n", username);
             free(name);
             free(password);
             i--;
@@ -562,7 +552,7 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
         User newUser = create_new_user(username, password, name, table, graph, globalInterests);
         if (!newUser)
         {
-            printf("Error al crear el usuario '%s'.\n", username);
+            //printf("Error al crear el usuario '%s'.\n", username);
             free(name);
             free(password);
             continue;
@@ -572,7 +562,7 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
             add_interest(newUser, globalInterests, rand()% globalInterests.numInterests);
         }
 
-        printf("%d. Usuario creado: %s (%s)\n", i, name, username);
+        //printf("%d. Usuario creado: %s (%s)\n", i, name, username);
 
         free(name);
         free(password);
@@ -615,7 +605,7 @@ void generate_random_connections(Graph graph, GlobalInterests globalInterests)
             }
         }
 
-        printf("Usuario seleccionado en la iteracion %d: %s\n", i, currentUser->username);
+        //printf("Usuario seleccionado en la iteracion %d: %s\n", i, currentUser->username);
 
         User randomUser = graph->graphUsersList->next;
         int random_index = rand() % graph->usersNumber;
@@ -628,11 +618,11 @@ void generate_random_connections(Graph graph, GlobalInterests globalInterests)
         if (randomUser != currentUser)
         {
             add_edge(currentUser, randomUser, globalInterests);
-            printf("Conectando el usuario '%s' con '%s'.\n", currentUser->username, randomUser->username);
+            //printf("Conectando el usuario '%s' con '%s'.\n", currentUser->username, randomUser->username);
         }
         else
         {
-            printf("No se puede conectar el usuario '%s' consigo mismo.\n", currentUser->username);
+            //printf("No se puede conectar el usuario '%s' consigo mismo.\n", currentUser->username);
         }
     }
 }

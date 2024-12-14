@@ -18,11 +18,17 @@
 #include <stdlib.h>
 #include <dirent.h>
 #include "hash_table.h"
+#include "graph.h"
+#include "users.h"
 
 #define MAX_CHAR 256
 
+/* typedefs para evitar errores de compilación */
+typedef struct _globalInterests GlobalInterests;
+typedef struct _edge *Edge;
+typedef struct _graph *Graph;
+
 /* Defines para impresión */
-#define COLOR_BLACK "\033[0;30m"
 #define COLOR_RED "\033[0;31m"
 #define COLOR_GREEN "\033[0;32m"
 #define COLOR_YELLOW "\033[0;33m"
@@ -41,5 +47,6 @@ int get_option(int argc, char *argv[]);
 int line_number_in_file(char *file);
 void delete_all_in_directory(const char *directory);
 void print_logo(void);
+void free_structures_and_exit(PtrToHashTable table, Graph graph, GlobalInterests globalInterestsTable);
 
 #endif

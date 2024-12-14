@@ -17,11 +17,9 @@
  *
  * @return Edge
  */
-Edge init_empty_edge(void)
-{
+Edge init_empty_edge(void){
     Edge newEdge = (Edge)malloc(sizeof(struct _edge));
-    if (!newEdge)
-    {
+    if (!newEdge){
         printf("ERROR: No hay memoria suficiente\n");
         exit(EXIT_FAILURE);
     }
@@ -38,13 +36,10 @@ Edge init_empty_edge(void)
  * @param user Usuario a buscar
  * @return Edge Adyacencia encontrada o NULL si no se encuentra
  */
-Edge search_user_in_edge(Edge edge, User user)
-{
+Edge search_user_in_edge(Edge edge, User user){
     Edge aux = edge;
-    while (aux->dest != user)
-    {
-        if (!aux->next)
-        {
+    while (aux->dest != user){
+        if (!aux->next){
             return NULL;
         }
         aux = aux->next;
@@ -80,17 +75,14 @@ Edge search_previous_in_edge(Edge edge, User user){
  *
  * @return Graph
  */
-Graph initialize_graph(void)
-{
+Graph initialize_graph(void){
     Graph newGraph = (Graph)malloc(sizeof(struct _graph));
-    if (!newGraph)
-    {
+    if (!newGraph){
         printf("Error al crear el grafo\n");
         return NULL;
     }
     newGraph->graphUsersList = (GraphList)malloc(sizeof(struct _user));
-    if (!newGraph->graphUsersList)
-    {
+    if (!newGraph->graphUsersList){
         printf("Error al crear el grafo (lista de usuarios)\n");
         free_graph(newGraph);
         return NULL;
@@ -108,8 +100,7 @@ Graph initialize_graph(void)
  *
  * @note Ejecutar despues de @see free_all_users
  */
-void free_graph(Graph graph)
-{
+void free_graph(Graph graph){
     free(graph->graphUsersList);
     free(graph);
 }
@@ -120,8 +111,7 @@ void free_graph(Graph graph)
  * @param graph Grafo
  * @param user Usuario a añadir
  */
-void add_user_to_graph(Graph graph, User user)
-{
+void add_user_to_graph(Graph graph, User user){
     user->next = graph->graphUsersList->next;
     graph->graphUsersList->next = user;
     graph->usersNumber++;
@@ -135,8 +125,7 @@ void add_user_to_graph(Graph graph, User user)
  *
  * @note No elimina al usuario en si, lo saca del grafo y libera sus conexiones
  */
-void remove_user_from_graph(Graph graph, User user)
-{
+void remove_user_from_graph(Graph graph, User user){
     GraphList aux = graph->graphUsersList;
     while (aux->next != user)
     {
@@ -155,8 +144,7 @@ void remove_user_from_graph(Graph graph, User user)
  * @param user2 Usuario 2 será añadido por usuario 1
  * @param weigth Peso de la conexion
  */
-void add_edge(User user1, User user2, GlobalInterests globalInterests)
-{
+void add_edge(User user1, User user2, GlobalInterests globalInterests){
 
     if (user1 == user2)
     {
@@ -235,8 +223,7 @@ void remove_edge(User user1, User user2){
  *
  * @note Libera también las adyacencias de los usuarios que lo siguen o sigue
  */
-void free_all_edges(User user)
-{
+void free_all_edges(User user){
     // Liberar todas las conexiones de la lista de seguidos
     Edge current = user->following->next;
     while (current)
@@ -267,8 +254,7 @@ void free_all_edges(User user)
  *
  * @note Se utiliza para el algoritmo \link dijkstra \endlink
  */
-int dijkstra_table_index(Graph graph, User source)
-{
+int dijkstra_table_index(Graph graph, User source){
     int i = 0;
     GraphList aux = graph->graphUsersList->next;
     while (aux)
@@ -293,8 +279,7 @@ int dijkstra_table_index(Graph graph, User source)
  *
  * @note Solo devuelve distancias entre las adyacencias de seguidos
  */
-void dijkstra(Graph graph, User source)
-{
+void dijkstra(Graph graph, User source){
 
     /* Inicialización de la tabla de distancias */
     struct dijkstra_table
@@ -367,8 +352,7 @@ void dijkstra(Graph graph, User source)
     free(table);
 }
 
-void BFS(Graph graph, User startUser)
-{
+void BFS(Graph graph, User startUser){
     if (!graph || !startUser)
     {
         printf("Error: Grafo o usuario inicial inválido.\n");
@@ -415,8 +399,7 @@ void BFS(Graph graph, User startUser)
     free(queue);
 }
 
-void DFS(Graph graph, User startUser)
-{
+void DFS(Graph graph, User startUser){
     if (!graph || !startUser)
     {
         printf("Error: Grafo o usuario inicial inválido.\n");

@@ -129,7 +129,6 @@ void save_user_data(User user, GlobalInterests globalInterests){
  */
 void save_all_users(Graph graph, GlobalInterests globalInterests) {
     create_database_dir();
-
     PtrToUser currentUser = graph->graphUsersList->next;
     while (currentUser) {
         save_user_data(currentUser, globalInterests);
@@ -149,7 +148,6 @@ void clear_database(Graph graph) {
     }
     printf("Se han eliminado todos los datos de la base de datos.\n");
 }
-
 
 /**
  * @brief Verifica si la carpeta database existe y no está vacía.
@@ -607,4 +605,3 @@ void edit_account(User user, GlobalInterests globalInterests, PtrToHashTable tab
     }
     save_user_data(user, globalInterests);
 }
-

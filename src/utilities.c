@@ -218,3 +218,10 @@ void print_logo(void){
    printf("     \\/    \\/             \\/           \\/|__|        \\/ \n");
    printf("\n\n");
 }
+
+void free_structures_and_exit(PtrToHashTable table, Graph graph, GlobalInterests globalInterestsTable){
+    free_hash_table(table);
+    free_graph(graph);
+    free_global_interests(globalInterestsTable);
+    exit(EXIT_FAILURE);
+}

@@ -51,12 +51,16 @@ int main(int argc, char *argv[]){
         else {
             if(option==3){
                 int quantity;
-                if(sscanf(argv[2], "%d", &quantity)!=1){
-                    printf("ERROR: No se pudo leer la cantidad de usuarios a generar\n");
-                    free_hash_table(table);
-                    free_graph(graph);
-                    free_global_interests(globalInterestsTable);
-                    exit(EXIT_FAILURE);
+                if(sscanf(argv[2], "%d", &quantity)!=1 || quantity<1){
+                    printf("ERROR: cantidad de usuarios inválida\n");
+                    free_structures_and_exit(table, graph, globalInterestsTable);
+                }
+                if(quantity>50000 && quantity<100000){
+                    printf(COLOR_RED "WARNING: La cantidad de usuarios generados puede ser muy grande y presentarse un tiempo de espera alto.\n");
+                }
+                if(quantity>=100000){
+                    printf(COLOR_RED "ERROR: La cantidad de usuarios generados es demasiado alta. Intente generar menos de 100.000 usuarios.\n");
+                    free_structures_and_exit(table, graph, globalInterestsTable);
                 }
                 generate_users(quantity, table, graph, globalInterestsTable);
                 generate_random_connections(graph, globalInterestsTable);
@@ -66,10 +70,7 @@ int main(int argc, char *argv[]){
             }
             else{
                 printf("No se ha encontrado una base de datos. Ejecute './devgraph -g <cantidad de usuarios>' para generar una.\n");
-                free_hash_table(table);
-                free_graph(graph);
-                free_global_interests(globalInterestsTable);
-                exit(EXIT_FAILURE);
+                free_structures_and_exit(table, graph, globalInterestsTable);
             }
         }
     }
@@ -79,9 +80,7 @@ int main(int argc, char *argv[]){
         currentUser = current_session(table);
         if(!currentUser){
             printf("ERROR: No se ha iniciado sesión. Ejecute './devgraph -l' para iniciar sesión.\n");
-            free_graph(graph);
-            free_global_interests(globalInterestsTable);
-            exit(EXIT_FAILURE);
+            free_structures_and_exit(table, graph, globalInterestsTable);
         }
     }
 
