@@ -159,10 +159,9 @@ void print_userPosts(UserPosts posts)
     PtrToPostNode aux = posts->next;
     while (aux != NULL)
     {
-        printf("   ID: %d\n", aux->id);
         printf("   Fecha: %s", asctime(&aux->date));
         printf("   %s\n", aux->post);
-        printf("-----------------------------------------------------------------------------\n");
+        printf("   ----------------------------------------------------------------\n");
         aux = aux->next;
     }
 }
@@ -175,7 +174,6 @@ void print_userPosts(UserPosts posts)
 void print_user(User user, GlobalInterests globalInterestsTable)
 {
     print_logo();
-    printf("ID: %d\n", user->id);
     printf("Nombre: %s\n", user->name);
     printf("Usuario: %s\n", user->username);
     //printf("Contraseña: %s\n", user->password);
@@ -185,7 +183,7 @@ void print_user(User user, GlobalInterests globalInterestsTable)
     printf("Categoría: %s\n", user->category ? user->category : "Desconocida");
     printf("Le gusta: ");
     print_user_interests(user->interests, globalInterestsTable);
-    printf("Publicaciones:\n");
+    printf("Publicaciones (%d) :\n", user->posts->id);
     print_userPosts(user->posts);
 }
 

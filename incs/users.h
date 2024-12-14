@@ -44,6 +44,9 @@ typedef Interest *PtrToInterest;
 typedef struct _globalInterests GlobalInterests;
 typedef struct _edge *Edge;
 typedef struct _graph *Graph;
+typedef struct _hashnode Hashnode;
+typedef struct _hashtable HashTable;
+typedef HashTable* PtrToHashTable;
 
 
 /**
