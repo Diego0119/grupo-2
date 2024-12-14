@@ -1,0 +1,10 @@
+<map id="insert_new_item" name="insert_new_item">
+<area shape="rect" id="Node000001" title="función para insertar una nueva publicación en el heap" alt="" coords="316,42,447,67"/>
+<area shape="rect" id="Node000002" href="$d5/d4f/heaps_8c.html#a9ab742e06b50bee974868b46fc40e459" title="función para buscar sugerencias de amistades para colocar en el heap" alt="" coords="108,5,268,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="302,45,268,40,268,35,303,40"/>
+<area shape="rect" id="Node000004" href="$d5/d4f/heaps_8c.html#af7e02e199bbc0be8e01a161fbe2cf5a0" title="función para buscar publicaciones para colocar en el heap" alt="" coords="135,70,241,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="303,69,242,78,241,72,302,63"/>
+<area shape="rect" id="Node000003" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,42,60,67"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,46,61,52,60,47,94,40"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="121,73,60,62,61,57,122,68"/>
+</map>

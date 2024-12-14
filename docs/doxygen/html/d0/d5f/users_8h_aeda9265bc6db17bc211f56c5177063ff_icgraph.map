@@ -1,0 +1,26 @@
+<map id="calculate_friendliness" name="calculate_friendliness">
+<area shape="rect" id="Node000001" title="Calcula qué tan amigable es un usuario." alt="" coords="601,144,765,169"/>
+<area shape="rect" id="Node000002" href="$d5/d4b/database_8c.html#abdee669a4d0bab54b2af1fa5f0a04cc1" title="Guarda toda la información de un usuario en la base de datos." alt="" coords="429,144,553,169"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="588,159,554,159,554,154,588,154"/>
+<area shape="rect" id="Node000003" href="$d5/d4b/database_8c.html#ad754349fdaa7256297f09a6c77ccd2a2" title="Permite a un usuario editar su información de cuenta." alt="" coords="109,5,214,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="475,133,437,80,411,54,380,34,339,19,295,12,252,11,214,13,214,8,252,5,296,7,340,14,383,29,414,50,441,77,479,130"/>
+<area shape="rect" id="Node000005" href="$d5/d4b/database_8c.html#a5c2c93b11c91edd6b02eb8de193bba3f" title="Seguir a un usuario." alt="" coords="291,68,353,93"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="449,141,350,96,352,91,451,136"/>
+<area shape="rect" id="Node000006" href="$d5/d4b/database_8c.html#a27d66932dd0c4411d8baa6acc4b717af" title="Dejar de seguir a un usuario." alt="" coords="122,119,201,144"/>
+<area shape="poly" id="edge13_Node000002_Node000006" title=" " alt="" coords="416,154,201,137,201,132,416,148"/>
+<area shape="rect" id="Node000007" href="$d5/d4b/database_8c.html#a116abf50656b08636a9f449c3f46e2cd" title="Registra un nuevo usuario en la base de datos." alt="" coords="108,168,215,193"/>
+<area shape="poly" id="edge9_Node000002_Node000007" title=" " alt="" coords="416,165,215,179,215,174,416,159"/>
+<area shape="rect" id="Node000008" href="$d5/d4b/database_8c.html#a403ac5de2bde8804588c7739d023f6f1" title="Guarda todos los usuarios cargados en el programa en la base de datos." alt="" coords="263,220,381,245"/>
+<area shape="poly" id="edge11_Node000002_Node000008" title=" " alt="" coords="451,177,352,222,350,217,449,173"/>
+<area shape="rect" id="Node000009" href="$d5/d4b/database_8c.html#a83dfa88ced51dd9165e817e89f8ddc63" title="Publicar un post desde un usuario." alt="" coords="277,269,367,295"/>
+<area shape="poly" id="edge14_Node000002_Node000009" title=" " alt="" coords="472,181,433,221,383,260,361,272,359,267,380,256,429,217,468,177"/>
+<area shape="rect" id="Node000004" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,144,60,169"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="134,41,110,64,73,108,45,145,41,142,68,104,106,60,131,37"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="277,83,197,88,152,96,109,108,76,126,50,146,46,142,73,121,107,104,151,91,197,83,277,77"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="350,57,342,50,322,47,305,49,297,53,295,59,300,67,295,69,289,60,292,50,304,44,322,41,344,45,353,53"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="278,97,202,122,200,116,277,92"/>
+<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="109,144,61,154,60,149,108,139"/>
+<area shape="poly" id="edge10_Node000007_Node000004" title=" " alt="" coords="94,171,60,164,61,159,95,166"/>
+<area shape="poly" id="edge12_Node000008_Node000004" title=" " alt="" coords="248,234,179,226,107,207,74,191,48,172,51,167,77,186,109,202,180,220,249,228"/>
+<area shape="poly" id="edge15_Node000009_Node000004" title=" " alt="" coords="263,281,186,267,145,254,107,236,86,222,67,204,41,172,45,168,71,201,89,218,109,232,147,249,187,262,264,275"/>
+</map>

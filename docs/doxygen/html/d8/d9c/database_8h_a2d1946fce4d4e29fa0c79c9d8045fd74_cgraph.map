@@ -1,0 +1,11 @@
+<map id="login" name="login">
+<area shape="rect" id="Node000001" title="Inicia sesión." alt="" coords="5,31,60,56"/>
+<area shape="rect" id="Node000002" href="$d7/db6/utilities_8c.html#a73eb533269566775275da2ac91350562" title=" " alt="" coords="115,5,201,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,35,100,27,101,32,61,41"/>
+<area shape="rect" id="Node000003" href="$d2/d9e/users_8c.html#a02b0bb2074d6748efedd29d4cbb1ee82" title="Busca a un usuario según su nombre de usuario." alt="" coords="108,55,208,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="61,46,95,53,94,58,60,51"/>
+<area shape="rect" id="Node000004" href="$d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="256,55,419,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="208,65,242,65,242,70,208,70"/>
+<area shape="rect" id="Node000005" href="$d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="467,55,573,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="419,65,453,65,453,70,419,70"/>
+</map>

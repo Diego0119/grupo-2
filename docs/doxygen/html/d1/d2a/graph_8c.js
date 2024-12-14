@@ -2,6 +2,8 @@ var graph_8c =
 [
     [ "add_edge", "d1/d2a/graph_8c.html#a4d6718ee3e14fdfec3f71cf10d4aea0a", null ],
     [ "add_user_to_graph", "d1/d2a/graph_8c.html#a10d20aea4764e2b54197726d92b3e637", null ],
+    [ "BFS", "d1/d2a/graph_8c.html#a7ad1db7176aabe57d636a695b0867b02", null ],
+    [ "DFS", "d1/d2a/graph_8c.html#a69f981e84ed63e0fdedec6ad4629447c", null ],
     [ "dijkstra", "d1/d2a/graph_8c.html#a98b572e88ce31a63314b60ae9351fa37", null ],
     [ "dijkstra_table_index", "d1/d2a/graph_8c.html#a1f2002999a93188dbe535bd83b2d8582", null ],
     [ "free_all_edges", "d1/d2a/graph_8c.html#a6d6724321b00dccfe21c27cebcbcadd0", null ],

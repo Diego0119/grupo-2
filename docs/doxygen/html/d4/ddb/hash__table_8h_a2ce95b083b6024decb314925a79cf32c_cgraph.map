@@ -1,0 +1,5 @@
+<map id="search_in_hash_table" name="search_in_hash_table">
+<area shape="rect" id="Node000001" title="Busca un elemento en la tabla hash por su clave." alt="" coords="5,5,168,31"/>
+<area shape="rect" id="Node000002" href="$d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="216,5,323,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,15,202,15,202,21,169,21"/>
+</map>

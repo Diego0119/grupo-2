@@ -1,0 +1,26 @@
+<map id="load_user_from_file" name="load_user_from_file">
+<area shape="rect" id="Node000001" title="Carga un usuario desde un archivo." alt="" coords="5,231,156,256"/>
+<area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#af97adbc40604faad2ab88b2fe0d9c494" title="Crea lista enlazada de posts vacía." alt="" coords="384,5,567,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,228,210,141,293,87,383,40,401,32,403,37,385,44,296,92,213,145,99,233"/>
+<area shape="rect" id="Node000003" href="$d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="204,179,336,204"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="127,228,209,205,211,210,128,233"/>
+<area shape="rect" id="Node000006" href="$d2/d9e/users_8c.html#a712d75094f2cdc4a576c1ea1dc5288ff" title="Inicializa los intereses de un usuario." alt="" coords="404,304,547,329"/>
+<area shape="poly" id="edge12_Node000001_Node000006" title=" " alt="" coords="150,253,393,299,392,304,149,259"/>
+<area shape="rect" id="Node000010" href="$d2/d9e/users_8c.html#a9ebb42e316a747ef9b35e33309ee9bb7" title="Crea un post en la lista de posts." alt="" coords="223,331,317,356"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="106,254,205,309,231,322,229,327,203,314,103,259"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="275,177,313,112,345,73,382,40,392,34,395,39,386,44,348,77,318,115,280,180"/>
+<area shape="rect" id="Node000004" href="$d1/d2a/graph_8c.html#a10d20aea4764e2b54197726d92b3e637" title="Añade un usuario (ya creado) al grafo." alt="" coords="403,55,548,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="280,177,322,134,351,110,383,89,397,82,400,87,385,94,354,114,326,138,284,180"/>
+<area shape="rect" id="Node000005" href="$d1/d2a/graph_8c.html#a1caf8c58c50411466450e68efeb9beee" title="Inicia una lista de adyacencia vacía." alt="" coords="410,104,541,129"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="295,176,383,138,407,131,408,136,385,143,297,181"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="284,202,326,245,354,269,385,289,402,297,400,302,383,294,351,273,322,249,280,206"/>
+<area shape="rect" id="Node000007" href="$d2/daf/hash__table_8c.html#a59ed78b7d84acd2ba628ae76d36f782b" title="Inserta un nuevo elemento en la tabla hash." alt="" coords="391,153,560,179"/>
+<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="336,181,377,175,378,181,336,186"/>
+<area shape="rect" id="Node000008" href="$d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="615,229,721,255"/>
+<area shape="poly" id="edge9_Node000003_Node000008" title=" " alt="" coords="337,197,601,231,600,236,336,202"/>
+<area shape="rect" id="Node000009" href="$d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="394,255,557,280"/>
+<area shape="poly" id="edge10_Node000003_Node000009" title=" " alt="" coords="304,202,385,233,426,248,424,253,383,238,302,207"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="515,176,568,196,628,221,626,226,566,200,514,181"/>
+<area shape="poly" id="edge11_Node000009_Node000008" title=" " alt="" coords="556,254,601,248,601,253,557,259"/>
+<area shape="poly" id="edge14_Node000010_Node000008" title=" " alt="" coords="318,351,370,359,434,362,501,357,534,350,566,340,591,325,614,306,649,264,653,268,618,309,595,329,568,344,535,355,502,362,434,367,370,364,317,356"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="insert_new_item" name="insert_new_item">
+<area shape="rect" id="Node000001" title="función para insertar una nueva publicación en el heap" alt="" coords="5,5,136,31"/>
+<area shape="rect" id="Node000002" href="$d5/d4f/heaps_8c.html#ae554c4bbe601908038441685f46ffb58" title="función para asegurar que el heap mantenga la propiedad (heapify_up)" alt="" coords="184,5,277,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,15,170,15,170,21,136,21"/>
+</map>

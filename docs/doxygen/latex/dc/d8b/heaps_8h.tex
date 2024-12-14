@@ -8,10 +8,22 @@ Cabecera para \doxylink{heaps_8c}{heaps.\+c}.
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
-Include dependency graph for heaps.\+h\+:
-% FIG 0
-This graph shows which files directly or indirectly include this file\+:
-% FIG 1
+{\ttfamily \#include "{}users.\+h"{}}\newline
+{\ttfamily \#include "{}hash\+\_\+table.\+h"{}}\newline
+Include dependency graph for heaps.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d75/heaps_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{de/dd5/heaps_8h__dep__incl}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -22,39 +34,38 @@ struct \mbox{\hyperlink{struct__heap}{\+\_\+heap}}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{heaps_8h_ac580046de025de05646a214976356495}\label{heaps_8h_ac580046de025de05646a214976356495} 
-\#define {\bfseries MAX\+\_\+\+HEAP\+\_\+\+SIZE}~100
-\item 
-\Hypertarget{heaps_8h_ac7c0207aa5a0e10d378be03b68041350}\label{heaps_8h_ac7c0207aa5a0e10d378be03b68041350} 
-\#define {\bfseries MAX\+\_\+\+NAME}~100
-\item 
-\Hypertarget{heaps_8h_a668e62bf5596c89ecff49f5fdb400740}\label{heaps_8h_a668e62bf5596c89ecff49f5fdb400740} 
-\#define {\bfseries MAX\+\_\+\+CONTENT}~256
+\#define \mbox{\hyperlink{heaps_8h_ac580046de025de05646a214976356495}{MAX\+\_\+\+HEAP\+\_\+\+SIZE}}~100
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{heaps_8h_a00c5b683add06c349600946ea8663f5f}\label{heaps_8h_a00c5b683add06c349600946ea8663f5f} 
-typedef struct \mbox{\hyperlink{struct__post}{\+\_\+post}} {\bfseries post}
+typedef struct \mbox{\hyperlink{struct__heap}{\+\_\+heap}} \mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}}
 \item 
-\Hypertarget{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}\label{heaps_8h_adb60841576ad61ac08dedb7ab1eee196} 
-typedef struct \mbox{\hyperlink{struct__heap}{\+\_\+heap}} {\bfseries heap}
+typedef struct \mbox{\hyperlink{struct__post}{\+\_\+post}} \mbox{\hyperlink{heaps_8h_a00c5b683add06c349600946ea8663f5f}{post}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{heaps_8h_ae554c4bbe601908038441685f46ffb58}{heapify\+\_\+up}} (\mbox{\hyperlink{struct__heap}{heap}} \texorpdfstring{$\ast$}{*}h, int index)
+void \mbox{\hyperlink{heaps_8h_ae554c4bbe601908038441685f46ffb58}{heapify\+\_\+up}} (\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}h, int index)
 \begin{DoxyCompactList}\small\item\em función para asegurar que el heap mantenga la propiedad (heapify\+\_\+up) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{heaps_8h_a69a35f14dffa0f1a49d408f62e1e3f2a}{heapify\+\_\+down}} (\mbox{\hyperlink{struct__heap}{heap}} \texorpdfstring{$\ast$}{*}h, int index)
+void \mbox{\hyperlink{heaps_8h_a69a35f14dffa0f1a49d408f62e1e3f2a}{heapify\+\_\+down}} (\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}h, int index)
 \begin{DoxyCompactList}\small\item\em función para hacer heapify\+\_\+down (restaurar la propiedad después de extraer el máximo) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{heaps_8h_a572f41d91b37df49c99486a835a22727}{insert\+\_\+new\+\_\+post}} (\mbox{\hyperlink{struct__heap}{heap}} \texorpdfstring{$\ast$}{*}h, const char \texorpdfstring{$\ast$}{*}user\+\_\+name, int priority, const char \texorpdfstring{$\ast$}{*}content)
-\begin{DoxyCompactList}\small\item\em función para insertar una nueva publicación en el heap \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{heaps_8h_a885fd75957c9234214624ff119375184}{extract\+\_\+max}} (\mbox{\hyperlink{struct__heap}{heap}} \texorpdfstring{$\ast$}{*}h)
+void \mbox{\hyperlink{heaps_8h_ab6bc768fbb523a6b9839b1228c9bb3b6}{extract\+\_\+max}} (\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}h, int option)
 \begin{DoxyCompactList}\small\item\em función para extraer el máximo (el nodo más prioritario) y lo muestra (se utiliza en la función ver\+\_\+posts) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{heaps_8h_a1d4c1432189e6d271049bd40a407fd3b}{print\+\_\+heap}} (\mbox{\hyperlink{struct__heap}{heap}} \texorpdfstring{$\ast$}{*}h)
-\begin{DoxyCompactList}\small\item\em función para imprimir el heap \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{heaps_8h_aa4499cf0118858ef39802b277a5374cf}{ver\+\_\+posts}} (\mbox{\hyperlink{struct__heap}{heap}} \texorpdfstring{$\ast$}{*}h)
-\begin{DoxyCompactList}\small\item\em función para visualizar publicaciones del heap en consola y orden de prioridad \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{heaps_8h_a1d4c1432189e6d271049bd40a407fd3b}{print\+\_\+heap}} (\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}h)
+\item 
+void \mbox{\hyperlink{heaps_8h_a9d4ba1e7623f5833342662bb0044f4ed}{insert\+\_\+new\+\_\+item}} (\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}h, const char \texorpdfstring{$\ast$}{*}user\+\_\+name, double priority, const char \texorpdfstring{$\ast$}{*}content)
+\begin{DoxyCompactList}\small\item\em función para insertar una nueva publicación en el heap \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{heaps_8h_ad9bb334d8c3a3484ee92945e1f6f2d31}{watch\+\_\+posts}} (\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}h)
+\begin{DoxyCompactList}\small\item\em función para visualizar publicaciones del heap en consola y orden de prioridad \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{heaps_8h_aedc7a411ef420f1ae7011d8933ada93a}{watch\+\_\+suggestions}} (\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}h)
+\begin{DoxyCompactList}\small\item\em función para visualizar sugerencias de amistad en base a la similitud de los usuarios \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{heaps_8h_af7e02e199bbc0be8e01a161fbe2cf5a0}{search\+\_\+posts}} (\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}h, \mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table)
+\begin{DoxyCompactList}\small\item\em función para buscar publicaciones para colocar en el heap \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{heaps_8h_a9ab742e06b50bee974868b46fc40e459}{search\+\_\+new\+\_\+possible\+\_\+friends}} (\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}h, \mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests\+Table, \mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} current\+User)
+\begin{DoxyCompactList}\small\item\em función para buscar sugerencias de amistades para colocar en el heap \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{heaps_8h_a2c55ed6eadb05991c21772343873bc2e}{free\+\_\+heap}} (\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}h)
+\begin{DoxyCompactList}\small\item\em función para liberar recursos \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -73,12 +84,36 @@ Cabecera para \doxylink{heaps_8c}{heaps.\+c}.
 \end{DoxyAuthor}
 
 
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{heaps_8h_ac580046de025de05646a214976356495}\label{heaps_8h_ac580046de025de05646a214976356495} 
+\index{heaps.h@{heaps.h}!MAX\_HEAP\_SIZE@{MAX\_HEAP\_SIZE}}
+\index{MAX\_HEAP\_SIZE@{MAX\_HEAP\_SIZE}!heaps.h@{heaps.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_HEAP\_SIZE}{MAX\_HEAP\_SIZE}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+HEAP\+\_\+\+SIZE~100}
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}\label{heaps_8h_adb60841576ad61ac08dedb7ab1eee196} 
+\index{heaps.h@{heaps.h}!heap@{heap}}
+\index{heap@{heap}!heaps.h@{heaps.h}}
+\doxysubsubsection{\texorpdfstring{heap}{heap}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__heap}{\+\_\+heap}} \mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}}}
+
+\Hypertarget{heaps_8h_a00c5b683add06c349600946ea8663f5f}\label{heaps_8h_a00c5b683add06c349600946ea8663f5f} 
+\index{heaps.h@{heaps.h}!post@{post}}
+\index{post@{post}!heaps.h@{heaps.h}}
+\doxysubsubsection{\texorpdfstring{post}{post}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__post}{\+\_\+post}} \mbox{\hyperlink{heaps_8h_a00c5b683add06c349600946ea8663f5f}{post}}}
+
+
+
 \doxysubsection{Function Documentation}
-\Hypertarget{heaps_8h_a885fd75957c9234214624ff119375184}\label{heaps_8h_a885fd75957c9234214624ff119375184} 
+\Hypertarget{heaps_8h_ab6bc768fbb523a6b9839b1228c9bb3b6}\label{heaps_8h_ab6bc768fbb523a6b9839b1228c9bb3b6} 
 \index{heaps.h@{heaps.h}!extract\_max@{extract\_max}}
 \index{extract\_max@{extract\_max}!heaps.h@{heaps.h}}
 \doxysubsubsection{\texorpdfstring{extract\_max()}{extract\_max()}}
-{\footnotesize\ttfamily void extract\+\_\+max (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__heap}{heap}} \texorpdfstring{$\ast$}{*}}]{h }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void extract\+\_\+max (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}}]{h,  }\item[{int}]{option }\end{DoxyParamCaption})}
 
 
 
@@ -88,12 +123,50 @@ función para extraer el máximo (el nodo más prioritario) y lo muestra (se uti
 \begin{DoxyParams}{Parameters}
 {\em h} & cola de prioridad \\
 \hline
+{\em option} & opción para personalizar el formato de salida \\
+\hline
 \end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{dc/d8b/heaps_8h_ab6bc768fbb523a6b9839b1228c9bb3b6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{dc/d8b/heaps_8h_ab6bc768fbb523a6b9839b1228c9bb3b6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{heaps_8h_a2c55ed6eadb05991c21772343873bc2e}\label{heaps_8h_a2c55ed6eadb05991c21772343873bc2e} 
+\index{heaps.h@{heaps.h}!free\_heap@{free\_heap}}
+\index{free\_heap@{free\_heap}!heaps.h@{heaps.h}}
+\doxysubsubsection{\texorpdfstring{free\_heap()}{free\_heap()}}
+{\footnotesize\ttfamily void free\+\_\+heap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}}]{h }\end{DoxyParamCaption})}
+
+
+
+función para liberar recursos 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & cola de prioridad \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{dc/d8b/heaps_8h_a2c55ed6eadb05991c21772343873bc2e_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{heaps_8h_a69a35f14dffa0f1a49d408f62e1e3f2a}\label{heaps_8h_a69a35f14dffa0f1a49d408f62e1e3f2a} 
 \index{heaps.h@{heaps.h}!heapify\_down@{heapify\_down}}
 \index{heapify\_down@{heapify\_down}!heaps.h@{heaps.h}}
 \doxysubsubsection{\texorpdfstring{heapify\_down()}{heapify\_down()}}
-{\footnotesize\ttfamily void heapify\+\_\+down (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__heap}{heap}} \texorpdfstring{$\ast$}{*}}]{h,  }\item[{int}]{index }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void heapify\+\_\+down (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}}]{h,  }\item[{int}]{index }\end{DoxyParamCaption})}
 
 
 
@@ -106,11 +179,25 @@ función para hacer heapify\+\_\+down (restaurar la propiedad después de extrae
 {\em index} & índice del nodo \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{dc/d8b/heaps_8h_a69a35f14dffa0f1a49d408f62e1e3f2a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/d8b/heaps_8h_a69a35f14dffa0f1a49d408f62e1e3f2a_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{heaps_8h_ae554c4bbe601908038441685f46ffb58}\label{heaps_8h_ae554c4bbe601908038441685f46ffb58} 
 \index{heaps.h@{heaps.h}!heapify\_up@{heapify\_up}}
 \index{heapify\_up@{heapify\_up}!heaps.h@{heaps.h}}
 \doxysubsubsection{\texorpdfstring{heapify\_up()}{heapify\_up()}}
-{\footnotesize\ttfamily void heapify\+\_\+up (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__heap}{heap}} \texorpdfstring{$\ast$}{*}}]{h,  }\item[{int}]{index }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void heapify\+\_\+up (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}}]{h,  }\item[{int}]{index }\end{DoxyParamCaption})}
 
 
 
@@ -123,11 +210,18 @@ función para asegurar que el heap mantenga la propiedad (heapify\+\_\+up)
 {\em index} & índice del nodo que debe ajustarse \\
 \hline
 \end{DoxyParams}
-\Hypertarget{heaps_8h_a572f41d91b37df49c99486a835a22727}\label{heaps_8h_a572f41d91b37df49c99486a835a22727} 
-\index{heaps.h@{heaps.h}!insert\_new\_post@{insert\_new\_post}}
-\index{insert\_new\_post@{insert\_new\_post}!heaps.h@{heaps.h}}
-\doxysubsubsection{\texorpdfstring{insert\_new\_post()}{insert\_new\_post()}}
-{\footnotesize\ttfamily void insert\+\_\+new\+\_\+post (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__heap}{heap}} \texorpdfstring{$\ast$}{*}}]{h,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{user\+\_\+name,  }\item[{int}]{priority,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{content }\end{DoxyParamCaption})}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/d8b/heaps_8h_ae554c4bbe601908038441685f46ffb58_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{heaps_8h_a9d4ba1e7623f5833342662bb0044f4ed}\label{heaps_8h_a9d4ba1e7623f5833342662bb0044f4ed} 
+\index{heaps.h@{heaps.h}!insert\_new\_item@{insert\_new\_item}}
+\index{insert\_new\_item@{insert\_new\_item}!heaps.h@{heaps.h}}
+\doxysubsubsection{\texorpdfstring{insert\_new\_item()}{insert\_new\_item()}}
+{\footnotesize\ttfamily void insert\+\_\+new\+\_\+item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}}]{h,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{user\+\_\+name,  }\item[{double}]{priority,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{content }\end{DoxyParamCaption})}
 
 
 
@@ -139,31 +233,102 @@ función para insertar una nueva publicación en el heap
 \hline
 {\em user\+\_\+name} & nombre del usuario \\
 \hline
-{\em priority} & prioridad de la publicación \\
+{\em priority} & prioridad de la publicación o de la sugerencia \\
 \hline
-{\em content} & contenido de la publicación \\
+{\em content} & contenido de la publicación o de la sugerencia \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{dc/d8b/heaps_8h_a9d4ba1e7623f5833342662bb0044f4ed_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/d8b/heaps_8h_a9d4ba1e7623f5833342662bb0044f4ed_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{heaps_8h_a1d4c1432189e6d271049bd40a407fd3b}\label{heaps_8h_a1d4c1432189e6d271049bd40a407fd3b} 
 \index{heaps.h@{heaps.h}!print\_heap@{print\_heap}}
 \index{print\_heap@{print\_heap}!heaps.h@{heaps.h}}
 \doxysubsubsection{\texorpdfstring{print\_heap()}{print\_heap()}}
-{\footnotesize\ttfamily void print\+\_\+heap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__heap}{heap}} \texorpdfstring{$\ast$}{*}}]{h }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void print\+\_\+heap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}}]{h }\end{DoxyParamCaption})}
+
+\Hypertarget{heaps_8h_a9ab742e06b50bee974868b46fc40e459}\label{heaps_8h_a9ab742e06b50bee974868b46fc40e459} 
+\index{heaps.h@{heaps.h}!search\_new\_possible\_friends@{search\_new\_possible\_friends}}
+\index{search\_new\_possible\_friends@{search\_new\_possible\_friends}!heaps.h@{heaps.h}}
+\doxysubsubsection{\texorpdfstring{search\_new\_possible\_friends()}{search\_new\_possible\_friends()}}
+{\footnotesize\ttfamily void search\+\_\+new\+\_\+possible\+\_\+friends (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}}]{h,  }\item[{\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{table,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests\+Table,  }\item[{\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}}}]{current\+User }\end{DoxyParamCaption})}
 
 
 
-función para imprimir el heap 
+función para buscar sugerencias de amistades para colocar en el heap 
 
 
 \begin{DoxyParams}{Parameters}
 {\em h} & cola de prioridad \\
 \hline
+{\em table} & Puntero a la tabla hash \\
+\hline
+{\em global\+Interests\+Table} & Tabla de intereses globales \\
+\hline
+{\em current\+User} & Usuario actual \\
+\hline
 \end{DoxyParams}
-\Hypertarget{heaps_8h_aa4499cf0118858ef39802b277a5374cf}\label{heaps_8h_aa4499cf0118858ef39802b277a5374cf} 
-\index{heaps.h@{heaps.h}!ver\_posts@{ver\_posts}}
-\index{ver\_posts@{ver\_posts}!heaps.h@{heaps.h}}
-\doxysubsubsection{\texorpdfstring{ver\_posts()}{ver\_posts()}}
-{\footnotesize\ttfamily void ver\+\_\+posts (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__heap}{heap}} \texorpdfstring{$\ast$}{*}}]{h }\end{DoxyParamCaption})}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/d8b/heaps_8h_a9ab742e06b50bee974868b46fc40e459_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{dc/d8b/heaps_8h_a9ab742e06b50bee974868b46fc40e459_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{heaps_8h_af7e02e199bbc0be8e01a161fbe2cf5a0}\label{heaps_8h_af7e02e199bbc0be8e01a161fbe2cf5a0} 
+\index{heaps.h@{heaps.h}!search\_posts@{search\_posts}}
+\index{search\_posts@{search\_posts}!heaps.h@{heaps.h}}
+\doxysubsubsection{\texorpdfstring{search\_posts()}{search\_posts()}}
+{\footnotesize\ttfamily void search\+\_\+posts (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}}]{h,  }\item[{\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{table }\end{DoxyParamCaption})}
+
+
+
+función para buscar publicaciones para colocar en el heap 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & cola de prioridad \\
+\hline
+{\em table} & Puntero a la tabla hash \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/d8b/heaps_8h_af7e02e199bbc0be8e01a161fbe2cf5a0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{dc/d8b/heaps_8h_af7e02e199bbc0be8e01a161fbe2cf5a0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{heaps_8h_ad9bb334d8c3a3484ee92945e1f6f2d31}\label{heaps_8h_ad9bb334d8c3a3484ee92945e1f6f2d31} 
+\index{heaps.h@{heaps.h}!watch\_posts@{watch\_posts}}
+\index{watch\_posts@{watch\_posts}!heaps.h@{heaps.h}}
+\doxysubsubsection{\texorpdfstring{watch\_posts()}{watch\_posts()}}
+{\footnotesize\ttfamily void watch\+\_\+posts (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}}]{h }\end{DoxyParamCaption})}
 
 
 
@@ -174,3 +339,46 @@ función para visualizar publicaciones del heap en consola y orden de prioridad
 {\em h} & cola de prioridad \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/d8b/heaps_8h_ad9bb334d8c3a3484ee92945e1f6f2d31_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{dc/d8b/heaps_8h_ad9bb334d8c3a3484ee92945e1f6f2d31_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{heaps_8h_aedc7a411ef420f1ae7011d8933ada93a}\label{heaps_8h_aedc7a411ef420f1ae7011d8933ada93a} 
+\index{heaps.h@{heaps.h}!watch\_suggestions@{watch\_suggestions}}
+\index{watch\_suggestions@{watch\_suggestions}!heaps.h@{heaps.h}}
+\doxysubsubsection{\texorpdfstring{watch\_suggestions()}{watch\_suggestions()}}
+{\footnotesize\ttfamily void watch\+\_\+suggestions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heaps_8h_adb60841576ad61ac08dedb7ab1eee196}{heap}} \texorpdfstring{$\ast$}{*}}]{h }\end{DoxyParamCaption})}
+
+
+
+función para visualizar sugerencias de amistad en base a la similitud de los usuarios 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & cola de prioridad \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{dc/d8b/heaps_8h_aedc7a411ef420f1ae7011d8933ada93a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{dc/d8b/heaps_8h_aedc7a411ef420f1ae7011d8933ada93a_icgraph}
+\end{center}
+\end{figure}

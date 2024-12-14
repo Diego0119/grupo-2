@@ -11,111 +11,114 @@
 \DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
 \DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <string.h>}}
 \DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utilities_8h}{utilities.h}}"{}}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hash__table_8h}{hash\_table.h}}"{}}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{graph_8h}{graph.h}}"{}}}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \textcolor{comment}{/*usuarios\ individuales*/}}
-\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__user}{\_user}}\ \mbox{\hyperlink{struct__user}{\_User}};}
-\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__user}{\_User}}\ *\mbox{\hyperlink{struct__user}{User}};}
-\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__user}{\_User}}\ *\mbox{\hyperlink{struct__user}{PtrToUser}};}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__postNode}{\_postNode}}\ \mbox{\hyperlink{struct__postNode}{PostNode}};}
-\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__postNode}{PostNode}}\ *\mbox{\hyperlink{struct__postNode}{PtrToPostNode}};}
-\DoxyCodeLine{00033\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__postNode}{PtrToPostNode}}\ \mbox{\hyperlink{struct__postNode}{PostsPosition}};}
-\DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__postNode}{PtrToPostNode}}\ \mbox{\hyperlink{struct__postNode}{UserPosts}};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__interest}{\_interest}}\ \mbox{\hyperlink{struct__interest}{Interest}};}
-\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__interest}{Interest}}\ *\mbox{\hyperlink{struct__interest}{InterestTable}};}
-\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__interest}{Interest}}\ *\mbox{\hyperlink{struct__interest}{PtrToInterest}};}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \textcolor{comment}{/*\ typedefs\ para\ evitar\ errores\ de\ compilación\ */}}
-\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__globalInterests}{\_globalInterests}}\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}};}
-\DoxyCodeLine{00042\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__edge}{\_edge}}\ *\mbox{\hyperlink{struct__edge}{Edge}};}
-\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__graph}{\_graph}}\ *\mbox{\hyperlink{struct__graph}{Graph}};}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00050\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__user}{\_user}}\{}
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__user_a94822395e1748cb26cdbd9f9f9393b66}{id}};\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct__user_ab6c3d91071fa1f9f68465532a0033191}{username}};\ \ }
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct__user_adbfb4eae22f7b652b56a73fdde9e1e58}{password}};\ \ }
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct__user_a53ab1267d8848d7272095c5a30215b2b}{name}};\ \ \ \ \ \ }
-\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{struct__postNode}{UserPosts}}\ \mbox{\hyperlink{struct__user_a295a29bb47723cf684f67e2acf75ca80}{posts}};\ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{/*\ GRAFO\ */}}
-\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{struct__edge}{Edge}}\ \mbox{\hyperlink{struct__user_aefcdce14fc97e6a679f9d18cf50c73ab}{following}};\ \ \ }
-\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{struct__edge}{Edge}}\ \mbox{\hyperlink{struct__user_a16e69445c7c801ff40d4dbd7235316d8}{followers}};\ \ \ }
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__user_a117457bf0105f82e2224b98537b91004}{numFollowing}};\ }
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__user_a12661d2ff561fa9ca5648b23e6280478}{numFollowers}};\ }
-\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{struct__user}{PtrToUser}}\ next;\ \ \ \textcolor{comment}{/*\ siguiente\ en\ la\ lista\ del\ grafo\ */}}
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{/*\ INTERESES\ Y\ POPULARIDAD*/}}
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__user_ae62a3b685341f23e77304d35b9226241}{popularity}};\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{struct__interest}{InterestTable}}\ interests;\ \textcolor{comment}{/*\ Tabla\ de\ intereses\ del\ usuario\ */}}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ Campos\ nuevos\ para\ amigabilidad}}
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{float}\ friendliness;\ \ }
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{char}\ *category;\ \ \ \ \ \ }
-\DoxyCodeLine{00069\ \};}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00076\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__postNode}{\_postNode}}\{}
-\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__postNode_ace569ee169d91a95ad239273cbb542b4}{id}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{struct\ }tm\ \mbox{\hyperlink{struct__postNode_afd5b5bdb94fb89ec859606c01594114b}{date}};\ \ \ \ \ }
-\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct__postNode_a0a07fd8a409b3006ed6edd9c21b9ea91}{post}};\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__postNode_adcc9f3eb8cdfec94f17d598e6118f2ca}{priority}};\ \ \ \ \ \ \ }
-\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{struct__postNode}{PtrToPostNode}}\ \mbox{\hyperlink{struct__postNode_a84053971dc3635c5b7fdae4a377f8e33}{next}};\ }
-\DoxyCodeLine{00082\ \};}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00088\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__interest}{\_interest}}\{}
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{char}\ **\mbox{\hyperlink{struct__interest_abe234887dc69f12ec7a2b10f47e630d9}{name}};\ }
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__interest_ac965e66eec91e76aefeb7aeb45c828c6}{globalId}};\ }
-\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__interest_a4b972969e44c579bcf244ed0912ee69e}{value}};\ }
-\DoxyCodeLine{00092\ \};}
-\DoxyCodeLine{00093\ }
-\DoxyCodeLine{00098\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__globalInterests}{\_globalInterests}}\{}
-\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{char}\ **\mbox{\hyperlink{struct__globalInterests_a4ca0c46597c06d66bafeac0d3ab5c0e6}{interestsTable}};\ }
-\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__globalInterests_a8c3f59ec8806fb673f9ce6ce1c623366}{numInterests}};\ }
-\DoxyCodeLine{00101\ \};}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00103\ \textcolor{comment}{//\ Funciones\ para\ gestionar\ usuarios}}
-\DoxyCodeLine{00104\ \mbox{\hyperlink{struct__user}{User}}\ \mbox{\hyperlink{users_8h_ad2c3fd62b5918a70ecf917d4810caddd}{create\_new\_user}}(\textcolor{keywordtype}{char}\ *username,\ \textcolor{keywordtype}{char}\ *password,\ \textcolor{keywordtype}{char}\ *name,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
-\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a489491e716d5b54b2a5304960a065dad}{delete\_user}}(\mbox{\hyperlink{struct__user}{User}}\ user,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
-\DoxyCodeLine{00106\ \mbox{\hyperlink{struct__user}{User}}\ \mbox{\hyperlink{users_8h_a02b0bb2074d6748efedd29d4cbb1ee82}{search\_user}}(\textcolor{keywordtype}{char}\ *username,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table);}
-\DoxyCodeLine{00107\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_acaecd93a2ce5b9b906cb2fe93cd02ce1}{free\_all\_users}}(\mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
-\DoxyCodeLine{00108\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_afb02f9a84d5af8c7b39ccfde9ecd3649}{increment\_popularity}}(\mbox{\hyperlink{struct__user}{User}}\ user);}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00110\ \textcolor{comment}{//\ funciones\ de\ impresión}}
-\DoxyCodeLine{00111\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a35b00484b2f280f381c1f3015de40b10}{print\_user}}(\mbox{\hyperlink{struct__user}{User}}\ user,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterestsTable);}
-\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a360a3e27e03a0155ccfe3cdc28f9abe1}{print\_all\_users}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph);}
-\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_ac086476b157eb9110ffac2b58b16d67c}{print\_followers}}(\mbox{\hyperlink{struct__user}{User}}\ user);}
-\DoxyCodeLine{00114\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a6314922df43861bd6d37310fda8fad29}{print\_following}}(\mbox{\hyperlink{struct__user}{User}}\ user);}
-\DoxyCodeLine{00115\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_aea0be0e6a2651d5351de6f6bbc0654c6}{print\_user\_interests}}(\mbox{\hyperlink{struct__interest}{InterestTable}}\ userInterests,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterestsTable);}
-\DoxyCodeLine{00116\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a6ebb1bc44da4008341485e23988d0ee5}{suggest\_popular\_users}}(\mbox{\hyperlink{struct__hashtable}{HashTable}}\ *table);}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \textcolor{comment}{//\ Funciones\ para\ gestionar\ publicaciones}}
-\DoxyCodeLine{00119\ \mbox{\hyperlink{struct__postNode}{UserPosts}}\ \mbox{\hyperlink{users_8h_af97adbc40604faad2ab88b2fe0d9c494}{create\_empty\_userPosts}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00120\ \mbox{\hyperlink{struct__postNode}{PtrToPostNode}}\ \mbox{\hyperlink{users_8h_a9ebb42e316a747ef9b35e33309ee9bb7}{insert\_post}}(\mbox{\hyperlink{struct__postNode}{UserPosts}}\ posts,\ \textcolor{keywordtype}{char}\ *content);}
-\DoxyCodeLine{00121\ \mbox{\hyperlink{struct__postNode}{PtrToPostNode}}\ search\_post(\mbox{\hyperlink{struct__postNode}{UserPosts}}\ posts,\ \textcolor{keywordtype}{int}\ postId);}
-\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ delete\_post(\mbox{\hyperlink{struct__postNode}{UserPosts}}\ posts,\ \textcolor{keywordtype}{int}\ postId);\ \textcolor{comment}{/*PENDIENTE*/}}
-\DoxyCodeLine{00123\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a9b71eb9fad474dbd89952026242302f0}{delete\_userPosts}}(\mbox{\hyperlink{struct__postNode}{UserPosts}}\ posts);}
-\DoxyCodeLine{00124\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a6b6418dc0ab92404a730e1b8eeb392a0}{print\_userPosts}}(\mbox{\hyperlink{struct__postNode}{UserPosts}}\ posts);}
-\DoxyCodeLine{00125\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a1fb73a78d8eea9b0adbc075296452483}{sort\_posts}}(\mbox{\hyperlink{struct__user}{User}}\ user);}
-\DoxyCodeLine{00126\ }
-\DoxyCodeLine{00127\ \textcolor{comment}{//\ funciones\ de\ intereses}}
-\DoxyCodeLine{00128\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ \mbox{\hyperlink{users_8h_aca6a94ac9bee002e66e4734c28dcfbfd}{init\_global\_interests}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00129\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a5b739812b015806f1a10bb82b97ce588}{free\_global\_interests}}(\mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterestTable);}
-\DoxyCodeLine{00130\ \mbox{\hyperlink{struct__interest}{InterestTable}}\ \mbox{\hyperlink{users_8h_a712d75094f2cdc4a576c1ea1dc5288ff}{init\_user\_interests}}(\mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterestTable);}
-\DoxyCodeLine{00131\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a8f43b1f54e3b8b9e1d0a432ed32a648e}{free\_user\_interests}}(\mbox{\hyperlink{struct__interest}{InterestTable}}\ userInterests);}
-\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ add\_interest(\mbox{\hyperlink{struct__user}{User}}\ user,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterestTable,\ \textcolor{keywordtype}{int}\ interestId);}
-\DoxyCodeLine{00133\ \textcolor{keywordtype}{void}\ print\_global\_interests(\mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterestTable);}
-\DoxyCodeLine{00134\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{users_8h_a9c564038c86f55e7ad802f912e004869}{edge\_jaccard}}(\mbox{\hyperlink{struct__user}{User}}\ user1,\ \mbox{\hyperlink{struct__user}{User}}\ user2,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterestTable);}
-\DoxyCodeLine{00135\ }
-\DoxyCodeLine{00136\ \textcolor{comment}{//\ generar\ conexiones\ y\ usuarios}}
-\DoxyCodeLine{00137\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_aa608289825b004627ba2258665dec9bc}{generate\_random\_connections}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
-\DoxyCodeLine{00138\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a901b74d1392472b70c8d66d58938e833}{generate\_users}}(\textcolor{keywordtype}{int}\ quantity,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
-\DoxyCodeLine{00139\ }
-\DoxyCodeLine{00140\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{users_8h_aeda9265bc6db17bc211f56c5177063ff}{calculate\_friendliness}}(\mbox{\hyperlink{struct__user}{User}}\ user);}
-\DoxyCodeLine{00141\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a08e8561c58c199017703c94efe4ab55f}{print\_friendliness\_table}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph);}
-\DoxyCodeLine{00142\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{users_8h_ac56f8b225ddd39009e826d1f0b8499b8}{classify\_friendliness}}(\textcolor{keywordtype}{float}\ friendliness);}
-\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <sys/stat.h>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utilities_8h}{utilities.h}}"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hash__table_8h}{hash\_table.h}}"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{graph_8h}{graph.h}}"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{database_8h}{database.h}}"{}}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{/*usuarios\ individuales*/}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__user}{\_user}}\ \mbox{\hyperlink{struct__user}{\_User}};}
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__user}{\_User}}\ *\mbox{\hyperlink{users_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}};}
+\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__user}{\_User}}\ *\mbox{\hyperlink{users_8h_a2c5b04877efe5e43f9d0988ed6d00ada}{PtrToUser}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__postNode}{\_postNode}}\ \mbox{\hyperlink{struct__postNode}{PostNode}};}
+\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__postNode}{PostNode}}\ *\mbox{\hyperlink{users_8h_a5cb694b39358fae2f528f7a0980bfb7a}{PtrToPostNode}};}
+\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__postNode}{PtrToPostNode}}\ \mbox{\hyperlink{users_8h_a2f85ad161697dc3ec334887c217c0633}{PostsPosition}};}
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__postNode}{PtrToPostNode}}\ \mbox{\hyperlink{users_8h_a9103b753f9f11f673fb1f33cb4edddb6}{UserPosts}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__interest}{\_interest}}\ \mbox{\hyperlink{struct__interest}{Interest}};}
+\DoxyCodeLine{00040\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__interest}{Interest}}\ *\mbox{\hyperlink{users_8h_a67cdeb4bceb57805c2aaa33ff4ce3ba7}{InterestTable}};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__interest}{Interest}}\ *\mbox{\hyperlink{users_8h_ae7a621af163e3f5b90588a75211be51f}{PtrToInterest}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{/*\ typedefs\ para\ evitar\ errores\ de\ compilación\ */}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__globalInterests}{\_globalInterests}}\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__edge}{\_edge}}\ *\mbox{\hyperlink{users_8h_a6515921c52024d62e2a51b22e9eed1d1}{Edge}};}
+\DoxyCodeLine{00046\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__graph}{\_graph}}\ *\mbox{\hyperlink{users_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__user}{\_user}}\{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__user_a94822395e1748cb26cdbd9f9f9393b66}{id}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct__user_ab6c3d91071fa1f9f68465532a0033191}{username}};\ \ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct__user_adbfb4eae22f7b652b56a73fdde9e1e58}{password}};\ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct__user_a53ab1267d8848d7272095c5a30215b2b}{name}};\ \ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{struct__postNode}{UserPosts}}\ \mbox{\hyperlink{struct__user_a295a29bb47723cf684f67e2acf75ca80}{posts}};\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{/*\ GRAFO\ */}}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{struct__edge}{Edge}}\ \mbox{\hyperlink{struct__user_aefcdce14fc97e6a679f9d18cf50c73ab}{following}};\ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{struct__edge}{Edge}}\ \mbox{\hyperlink{struct__user_a16e69445c7c801ff40d4dbd7235316d8}{followers}};\ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__user_a117457bf0105f82e2224b98537b91004}{numFollowing}};\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__user_a12661d2ff561fa9ca5648b23e6280478}{numFollowers}};\ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{struct__user}{PtrToUser}}\ \mbox{\hyperlink{struct__user_a80de9f306e3e719d854d9caf1f0d4a79}{next}};\ \ \ \textcolor{comment}{/*\ siguiente\ en\ la\ lista\ del\ grafo\ */}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{/*\ INTERESES\ Y\ POPULARIDAD*/}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__user_ae62a3b685341f23e77304d35b9226241}{popularity}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{struct__interest}{InterestTable}}\ \mbox{\hyperlink{struct__user_a372b6dd570a9880a5bd8744f0da44cda}{interests}};\ \textcolor{comment}{/*\ Tabla\ de\ intereses\ del\ usuario\ */}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ Campos\ nuevos\ para\ amigabilidad}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct__user_afb98b79bf0fc4fe7374bac9a69a9d59c}{friendliness}};\ \ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct__user_a7233945aa215b577060c573383aa18e3}{category}};\ \ \ \ \ \ }
+\DoxyCodeLine{00072\ \};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__postNode}{\_postNode}}\{}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__postNode_ace569ee169d91a95ad239273cbb542b4}{id}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{struct\ }tm\ \mbox{\hyperlink{struct__postNode_afd5b5bdb94fb89ec859606c01594114b}{date}};\ \ \ \ \ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct__postNode_a0a07fd8a409b3006ed6edd9c21b9ea91}{post}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__postNode_adcc9f3eb8cdfec94f17d598e6118f2ca}{priority}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{struct__postNode}{PtrToPostNode}}\ \mbox{\hyperlink{struct__postNode_a84053971dc3635c5b7fdae4a377f8e33}{next}};\ }
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__interest}{\_interest}}\{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct__interest_aaa61ba876602000e5ad48114324aaa30}{name}};\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__interest_ac965e66eec91e76aefeb7aeb45c828c6}{globalId}};\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__interest_a4b972969e44c579bcf244ed0912ee69e}{value}};\ }
+\DoxyCodeLine{00095\ \};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__globalInterests}{\_globalInterests}}\{}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{char}\ **\mbox{\hyperlink{struct__globalInterests_a4ca0c46597c06d66bafeac0d3ab5c0e6}{interestsTable}};\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__globalInterests_a8c3f59ec8806fb673f9ce6ce1c623366}{numInterests}};\ }
+\DoxyCodeLine{00104\ \};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{comment}{//\ Funciones\ para\ gestionar\ usuarios}}
+\DoxyCodeLine{00107\ \mbox{\hyperlink{struct__user}{User}}\ \mbox{\hyperlink{users_8h_ad2c3fd62b5918a70ecf917d4810caddd}{create\_new\_user}}(\textcolor{keywordtype}{char}\ *username,\ \textcolor{keywordtype}{char}\ *password,\ \textcolor{keywordtype}{char}\ *name,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
+\DoxyCodeLine{00108\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_afc890b7835333cedad2a333a95e3c510}{delete\_user}}(\mbox{\hyperlink{struct__user}{User}}\ user,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph);}
+\DoxyCodeLine{00109\ \mbox{\hyperlink{struct__user}{User}}\ \mbox{\hyperlink{users_8h_a02b0bb2074d6748efedd29d4cbb1ee82}{search\_user}}(\textcolor{keywordtype}{char}\ *username,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table);}
+\DoxyCodeLine{00110\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_aefba9a925655e4df5dba3e7433342f78}{free\_all\_users}}(\mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph);}
+\DoxyCodeLine{00111\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_afb02f9a84d5af8c7b39ccfde9ecd3649}{increment\_popularity}}(\mbox{\hyperlink{struct__user}{User}}\ user);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{comment}{//\ funciones\ de\ impresión}}
+\DoxyCodeLine{00114\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a35b00484b2f280f381c1f3015de40b10}{print\_user}}(\mbox{\hyperlink{struct__user}{User}}\ user,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterestsTable);}
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a360a3e27e03a0155ccfe3cdc28f9abe1}{print\_all\_users}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph);}
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_ac086476b157eb9110ffac2b58b16d67c}{print\_followers}}(\mbox{\hyperlink{struct__user}{User}}\ user);}
+\DoxyCodeLine{00117\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a6314922df43861bd6d37310fda8fad29}{print\_following}}(\mbox{\hyperlink{struct__user}{User}}\ user);}
+\DoxyCodeLine{00118\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_aea0be0e6a2651d5351de6f6bbc0654c6}{print\_user\_interests}}(\mbox{\hyperlink{struct__interest}{InterestTable}}\ userInterests,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterestsTable);}
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a6ebb1bc44da4008341485e23988d0ee5}{suggest\_popular\_users}}(\mbox{\hyperlink{struct__hashtable}{HashTable}}\ *table);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{comment}{//\ Funciones\ para\ gestionar\ publicaciones}}
+\DoxyCodeLine{00122\ \mbox{\hyperlink{struct__postNode}{UserPosts}}\ \mbox{\hyperlink{users_8h_af97adbc40604faad2ab88b2fe0d9c494}{create\_empty\_userPosts}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00123\ \mbox{\hyperlink{struct__postNode}{PtrToPostNode}}\ \mbox{\hyperlink{users_8h_a9ebb42e316a747ef9b35e33309ee9bb7}{insert\_post}}(\mbox{\hyperlink{struct__postNode}{UserPosts}}\ posts,\ \textcolor{keywordtype}{char}\ *content);}
+\DoxyCodeLine{00124\ \mbox{\hyperlink{struct__postNode}{PtrToPostNode}}\ \mbox{\hyperlink{users_8h_ae83326636dc27d4a8413f016ed65576e}{search\_post}}(\mbox{\hyperlink{struct__postNode}{UserPosts}}\ posts,\ \textcolor{keywordtype}{int}\ postId);}
+\DoxyCodeLine{00125\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_af6609b1667d0d49c01bbdbfc0eee271e}{delete\_post}}(\mbox{\hyperlink{struct__postNode}{UserPosts}}\ posts,\ \textcolor{keywordtype}{int}\ postId);\ \textcolor{comment}{/*PENDIENTE*/}}
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a9b71eb9fad474dbd89952026242302f0}{delete\_userPosts}}(\mbox{\hyperlink{struct__postNode}{UserPosts}}\ posts);}
+\DoxyCodeLine{00127\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a6b6418dc0ab92404a730e1b8eeb392a0}{print\_userPosts}}(\mbox{\hyperlink{struct__postNode}{UserPosts}}\ posts);}
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a1fb73a78d8eea9b0adbc075296452483}{sort\_posts}}(\mbox{\hyperlink{struct__user}{User}}\ user);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{comment}{//\ funciones\ de\ intereses}}
+\DoxyCodeLine{00131\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ \mbox{\hyperlink{users_8h_aca6a94ac9bee002e66e4734c28dcfbfd}{init\_global\_interests}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a5b739812b015806f1a10bb82b97ce588}{free\_global\_interests}}(\mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterestTable);}
+\DoxyCodeLine{00133\ \mbox{\hyperlink{struct__interest}{InterestTable}}\ \mbox{\hyperlink{users_8h_a712d75094f2cdc4a576c1ea1dc5288ff}{init\_user\_interests}}(\mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterestTable);}
+\DoxyCodeLine{00134\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a8f43b1f54e3b8b9e1d0a432ed32a648e}{free\_user\_interests}}(\mbox{\hyperlink{struct__interest}{InterestTable}}\ userInterests);}
+\DoxyCodeLine{00135\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_aa07746382b32ef874f1f05d0bc166411}{add\_interest}}(\mbox{\hyperlink{struct__user}{User}}\ user,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterestTable,\ \textcolor{keywordtype}{int}\ interestId);}
+\DoxyCodeLine{00136\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_aeab80d0f78ff41b5f6c231b7e750d4b9}{print\_global\_interests}}(\mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterestTable);}
+\DoxyCodeLine{00137\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{users_8h_a9c564038c86f55e7ad802f912e004869}{edge\_jaccard}}(\mbox{\hyperlink{struct__user}{User}}\ user1,\ \mbox{\hyperlink{struct__user}{User}}\ user2,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterestTable);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{comment}{//\ generar\ conexiones\ y\ usuarios}}
+\DoxyCodeLine{00140\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_aa608289825b004627ba2258665dec9bc}{generate\_random\_connections}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
+\DoxyCodeLine{00141\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a901b74d1392472b70c8d66d58938e833}{generate\_users}}(\textcolor{keywordtype}{int}\ quantity,\ \mbox{\hyperlink{struct__hashtable}{PtrToHashTable}}\ table,\ \mbox{\hyperlink{struct__graph}{Graph}}\ graph,\ \mbox{\hyperlink{struct__globalInterests}{GlobalInterests}}\ globalInterests);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{users_8h_aeda9265bc6db17bc211f56c5177063ff}{calculate\_friendliness}}(\mbox{\hyperlink{struct__user}{User}}\ user);}
+\DoxyCodeLine{00144\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a08e8561c58c199017703c94efe4ab55f}{print\_friendliness\_table}}(\mbox{\hyperlink{struct__graph}{Graph}}\ graph);}
+\DoxyCodeLine{00145\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{users_8h_ac56f8b225ddd39009e826d1f0b8499b8}{classify\_friendliness}}(\textcolor{keywordtype}{float}\ friendliness);}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

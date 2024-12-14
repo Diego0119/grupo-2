@@ -1,0 +1,14 @@
+<map id="free_graph" name="free_graph">
+<area shape="rect" id="Node000001" title="Libera la memoria de un grafo." alt="" coords="509,107,601,132"/>
+<area shape="rect" id="Node000002" href="$d7/db6/utilities_8c.html#a3b744f7d0a58cbf2362aacdd02caa1db" title=" " alt="" coords="279,56,461,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="496,106,417,84,418,79,497,101"/>
+<area shape="rect" id="Node000004" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,81,60,107"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="496,119,60,98,60,93,496,114"/>
+<area shape="rect" id="Node000005" href="$d1/d2a/graph_8c.html#a701b25df107a52bf6b2dc39817a185b5" title="Inicializa un grafo vacío." alt="" coords="108,157,231,183"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="496,135,462,141,339,157,231,168,231,162,338,151,461,135,495,129"/>
+<area shape="rect" id="Node000003" href="$d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833" title="Genera usuarios aleatorios." alt="" coords="108,5,231,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="305,55,220,33,221,28,306,50"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="265,79,60,95,60,89,265,74"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="133,39,109,52,57,83,54,79,107,48,130,35"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="130,153,107,140,54,109,57,105,109,136,133,149"/>
+</map>

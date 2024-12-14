@@ -20,8 +20,13 @@ Para ejecutar el programa, siga los siguientes pasos\+:
 \item Clonar el repositorio
 \item Generar las carpetas necesarias con el comando {\ttfamily make folders}
 \item Compilar el programa con el comando {\ttfamily make}
-\item Ejecutar el programa con {\ttfamily make run} o entrando a la carpeta {\ttfamily build} y ejecutando el archivo {\ttfamily devgraph.\+out} \begin{quote}
-⚠️ Asegurese que el archvivo {\ttfamily subtopics} se encuentre en el mismo directorio del que va a ejecutarse el programa \end{quote}
+\item Ejecutar el programa con {\ttfamily make run} o entrando a la carpeta {\ttfamily build} y ejecutando el archivo {\ttfamily devgraph.\+out}
+\item Para comenzar a utilizar el programa, debe generar usuarios con el comando {\ttfamily .devgraph.\+out -\/g \texorpdfstring{$<$}{<}cantidad de usuarios\texorpdfstring{$>$}{>}} \begin{quote}
+⚠️ Asegurese que el archivo {\ttfamily subtopics} se encuentre en el mismo directorio del que va a ejecutarse el programa \end{quote}
+\begin{quote}
+⚠️ Tenga en cuenta en cuenta que el máximo número de usuarios que se pueden generar es de 100.\+000
+
+\end{quote}
 
 \end{DoxyEnumerate}\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Comandos disponibles}{Comandos disponibles}}\label{index_autotoc_md2}
 \tabulinesep=1mm
@@ -52,36 +57,3 @@ Para ejecutar el programa, siga los siguientes pasos\+:
 {\ttfamily -\/q, -\/-\/feed}   &Muestra los posts seleccionados    \\\cline{1-2}
 {\ttfamily -\/x, -\/-\/connect}   &Muestra los usuarios recomendados   \\\cline{1-2}
 \end{longtabu}
-\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{Lista de tareas}{Lista de tareas}}\label{index_autotoc_md3}
-
-\begin{DoxyItemize}
-\item \mbox{[}X\mbox{]} Implementar tablas hash (Duván)
-\item \mbox{[} \mbox{]} Funciones de usuarios basándose en afinidades o popularidad
-\item \mbox{[}X\mbox{]} Organizar publicaciones (Duván)
-\item \mbox{[}X\mbox{]} Estructura de grafos (Diego y Miguel)
-\item \mbox{[}X\mbox{]} Algoritmos BFS/\+DFS (Miguel)
-\item \mbox{[}X\mbox{]} Implementar Dijkstra para encontrar usuarios cercanos (Diego)
-\item \mbox{[}X\mbox{]} Implementar las listas enlazadas para manejar las publicaciones (Iván)
-\item \mbox{[}X\mbox{]} Crear estructuras de usuarios (contempla la lista enlazada de publicaciones) (Iván)
-\item \mbox{[}X\mbox{]} Agregar temas/tópicos en la estructura de usuarios y publicaciones (Iván)
-\item \mbox{[}X\mbox{]} Implementar Jaccard en usuarios y publicaciones (Iván)
-\item \mbox{[}X\mbox{]} Asignación de intereses a usuarios (Iván)
-\item \mbox{[}X\mbox{]} Implementar colas de prioridad (Franco)
-\item \mbox{[} \mbox{]} Algoritmo de recomendación de publicaciones
-\item \mbox{[} \mbox{]} Algoritmo de recomendación de usuarios
-\item \mbox{[}X\mbox{]} Guardar información de los usuarios (nube) (Miguel)
-\item \mbox{[}X\mbox{]} Cargar usuarios por medio de un txt de entrada (Miguel)
-\item \mbox{[}X\mbox{]} Iniciar sesión y publicar cosas según el usuario iniciado (Iván)
-\item \mbox{[}X\mbox{]} Comandos para publicar, borrar, ver usuarios, perfil, publicaciones, etc (Iván)
-\item \mbox{[} \mbox{]} Ordenar main para el programa final
-\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysubsubsection{\texorpdfstring{Urgente}{Urgente}}\label{index_autotoc_md4}
-
-\begin{DoxyItemize}
-\item \mbox{[} \mbox{]} Arreglar carga y guardado de publicaciones
-\item \mbox{[} \mbox{]} Arreglar carga de seguidores y seguidos
-\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysubsubsection{\texorpdfstring{Extras}{Extras}}\label{index_autotoc_md5}
-
-\begin{DoxyItemize}
-\item \mbox{[}X\mbox{]} Perfil psicológico (Diego)
-\item \mbox{[}X\mbox{]} Usuarios aleatorios (Diego) 
-\end{DoxyItemize}

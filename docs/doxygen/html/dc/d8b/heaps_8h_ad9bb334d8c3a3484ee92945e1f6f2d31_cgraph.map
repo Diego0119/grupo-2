@@ -1,0 +1,8 @@
+<map id="watch_posts" name="watch_posts">
+<area shape="rect" id="Node000001" title="función para visualizar publicaciones del heap en consola y orden de prioridad" alt="" coords="5,29,108,55"/>
+<area shape="rect" id="Node000002" href="$d5/d4f/heaps_8c.html#ab6bc768fbb523a6b9839b1228c9bb3b6" title="función para extraer el máximo (el nodo más prioritario) y lo muestra (se utiliza en la función ver_p..." alt="" coords="156,29,260,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,39,142,39,142,45,108,45"/>
+<area shape="rect" id="Node000003" href="$d5/d4f/heaps_8c.html#a69a35f14dffa0f1a49d408f62e1e3f2a" title="función para hacer heapify_down (restaurar la propiedad después de extraer el máximo)" alt="" coords="308,29,420,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="260,39,294,39,294,45,260,45"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="338,31,332,21,335,11,346,5,364,3,385,6,394,15,391,19,383,11,364,8,348,10,340,15,338,20,342,28"/>
+</map>

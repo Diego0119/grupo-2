@@ -1,0 +1,6 @@
+<map id="extract_max" name="extract_max">
+<area shape="rect" id="Node000001" title="función para extraer el máximo (el nodo más prioritario) y lo muestra (se utiliza en la función ver_p..." alt="" coords="5,29,109,55"/>
+<area shape="rect" id="Node000002" href="$d5/d4f/heaps_8c.html#a69a35f14dffa0f1a49d408f62e1e3f2a" title="función para hacer heapify_down (restaurar la propiedad después de extraer el máximo)" alt="" coords="157,29,269,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,39,143,39,143,45,110,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="187,31,182,21,185,11,196,5,213,3,235,6,244,15,240,19,232,11,213,8,197,10,189,15,187,20,192,28"/>
+</map>

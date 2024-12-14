@@ -1,0 +1,13 @@
+<map id="save_all_users" name="save_all_users">
+<area shape="rect" id="Node000001" title="Guarda todos los usuarios cargados en el programa en la base de datos." alt="" coords="5,31,124,56"/>
+<area shape="rect" id="Node000002" href="$d5/d4b/database_8c.html#a396f9e338551f945a1e511c2d32ae9c0" title="Crea el directorio &#39;database&#39; si no existe." alt="" coords="172,5,327,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,33,158,28,159,33,124,38"/>
+<area shape="rect" id="Node000003" href="$d5/d4b/database_8c.html#abdee669a4d0bab54b2af1fa5f0a04cc1" title="Guarda toda la información de un usuario en la base de datos." alt="" coords="187,55,311,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="124,48,174,55,173,60,124,54"/>
+<area shape="rect" id="Node000004" href="$d2/d9e/users_8c.html#aeda9265bc6db17bc211f56c5177063ff" title="Calcula qué tan amigable es un usuario." alt="" coords="378,5,542,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="304,52,391,31,392,36,305,57"/>
+<area shape="rect" id="Node000005" href="$d2/d9e/users_8c.html#ac56f8b225ddd39009e826d1f0b8499b8" title="Clasifica el nivel de amigabilidad de un usuario según su puntaje." alt="" coords="383,55,537,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="311,65,368,65,368,70,311,70"/>
+<area shape="rect" id="Node000006" href="$d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582" title="Elimina todos los archivos en un directorio." alt="" coords="375,104,545,129"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="305,77,392,98,391,103,304,83"/>
+</map>

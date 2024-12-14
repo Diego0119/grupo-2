@@ -1,0 +1,19 @@
+<map id="init_empty_edge" name="init_empty_edge">
+<area shape="rect" id="Node000001" title="Inicia una lista de adyacencia vacía." alt="" coords="823,56,953,81"/>
+<area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="643,56,775,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="809,71,775,71,775,66,809,66"/>
+<area shape="rect" id="Node000003" href="$d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833" title="Genera usuarios aleatorios." alt="" coords="273,5,396,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="643,56,594,46,490,33,396,24,397,19,490,27,595,41,645,50"/>
+<area shape="rect" id="Node000005" href="$d5/d4b/database_8c.html#a1e51423ffa4b06685c5d230c770eb278" title="Carga un usuario desde un archivo." alt="" coords="444,56,595,81"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="629,71,595,71,595,66,629,66"/>
+<area shape="rect" id="Node000008" href="$d5/d4b/database_8c.html#a116abf50656b08636a9f449c3f46e2cd" title="Registra un nuevo usuario en la base de datos." alt="" coords="113,105,220,131"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="646,87,595,97,491,108,388,115,220,120,220,115,387,110,491,103,594,91,645,82"/>
+<area shape="rect" id="Node000004" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,56,60,81"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="260,25,186,33,109,46,61,61,60,56,107,41,186,27,259,20"/>
+<area shape="rect" id="Node000006" href="$d5/d4b/database_8c.html#a77103f45cf4c5b241aaad7936989564b" title="Carga todos los usuarios desde la base de datos." alt="" coords="277,56,392,81"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="430,71,392,71,392,66,430,66"/>
+<area shape="rect" id="Node000007" href="$d5/d4b/database_8c.html#abf714cec1175e6736bc91b758979c959" title="Carga la base de datos en su totalidad." alt="" coords="108,56,225,81"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="264,71,226,71,226,66,264,66"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="94,71,60,71,60,66,94,66"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="118,103,59,81,61,76,120,98"/>
+</map>

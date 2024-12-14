@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('d5/d4b/database_8c.html','../../'); in
 </div><!--header-->
 <div class="contents">
 
-<p>Funciones para la gestión y guardado de la base de datos.  
+<p>Funciones para la gestión y guardado de la base de datos, incluyendo carga y guardado de usuarios y publicaciones, así como la lógica de seguir y dejar de seguir usuarios.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d8/d9c/database_8h_source.html">database.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -104,65 +104,126 @@ $(document).ready(function(){initNavTree('d5/d4b/database_8c.html','../../'); in
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../de/dc5/database_8c__incl.png" border="0" usemap="#asrc_2database_8c" alt=""/></div>
+<map name="asrc_2database_8c" id="asrc_2database_8c">
+<area shape="rect" title="Funciones para la gestión y guardado de la base de datos, incluyendo carga y guardado de usuarios y p..." alt="" coords="619,5,735,31"/>
+<area shape="rect" href="../../d8/d9c/database_8h.html" title="Cabecera para database.c." alt="" coords="629,79,724,104"/>
+<area shape="poly" title=" " alt="" coords="679,31,679,65,674,65,674,31"/>
+<area shape="rect" title=" " alt="" coords="578,372,645,397"/>
+<area shape="poly" title=" " alt="" coords="712,102,754,121,796,150,840,191,873,233,882,255,885,278,880,301,865,326,851,337,831,347,777,363,715,375,659,382,658,376,714,369,775,358,829,343,849,333,861,322,875,299,880,278,877,257,868,236,836,195,792,154,751,126,709,106"/>
+<area shape="rect" title=" " alt="" coords="192,372,263,397"/>
+<area shape="poly" title=" " alt="" coords="629,98,403,118,283,134,234,144,198,155,163,168,137,181,115,199,92,227,75,252,64,275,63,298,73,322,89,335,115,348,179,369,178,374,113,353,86,340,69,326,57,299,59,274,70,250,88,224,111,195,134,176,161,163,196,149,233,139,282,129,403,113,629,93"/>
+<area shape="rect" title=" " alt="" coords="340,372,411,397"/>
+<area shape="poly" title=" " alt="" coords="704,102,747,126,792,160,811,180,823,203,828,227,822,252,805,280,787,299,764,312,734,326,652,356,567,373,489,383,425,386,424,381,488,377,566,368,651,350,732,322,761,308,784,294,801,277,817,250,822,227,818,204,806,183,789,164,744,130,701,107"/>
+<area shape="rect" title=" " alt="" coords="634,225,719,251"/>
+<area shape="poly" title=" " alt="" coords="679,104,679,212,674,212,674,104"/>
+<area shape="rect" title=" " alt="" coords="649,299,721,324"/>
+<area shape="poly" title=" " alt="" coords="699,102,729,121,764,149,797,183,822,224,825,240,822,254,814,266,802,276,770,292,735,303,734,298,768,287,799,272,810,262,817,252,820,240,817,226,793,186,760,153,726,126,696,107"/>
+<area shape="rect" title=" " alt="" coords="983,152,1058,177"/>
+<area shape="poly" title=" " alt="" coords="725,100,970,150,969,156,724,105"/>
+<area shape="rect" title=" " alt="" coords="743,225,807,251"/>
+<area shape="poly" title=" " alt="" coords="687,103,762,212,757,215,683,106"/>
+<area shape="rect" href="../../d0/d5f/users_8h.html" title="Cabecera para users.c." alt="" coords="407,152,477,177"/>
+<area shape="poly" title=" " alt="" coords="633,107,487,150,485,145,631,101"/>
+<area shape="rect" href="../../de/df0/utilities_8h.html" title="Cabecera para utilities.c." alt="" coords="477,225,559,251"/>
+<area shape="poly" title=" " alt="" coords="665,106,543,218,539,214,662,102"/>
+<area shape="rect" href="../../d6/df3/graph_8h.html" title="Cabecera para graph.c." alt="" coords="99,299,169,324"/>
+<area shape="poly" title=" " alt="" coords="629,99,507,113,353,137,278,155,211,175,158,199,138,213,124,227,118,240,117,255,124,285,119,286,112,255,113,239,120,224,135,209,155,195,209,170,277,149,352,132,506,107,629,94"/>
+<area shape="poly" title=" " alt="" coords="476,152,632,106,633,111,478,157"/>
+<area shape="poly" title=" " alt="" coords="469,175,572,223,623,248,656,259,685,264,711,273,735,297,740,311,739,324,732,335,722,345,692,362,659,374,657,369,690,357,718,341,728,332,734,322,735,312,730,300,708,278,684,269,655,264,621,253,570,228,466,180"/>
+<area shape="poly" title=" " alt="" coords="407,171,254,189,176,206,145,216,124,228,99,249,83,272,78,296,88,322,101,334,124,346,180,367,178,372,122,351,98,339,84,326,73,296,78,270,95,245,120,223,143,211,174,200,253,184,407,166"/>
+<area shape="poly" title=" " alt="" coords="433,179,394,229,373,263,358,299,356,314,357,330,366,359,361,360,352,331,350,314,353,298,368,260,389,226,429,176"/>
+<area shape="poly" title=" " alt="" coords="478,174,626,219,625,224,476,179"/>
+<area shape="poly" title=" " alt="" coords="477,170,730,222,729,228,476,175"/>
+<area shape="rect" title=" " alt="" coords="149,225,231,251"/>
+<area shape="poly" title=" " alt="" coords="408,178,245,224,243,219,406,173"/>
+<area shape="rect" title=" " alt="" coords="255,225,351,251"/>
+<area shape="poly" title=" " alt="" coords="421,180,339,221,337,217,419,175"/>
+<area shape="poly" title=" " alt="" coords="450,176,490,215,487,219,446,180"/>
+<area shape="rect" href="../../d4/ddb/hash__table_8h.html" title="Cabecera para hash_table.c." alt="" coords="368,299,473,324"/>
+<area shape="poly" title=" " alt="" coords="443,178,427,285,422,285,438,177"/>
+<area shape="poly" title=" " alt="" coords="407,170,337,175,252,185,174,202,145,213,127,227,119,240,116,255,120,286,115,286,111,255,114,238,123,224,143,209,173,197,251,179,336,169,407,165"/>
+<area shape="poly" title=" " alt="" coords="537,249,563,270,587,297,601,328,610,358,605,359,596,330,582,300,559,273,534,253"/>
+<area shape="poly" title=" " alt="" coords="480,253,421,273,357,301,301,334,254,366,251,362,298,329,354,296,419,268,478,248"/>
+<area shape="poly" title=" " alt="" coords="546,248,646,291,644,296,544,253"/>
+<area shape="poly" title=" " alt="" coords="511,227,470,188,473,184,514,223"/>
+<area shape="rect" title=" " alt="" coords="497,299,573,324"/>
+<area shape="poly" title=" " alt="" coords="523,250,532,285,527,286,518,252"/>
+<area shape="poly" title=" " alt="" coords="497,253,442,292,439,288,494,249"/>
+<area shape="poly" title=" " alt="" coords="477,250,184,304,183,298,476,244"/>
+<area shape="poly" title=" " alt="" coords="452,322,568,364,566,369,450,327"/>
+<area shape="poly" title=" " alt="" coords="391,327,272,370,271,365,389,322"/>
+<area shape="poly" title=" " alt="" coords="415,326,392,362,388,359,411,323"/>
+<area shape="poly" title=" " alt="" coords="442,296,497,257,500,261,445,301"/>
+<area shape="poly" title=" " alt="" coords="170,315,564,374,563,379,169,321"/>
+<area shape="poly" title=" " alt="" coords="151,322,203,361,200,366,147,326"/>
+<area shape="poly" title=" " alt="" coords="170,321,328,367,326,372,169,326"/>
+<area shape="poly" title=" " alt="" coords="135,299,134,263,137,242,147,224,164,210,189,199,254,183,327,172,393,166,394,171,328,177,255,188,190,204,167,215,151,227,142,244,139,263,141,298"/>
+<area shape="rect" title=" " alt="" coords="100,372,168,397"/>
+<area shape="poly" title=" " alt="" coords="137,324,137,358,131,358,131,324"/>
+<area shape="rect" title=" " alt="" coords="5,372,76,397"/>
+<area shape="poly" title=" " alt="" coords="121,326,68,366,65,361,117,322"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a396f9e338551f945a1e511c2d32ae9c0" id="r_a396f9e338551f945a1e511c2d32ae9c0"><td class="memItemLeft" align="right" valign="top"><a id="a396f9e338551f945a1e511c2d32ae9c0" name="a396f9e338551f945a1e511c2d32ae9c0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>create_database_dir</b> (void)</td></tr>
-<tr class="memdesc:a396f9e338551f945a1e511c2d32ae9c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea el directorio database si no existe. <br /></td></tr>
+<tr class="memitem:a396f9e338551f945a1e511c2d32ae9c0" id="r_a396f9e338551f945a1e511c2d32ae9c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a396f9e338551f945a1e511c2d32ae9c0">create_database_dir</a> (void)</td></tr>
+<tr class="memdesc:a396f9e338551f945a1e511c2d32ae9c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea el directorio 'database' si no existe.  <br /></td></tr>
 <tr class="separator:a396f9e338551f945a1e511c2d32ae9c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdee669a4d0bab54b2af1fa5f0a04cc1" id="r_abdee669a4d0bab54b2af1fa5f0a04cc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#abdee669a4d0bab54b2af1fa5f0a04cc1">save_user_data</a> (<a class="el" href="../../d5/d4f/struct__user.html">User</a> user, <a class="el" href="../../d5/d87/struct__globalInterests.html">GlobalInterests</a> globalInterests)</td></tr>
-<tr class="memdesc:abdee669a4d0bab54b2af1fa5f0a04cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda toda la información de un usuario en "database/{username}_data".  <br /></td></tr>
+<tr class="memitem:abdee669a4d0bab54b2af1fa5f0a04cc1" id="r_abdee669a4d0bab54b2af1fa5f0a04cc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#abdee669a4d0bab54b2af1fa5f0a04cc1">save_user_data</a> (<a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a> user, <a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a> globalInterests)</td></tr>
+<tr class="memdesc:abdee669a4d0bab54b2af1fa5f0a04cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda toda la información de un usuario en la base de datos.  <br /></td></tr>
 <tr class="separator:abdee669a4d0bab54b2af1fa5f0a04cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a403ac5de2bde8804588c7739d023f6f1" id="r_a403ac5de2bde8804588c7739d023f6f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a403ac5de2bde8804588c7739d023f6f1">save_all_users</a> (<a class="el" href="../../d5/d08/struct__graph.html">Graph</a> graph, <a class="el" href="../../d5/d87/struct__globalInterests.html">GlobalInterests</a> globalInterests)</td></tr>
-<tr class="memdesc:a403ac5de2bde8804588c7739d023f6f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda todos los usuarios del grafo en la carpeta database.  <br /></td></tr>
+<tr class="memitem:a403ac5de2bde8804588c7739d023f6f1" id="r_a403ac5de2bde8804588c7739d023f6f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a403ac5de2bde8804588c7739d023f6f1">save_all_users</a> (<a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a> graph, <a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a> globalInterests)</td></tr>
+<tr class="memdesc:a403ac5de2bde8804588c7739d023f6f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda todos los usuarios cargados en el programa en la base de datos.  <br /></td></tr>
 <tr class="separator:a403ac5de2bde8804588c7739d023f6f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb94e6393cf8e960b72e0caed70b3593" id="r_abb94e6393cf8e960b72e0caed70b3593"><td class="memItemLeft" align="right" valign="top"><a id="abb94e6393cf8e960b72e0caed70b3593" name="abb94e6393cf8e960b72e0caed70b3593"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear_database</b> (void)</td></tr>
-<tr class="memdesc:abb94e6393cf8e960b72e0caed70b3593"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina todos los archivos y la carpeta database. <br /></td></tr>
-<tr class="separator:abb94e6393cf8e960b72e0caed70b3593"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e3f6dd1bf29a04037a4173a8b7afafb" id="r_a4e3f6dd1bf29a04037a4173a8b7afafb"><td class="memItemLeft" align="right" valign="top"><a id="a4e3f6dd1bf29a04037a4173a8b7afafb" name="a4e3f6dd1bf29a04037a4173a8b7afafb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>confirm_and_cleanup</b> (void)</td></tr>
-<tr class="memdesc:a4e3f6dd1bf29a04037a4173a8b7afafb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pregunta al usuario si desea mantener o eliminar la base de datos. <br /></td></tr>
-<tr class="separator:a4e3f6dd1bf29a04037a4173a8b7afafb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7dd8a7af5b71944a8e8a5787ba710f0" id="r_ac7dd8a7af5b71944a8e8a5787ba710f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#ac7dd8a7af5b71944a8e8a5787ba710f0">clear_database</a> (<a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a> graph)</td></tr>
+<tr class="memdesc:ac7dd8a7af5b71944a8e8a5787ba710f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina la base de datos en su totalidad.  <br /></td></tr>
+<tr class="separator:ac7dd8a7af5b71944a8e8a5787ba710f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84ddec926c8a5475e48c2e6a59741d00" id="r_a84ddec926c8a5475e48c2e6a59741d00"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a84ddec926c8a5475e48c2e6a59741d00">database_exists_and_not_empty</a> (void)</td></tr>
-<tr class="memdesc:a84ddec926c8a5475e48c2e6a59741d00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica si la carpeta database existe y contiene datos.  <br /></td></tr>
+<tr class="memdesc:a84ddec926c8a5475e48c2e6a59741d00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica si la carpeta database existe y no está vacía.  <br /></td></tr>
 <tr class="separator:a84ddec926c8a5475e48c2e6a59741d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77103f45cf4c5b241aaad7936989564b" id="r_a77103f45cf4c5b241aaad7936989564b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a77103f45cf4c5b241aaad7936989564b">load_all_users</a> (<a class="el" href="../../d4/dc8/struct__hashtable.html">PtrToHashTable</a> table, <a class="el" href="../../d5/d08/struct__graph.html">Graph</a> graph, <a class="el" href="../../d5/d87/struct__globalInterests.html">GlobalInterests</a> globalInterests)</td></tr>
-<tr class="memdesc:a77103f45cf4c5b241aaad7936989564b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carga todos los usuarios desde los archivos en la carpeta database, restaurando el estado anterior. Se debe llamar antes de generar usuarios aleatorios.  <br /></td></tr>
+<tr class="memitem:a1e51423ffa4b06685c5d230c770eb278" id="r_a1e51423ffa4b06685c5d230c770eb278"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a1e51423ffa4b06685c5d230c770eb278">load_user_from_file</a> (const char *filename, <a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a> table, <a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a> graph, <a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a> globalInterests)</td></tr>
+<tr class="memdesc:a1e51423ffa4b06685c5d230c770eb278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carga un usuario desde un archivo.  <br /></td></tr>
+<tr class="separator:a1e51423ffa4b06685c5d230c770eb278"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77103f45cf4c5b241aaad7936989564b" id="r_a77103f45cf4c5b241aaad7936989564b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a77103f45cf4c5b241aaad7936989564b">load_all_users</a> (<a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a> table, <a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a> graph, <a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a> globalInterests)</td></tr>
+<tr class="memdesc:a77103f45cf4c5b241aaad7936989564b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carga todos los usuarios desde la base de datos.  <br /></td></tr>
 <tr class="separator:a77103f45cf4c5b241aaad7936989564b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76f762d2a9063e73e62fa1e7127951ff" id="r_a76f762d2a9063e73e62fa1e7127951ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d4f/struct__user.html">User</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a76f762d2a9063e73e62fa1e7127951ff">current_session</a> (<a class="el" href="../../d4/dc8/struct__hashtable.html">PtrToHashTable</a> graph)</td></tr>
-<tr class="memdesc:a76f762d2a9063e73e62fa1e7127951ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica si hay una sesión iniciada y si es válida.  <br /></td></tr>
+<tr class="memitem:a01f812e0547c932313f6b755ade7ac73" id="r_a01f812e0547c932313f6b755ade7ac73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a01f812e0547c932313f6b755ade7ac73">load_connections</a> (<a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a> table, <a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a> globalInterests)</td></tr>
+<tr class="memdesc:a01f812e0547c932313f6b755ade7ac73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carga todas las conexiones (aristas) de los usuarios desde la base de datos.  <br /></td></tr>
+<tr class="separator:a01f812e0547c932313f6b755ade7ac73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf714cec1175e6736bc91b758979c959" id="r_abf714cec1175e6736bc91b758979c959"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#abf714cec1175e6736bc91b758979c959">load_database</a> (<a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a> table, <a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a> graph, <a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a> globalInterests)</td></tr>
+<tr class="memdesc:abf714cec1175e6736bc91b758979c959"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carga la base de datos en su totalidad.  <br /></td></tr>
+<tr class="separator:abf714cec1175e6736bc91b758979c959"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76f762d2a9063e73e62fa1e7127951ff" id="r_a76f762d2a9063e73e62fa1e7127951ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a76f762d2a9063e73e62fa1e7127951ff">current_session</a> (<a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a> graph)</td></tr>
+<tr class="memdesc:a76f762d2a9063e73e62fa1e7127951ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene el usuario de la sesión iniciada actualmente, si existe.  <br /></td></tr>
 <tr class="separator:a76f762d2a9063e73e62fa1e7127951ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d1946fce4d4e29fa0c79c9d8045fd74" id="r_a2d1946fce4d4e29fa0c79c9d8045fd74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a2d1946fce4d4e29fa0c79c9d8045fd74">login</a> (<a class="el" href="../../d4/dc8/struct__hashtable.html">PtrToHashTable</a> graph)</td></tr>
-<tr class="memdesc:a2d1946fce4d4e29fa0c79c9d8045fd74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicia sesión en la red social.  <br /></td></tr>
+<tr class="memitem:a2d1946fce4d4e29fa0c79c9d8045fd74" id="r_a2d1946fce4d4e29fa0c79c9d8045fd74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a2d1946fce4d4e29fa0c79c9d8045fd74">login</a> (<a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a> graph)</td></tr>
+<tr class="memdesc:a2d1946fce4d4e29fa0c79c9d8045fd74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicia sesión.  <br /></td></tr>
 <tr class="separator:a2d1946fce4d4e29fa0c79c9d8045fd74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac79c3b2234769c7fd497702cf88e21bf" id="r_ac79c3b2234769c7fd497702cf88e21bf"><td class="memItemLeft" align="right" valign="top"><a id="ac79c3b2234769c7fd497702cf88e21bf" name="ac79c3b2234769c7fd497702cf88e21bf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td></tr>
-<tr class="memdesc:ac79c3b2234769c7fd497702cf88e21bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cierra sesión en la red social. <br /></td></tr>
+<tr class="memitem:ac79c3b2234769c7fd497702cf88e21bf" id="r_ac79c3b2234769c7fd497702cf88e21bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#ac79c3b2234769c7fd497702cf88e21bf">logout</a> (void)</td></tr>
+<tr class="memdesc:ac79c3b2234769c7fd497702cf88e21bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cierra sesión.  <br /></td></tr>
 <tr class="separator:ac79c3b2234769c7fd497702cf88e21bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a116abf50656b08636a9f449c3f46e2cd" id="r_a116abf50656b08636a9f449c3f46e2cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a116abf50656b08636a9f449c3f46e2cd">register_user</a> (<a class="el" href="../../d4/dc8/struct__hashtable.html">PtrToHashTable</a> table, <a class="el" href="../../d5/d08/struct__graph.html">Graph</a> graph, <a class="el" href="../../d5/d87/struct__globalInterests.html">GlobalInterests</a> globalInterests)</td></tr>
-<tr class="memdesc:a116abf50656b08636a9f449c3f46e2cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registra un usuario nuevo en la red social.  <br /></td></tr>
+<tr class="memitem:a116abf50656b08636a9f449c3f46e2cd" id="r_a116abf50656b08636a9f449c3f46e2cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a116abf50656b08636a9f449c3f46e2cd">register_user</a> (<a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a> table, <a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a> graph, <a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a> globalInterests)</td></tr>
+<tr class="memdesc:a116abf50656b08636a9f449c3f46e2cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registra un nuevo usuario en la base de datos.  <br /></td></tr>
 <tr class="separator:a116abf50656b08636a9f449c3f46e2cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83dfa88ced51dd9165e817e89f8ddc63" id="r_a83dfa88ced51dd9165e817e89f8ddc63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a83dfa88ced51dd9165e817e89f8ddc63">write_post</a> (<a class="el" href="../../d5/d4f/struct__user.html">User</a> user, <a class="el" href="../../d5/d87/struct__globalInterests.html">GlobalInterests</a> globalInterests)</td></tr>
-<tr class="memdesc:a83dfa88ced51dd9165e817e89f8ddc63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite a un usuario publicar un post, guardandolo en la base de datos.  <br /></td></tr>
+<tr class="memitem:a83dfa88ced51dd9165e817e89f8ddc63" id="r_a83dfa88ced51dd9165e817e89f8ddc63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a83dfa88ced51dd9165e817e89f8ddc63">write_post</a> (<a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a> user, <a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a> globalInterests)</td></tr>
+<tr class="memdesc:a83dfa88ced51dd9165e817e89f8ddc63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publicar un post desde un usuario.  <br /></td></tr>
 <tr class="separator:a83dfa88ced51dd9165e817e89f8ddc63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c2c93b11c91edd6b02eb8de193bba3f" id="r_a5c2c93b11c91edd6b02eb8de193bba3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a5c2c93b11c91edd6b02eb8de193bba3f">follow</a> (<a class="el" href="../../d5/d4f/struct__user.html">User</a> user, char *follow, <a class="el" href="../../d5/d87/struct__globalInterests.html">GlobalInterests</a> globalInterests, <a class="el" href="../../d4/dc8/struct__hashtable.html">PtrToHashTable</a> table)</td></tr>
-<tr class="memdesc:a5c2c93b11c91edd6b02eb8de193bba3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite a un usuario seguir a otro, y guarda dicha información en la base de datos.  <br /></td></tr>
+<tr class="memitem:a5c2c93b11c91edd6b02eb8de193bba3f" id="r_a5c2c93b11c91edd6b02eb8de193bba3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a5c2c93b11c91edd6b02eb8de193bba3f">follow</a> (<a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a> user, char *follow, <a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a> globalInterests, <a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a> table)</td></tr>
+<tr class="memdesc:a5c2c93b11c91edd6b02eb8de193bba3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seguir a un usuario.  <br /></td></tr>
 <tr class="separator:a5c2c93b11c91edd6b02eb8de193bba3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27d66932dd0c4411d8baa6acc4b717af" id="r_a27d66932dd0c4411d8baa6acc4b717af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a27d66932dd0c4411d8baa6acc4b717af">unfollow</a> (<a class="el" href="../../d5/d4f/struct__user.html">User</a> user, char *<a class="el" href="../../d5/d4b/database_8c.html#a5c2c93b11c91edd6b02eb8de193bba3f">follow</a>, <a class="el" href="../../d5/d87/struct__globalInterests.html">GlobalInterests</a> globalInterests, <a class="el" href="../../d4/dc8/struct__hashtable.html">PtrToHashTable</a> table)</td></tr>
-<tr class="memdesc:a27d66932dd0c4411d8baa6acc4b717af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite a un usuario dejar de seguir a otro, y guarda dicha información en la base de datos.  <br /></td></tr>
+<tr class="memitem:a27d66932dd0c4411d8baa6acc4b717af" id="r_a27d66932dd0c4411d8baa6acc4b717af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a27d66932dd0c4411d8baa6acc4b717af">unfollow</a> (<a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a> user, char *<a class="el" href="../../d5/d4b/database_8c.html#a5c2c93b11c91edd6b02eb8de193bba3f">follow</a>, <a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a> globalInterests, <a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a> table)</td></tr>
+<tr class="memdesc:a27d66932dd0c4411d8baa6acc4b717af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dejar de seguir a un usuario.  <br /></td></tr>
 <tr class="separator:a27d66932dd0c4411d8baa6acc4b717af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13d272cd38e4c062da1f9d46f17bf9c3" id="r_a13d272cd38e4c062da1f9d46f17bf9c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a13d272cd38e4c062da1f9d46f17bf9c3">delete_account</a> (<a class="el" href="../../d5/d4f/struct__user.html">User</a> user)</td></tr>
-<tr class="memdesc:a13d272cd38e4c062da1f9d46f17bf9c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina el usuario de la sesión actual de la base de datos.  <br /></td></tr>
+<tr class="memitem:a13d272cd38e4c062da1f9d46f17bf9c3" id="r_a13d272cd38e4c062da1f9d46f17bf9c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#a13d272cd38e4c062da1f9d46f17bf9c3">delete_account</a> (<a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a> user)</td></tr>
+<tr class="memdesc:a13d272cd38e4c062da1f9d46f17bf9c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Borrar la cuenta de un usuario de la base de datos.  <br /></td></tr>
 <tr class="separator:a13d272cd38e4c062da1f9d46f17bf9c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad754349fdaa7256297f09a6c77ccd2a2" id="r_ad754349fdaa7256297f09a6c77ccd2a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#ad754349fdaa7256297f09a6c77ccd2a2">edit_account</a> (<a class="el" href="../../d5/d4f/struct__user.html">User</a> user, <a class="el" href="../../d5/d87/struct__globalInterests.html">GlobalInterests</a> globalInterests, <a class="el" href="../../d4/dc8/struct__hashtable.html">PtrToHashTable</a> table)</td></tr>
+<tr class="memitem:ad754349fdaa7256297f09a6c77ccd2a2" id="r_ad754349fdaa7256297f09a6c77ccd2a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4b/database_8c.html#ad754349fdaa7256297f09a6c77ccd2a2">edit_account</a> (<a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a> user, <a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a> globalInterests, <a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a> table)</td></tr>
 <tr class="memdesc:ad754349fdaa7256297f09a6c77ccd2a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite a un usuario editar su información de cuenta.  <br /></td></tr>
 <tr class="separator:ad754349fdaa7256297f09a6c77ccd2a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Funciones para la gestión y guardado de la base de datos. </p>
+<div class="textblock"><p>Funciones para la gestión y guardado de la base de datos, incluyendo carga y guardado de usuarios y publicaciones, así como la lógica de seguir y dejar de seguir usuarios. </p>
 <dl class="section author"><dt>Authors</dt><dd><ul>
 <li>Iván Mansilla</li>
 <li>Franco Aguilar</li>
@@ -173,6 +234,97 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
 </ul>
 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="ac7dd8a7af5b71944a8e8a5787ba710f0" name="ac7dd8a7af5b71944a8e8a5787ba710f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7dd8a7af5b71944a8e8a5787ba710f0">&#9670;&#160;</a></span>clear_database()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clear_database </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a>&#160;</td>
+          <td class="paramname"><em>graph</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Elimina la base de datos en su totalidad. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">graph</td><td>Grafo de usuarios </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_ac7dd8a7af5b71944a8e8a5787ba710f0_cgraph.png" border="0" usemap="#ad5/d4b/database_8c_ac7dd8a7af5b71944a8e8a5787ba710f0_cgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_ac7dd8a7af5b71944a8e8a5787ba710f0_cgraph" id="ad5/d4b/database_8c_ac7dd8a7af5b71944a8e8a5787ba710f0_cgraph">
+<area shape="rect" title="Elimina la base de datos en su totalidad." alt="" coords="5,31,127,56"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a13d272cd38e4c062da1f9d46f17bf9c3" title="Borrar la cuenta de un usuario de la base de datos." alt="" coords="175,31,296,56"/>
+<area shape="poly" title=" " alt="" coords="127,41,161,41,161,46,127,46"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582" title="Elimina todos los archivos en un directorio." alt="" coords="344,5,515,31"/>
+<area shape="poly" title=" " alt="" coords="296,33,330,28,331,34,297,38"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#ac79c3b2234769c7fd497702cf88e21bf" title="Cierra sesión." alt="" coords="398,55,461,80"/>
+<area shape="poly" title=" " alt="" coords="296,48,385,59,384,65,296,53"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a73eb533269566775275da2ac91350562" title=" " alt="" coords="563,55,649,80"/>
+<area shape="poly" title=" " alt="" coords="461,65,549,65,549,70,461,70"/>
+</map>
+</div>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_ac7dd8a7af5b71944a8e8a5787ba710f0_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_ac7dd8a7af5b71944a8e8a5787ba710f0_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_ac7dd8a7af5b71944a8e8a5787ba710f0_icgraph" id="ad5/d4b/database_8c_ac7dd8a7af5b71944a8e8a5787ba710f0_icgraph">
+<area shape="rect" title="Elimina la base de datos en su totalidad." alt="" coords="108,5,229,31"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a396f9e338551f945a1e511c2d32ae9c0" name="a396f9e338551f945a1e511c2d32ae9c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a396f9e338551f945a1e511c2d32ae9c0">&#9670;&#160;</a></span>create_database_dir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void create_database_dir </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crea el directorio 'database' si no existe. </p>
+<dl class="section note"><dt>Note</dt><dd>El directorio 'database' se crea en el directorio desde donde se está ejecutando el programa. </dd></dl>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a396f9e338551f945a1e511c2d32ae9c0_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_a396f9e338551f945a1e511c2d32ae9c0_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a396f9e338551f945a1e511c2d32ae9c0_icgraph" id="ad5/d4b/database_8c_a396f9e338551f945a1e511c2d32ae9c0_icgraph">
+<area shape="rect" title="Crea el directorio &#39;database&#39; si no existe." alt="" coords="275,5,429,31"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a403ac5de2bde8804588c7739d023f6f1" title="Guarda todos los usuarios cargados en el programa en la base de datos." alt="" coords="108,5,227,31"/>
+<area shape="poly" title=" " alt="" coords="261,21,227,21,227,15,261,15"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a76f762d2a9063e73e62fa1e7127951ff" name="a76f762d2a9063e73e62fa1e7127951ff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a76f762d2a9063e73e62fa1e7127951ff">&#9670;&#160;</a></span>current_session()</h2>
 
@@ -180,23 +332,55 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/d4f/struct__user.html">User</a> current_session </td>
+          <td class="memname"><a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a> current_session </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/dc8/struct__hashtable.html">PtrToHashTable</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a>&#160;</td>
           <td class="paramname"><em>graph</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Verifica si hay una sesión iniciada y si es válida. </p>
+<p>Obtiene el usuario de la sesión iniciada actualmente, si existe. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">graph</td><td>Tabla hash de usuarios </td></tr>
+    <tr><td class="paramname">graph</td><td>Grafo de usuarios </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>user, si está la sesión iniciada, NULL si no o no es válida la sesión </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>User Usuario actual. NULL si la sesión no existe. </dd></dl>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a76f762d2a9063e73e62fa1e7127951ff_cgraph.png" border="0" usemap="#ad5/d4b/database_8c_a76f762d2a9063e73e62fa1e7127951ff_cgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a76f762d2a9063e73e62fa1e7127951ff_cgraph" id="ad5/d4b/database_8c_a76f762d2a9063e73e62fa1e7127951ff_cgraph">
+<area shape="rect" title="Obtiene el usuario de la sesión iniciada actualmente, si existe." alt="" coords="5,31,129,56"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#ac79c3b2234769c7fd497702cf88e21bf" title="Cierra sesión." alt="" coords="196,5,259,31"/>
+<area shape="poly" title=" " alt="" coords="129,31,182,22,182,28,130,36"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a02b0bb2074d6748efedd29d4cbb1ee82" title="Busca a un usuario según su nombre de usuario." alt="" coords="177,55,277,80"/>
+<area shape="poly" title=" " alt="" coords="130,50,164,55,163,60,129,55"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a73eb533269566775275da2ac91350562" title=" " alt="" coords="363,5,450,31"/>
+<area shape="poly" title=" " alt="" coords="259,15,349,15,349,21,259,21"/>
+<area shape="rect" href="../../d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="325,55,488,80"/>
+<area shape="poly" title=" " alt="" coords="277,65,312,65,312,70,277,70"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="536,55,643,80"/>
+<area shape="poly" title=" " alt="" coords="489,65,522,65,522,70,489,70"/>
+</map>
+</div>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a76f762d2a9063e73e62fa1e7127951ff_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_a76f762d2a9063e73e62fa1e7127951ff_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a76f762d2a9063e73e62fa1e7127951ff_icgraph" id="ad5/d4b/database_8c_a76f762d2a9063e73e62fa1e7127951ff_icgraph">
+<area shape="rect" title="Obtiene el usuario de la sesión iniciada actualmente, si existe." alt="" coords="108,5,232,31"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -216,8 +400,22 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
       </table>
 </div><div class="memdoc">
 
-<p>Verifica si la carpeta database existe y contiene datos. </p>
-<dl class="section return"><dt>Returns</dt><dd>1 si existe y contiene al menos un archivo, 0 de lo contrario. </dd></dl>
+<p>Verifica si la carpeta database existe y no está vacía. </p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a84ddec926c8a5475e48c2e6a59741d00_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_a84ddec926c8a5475e48c2e6a59741d00_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a84ddec926c8a5475e48c2e6a59741d00_icgraph" id="ad5/d4b/database_8c_a84ddec926c8a5475e48c2e6a59741d00_icgraph">
+<area shape="rect" title="Verifica si la carpeta database existe y no está vacía." alt="" coords="279,23,437,63"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833" title="Genera usuarios aleatorios." alt="" coords="108,5,231,31"/>
+<area shape="poly" title=" " alt="" coords="264,33,230,29,231,24,265,28"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,31,60,56"/>
+<area shape="poly" title=" " alt="" coords="265,46,60,46,60,41,265,41"/>
+<area shape="poly" title=" " alt="" coords="95,35,61,41,60,36,94,29"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -230,20 +428,52 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
         <tr>
           <td class="memname">void delete_account </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d4f/struct__user.html">User</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a>&#160;</td>
           <td class="paramname"><em>user</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Elimina el usuario de la sesión actual de la base de datos. </p>
+<p>Borrar la cuenta de un usuario de la base de datos. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">user</td><td>Sesión iniciada </td></tr>
+    <tr><td class="paramname">user</td><td>Usuario a borrar</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Se borran todos los archivos de la carpeta "database/{user}_data" y la misma carpeta </dd></dl>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a13d272cd38e4c062da1f9d46f17bf9c3_cgraph.png" border="0" usemap="#ad5/d4b/database_8c_a13d272cd38e4c062da1f9d46f17bf9c3_cgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a13d272cd38e4c062da1f9d46f17bf9c3_cgraph" id="ad5/d4b/database_8c_a13d272cd38e4c062da1f9d46f17bf9c3_cgraph">
+<area shape="rect" title="Borrar la cuenta de un usuario de la base de datos." alt="" coords="5,31,127,56"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582" title="Elimina todos los archivos en un directorio." alt="" coords="175,5,345,31"/>
+<area shape="poly" title=" " alt="" coords="126,33,161,28,162,34,127,38"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#ac79c3b2234769c7fd497702cf88e21bf" title="Cierra sesión." alt="" coords="229,55,291,80"/>
+<area shape="poly" title=" " alt="" coords="127,48,216,59,215,65,126,53"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a73eb533269566775275da2ac91350562" title=" " alt="" coords="393,55,480,80"/>
+<area shape="poly" title=" " alt="" coords="292,65,380,65,380,70,292,70"/>
+</map>
+</div>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a13d272cd38e4c062da1f9d46f17bf9c3_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_a13d272cd38e4c062da1f9d46f17bf9c3_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a13d272cd38e4c062da1f9d46f17bf9c3_icgraph" id="ad5/d4b/database_8c_a13d272cd38e4c062da1f9d46f17bf9c3_icgraph">
+<area shape="rect" title="Borrar la cuenta de un usuario de la base de datos." alt="" coords="277,31,399,56"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#ac7dd8a7af5b71944a8e8a5787ba710f0" title="Elimina la base de datos en su totalidad." alt="" coords="108,5,229,31"/>
+<area shape="poly" title=" " alt="" coords="263,35,229,30,230,24,264,30"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,31,60,56"/>
+<area shape="poly" title=" " alt="" coords="264,46,60,46,60,41,264,41"/>
+<area shape="poly" title=" " alt="" coords="95,34,61,41,60,36,94,29"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -256,19 +486,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
         <tr>
           <td class="memname">void edit_account </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d4f/struct__user.html">User</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a>&#160;</td>
           <td class="paramname"><em>user</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d5/d87/struct__globalInterests.html">GlobalInterests</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a>&#160;</td>
           <td class="paramname"><em>globalInterests</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/dc8/struct__hashtable.html">PtrToHashTable</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a>&#160;</td>
           <td class="paramname"><em>table</em>&#160;</td>
         </tr>
         <tr>
@@ -288,6 +518,42 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
   </table>
   </dd>
 </dl>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_ad754349fdaa7256297f09a6c77ccd2a2_cgraph.png" border="0" usemap="#ad5/d4b/database_8c_ad754349fdaa7256297f09a6c77ccd2a2_cgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_ad754349fdaa7256297f09a6c77ccd2a2_cgraph" id="ad5/d4b/database_8c_ad754349fdaa7256297f09a6c77ccd2a2_cgraph">
+<area shape="rect" title="Permite a un usuario editar su información de cuenta." alt="" coords="5,105,111,131"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#abdee669a4d0bab54b2af1fa5f0a04cc1" title="Guarda toda la información de un usuario en la base de datos." alt="" coords="159,68,283,93"/>
+<area shape="poly" title=" " alt="" coords="110,103,151,94,152,99,111,109"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a02b0bb2074d6748efedd29d4cbb1ee82" title="Busca a un usuario según su nombre de usuario." alt="" coords="171,129,271,155"/>
+<area shape="poly" title=" " alt="" coords="111,123,158,130,157,135,110,128"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#aeda9265bc6db17bc211f56c5177063ff" title="Calcula qué tan amigable es un usuario." alt="" coords="334,5,498,31"/>
+<area shape="poly" title=" " alt="" coords="255,65,330,39,355,32,356,37,331,45,257,70"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#ac56f8b225ddd39009e826d1f0b8499b8" title="Clasifica el nivel de amigabilidad de un usuario según su puntaje." alt="" coords="339,55,493,80"/>
+<area shape="poly" title=" " alt="" coords="283,74,325,71,325,76,283,79"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582" title="Elimina todos los archivos en un directorio." alt="" coords="331,104,501,129"/>
+<area shape="poly" title=" " alt="" coords="283,89,334,99,333,104,282,95"/>
+<area shape="rect" href="../../d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="335,153,497,179"/>
+<area shape="poly" title=" " alt="" coords="271,145,321,152,321,157,271,151"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="549,153,656,179"/>
+<area shape="poly" title=" " alt="" coords="498,163,535,163,535,169,498,169"/>
+</map>
+</div>
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_ad754349fdaa7256297f09a6c77ccd2a2_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_ad754349fdaa7256297f09a6c77ccd2a2_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_ad754349fdaa7256297f09a6c77ccd2a2_icgraph" id="ad5/d4b/database_8c_ad754349fdaa7256297f09a6c77ccd2a2_icgraph">
+<area shape="rect" title="Permite a un usuario editar su información de cuenta." alt="" coords="108,5,213,31"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -300,7 +566,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
         <tr>
           <td class="memname">void follow </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d4f/struct__user.html">User</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a>&#160;</td>
           <td class="paramname"><em>user</em>, </td>
         </tr>
         <tr>
@@ -312,13 +578,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d5/d87/struct__globalInterests.html">GlobalInterests</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a>&#160;</td>
           <td class="paramname"><em>globalInterests</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/dc8/struct__hashtable.html">PtrToHashTable</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a>&#160;</td>
           <td class="paramname"><em>table</em>&#160;</td>
         </tr>
         <tr>
@@ -329,16 +595,62 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
       </table>
 </div><div class="memdoc">
 
-<p>Permite a un usuario seguir a otro, y guarda dicha información en la base de datos. </p>
+<p>Seguir a un usuario. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">user</td><td>Sesión iniciada </td></tr>
-    <tr><td class="paramname">follow</td><td>Nombre de usuario de la persona a seguir </td></tr>
+    <tr><td class="paramname">user</td><td>Usuario que sigue a otro </td></tr>
+    <tr><td class="paramname">follow</td><td>Nombre del usuario que se va a seguir </td></tr>
     <tr><td class="paramname">globalInterests</td><td>Tabla de intereses globales </td></tr>
-    <tr><td class="paramname">table</td><td>Tabla hash de usuarios </td></tr>
+    <tr><td class="paramname">table</td><td>Tabla hash de usuarios</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Esta información se guarda en la carpeta "database/{user}_data/following.dat" </dd></dl>
+<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a5c2c93b11c91edd6b02eb8de193bba3f_cgraph.png" border="0" usemap="#ad5/d4b/database_8c_a5c2c93b11c91edd6b02eb8de193bba3f_cgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a5c2c93b11c91edd6b02eb8de193bba3f_cgraph" id="ad5/d4b/database_8c_a5c2c93b11c91edd6b02eb8de193bba3f_cgraph">
+<area shape="rect" title="Seguir a un usuario." alt="" coords="5,104,68,129"/>
+<area shape="poly" title=" " alt="" coords="13,105,8,96,10,86,20,80,37,77,56,81,65,89,61,93,54,86,37,83,22,85,15,89,13,95,17,103"/>
+<area shape="rect" href="../../d1/d2a/graph_8c.html#a4d6718ee3e14fdfec3f71cf10d4aea0a" title="Añade una adyacencia entre dos usuarios." alt="" coords="135,31,221,56"/>
+<area shape="poly" title=" " alt="" coords="61,102,139,60,142,65,63,106"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#abdee669a4d0bab54b2af1fa5f0a04cc1" title="Guarda toda la información de un usuario en la base de datos." alt="" coords="116,104,240,129"/>
+<area shape="poly" title=" " alt="" coords="68,114,102,114,102,119,68,119"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a02b0bb2074d6748efedd29d4cbb1ee82" title="Busca a un usuario según su nombre de usuario." alt="" coords="128,177,228,203"/>
+<area shape="poly" title=" " alt="" coords="63,127,142,169,139,173,61,132"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a9c564038c86f55e7ad802f912e004869" title="Calcula la DIFERENCIA de jaccard entre dos usuarios." alt="" coords="319,5,427,31"/>
+<area shape="poly" title=" " alt="" coords="221,35,305,24,306,29,221,40"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#aeda9265bc6db17bc211f56c5177063ff" title="Calcula qué tan amigable es un usuario." alt="" coords="291,55,455,80"/>
+<area shape="poly" title=" " alt="" coords="228,101,308,81,310,86,230,107"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#ac56f8b225ddd39009e826d1f0b8499b8" title="Clasifica el nivel de amigabilidad de un usuario según su puntaje." alt="" coords="296,104,451,129"/>
+<area shape="poly" title=" " alt="" coords="240,114,282,114,282,119,240,119"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582" title="Elimina todos los archivos en un directorio." alt="" coords="288,153,459,179"/>
+<area shape="poly" title=" " alt="" coords="230,127,310,147,308,152,228,132"/>
+<area shape="rect" href="../../d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="292,203,455,228"/>
+<area shape="poly" title=" " alt="" coords="229,194,279,200,278,206,228,199"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="507,203,613,228"/>
+<area shape="poly" title=" " alt="" coords="455,213,493,213,493,218,455,218"/>
+</map>
+</div>
+<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a5c2c93b11c91edd6b02eb8de193bba3f_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_a5c2c93b11c91edd6b02eb8de193bba3f_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a5c2c93b11c91edd6b02eb8de193bba3f_icgraph" id="ad5/d4b/database_8c_a5c2c93b11c91edd6b02eb8de193bba3f_icgraph">
+<area shape="rect" title="Seguir a un usuario." alt="" coords="235,29,297,55"/>
+<area shape="poly" title=" " alt="" coords="286,18,280,11,266,8,254,10,248,14,247,20,250,28,245,30,241,21,244,12,252,5,266,3,282,6,290,14"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,29,60,55"/>
+<area shape="poly" title=" " alt="" coords="221,45,60,45,60,39,221,39"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a27d66932dd0c4411d8baa6acc4b717af" title="Dejar de seguir a un usuario." alt="" coords="108,55,187,80"/>
+<area shape="poly" title=" " alt="" coords="222,54,187,62,186,56,220,49"/>
+<area shape="poly" title=" " alt="" coords="94,58,60,51,61,45,95,53"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -351,19 +663,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
         <tr>
           <td class="memname">void load_all_users </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/dc8/struct__hashtable.html">PtrToHashTable</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a>&#160;</td>
           <td class="paramname"><em>table</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d5/d08/struct__graph.html">Graph</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a>&#160;</td>
           <td class="paramname"><em>graph</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d5/d87/struct__globalInterests.html">GlobalInterests</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a>&#160;</td>
           <td class="paramname"><em>globalInterests</em>&#160;</td>
         </tr>
         <tr>
@@ -374,7 +686,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
       </table>
 </div><div class="memdoc">
 
-<p>Carga todos los usuarios desde los archivos en la carpeta database, restaurando el estado anterior. Se debe llamar antes de generar usuarios aleatorios. </p>
+<p>Carga todos los usuarios desde la base de datos. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">table</td><td>Tabla hash de usuarios </td></tr>
@@ -383,6 +695,331 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
   </table>
   </dd>
 </dl>
+<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a77103f45cf4c5b241aaad7936989564b_cgraph.png" border="0" usemap="#ad5/d4b/database_8c_a77103f45cf4c5b241aaad7936989564b_cgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a77103f45cf4c5b241aaad7936989564b_cgraph" id="ad5/d4b/database_8c_a77103f45cf4c5b241aaad7936989564b_cgraph">
+<area shape="rect" title="Carga todos los usuarios desde la base de datos." alt="" coords="5,231,120,256"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a1e51423ffa4b06685c5d230c770eb278" title="Carga un usuario desde un archivo." alt="" coords="168,231,319,256"/>
+<area shape="poly" title=" " alt="" coords="120,241,154,241,154,246,120,246"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#af97adbc40604faad2ab88b2fe0d9c494" title="Crea lista enlazada de posts vacía." alt="" coords="547,5,729,31"/>
+<area shape="poly" title=" " alt="" coords="258,228,373,141,456,87,546,40,564,32,566,37,548,44,459,92,376,145,262,233"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="367,179,499,204"/>
+<area shape="poly" title=" " alt="" coords="290,228,372,205,373,210,291,233"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a712d75094f2cdc4a576c1ea1dc5288ff" title="Inicializa los intereses de un usuario." alt="" coords="567,304,709,329"/>
+<area shape="poly" title=" " alt="" coords="313,253,555,299,554,304,312,259"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a9ebb42e316a747ef9b35e33309ee9bb7" title="Crea un post en la lista de posts." alt="" coords="385,331,480,356"/>
+<area shape="poly" title=" " alt="" coords="268,254,368,309,394,322,391,327,365,314,266,259"/>
+<area shape="poly" title=" " alt="" coords="438,177,476,112,507,73,545,40,555,34,558,39,548,44,511,77,480,115,442,180"/>
+<area shape="rect" href="../../d1/d2a/graph_8c.html#a10d20aea4764e2b54197726d92b3e637" title="Añade un usuario (ya creado) al grafo." alt="" coords="565,55,711,80"/>
+<area shape="poly" title=" " alt="" coords="443,177,485,134,514,110,545,89,560,82,562,87,548,94,517,114,488,138,447,180"/>
+<area shape="rect" href="../../d1/d2a/graph_8c.html#a1caf8c58c50411466450e68efeb9beee" title="Inicia una lista de adyacencia vacía." alt="" coords="573,104,703,129"/>
+<area shape="poly" title=" " alt="" coords="458,176,546,138,569,131,571,136,548,143,460,181"/>
+<area shape="poly" title=" " alt="" coords="447,202,488,245,517,269,548,289,565,297,562,302,545,294,514,273,485,249,443,206"/>
+<area shape="rect" href="../../d2/daf/hash__table_8c.html#a59ed78b7d84acd2ba628ae76d36f782b" title="Inserta un nuevo elemento en la tabla hash." alt="" coords="553,153,723,179"/>
+<area shape="poly" title=" " alt="" coords="498,181,540,175,540,181,499,186"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="777,229,884,255"/>
+<area shape="poly" title=" " alt="" coords="499,197,764,231,763,236,498,202"/>
+<area shape="rect" href="../../d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="557,255,719,280"/>
+<area shape="poly" title=" " alt="" coords="467,202,548,233,588,248,586,253,546,238,465,207"/>
+<area shape="poly" title=" " alt="" coords="678,176,730,196,790,221,788,226,728,200,676,181"/>
+<area shape="poly" title=" " alt="" coords="719,254,763,248,764,253,720,259"/>
+<area shape="poly" title=" " alt="" coords="481,351,533,359,596,362,664,357,697,350,728,340,754,325,777,306,812,264,816,268,781,309,757,329,730,344,698,355,664,362,596,367,533,364,480,356"/>
+</map>
+</div>
+<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a77103f45cf4c5b241aaad7936989564b_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_a77103f45cf4c5b241aaad7936989564b_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a77103f45cf4c5b241aaad7936989564b_icgraph" id="ad5/d4b/database_8c_a77103f45cf4c5b241aaad7936989564b_icgraph">
+<area shape="rect" title="Carga todos los usuarios desde la base de datos." alt="" coords="273,5,388,31"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#abf714cec1175e6736bc91b758979c959" title="Carga la base de datos en su totalidad." alt="" coords="108,5,225,31"/>
+<area shape="poly" title=" " alt="" coords="259,21,226,21,226,15,259,15"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a01f812e0547c932313f6b755ade7ac73" name="a01f812e0547c932313f6b755ade7ac73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01f812e0547c932313f6b755ade7ac73">&#9670;&#160;</a></span>load_connections()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void load_connections </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a>&#160;</td>
+          <td class="paramname"><em>table</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a>&#160;</td>
+          <td class="paramname"><em>globalInterests</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Carga todas las conexiones (aristas) de los usuarios desde la base de datos. </p>
+<dl class="section note"><dt>Note</dt><dd>Es necesario que se haya cargado los usuarios con </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/d4b/database_8c.html#a77103f45cf4c5b241aaad7936989564b" title="Carga todos los usuarios desde la base de datos.">load_all_users</a> antes de llamar a esta función.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>Tabla hash de usuarios </td></tr>
+    <tr><td class="paramname">globalInterests</td><td>Tabla de intereses globales </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a01f812e0547c932313f6b755ade7ac73_cgraph.png" border="0" usemap="#ad5/d4b/database_8c_a01f812e0547c932313f6b755ade7ac73_cgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a01f812e0547c932313f6b755ade7ac73_cgraph" id="ad5/d4b/database_8c_a01f812e0547c932313f6b755ade7ac73_cgraph">
+<area shape="rect" title="Carga todas las conexiones (aristas) de los usuarios desde la base de datos." alt="" coords="5,31,140,56"/>
+<area shape="rect" href="../../d1/d2a/graph_8c.html#a4d6718ee3e14fdfec3f71cf10d4aea0a" title="Añade una adyacencia entre dos usuarios." alt="" coords="195,5,281,31"/>
+<area shape="poly" title=" " alt="" coords="140,30,181,24,182,29,141,36"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a02b0bb2074d6748efedd29d4cbb1ee82" title="Busca a un usuario según su nombre de usuario." alt="" coords="188,55,288,80"/>
+<area shape="poly" title=" " alt="" coords="141,50,175,55,174,61,140,56"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a9c564038c86f55e7ad802f912e004869" title="Calcula la DIFERENCIA de jaccard entre dos usuarios." alt="" coords="363,5,471,31"/>
+<area shape="poly" title=" " alt="" coords="281,15,349,15,349,21,281,21"/>
+<area shape="rect" href="../../d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="336,55,499,80"/>
+<area shape="poly" title=" " alt="" coords="288,65,322,65,322,70,288,70"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="547,55,653,80"/>
+<area shape="poly" title=" " alt="" coords="499,65,533,65,533,70,499,70"/>
+</map>
+</div>
+<div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a01f812e0547c932313f6b755ade7ac73_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_a01f812e0547c932313f6b755ade7ac73_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a01f812e0547c932313f6b755ade7ac73_icgraph" id="ad5/d4b/database_8c_a01f812e0547c932313f6b755ade7ac73_icgraph">
+<area shape="rect" title="Carga todas las conexiones (aristas) de los usuarios desde la base de datos." alt="" coords="273,5,408,31"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#abf714cec1175e6736bc91b758979c959" title="Carga la base de datos en su totalidad." alt="" coords="108,5,225,31"/>
+<area shape="poly" title=" " alt="" coords="260,21,226,21,226,15,260,15"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abf714cec1175e6736bc91b758979c959" name="abf714cec1175e6736bc91b758979c959"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf714cec1175e6736bc91b758979c959">&#9670;&#160;</a></span>load_database()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void load_database </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a>&#160;</td>
+          <td class="paramname"><em>table</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a>&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a>&#160;</td>
+          <td class="paramname"><em>globalInterests</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Carga la base de datos en su totalidad. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>Tabla hash de usuarios </td></tr>
+    <tr><td class="paramname">graph</td><td>Grafo de usuarios </td></tr>
+    <tr><td class="paramname">globalInterests</td><td>Tabla de intereses globales </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_abf714cec1175e6736bc91b758979c959_cgraph.png" border="0" usemap="#ad5/d4b/database_8c_abf714cec1175e6736bc91b758979c959_cgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_abf714cec1175e6736bc91b758979c959_cgraph" id="ad5/d4b/database_8c_abf714cec1175e6736bc91b758979c959_cgraph">
+<area shape="rect" title="Carga la base de datos en su totalidad." alt="" coords="5,224,123,249"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a77103f45cf4c5b241aaad7936989564b" title="Carga todos los usuarios desde la base de datos." alt="" coords="181,151,295,176"/>
+<area shape="poly" title=" " alt="" coords="94,222,193,179,195,184,96,226"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a01f812e0547c932313f6b755ade7ac73" title="Carga todas las conexiones (aristas) de los usuarios desde la base de datos." alt="" coords="171,248,305,273"/>
+<area shape="poly" title=" " alt="" coords="123,242,157,247,156,252,122,247"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a1e51423ffa4b06685c5d230c770eb278" title="Carga un usuario desde un archivo." alt="" coords="353,112,504,137"/>
+<area shape="poly" title=" " alt="" coords="295,149,352,138,353,143,296,154"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#af97adbc40604faad2ab88b2fe0d9c494" title="Crea lista enlazada de posts vacía." alt="" coords="732,111,915,136"/>
+<area shape="poly" title=" " alt="" coords="504,122,718,121,718,126,504,127"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="552,187,684,212"/>
+<area shape="poly" title=" " alt="" coords="463,135,573,179,571,184,461,140"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a712d75094f2cdc4a576c1ea1dc5288ff" title="Inicializa los intereses de un usuario." alt="" coords="752,61,895,87"/>
+<area shape="poly" title=" " alt="" coords="504,110,552,103,738,81,739,86,552,109,505,116"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a9ebb42e316a747ef9b35e33309ee9bb7" title="Crea un post en la lista de posts." alt="" coords="571,11,665,36"/>
+<area shape="poly" title=" " alt="" coords="451,110,551,53,577,40,579,45,553,58,453,114"/>
+<area shape="poly" title=" " alt="" coords="643,184,731,145,754,137,756,142,733,150,645,189"/>
+<area shape="rect" href="../../d1/d2a/graph_8c.html#a10d20aea4764e2b54197726d92b3e637" title="Añade un usuario (ya creado) al grafo." alt="" coords="751,160,896,185"/>
+<area shape="poly" title=" " alt="" coords="684,188,737,181,737,187,684,194"/>
+<area shape="rect" href="../../d1/d2a/graph_8c.html#a1caf8c58c50411466450e68efeb9beee" title="Inicia una lista de adyacencia vacía." alt="" coords="758,209,889,235"/>
+<area shape="poly" title=" " alt="" coords="684,204,745,211,744,216,684,209"/>
+<area shape="poly" title=" " alt="" coords="628,185,670,141,699,117,731,96,745,89,748,94,733,100,702,121,674,145,632,188"/>
+<area shape="rect" href="../../d2/daf/hash__table_8c.html#a59ed78b7d84acd2ba628ae76d36f782b" title="Inserta un nuevo elemento en la tabla hash." alt="" coords="739,311,908,336"/>
+<area shape="poly" title=" " alt="" coords="649,210,686,233,700,249,710,263,719,276,734,289,760,303,758,308,730,294,715,280,705,266,696,252,682,238,646,214"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="963,285,1069,311"/>
+<area shape="poly" title=" " alt="" coords="647,210,687,227,733,244,847,271,949,287,949,293,846,276,731,249,685,232,645,215"/>
+<area shape="rect" href="../../d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="742,360,905,385"/>
+<area shape="poly" title=" " alt="" coords="653,210,670,220,686,234,697,249,704,265,709,293,715,321,722,334,734,347,739,351,736,355,730,351,717,337,710,323,704,294,699,266,693,252,682,237,667,225,651,215"/>
+<area shape="poly" title=" " alt="" coords="908,310,949,304,949,310,908,315"/>
+<area shape="poly" title=" " alt="" coords="879,358,914,346,979,315,982,320,916,351,880,363"/>
+<area shape="poly" title=" " alt="" coords="665,11,720,4,786,4,821,8,854,16,887,29,916,47,942,70,962,98,979,128,992,160,1008,222,1015,271,1010,272,1003,223,987,162,974,130,958,100,938,74,913,51,884,34,853,22,820,14,786,10,721,10,666,16"/>
+<area shape="rect" href="../../d1/d2a/graph_8c.html#a4d6718ee3e14fdfec3f71cf10d4aea0a" title="Añade una adyacencia entre dos usuarios." alt="" coords="386,248,471,273"/>
+<area shape="poly" title=" " alt="" coords="306,258,372,258,372,263,306,263"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a02b0bb2074d6748efedd29d4cbb1ee82" title="Busca a un usuario según su nombre de usuario." alt="" coords="379,297,479,323"/>
+<area shape="poly" title=" " alt="" coords="288,271,366,291,365,296,287,276"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a9c564038c86f55e7ad802f912e004869" title="Calcula la DIFERENCIA de jaccard entre dos usuarios." alt="" coords="564,248,672,273"/>
+<area shape="poly" title=" " alt="" coords="471,258,551,258,551,263,471,263"/>
+<area shape="poly" title=" " alt="" coords="479,315,730,355,729,361,478,321"/>
+</map>
+</div>
+<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_abf714cec1175e6736bc91b758979c959_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_abf714cec1175e6736bc91b758979c959_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_abf714cec1175e6736bc91b758979c959_icgraph" id="ad5/d4b/database_8c_abf714cec1175e6736bc91b758979c959_icgraph">
+<area shape="rect" title="Carga la base de datos en su totalidad." alt="" coords="108,5,225,31"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1e51423ffa4b06685c5d230c770eb278" name="a1e51423ffa4b06685c5d230c770eb278"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e51423ffa4b06685c5d230c770eb278">&#9670;&#160;</a></span>load_user_from_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a> load_user_from_file </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a>&#160;</td>
+          <td class="paramname"><em>table</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a>&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a>&#160;</td>
+          <td class="paramname"><em>globalInterests</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Carga un usuario desde un archivo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Nombre del archivo </td></tr>
+    <tr><td class="paramname">table</td><td>Tabla hash de usuarios </td></tr>
+    <tr><td class="paramname">graph</td><td>Grafo de usuarios </td></tr>
+    <tr><td class="paramname">globalInterests</td><td>Tabla de intereses globales </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>User Usuario cargado </dd></dl>
+<div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a1e51423ffa4b06685c5d230c770eb278_cgraph.png" border="0" usemap="#ad5/d4b/database_8c_a1e51423ffa4b06685c5d230c770eb278_cgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a1e51423ffa4b06685c5d230c770eb278_cgraph" id="ad5/d4b/database_8c_a1e51423ffa4b06685c5d230c770eb278_cgraph">
+<area shape="rect" title="Carga un usuario desde un archivo." alt="" coords="5,231,156,256"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#af97adbc40604faad2ab88b2fe0d9c494" title="Crea lista enlazada de posts vacía." alt="" coords="384,5,567,31"/>
+<area shape="poly" title=" " alt="" coords="96,228,210,141,293,87,383,40,401,32,403,37,385,44,296,92,213,145,99,233"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="204,179,336,204"/>
+<area shape="poly" title=" " alt="" coords="127,228,209,205,211,210,128,233"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a712d75094f2cdc4a576c1ea1dc5288ff" title="Inicializa los intereses de un usuario." alt="" coords="404,304,547,329"/>
+<area shape="poly" title=" " alt="" coords="150,253,393,299,392,304,149,259"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a9ebb42e316a747ef9b35e33309ee9bb7" title="Crea un post en la lista de posts." alt="" coords="223,331,317,356"/>
+<area shape="poly" title=" " alt="" coords="106,254,205,309,231,322,229,327,203,314,103,259"/>
+<area shape="poly" title=" " alt="" coords="275,177,313,112,345,73,382,40,392,34,395,39,386,44,348,77,318,115,280,180"/>
+<area shape="rect" href="../../d1/d2a/graph_8c.html#a10d20aea4764e2b54197726d92b3e637" title="Añade un usuario (ya creado) al grafo." alt="" coords="403,55,548,80"/>
+<area shape="poly" title=" " alt="" coords="280,177,322,134,351,110,383,89,397,82,400,87,385,94,354,114,326,138,284,180"/>
+<area shape="rect" href="../../d1/d2a/graph_8c.html#a1caf8c58c50411466450e68efeb9beee" title="Inicia una lista de adyacencia vacía." alt="" coords="410,104,541,129"/>
+<area shape="poly" title=" " alt="" coords="295,176,383,138,407,131,408,136,385,143,297,181"/>
+<area shape="poly" title=" " alt="" coords="284,202,326,245,354,269,385,289,402,297,400,302,383,294,351,273,322,249,280,206"/>
+<area shape="rect" href="../../d2/daf/hash__table_8c.html#a59ed78b7d84acd2ba628ae76d36f782b" title="Inserta un nuevo elemento en la tabla hash." alt="" coords="391,153,560,179"/>
+<area shape="poly" title=" " alt="" coords="336,181,377,175,378,181,336,186"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="615,229,721,255"/>
+<area shape="poly" title=" " alt="" coords="337,197,601,231,600,236,336,202"/>
+<area shape="rect" href="../../d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="394,255,557,280"/>
+<area shape="poly" title=" " alt="" coords="304,202,385,233,426,248,424,253,383,238,302,207"/>
+<area shape="poly" title=" " alt="" coords="515,176,568,196,628,221,626,226,566,200,514,181"/>
+<area shape="poly" title=" " alt="" coords="556,254,601,248,601,253,557,259"/>
+<area shape="poly" title=" " alt="" coords="318,351,370,359,434,362,501,357,534,350,566,340,591,325,614,306,649,264,653,268,618,309,595,329,568,344,535,355,502,362,434,367,370,364,317,356"/>
+</map>
+</div>
+<div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a1e51423ffa4b06685c5d230c770eb278_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_a1e51423ffa4b06685c5d230c770eb278_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a1e51423ffa4b06685c5d230c770eb278_icgraph" id="ad5/d4b/database_8c_a1e51423ffa4b06685c5d230c770eb278_icgraph">
+<area shape="rect" title="Carga un usuario desde un archivo." alt="" coords="436,5,587,31"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a77103f45cf4c5b241aaad7936989564b" title="Carga todos los usuarios desde la base de datos." alt="" coords="273,5,388,31"/>
+<area shape="poly" title=" " alt="" coords="422,21,388,21,388,15,422,15"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#abf714cec1175e6736bc91b758979c959" title="Carga la base de datos en su totalidad." alt="" coords="108,5,225,31"/>
+<area shape="poly" title=" " alt="" coords="259,21,226,21,226,15,259,15"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -395,22 +1032,105 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
         <tr>
           <td class="memname">void login </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/dc8/struct__hashtable.html">PtrToHashTable</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a>&#160;</td>
           <td class="paramname"><em>graph</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inicia sesión en la red social. </p>
+<p>Inicia sesión. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">username</td><td>Usuario a iniciar sesión </td></tr>
-    <tr><td class="paramname">password</td><td>Contraseña </td></tr>
-    <tr><td class="paramname">graph</td><td>Tabla hash de usuarios </td></tr>
+    <tr><td class="paramname">graph</td><td>Grafo de usuarios </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Se guarda el usuario actual en "current.dat" </dd></dl>
+<div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a2d1946fce4d4e29fa0c79c9d8045fd74_cgraph.png" border="0" usemap="#ad5/d4b/database_8c_a2d1946fce4d4e29fa0c79c9d8045fd74_cgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a2d1946fce4d4e29fa0c79c9d8045fd74_cgraph" id="ad5/d4b/database_8c_a2d1946fce4d4e29fa0c79c9d8045fd74_cgraph">
+<area shape="rect" title="Inicia sesión." alt="" coords="5,31,60,56"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a73eb533269566775275da2ac91350562" title=" " alt="" coords="115,5,201,31"/>
+<area shape="poly" title=" " alt="" coords="59,35,100,27,101,32,61,41"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a02b0bb2074d6748efedd29d4cbb1ee82" title="Busca a un usuario según su nombre de usuario." alt="" coords="108,55,208,80"/>
+<area shape="poly" title=" " alt="" coords="61,46,95,53,94,58,60,51"/>
+<area shape="rect" href="../../d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="256,55,419,80"/>
+<area shape="poly" title=" " alt="" coords="208,65,242,65,242,70,208,70"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="467,55,573,80"/>
+<area shape="poly" title=" " alt="" coords="419,65,453,65,453,70,419,70"/>
+</map>
+</div>
+<div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a2d1946fce4d4e29fa0c79c9d8045fd74_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_a2d1946fce4d4e29fa0c79c9d8045fd74_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a2d1946fce4d4e29fa0c79c9d8045fd74_icgraph" id="ad5/d4b/database_8c_a2d1946fce4d4e29fa0c79c9d8045fd74_icgraph">
+<area shape="rect" title="Inicia sesión." alt="" coords="108,5,163,31"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac79c3b2234769c7fd497702cf88e21bf" name="ac79c3b2234769c7fd497702cf88e21bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac79c3b2234769c7fd497702cf88e21bf">&#9670;&#160;</a></span>logout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void logout </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cierra sesión. </p>
+<dl class="section note"><dt>Note</dt><dd>Borra el archivo "current.dat" </dd></dl>
+<div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_ac79c3b2234769c7fd497702cf88e21bf_cgraph.png" border="0" usemap="#ad5/d4b/database_8c_ac79c3b2234769c7fd497702cf88e21bf_cgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_ac79c3b2234769c7fd497702cf88e21bf_cgraph" id="ad5/d4b/database_8c_ac79c3b2234769c7fd497702cf88e21bf_cgraph">
+<area shape="rect" title="Cierra sesión." alt="" coords="5,5,68,31"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a73eb533269566775275da2ac91350562" title=" " alt="" coords="116,5,203,31"/>
+<area shape="poly" title=" " alt="" coords="68,15,102,15,102,21,68,21"/>
+</map>
+</div>
+<div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_ac79c3b2234769c7fd497702cf88e21bf_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_ac79c3b2234769c7fd497702cf88e21bf_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_ac79c3b2234769c7fd497702cf88e21bf_icgraph" id="ad5/d4b/database_8c_ac79c3b2234769c7fd497702cf88e21bf_icgraph">
+<area shape="rect" title="Cierra sesión." alt="" coords="449,56,512,81"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a76f762d2a9063e73e62fa1e7127951ff" title="Obtiene el usuario de la sesión iniciada actualmente, si existe." alt="" coords="108,5,232,31"/>
+<area shape="poly" title=" " alt="" coords="435,60,401,53,232,27,233,22,402,47,437,55"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,81,60,107"/>
+<area shape="poly" title=" " alt="" coords="435,73,108,90,60,94,60,89,108,85,435,68"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a13d272cd38e4c062da1f9d46f17bf9c3" title="Borrar la cuenta de un usuario de la base de datos." alt="" coords="280,107,401,132"/>
+<area shape="poly" title=" " alt="" coords="437,87,377,109,375,104,435,82"/>
+<area shape="poly" title=" " alt="" coords="133,39,109,52,57,83,54,79,107,48,130,35"/>
+<area shape="poly" title=" " alt="" coords="266,116,60,99,60,94,267,111"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#ac7dd8a7af5b71944a8e8a5787ba710f0" title="Elimina la base de datos en su totalidad." alt="" coords="109,157,231,183"/>
+<area shape="poly" title=" " alt="" coords="285,139,214,160,213,155,283,133"/>
+<area shape="poly" title=" " alt="" coords="130,153,107,140,54,109,57,105,109,136,133,149"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -423,19 +1143,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
         <tr>
           <td class="memname">void register_user </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/dc8/struct__hashtable.html">PtrToHashTable</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a>&#160;</td>
           <td class="paramname"><em>table</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d5/d08/struct__graph.html">Graph</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a>&#160;</td>
           <td class="paramname"><em>graph</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d5/d87/struct__globalInterests.html">GlobalInterests</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a>&#160;</td>
           <td class="paramname"><em>globalInterests</em>&#160;</td>
         </tr>
         <tr>
@@ -446,7 +1166,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
       </table>
 </div><div class="memdoc">
 
-<p>Registra un usuario nuevo en la red social. </p>
+<p>Registra un nuevo usuario en la base de datos. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">table</td><td>Tabla hash de usuarios </td></tr>
@@ -455,6 +1175,63 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
   </table>
   </dd>
 </dl>
+<div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a116abf50656b08636a9f449c3f46e2cd_cgraph.png" border="0" usemap="#ad5/d4b/database_8c_a116abf50656b08636a9f449c3f46e2cd_cgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a116abf50656b08636a9f449c3f46e2cd_cgraph" id="ad5/d4b/database_8c_a116abf50656b08636a9f449c3f46e2cd_cgraph">
+<area shape="rect" title="Registra un nuevo usuario en la base de datos." alt="" coords="5,231,112,256"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#aa07746382b32ef874f1f05d0bc166411" title=" " alt="" coords="190,107,293,132"/>
+<area shape="poly" title=" " alt="" coords="67,229,104,186,130,162,159,141,176,133,178,137,161,146,133,166,108,190,71,232"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="175,156,307,181"/>
+<area shape="poly" title=" " alt="" coords="81,228,159,190,179,183,181,188,161,195,84,233"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#aeab80d0f78ff41b5f6c231b7e750d4b9" title=" " alt="" coords="160,205,323,231"/>
+<area shape="poly" title=" " alt="" coords="112,233,146,229,147,234,112,239"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a73eb533269566775275da2ac91350562" title=" " alt="" coords="198,255,285,280"/>
+<area shape="poly" title=" " alt="" coords="112,248,184,257,184,263,112,253"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#abdee669a4d0bab54b2af1fa5f0a04cc1" title="Guarda toda la información de un usuario en la base de datos." alt="" coords="179,377,303,403"/>
+<area shape="poly" title=" " alt="" coords="73,254,111,294,162,339,206,368,203,373,158,343,108,298,70,258"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a02b0bb2074d6748efedd29d4cbb1ee82" title="Busca a un usuario según su nombre de usuario." alt="" coords="191,304,291,329"/>
+<area shape="poly" title=" " alt="" coords="85,254,161,289,184,297,182,302,159,294,83,259"/>
+<area shape="rect" href="../../d1/d2a/graph_8c.html#a10d20aea4764e2b54197726d92b3e637" title="Añade un usuario (ya creado) al grafo." alt="" coords="389,5,535,31"/>
+<area shape="poly" title=" " alt="" coords="301,154,321,141,332,129,338,117,344,92,350,66,357,53,369,40,376,35,379,39,372,44,361,56,355,68,349,93,343,119,336,132,324,145,304,158"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#af97adbc40604faad2ab88b2fe0d9c494" title="Crea lista enlazada de posts vacía." alt="" coords="371,55,553,80"/>
+<area shape="poly" title=" " alt="" coords="295,153,321,141,336,129,344,116,354,102,369,89,381,83,384,88,372,94,358,106,349,119,340,132,324,146,298,158"/>
+<area shape="rect" href="../../d1/d2a/graph_8c.html#a1caf8c58c50411466450e68efeb9beee" title="Inicia una lista de adyacencia vacía." alt="" coords="397,104,527,129"/>
+<area shape="poly" title=" " alt="" coords="295,153,394,130,395,135,297,159"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a712d75094f2cdc4a576c1ea1dc5288ff" title="Inicializa los intereses de un usuario." alt="" coords="391,153,533,179"/>
+<area shape="poly" title=" " alt="" coords="307,165,377,164,377,170,308,171"/>
+<area shape="rect" href="../../d2/daf/hash__table_8c.html#a59ed78b7d84acd2ba628ae76d36f782b" title="Inserta un nuevo elemento en la tabla hash." alt="" coords="377,203,547,228"/>
+<area shape="poly" title=" " alt="" coords="303,179,388,197,387,202,302,184"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="601,253,708,279"/>
+<area shape="poly" title=" " alt="" coords="299,179,324,190,339,203,348,215,357,227,372,237,426,256,483,266,539,270,588,269,588,274,538,275,483,271,425,261,369,242,354,231,344,219,335,206,321,195,297,184"/>
+<area shape="rect" href="../../d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="381,304,543,329"/>
+<area shape="poly" title=" " alt="" coords="306,179,324,191,343,214,350,238,356,260,372,283,393,296,391,301,369,287,351,263,344,239,338,216,321,195,303,184"/>
+<area shape="poly" title=" " alt="" coords="512,226,593,247,592,252,511,231"/>
+<area shape="poly" title=" " alt="" coords="511,301,592,280,593,285,512,306"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#aeda9265bc6db17bc211f56c5177063ff" title="Calcula qué tan amigable es un usuario." alt="" coords="380,353,544,379"/>
+<area shape="poly" title=" " alt="" coords="303,381,366,374,366,379,304,386"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#ac56f8b225ddd39009e826d1f0b8499b8" title="Clasifica el nivel de amigabilidad de un usuario según su puntaje." alt="" coords="385,403,539,428"/>
+<area shape="poly" title=" " alt="" coords="304,394,371,402,370,407,303,400"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582" title="Elimina todos los archivos en un directorio." alt="" coords="377,452,547,477"/>
+<area shape="poly" title=" " alt="" coords="273,400,372,438,397,446,395,451,370,443,271,405"/>
+<area shape="poly" title=" " alt="" coords="292,314,367,314,367,319,292,319"/>
+</map>
+</div>
+<div id="dynsection-26" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-26-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a116abf50656b08636a9f449c3f46e2cd_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_a116abf50656b08636a9f449c3f46e2cd_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a116abf50656b08636a9f449c3f46e2cd_icgraph" id="ad5/d4b/database_8c_a116abf50656b08636a9f449c3f46e2cd_icgraph">
+<area shape="rect" title="Registra un nuevo usuario en la base de datos." alt="" coords="108,5,215,31"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -467,13 +1244,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
         <tr>
           <td class="memname">void save_all_users </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d08/struct__graph.html">Graph</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a0f9b15cbd48db95b75e66e2d49ecbdd8">Graph</a>&#160;</td>
           <td class="paramname"><em>graph</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d5/d87/struct__globalInterests.html">GlobalInterests</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a>&#160;</td>
           <td class="paramname"><em>globalInterests</em>&#160;</td>
         </tr>
         <tr>
@@ -484,14 +1261,46 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
       </table>
 </div><div class="memdoc">
 
-<p>Guarda todos los usuarios del grafo en la carpeta database. </p>
+<p>Guarda todos los usuarios cargados en el programa en la base de datos. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">graph</td><td>Grafo con usuarios </td></tr>
-    <tr><td class="paramname">globalInterests</td><td>Tabla global de intereses </td></tr>
+    <tr><td class="paramname">graph</td><td>Grafo de usuarios </td></tr>
+    <tr><td class="paramname">globalInterests</td><td>Tabla de intereses globales </td></tr>
   </table>
   </dd>
 </dl>
+<div id="dynsection-27" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-27-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-27-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a403ac5de2bde8804588c7739d023f6f1_cgraph.png" border="0" usemap="#ad5/d4b/database_8c_a403ac5de2bde8804588c7739d023f6f1_cgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a403ac5de2bde8804588c7739d023f6f1_cgraph" id="ad5/d4b/database_8c_a403ac5de2bde8804588c7739d023f6f1_cgraph">
+<area shape="rect" title="Guarda todos los usuarios cargados en el programa en la base de datos." alt="" coords="5,31,124,56"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a396f9e338551f945a1e511c2d32ae9c0" title="Crea el directorio &#39;database&#39; si no existe." alt="" coords="172,5,327,31"/>
+<area shape="poly" title=" " alt="" coords="124,33,158,28,159,33,124,38"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#abdee669a4d0bab54b2af1fa5f0a04cc1" title="Guarda toda la información de un usuario en la base de datos." alt="" coords="187,55,311,80"/>
+<area shape="poly" title=" " alt="" coords="124,48,174,55,173,60,124,54"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#aeda9265bc6db17bc211f56c5177063ff" title="Calcula qué tan amigable es un usuario." alt="" coords="378,5,542,31"/>
+<area shape="poly" title=" " alt="" coords="304,52,391,31,392,36,305,57"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#ac56f8b225ddd39009e826d1f0b8499b8" title="Clasifica el nivel de amigabilidad de un usuario según su puntaje." alt="" coords="383,55,537,80"/>
+<area shape="poly" title=" " alt="" coords="311,65,368,65,368,70,311,70"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582" title="Elimina todos los archivos en un directorio." alt="" coords="375,104,545,129"/>
+<area shape="poly" title=" " alt="" coords="305,77,392,98,391,103,304,83"/>
+</map>
+</div>
+<div id="dynsection-28" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-28-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-28-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a403ac5de2bde8804588c7739d023f6f1_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_a403ac5de2bde8804588c7739d023f6f1_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a403ac5de2bde8804588c7739d023f6f1_icgraph" id="ad5/d4b/database_8c_a403ac5de2bde8804588c7739d023f6f1_icgraph">
+<area shape="rect" title="Guarda todos los usuarios cargados en el programa en la base de datos." alt="" coords="108,5,227,31"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -504,13 +1313,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
         <tr>
           <td class="memname">void save_user_data </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d4f/struct__user.html">User</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a>&#160;</td>
           <td class="paramname"><em>user</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d5/d87/struct__globalInterests.html">GlobalInterests</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a>&#160;</td>
           <td class="paramname"><em>globalInterests</em>&#160;</td>
         </tr>
         <tr>
@@ -521,7 +1330,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
       </table>
 </div><div class="memdoc">
 
-<p>Guarda toda la información de un usuario en "database/{username}_data". </p>
+<p>Guarda toda la información de un usuario en la base de datos. </p>
+<dl class="section note"><dt>Note</dt><dd>Se guardan los en la carpeta "database/{username}_data". Su info como usuario está en "database/{username}_data/data.dat", sus seguidores en "database/{username}_data/following.dat" y sus seguidores en "database/{username}_data/followers.dat". Sus publicaciones estarán en "database/{username}_data/posts", cada post siendo un archivo teniendo de nombre la fecha en formato "AAAA-MM-DD HH:MM:SS".</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">user</td><td>Usuario a guardar </td></tr>
@@ -529,6 +1339,53 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
   </table>
   </dd>
 </dl>
+<div id="dynsection-29" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-29-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-29-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-29-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_abdee669a4d0bab54b2af1fa5f0a04cc1_cgraph.png" border="0" usemap="#ad5/d4b/database_8c_abdee669a4d0bab54b2af1fa5f0a04cc1_cgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_abdee669a4d0bab54b2af1fa5f0a04cc1_cgraph" id="ad5/d4b/database_8c_abdee669a4d0bab54b2af1fa5f0a04cc1_cgraph">
+<area shape="rect" title="Guarda toda la información de un usuario en la base de datos." alt="" coords="5,55,129,80"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#aeda9265bc6db17bc211f56c5177063ff" title="Calcula qué tan amigable es un usuario." alt="" coords="181,5,345,31"/>
+<area shape="poly" title=" " alt="" coords="118,52,198,32,199,37,119,57"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#ac56f8b225ddd39009e826d1f0b8499b8" title="Clasifica el nivel de amigabilidad de un usuario según su puntaje." alt="" coords="185,55,340,80"/>
+<area shape="poly" title=" " alt="" coords="130,65,172,65,172,70,130,70"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582" title="Elimina todos los archivos en un directorio." alt="" coords="177,104,348,129"/>
+<area shape="poly" title=" " alt="" coords="119,77,199,98,198,103,118,83"/>
+</map>
+</div>
+<div id="dynsection-30" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-30-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-30-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-30-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_abdee669a4d0bab54b2af1fa5f0a04cc1_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_abdee669a4d0bab54b2af1fa5f0a04cc1_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_abdee669a4d0bab54b2af1fa5f0a04cc1_icgraph" id="ad5/d4b/database_8c_abdee669a4d0bab54b2af1fa5f0a04cc1_icgraph">
+<area shape="rect" title="Guarda toda la información de un usuario en la base de datos." alt="" coords="429,144,553,169"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#ad754349fdaa7256297f09a6c77ccd2a2" title="Permite a un usuario editar su información de cuenta." alt="" coords="109,5,214,31"/>
+<area shape="poly" title=" " alt="" coords="475,133,437,80,411,54,380,34,339,19,295,12,252,11,214,13,214,8,252,5,296,7,340,14,383,29,414,50,441,77,479,130"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a5c2c93b11c91edd6b02eb8de193bba3f" title="Seguir a un usuario." alt="" coords="291,68,353,93"/>
+<area shape="poly" title=" " alt="" coords="449,141,350,96,352,91,451,136"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a27d66932dd0c4411d8baa6acc4b717af" title="Dejar de seguir a un usuario." alt="" coords="122,119,201,144"/>
+<area shape="poly" title=" " alt="" coords="416,154,201,137,201,132,416,148"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a116abf50656b08636a9f449c3f46e2cd" title="Registra un nuevo usuario en la base de datos." alt="" coords="108,168,215,193"/>
+<area shape="poly" title=" " alt="" coords="416,165,215,179,215,174,416,159"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a403ac5de2bde8804588c7739d023f6f1" title="Guarda todos los usuarios cargados en el programa en la base de datos." alt="" coords="263,220,381,245"/>
+<area shape="poly" title=" " alt="" coords="451,177,352,222,350,217,449,173"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a83dfa88ced51dd9165e817e89f8ddc63" title="Publicar un post desde un usuario." alt="" coords="277,269,367,295"/>
+<area shape="poly" title=" " alt="" coords="472,181,433,221,383,260,361,272,359,267,380,256,429,217,468,177"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,144,60,169"/>
+<area shape="poly" title=" " alt="" coords="134,41,110,64,73,108,45,145,41,142,68,104,106,60,131,37"/>
+<area shape="poly" title=" " alt="" coords="277,83,197,88,152,96,109,108,76,126,50,146,46,142,73,121,107,104,151,91,197,83,277,77"/>
+<area shape="poly" title=" " alt="" coords="350,57,342,50,322,47,305,49,297,53,295,59,300,67,295,69,289,60,292,50,304,44,322,41,344,45,353,53"/>
+<area shape="poly" title=" " alt="" coords="278,97,202,122,200,116,277,92"/>
+<area shape="poly" title=" " alt="" coords="109,144,61,154,60,149,108,139"/>
+<area shape="poly" title=" " alt="" coords="94,171,60,164,61,159,95,166"/>
+<area shape="poly" title=" " alt="" coords="248,234,179,226,107,207,74,191,48,172,51,167,77,186,109,202,180,220,249,228"/>
+<area shape="poly" title=" " alt="" coords="263,281,186,267,145,254,107,236,86,222,67,204,41,172,45,168,71,201,89,218,109,232,147,249,187,262,264,275"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -541,7 +1398,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
         <tr>
           <td class="memname">void unfollow </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d4f/struct__user.html">User</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a>&#160;</td>
           <td class="paramname"><em>user</em>, </td>
         </tr>
         <tr>
@@ -553,13 +1410,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d5/d87/struct__globalInterests.html">GlobalInterests</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a>&#160;</td>
           <td class="paramname"><em>globalInterests</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/dc8/struct__hashtable.html">PtrToHashTable</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/ddb/hash__table_8h.html#a7e056d7659ae1acde513c0dbf0a43833">PtrToHashTable</a>&#160;</td>
           <td class="paramname"><em>table</em>&#160;</td>
         </tr>
         <tr>
@@ -570,16 +1427,66 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
       </table>
 </div><div class="memdoc">
 
-<p>Permite a un usuario dejar de seguir a otro, y guarda dicha información en la base de datos. </p>
+<p>Dejar de seguir a un usuario. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">user</td><td>Sesión iniciada </td></tr>
-    <tr><td class="paramname">follow</td><td>Nombre de usuario de la persona a seguir </td></tr>
+    <tr><td class="paramname">user</td><td>Usuario que deja de seguir a otro </td></tr>
+    <tr><td class="paramname">follow</td><td>Nombre del usuario que ya no se va a seguir </td></tr>
     <tr><td class="paramname">globalInterests</td><td>Tabla de intereses globales </td></tr>
-    <tr><td class="paramname">table</td><td>Tabla hash de usuarios </td></tr>
+    <tr><td class="paramname">table</td><td>Tabla hash de usuarios</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Esta información se guarda en la carpeta "database/{user}_data/followers.dat" </dd></dl>
+<div id="dynsection-31" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-31-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-31-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-31-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a27d66932dd0c4411d8baa6acc4b717af_cgraph.png" border="0" usemap="#ad5/d4b/database_8c_a27d66932dd0c4411d8baa6acc4b717af_cgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a27d66932dd0c4411d8baa6acc4b717af_cgraph" id="ad5/d4b/database_8c_a27d66932dd0c4411d8baa6acc4b717af_cgraph">
+<area shape="rect" title="Dejar de seguir a un usuario." alt="" coords="5,153,84,179"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#a5c2c93b11c91edd6b02eb8de193bba3f" title="Seguir a un usuario." alt="" coords="156,77,219,103"/>
+<area shape="poly" title=" " alt="" coords="68,151,149,107,152,112,71,155"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#abdee669a4d0bab54b2af1fa5f0a04cc1" title="Guarda toda la información de un usuario en la base de datos." alt="" coords="322,104,446,129"/>
+<area shape="poly" title=" " alt="" coords="84,158,308,125,309,130,85,163"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a02b0bb2074d6748efedd29d4cbb1ee82" title="Busca a un usuario según su nombre de usuario." alt="" coords="334,179,434,204"/>
+<area shape="poly" title=" " alt="" coords="85,166,320,184,320,189,84,172"/>
+<area shape="rect" href="../../d1/d2a/graph_8c.html#a3e633b4d8bf50863870e67bf4ca97319" title="Permite que un usuario deje de seguir a otro." alt="" coords="132,229,243,255"/>
+<area shape="poly" title=" " alt="" coords="71,177,152,220,149,225,68,181"/>
+<area shape="poly" title=" " alt="" coords="163,78,158,69,161,59,171,53,187,51,207,54,215,63,212,66,204,59,187,56,173,58,165,63,164,68,168,76"/>
+<area shape="rect" href="../../d1/d2a/graph_8c.html#a4d6718ee3e14fdfec3f71cf10d4aea0a" title="Añade una adyacencia entre dos usuarios." alt="" coords="341,31,427,56"/>
+<area shape="poly" title=" " alt="" coords="218,80,327,54,329,59,220,85"/>
+<area shape="poly" title=" " alt="" coords="219,92,309,104,308,109,219,97"/>
+<area shape="poly" title=" " alt="" coords="214,100,347,170,345,175,212,105"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a9c564038c86f55e7ad802f912e004869" title="Calcula la DIFERENCIA de jaccard entre dos usuarios." alt="" coords="557,5,665,31"/>
+<area shape="poly" title=" " alt="" coords="427,36,543,23,543,28,427,41"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#aeda9265bc6db17bc211f56c5177063ff" title="Calcula qué tan amigable es un usuario." alt="" coords="529,55,693,80"/>
+<area shape="poly" title=" " alt="" coords="442,101,538,80,539,86,444,107"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#ac56f8b225ddd39009e826d1f0b8499b8" title="Clasifica el nivel de amigabilidad de un usuario según su puntaje." alt="" coords="533,104,688,129"/>
+<area shape="poly" title=" " alt="" coords="447,114,520,114,520,119,447,119"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582" title="Elimina todos los archivos en un directorio." alt="" coords="525,153,696,179"/>
+<area shape="poly" title=" " alt="" coords="444,127,539,148,538,153,442,132"/>
+<area shape="rect" href="../../d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="529,203,692,228"/>
+<area shape="poly" title=" " alt="" coords="435,194,516,203,515,208,434,199"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="744,203,851,228"/>
+<area shape="poly" title=" " alt="" coords="692,213,730,213,730,218,692,218"/>
+<area shape="rect" href="../../d1/d2a/graph_8c.html#abf9f24585384d89e637bd258922e64db" title="Busca la adyacencia anterior a un usuario en una lista de adyacencia." alt="" coords="291,229,477,255"/>
+<area shape="poly" title=" " alt="" coords="243,239,277,239,277,245,243,245"/>
+</map>
+</div>
+<div id="dynsection-32" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-32-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-32-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-32-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a27d66932dd0c4411d8baa6acc4b717af_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_a27d66932dd0c4411d8baa6acc4b717af_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a27d66932dd0c4411d8baa6acc4b717af_icgraph" id="ad5/d4b/database_8c_a27d66932dd0c4411d8baa6acc4b717af_icgraph">
+<area shape="rect" title="Dejar de seguir a un usuario." alt="" coords="108,5,187,31"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -592,13 +1499,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
         <tr>
           <td class="memname">void write_post </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d4f/struct__user.html">User</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a995d9e8670b5cd49a0b3348a0abb13a0">User</a>&#160;</td>
           <td class="paramname"><em>user</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d5/d87/struct__globalInterests.html">GlobalInterests</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d9c/database_8h.html#a9b0b9d0cb757c2efded518bf5a3b0672">GlobalInterests</a>&#160;</td>
           <td class="paramname"><em>globalInterests</em>&#160;</td>
         </tr>
         <tr>
@@ -609,14 +1516,51 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>logout</b> (void)</td
       </table>
 </div><div class="memdoc">
 
-<p>Permite a un usuario publicar un post, guardandolo en la base de datos. </p>
+<p>Publicar un post desde un usuario. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">user</td><td>Sesión iniciada </td></tr>
-    <tr><td class="paramname">globalInterests</td><td>Tabla de intereses globales </td></tr>
+    <tr><td class="paramname">user</td><td>Usuario publicador </td></tr>
+    <tr><td class="paramname">globalInterests</td><td>Tabla de intereses globales</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Se guarda la publicación en la carpeta "database/{username}_data/posts" </dd></dl>
+<div id="dynsection-33" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-33-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-33-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-33-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a83dfa88ced51dd9165e817e89f8ddc63_cgraph.png" border="0" usemap="#ad5/d4b/database_8c_a83dfa88ced51dd9165e817e89f8ddc63_cgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a83dfa88ced51dd9165e817e89f8ddc63_cgraph" id="ad5/d4b/database_8c_a83dfa88ced51dd9165e817e89f8ddc63_cgraph">
+<area shape="rect" title="Publicar un post desde un usuario." alt="" coords="5,55,96,80"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a9ebb42e316a747ef9b35e33309ee9bb7" title="Crea un post en la lista de posts." alt="" coords="159,5,253,31"/>
+<area shape="poly" title=" " alt="" coords="90,52,151,32,153,37,92,57"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a73eb533269566775275da2ac91350562" title=" " alt="" coords="163,55,249,80"/>
+<area shape="poly" title=" " alt="" coords="96,65,149,65,149,70,96,70"/>
+<area shape="rect" href="../../d5/d4b/database_8c.html#abdee669a4d0bab54b2af1fa5f0a04cc1" title="Guarda toda la información de un usuario en la base de datos." alt="" coords="144,104,268,129"/>
+<area shape="poly" title=" " alt="" coords="92,78,153,97,151,102,90,83"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="348,5,455,31"/>
+<area shape="poly" title=" " alt="" coords="253,15,334,15,334,21,253,21"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#aeda9265bc6db17bc211f56c5177063ff" title="Calcula qué tan amigable es un usuario." alt="" coords="319,55,483,80"/>
+<area shape="poly" title=" " alt="" coords="256,101,336,81,338,86,258,107"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#ac56f8b225ddd39009e826d1f0b8499b8" title="Clasifica el nivel de amigabilidad de un usuario según su puntaje." alt="" coords="324,104,479,129"/>
+<area shape="poly" title=" " alt="" coords="268,114,310,114,310,119,268,119"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582" title="Elimina todos los archivos en un directorio." alt="" coords="316,153,487,179"/>
+<area shape="poly" title=" " alt="" coords="258,127,338,147,336,152,256,132"/>
+</map>
+</div>
+<div id="dynsection-34" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-34-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-34-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-34-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d4b/database_8c_a83dfa88ced51dd9165e817e89f8ddc63_icgraph.png" border="0" usemap="#ad5/d4b/database_8c_a83dfa88ced51dd9165e817e89f8ddc63_icgraph" alt=""/></div>
+<map name="ad5/d4b/database_8c_a83dfa88ced51dd9165e817e89f8ddc63_icgraph" id="ad5/d4b/database_8c_a83dfa88ced51dd9165e817e89f8ddc63_icgraph">
+<area shape="rect" title="Publicar un post desde un usuario." alt="" coords="108,5,199,31"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
 
 </div>
 </div>

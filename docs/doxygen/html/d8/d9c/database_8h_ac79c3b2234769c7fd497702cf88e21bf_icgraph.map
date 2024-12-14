@@ -1,0 +1,14 @@
+<map id="logout" name="logout">
+<area shape="rect" id="Node000001" title="Cierra sesión." alt="" coords="449,56,512,81"/>
+<area shape="rect" id="Node000002" href="$d5/d4b/database_8c.html#a76f762d2a9063e73e62fa1e7127951ff" title="Obtiene el usuario de la sesión iniciada actualmente, si existe." alt="" coords="108,5,232,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="435,60,401,53,232,27,233,22,402,47,437,55"/>
+<area shape="rect" id="Node000003" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,81,60,107"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="435,73,108,90,60,94,60,89,108,85,435,68"/>
+<area shape="rect" id="Node000004" href="$d5/d4b/database_8c.html#a13d272cd38e4c062da1f9d46f17bf9c3" title="Borrar la cuenta de un usuario de la base de datos." alt="" coords="280,107,401,132"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="437,87,377,109,375,104,435,82"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="133,39,109,52,57,83,54,79,107,48,130,35"/>
+<area shape="poly" id="edge6_Node000004_Node000003" title=" " alt="" coords="266,116,60,99,60,94,267,111"/>
+<area shape="rect" id="Node000005" href="$d5/d4b/database_8c.html#ac7dd8a7af5b71944a8e8a5787ba710f0" title="Elimina la base de datos en su totalidad." alt="" coords="109,157,231,183"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="285,139,214,160,213,155,283,133"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="130,153,107,140,54,109,57,105,109,136,133,149"/>
+</map>

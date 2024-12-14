@@ -1,0 +1,44 @@
+<map id="search_in_hash_table" name="search_in_hash_table">
+<area shape="rect" id="Node000001" title="Busca un elemento en la tabla hash por su clave." alt="" coords="841,56,1004,81"/>
+<area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="661,56,793,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="828,71,794,71,794,66,828,66"/>
+<area shape="rect" id="Node000003" href="$d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833" title="Genera usuarios aleatorios." alt="" coords="477,5,599,31"/>
+<area shape="poly" id="edge10_Node000001_Node000003" title=" " alt="" coords="849,56,793,46,599,25,600,20,794,41,850,51"/>
+<area shape="rect" id="Node000009" href="$d2/d9e/users_8c.html#a02b0bb2074d6748efedd29d4cbb1ee82" title="Busca a un usuario según su nombre de usuario." alt="" coords="488,279,588,304"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="889,91,562,281,560,276,886,86"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="665,55,586,33,587,28,667,50"/>
+<area shape="rect" id="Node000005" href="$d5/d4b/database_8c.html#a1e51423ffa4b06685c5d230c770eb278" title="Carga un usuario desde un archivo." alt="" coords="463,107,613,132"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="667,88,587,109,586,104,665,82"/>
+<area shape="rect" id="Node000008" href="$d5/d4b/database_8c.html#a116abf50656b08636a9f449c3f46e2cd" title="Registra un nuevo usuario en la base de datos." alt="" coords="294,56,401,81"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="648,71,401,71,401,66,648,66"/>
+<area shape="rect" id="Node000004" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,279,60,304"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="463,12,381,10,286,19,238,30,192,46,148,69,110,99,91,119,76,143,55,195,43,243,38,279,32,278,38,242,50,193,72,141,87,116,106,95,146,64,190,42,237,25,286,14,381,5,463,7"/>
+<area shape="rect" id="Node000006" href="$d5/d4b/database_8c.html#a77103f45cf4c5b241aaad7936989564b" title="Carga todos los usuarios desde la base de datos." alt="" coords="290,105,405,131"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="449,121,405,121,405,116,449,116"/>
+<area shape="rect" id="Node000007" href="$d5/d4b/database_8c.html#abf714cec1175e6736bc91b758979c959" title="Carga la base de datos en su totalidad." alt="" coords="111,155,229,180"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="289,137,217,157,216,152,287,132"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="146,191,110,224,49,280,46,277,106,220,142,187"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="281,78,239,86,194,99,149,119,110,145,82,178,61,215,39,279,34,278,56,213,77,175,106,141,147,114,192,94,238,81,280,73"/>
+<area shape="poly" id="edge25_Node000009_Node000004" title=" " alt="" coords="503,313,429,346,382,363,329,377,274,388,217,391,161,386,107,370,85,357,66,339,40,306,44,302,70,336,88,352,109,365,162,381,217,386,273,382,328,372,380,358,427,341,501,308"/>
+<area shape="poly" id="edge26_Node000009_Node000008" title=" " alt="" coords="522,268,469,172,439,125,413,95,394,84,397,79,416,91,443,122,474,170,526,265"/>
+<area shape="rect" id="Node000010" href="$d5/d4b/database_8c.html#a76f762d2a9063e73e62fa1e7127951ff" title="Obtiene el usuario de la sesión iniciada actualmente, si existe." alt="" coords="108,431,232,456"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="522,317,479,367,449,393,416,414,370,431,322,442,233,448,232,443,321,436,368,426,413,409,446,389,475,364,518,313"/>
+<area shape="rect" id="Node000011" href="$d5/d4b/database_8c.html#ad754349fdaa7256297f09a6c77ccd2a2" title="Permite a un usuario editar su información de cuenta." alt="" coords="117,480,223,505"/>
+<area shape="poly" id="edge14_Node000009_Node000011" title=" " alt="" coords="527,317,510,349,485,385,454,421,416,451,368,473,317,487,267,494,223,496,223,491,266,489,316,482,366,468,413,446,450,417,481,382,505,346,523,315"/>
+<area shape="rect" id="Node000012" href="$d5/d4b/database_8c.html#a5c2c93b11c91edd6b02eb8de193bba3f" title="Seguir a un usuario." alt="" coords="316,228,379,253"/>
+<area shape="poly" id="edge16_Node000009_Node000012" title=" " alt="" coords="476,278,378,251,380,246,477,272"/>
+<area shape="rect" id="Node000013" href="$d5/d4b/database_8c.html#a27d66932dd0c4411d8baa6acc4b717af" title="Dejar de seguir a un usuario." alt="" coords="131,279,209,304"/>
+<area shape="poly" id="edge27_Node000009_Node000013" title=" " alt="" coords="474,294,209,294,209,289,474,289"/>
+<area shape="rect" id="Node000014" href="$d5/d4b/database_8c.html#a01f812e0547c932313f6b755ade7ac73" title="Carga todas las conexiones (aristas) de los usuarios desde la base de datos." alt="" coords="280,155,415,180"/>
+<area shape="poly" id="edge21_Node000009_Node000014" title=" " alt="" coords="512,271,468,233,413,195,387,183,389,178,416,190,471,229,515,267"/>
+<area shape="rect" id="Node000015" href="$d5/d4b/database_8c.html#a2d1946fce4d4e29fa0c79c9d8045fd74" title="Inicia sesión." alt="" coords="143,329,197,355"/>
+<area shape="poly" id="edge23_Node000009_Node000015" title=" " alt="" coords="475,303,198,341,197,336,474,297"/>
+<area shape="poly" id="edge13_Node000010_Node000004" title=" " alt="" coords="124,426,106,413,82,386,62,356,37,305,42,303,67,353,86,383,110,409,127,422"/>
+<area shape="poly" id="edge15_Node000011_Node000004" title=" " alt="" coords="110,474,106,470,75,429,53,382,40,338,33,305,39,304,45,336,58,380,79,426,110,467,114,470"/>
+<area shape="poly" id="edge18_Node000012_Node000004" title=" " alt="" coords="302,246,212,254,109,270,61,284,59,279,107,265,211,248,301,240"/>
+<area shape="poly" id="edge17_Node000012_Node000012" title=" " alt="" coords="378,218,369,210,347,207,329,209,319,213,317,219,322,226,318,229,312,220,315,210,327,204,347,201,372,205,382,214"/>
+<area shape="poly" id="edge19_Node000012_Node000013" title=" " alt="" coords="304,256,210,283,209,278,302,251"/>
+<area shape="poly" id="edge20_Node000013_Node000004" title=" " alt="" coords="117,294,60,294,60,289,117,289"/>
+<area shape="poly" id="edge22_Node000014_Node000007" title=" " alt="" coords="266,170,229,170,229,165,266,165"/>
+<area shape="poly" id="edge24_Node000015_Node000004" title=" " alt="" coords="128,330,59,304,61,299,130,325"/>
+</map>

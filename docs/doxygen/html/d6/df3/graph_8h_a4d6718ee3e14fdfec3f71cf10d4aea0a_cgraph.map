@@ -1,0 +1,5 @@
+<map id="add_edge" name="add_edge">
+<area shape="rect" id="Node000001" title="Añade una adyacencia entre dos usuarios." alt="" coords="5,5,91,31"/>
+<area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#a9c564038c86f55e7ad802f912e004869" title="Calcula la DIFERENCIA de jaccard entre dos usuarios." alt="" coords="139,5,247,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,15,125,15,125,21,91,21"/>
+</map>

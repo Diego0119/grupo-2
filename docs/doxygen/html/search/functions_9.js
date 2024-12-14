@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['load_5fall_5fusers_0',['load_all_users',['../d5/d4b/database_8c.html#a77103f45cf4c5b241aaad7936989564b',1,'load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInterests):&#160;database.c'],['../d8/d9c/database_8h.html#a77103f45cf4c5b241aaad7936989564b',1,'load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInterests):&#160;database.c']]],
-  ['login_1',['login',['../d5/d4b/database_8c.html#a2d1946fce4d4e29fa0c79c9d8045fd74',1,'login(PtrToHashTable graph):&#160;database.c'],['../d8/d9c/database_8h.html#a2d1946fce4d4e29fa0c79c9d8045fd74',1,'login(PtrToHashTable graph):&#160;database.c']]],
-  ['logout_2',['logout',['../d5/d4b/database_8c.html#ac79c3b2234769c7fd497702cf88e21bf',1,'logout(void):&#160;database.c'],['../d8/d9c/database_8h.html#ac79c3b2234769c7fd497702cf88e21bf',1,'logout(void):&#160;database.c']]]
+  ['jenkins_5fhash_0',['jenkins_hash',['../d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519',1,'jenkins_hash(char *key):&#160;utilities.c'],['../de/df0/utilities_8h.html#aac0e4071b93021a3454f4d61d277b519',1,'jenkins_hash(char *key):&#160;utilities.c']]]
 ];

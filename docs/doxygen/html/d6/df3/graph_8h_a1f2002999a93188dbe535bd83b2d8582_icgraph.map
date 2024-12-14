@@ -1,0 +1,9 @@
+<map id="dijkstra_table_index" name="dijkstra_table_index">
+<area shape="rect" id="Node000001" title="Devuelve índice de un usuario según su posición en el grafo." alt="" coords="124,55,279,80"/>
+<area shape="rect" id="Node000002" href="$d1/d2a/graph_8c.html#a7ad1db7176aabe57d636a695b0867b02" title=" " alt="" coords="17,5,64,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,53,63,27,65,22,147,48"/>
+<area shape="rect" id="Node000003" href="$d1/d2a/graph_8c.html#a69f981e84ed63e0fdedec6ad4629447c" title=" " alt="" coords="17,55,64,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="110,70,64,70,64,65,110,65"/>
+<area shape="rect" id="Node000004" href="$d1/d2a/graph_8c.html#a98b572e88ce31a63314b60ae9351fa37" title="Algoritmo de Dijkstra." alt="" coords="5,104,76,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="147,87,77,109,75,103,145,82"/>
+</map>

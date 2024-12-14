@@ -15,10 +15,20 @@ Cabecera para \doxylink{database_8c}{database.\+c}.
 {\ttfamily \#include "{}users.\+h"{}}\newline
 {\ttfamily \#include "{}graph.\+h"{}}\newline
 {\ttfamily \#include "{}utilities.\+h"{}}\newline
-Include dependency graph for database.\+h\+:
-% FIG 0
-This graph shows which files directly or indirectly include this file\+:
-% FIG 1
+Include dependency graph for database.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d56/database_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/dc1/database_8h__dep__incl}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,47 +37,72 @@ struct \mbox{\hyperlink{struct__pending__connections}{\+\_\+pending\+\_\+connect
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{database_8h_a4ec489969b7367ea392a10a2ef07bcc6}\label{database_8h_a4ec489969b7367ea392a10a2ef07bcc6} 
-typedef struct \mbox{\hyperlink{struct__pending__connections}{\+\_\+pending\+\_\+connections}} {\bfseries Pending\+Connections}
+typedef struct \mbox{\hyperlink{struct__user}{\+\_\+user}} \mbox{\hyperlink{database_8h_a5eea95fd0acdf2448ee7037cb4901653}{\+\_\+\+User}}
+\item 
+typedef \mbox{\hyperlink{database_8h_a5eea95fd0acdf2448ee7037cb4901653}{\+\_\+\+User}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}}
+\item 
+typedef \mbox{\hyperlink{database_8h_a5eea95fd0acdf2448ee7037cb4901653}{\+\_\+\+User}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{database_8h_a2c5b04877efe5e43f9d0988ed6d00ada}{Ptr\+To\+User}}
+\item 
+typedef struct \mbox{\hyperlink{struct__postNode}{\+\_\+post\+Node}} \mbox{\hyperlink{database_8h_a78aac30880cdf089d1fdebca9ac6c3ff}{Post\+Node}}
+\item 
+typedef \mbox{\hyperlink{database_8h_a78aac30880cdf089d1fdebca9ac6c3ff}{Post\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{database_8h_a5cb694b39358fae2f528f7a0980bfb7a}{Ptr\+To\+Post\+Node}}
+\item 
+typedef \mbox{\hyperlink{database_8h_a5cb694b39358fae2f528f7a0980bfb7a}{Ptr\+To\+Post\+Node}} \mbox{\hyperlink{database_8h_a2f85ad161697dc3ec334887c217c0633}{Posts\+Position}}
+\item 
+typedef \mbox{\hyperlink{database_8h_a5cb694b39358fae2f528f7a0980bfb7a}{Ptr\+To\+Post\+Node}} \mbox{\hyperlink{database_8h_a9103b753f9f11f673fb1f33cb4edddb6}{User\+Posts}}
+\item 
+typedef struct \mbox{\hyperlink{struct__interest}{\+\_\+interest}} \mbox{\hyperlink{database_8h_a97f9b6c1a2aab9107c8577cc0409f965}{Interest}}
+\item 
+typedef \mbox{\hyperlink{database_8h_a97f9b6c1a2aab9107c8577cc0409f965}{Interest}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{database_8h_a67cdeb4bceb57805c2aaa33ff4ce3ba7}{Interest\+Table}}
+\item 
+typedef \mbox{\hyperlink{database_8h_a97f9b6c1a2aab9107c8577cc0409f965}{Interest}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{database_8h_ae7a621af163e3f5b90588a75211be51f}{Ptr\+To\+Interest}}
+\item 
+typedef struct \mbox{\hyperlink{struct__globalInterests}{\+\_\+global\+Interests}} \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}
+\item 
+typedef struct \mbox{\hyperlink{struct__edge}{\+\_\+edge}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{database_8h_a6515921c52024d62e2a51b22e9eed1d1}{Edge}}
+\item 
+typedef struct \mbox{\hyperlink{struct__graph}{\+\_\+graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}
+\item 
+typedef struct \mbox{\hyperlink{struct__pending__connections}{\+\_\+pending\+\_\+connections}} \mbox{\hyperlink{database_8h_a4ec489969b7367ea392a10a2ef07bcc6}{Pending\+Connections}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{database_8h_a396f9e338551f945a1e511c2d32ae9c0}\label{database_8h_a396f9e338551f945a1e511c2d32ae9c0} 
-void {\bfseries create\+\_\+database\+\_\+dir} (void)
-\begin{DoxyCompactList}\small\item\em Crea el directorio database si no existe. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{database_8h_abdee669a4d0bab54b2af1fa5f0a04cc1}{save\+\_\+user\+\_\+data}} (\mbox{\hyperlink{struct__user}{User}} user, \mbox{\hyperlink{struct__globalInterests}{Global\+Interests}} global\+Interests)
-\begin{DoxyCompactList}\small\item\em Guarda toda la información de un usuario en "{}database/\{username\}\+\_\+data"{}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{database_8h_a403ac5de2bde8804588c7739d023f6f1}{save\+\_\+all\+\_\+users}} (\mbox{\hyperlink{struct__graph}{Graph}} graph, \mbox{\hyperlink{struct__globalInterests}{Global\+Interests}} global\+Interests)
-\begin{DoxyCompactList}\small\item\em Guarda todos los usuarios del grafo en la carpeta database. \end{DoxyCompactList}\item 
-\Hypertarget{database_8h_abb94e6393cf8e960b72e0caed70b3593}\label{database_8h_abb94e6393cf8e960b72e0caed70b3593} 
-void {\bfseries clear\+\_\+database} (void)
-\begin{DoxyCompactList}\small\item\em Elimina todos los archivos y la carpeta database. \end{DoxyCompactList}\item 
-\Hypertarget{database_8h_a4e3f6dd1bf29a04037a4173a8b7afafb}\label{database_8h_a4e3f6dd1bf29a04037a4173a8b7afafb} 
-void {\bfseries confirm\+\_\+and\+\_\+cleanup} (void)
-\begin{DoxyCompactList}\small\item\em Pregunta al usuario si desea mantener o eliminar la base de datos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{database_8h_a396f9e338551f945a1e511c2d32ae9c0}{create\+\_\+database\+\_\+dir}} (void)
+\begin{DoxyCompactList}\small\item\em Crea el directorio \textquotesingle{}database\textquotesingle{} si no existe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{database_8h_abdee669a4d0bab54b2af1fa5f0a04cc1}{save\+\_\+user\+\_\+data}} (\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} user, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests)
+\begin{DoxyCompactList}\small\item\em Guarda toda la información de un usuario en la base de datos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{database_8h_a403ac5de2bde8804588c7739d023f6f1}{save\+\_\+all\+\_\+users}} (\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests)
+\begin{DoxyCompactList}\small\item\em Guarda todos los usuarios cargados en el programa en la base de datos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{database_8h_ac7dd8a7af5b71944a8e8a5787ba710f0}{clear\+\_\+database}} (\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph)
+\begin{DoxyCompactList}\small\item\em Elimina la base de datos en su totalidad. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{database_8h_a84ddec926c8a5475e48c2e6a59741d00}{database\+\_\+exists\+\_\+and\+\_\+not\+\_\+empty}} (void)
-\begin{DoxyCompactList}\small\item\em Verifica si la carpeta database existe y contiene datos. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{database_8h_a77103f45cf4c5b241aaad7936989564b}{load\+\_\+all\+\_\+users}} (\mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}} table, \mbox{\hyperlink{struct__graph}{Graph}} graph, \mbox{\hyperlink{struct__globalInterests}{Global\+Interests}} global\+Interests)
-\begin{DoxyCompactList}\small\item\em Carga todos los usuarios desde los archivos en la carpeta database, restaurando el estado anterior. Se debe llamar antes de generar usuarios aleatorios. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{database_8h_a2d1946fce4d4e29fa0c79c9d8045fd74}{login}} (\mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}} graph)
-\begin{DoxyCompactList}\small\item\em Inicia sesión en la red social. \end{DoxyCompactList}\item 
-\Hypertarget{database_8h_ac79c3b2234769c7fd497702cf88e21bf}\label{database_8h_ac79c3b2234769c7fd497702cf88e21bf} 
-void {\bfseries logout} (void)
-\begin{DoxyCompactList}\small\item\em Cierra sesión en la red social. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct__user}{User}} \mbox{\hyperlink{database_8h_a76f762d2a9063e73e62fa1e7127951ff}{current\+\_\+session}} (\mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}} graph)
-\begin{DoxyCompactList}\small\item\em Verifica si hay una sesión iniciada y si es válida. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{database_8h_a116abf50656b08636a9f449c3f46e2cd}{register\+\_\+user}} (\mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}} table, \mbox{\hyperlink{struct__graph}{Graph}} graph, \mbox{\hyperlink{struct__globalInterests}{Global\+Interests}} global\+Interests)
-\begin{DoxyCompactList}\small\item\em Registra un usuario nuevo en la red social. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{database_8h_a83dfa88ced51dd9165e817e89f8ddc63}{write\+\_\+post}} (\mbox{\hyperlink{struct__user}{User}} user, \mbox{\hyperlink{struct__globalInterests}{Global\+Interests}} global\+Interests)
-\begin{DoxyCompactList}\small\item\em Permite a un usuario publicar un post, guardandolo en la base de datos. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{database_8h_a5c2c93b11c91edd6b02eb8de193bba3f}{follow}} (\mbox{\hyperlink{struct__user}{User}} user, char \texorpdfstring{$\ast$}{*}follow, \mbox{\hyperlink{struct__globalInterests}{Global\+Interests}} global\+Interests, \mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}} table)
-\begin{DoxyCompactList}\small\item\em Permite a un usuario seguir a otro, y guarda dicha información en la base de datos. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{database_8h_a27d66932dd0c4411d8baa6acc4b717af}{unfollow}} (\mbox{\hyperlink{struct__user}{User}} user, char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{database_8c_a5c2c93b11c91edd6b02eb8de193bba3f}{follow}}, \mbox{\hyperlink{struct__globalInterests}{Global\+Interests}} global\+Interests, \mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}} table)
-\begin{DoxyCompactList}\small\item\em Permite a un usuario dejar de seguir a otro, y guarda dicha información en la base de datos. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{database_8h_a13d272cd38e4c062da1f9d46f17bf9c3}{delete\+\_\+account}} (\mbox{\hyperlink{struct__user}{User}} user)
-\begin{DoxyCompactList}\small\item\em Elimina el usuario de la sesión actual de la base de datos. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{database_8h_ad754349fdaa7256297f09a6c77ccd2a2}{edit\+\_\+account}} (\mbox{\hyperlink{struct__user}{User}} user, \mbox{\hyperlink{struct__globalInterests}{Global\+Interests}} global\+Interests, \mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}} table)
+\begin{DoxyCompactList}\small\item\em Verifica si la carpeta database existe y no está vacía. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{database_8h_a77103f45cf4c5b241aaad7936989564b}{load\+\_\+all\+\_\+users}} (\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table, \mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests)
+\begin{DoxyCompactList}\small\item\em Carga todos los usuarios desde la base de datos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} \mbox{\hyperlink{database_8h_a1e51423ffa4b06685c5d230c770eb278}{load\+\_\+user\+\_\+from\+\_\+file}} (const char \texorpdfstring{$\ast$}{*}filename, \mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table, \mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests)
+\begin{DoxyCompactList}\small\item\em Carga un usuario desde un archivo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{database_8h_abf714cec1175e6736bc91b758979c959}{load\+\_\+database}} (\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table, \mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests)
+\begin{DoxyCompactList}\small\item\em Carga la base de datos en su totalidad. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{database_8h_a01f812e0547c932313f6b755ade7ac73}{load\+\_\+connections}} (\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests)
+\begin{DoxyCompactList}\small\item\em Carga todas las conexiones (aristas) de los usuarios desde la base de datos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{database_8h_a2d1946fce4d4e29fa0c79c9d8045fd74}{login}} (\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} graph)
+\begin{DoxyCompactList}\small\item\em Inicia sesión. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{database_8h_ac79c3b2234769c7fd497702cf88e21bf}{logout}} (void)
+\begin{DoxyCompactList}\small\item\em Cierra sesión. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} \mbox{\hyperlink{database_8h_a76f762d2a9063e73e62fa1e7127951ff}{current\+\_\+session}} (\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} graph)
+\begin{DoxyCompactList}\small\item\em Obtiene el usuario de la sesión iniciada actualmente, si existe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{database_8h_a116abf50656b08636a9f449c3f46e2cd}{register\+\_\+user}} (\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table, \mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests)
+\begin{DoxyCompactList}\small\item\em Registra un nuevo usuario en la base de datos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{database_8h_a83dfa88ced51dd9165e817e89f8ddc63}{write\+\_\+post}} (\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} user, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests)
+\begin{DoxyCompactList}\small\item\em Publicar un post desde un usuario. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{database_8h_a5c2c93b11c91edd6b02eb8de193bba3f}{follow}} (\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} user, char \texorpdfstring{$\ast$}{*}follow, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests, \mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table)
+\begin{DoxyCompactList}\small\item\em Seguir a un usuario. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{database_8h_a27d66932dd0c4411d8baa6acc4b717af}{unfollow}} (\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} user, char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{database_8c_a5c2c93b11c91edd6b02eb8de193bba3f}{follow}}, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests, \mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table)
+\begin{DoxyCompactList}\small\item\em Dejar de seguir a un usuario. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{database_8h_a13d272cd38e4c062da1f9d46f17bf9c3}{delete\+\_\+account}} (\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} user)
+\begin{DoxyCompactList}\small\item\em Borrar la cuenta de un usuario de la base de datos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{database_8h_ad754349fdaa7256297f09a6c77ccd2a2}{edit\+\_\+account}} (\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} user, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests, \mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table)
 \begin{DoxyCompactList}\small\item\em Permite a un usuario editar su información de cuenta. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -87,25 +122,175 @@ Cabecera para \doxylink{database_8c}{database.\+c}.
 \end{DoxyAuthor}
 
 
+\doxysubsection{Typedef Documentation}
+\Hypertarget{database_8h_a5eea95fd0acdf2448ee7037cb4901653}\label{database_8h_a5eea95fd0acdf2448ee7037cb4901653} 
+\index{database.h@{database.h}!\_User@{\_User}}
+\index{\_User@{\_User}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{\_User}{\_User}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__user}{\+\_\+user}} \mbox{\hyperlink{database_8h_a5eea95fd0acdf2448ee7037cb4901653}{\+\_\+\+User}}}
+
+\Hypertarget{database_8h_a6515921c52024d62e2a51b22e9eed1d1}\label{database_8h_a6515921c52024d62e2a51b22e9eed1d1} 
+\index{database.h@{database.h}!Edge@{Edge}}
+\index{Edge@{Edge}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{Edge}{Edge}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__edge}{\+\_\+edge}}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{database_8h_a6515921c52024d62e2a51b22e9eed1d1}{Edge}}}
+
+\Hypertarget{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}\label{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672} 
+\index{database.h@{database.h}!GlobalInterests@{GlobalInterests}}
+\index{GlobalInterests@{GlobalInterests}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{GlobalInterests}{GlobalInterests}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__globalInterests}{\+\_\+global\+Interests}} \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}
+
+\Hypertarget{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}\label{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8} 
+\index{database.h@{database.h}!Graph@{Graph}}
+\index{Graph@{Graph}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{Graph}{Graph}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__graph}{\+\_\+graph}}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}
+
+\Hypertarget{database_8h_a97f9b6c1a2aab9107c8577cc0409f965}\label{database_8h_a97f9b6c1a2aab9107c8577cc0409f965} 
+\index{database.h@{database.h}!Interest@{Interest}}
+\index{Interest@{Interest}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{Interest}{Interest}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__interest}{\+\_\+interest}} \mbox{\hyperlink{database_8h_a97f9b6c1a2aab9107c8577cc0409f965}{Interest}}}
+
+\Hypertarget{database_8h_a67cdeb4bceb57805c2aaa33ff4ce3ba7}\label{database_8h_a67cdeb4bceb57805c2aaa33ff4ce3ba7} 
+\index{database.h@{database.h}!InterestTable@{InterestTable}}
+\index{InterestTable@{InterestTable}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{InterestTable}{InterestTable}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{database_8h_a97f9b6c1a2aab9107c8577cc0409f965}{Interest}}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{database_8h_a67cdeb4bceb57805c2aaa33ff4ce3ba7}{Interest\+Table}}}
+
+\Hypertarget{database_8h_a4ec489969b7367ea392a10a2ef07bcc6}\label{database_8h_a4ec489969b7367ea392a10a2ef07bcc6} 
+\index{database.h@{database.h}!PendingConnections@{PendingConnections}}
+\index{PendingConnections@{PendingConnections}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{PendingConnections}{PendingConnections}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__pending__connections}{\+\_\+pending\+\_\+connections}} \mbox{\hyperlink{database_8h_a4ec489969b7367ea392a10a2ef07bcc6}{Pending\+Connections}}}
+
+\Hypertarget{database_8h_a78aac30880cdf089d1fdebca9ac6c3ff}\label{database_8h_a78aac30880cdf089d1fdebca9ac6c3ff} 
+\index{database.h@{database.h}!PostNode@{PostNode}}
+\index{PostNode@{PostNode}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{PostNode}{PostNode}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__postNode}{\+\_\+post\+Node}} \mbox{\hyperlink{database_8h_a78aac30880cdf089d1fdebca9ac6c3ff}{Post\+Node}}}
+
+\Hypertarget{database_8h_a2f85ad161697dc3ec334887c217c0633}\label{database_8h_a2f85ad161697dc3ec334887c217c0633} 
+\index{database.h@{database.h}!PostsPosition@{PostsPosition}}
+\index{PostsPosition@{PostsPosition}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{PostsPosition}{PostsPosition}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{database_8h_a5cb694b39358fae2f528f7a0980bfb7a}{Ptr\+To\+Post\+Node}} \mbox{\hyperlink{database_8h_a2f85ad161697dc3ec334887c217c0633}{Posts\+Position}}}
+
+\Hypertarget{database_8h_ae7a621af163e3f5b90588a75211be51f}\label{database_8h_ae7a621af163e3f5b90588a75211be51f} 
+\index{database.h@{database.h}!PtrToInterest@{PtrToInterest}}
+\index{PtrToInterest@{PtrToInterest}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{PtrToInterest}{PtrToInterest}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{database_8h_a97f9b6c1a2aab9107c8577cc0409f965}{Interest}}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{database_8h_ae7a621af163e3f5b90588a75211be51f}{Ptr\+To\+Interest}}}
+
+\Hypertarget{database_8h_a5cb694b39358fae2f528f7a0980bfb7a}\label{database_8h_a5cb694b39358fae2f528f7a0980bfb7a} 
+\index{database.h@{database.h}!PtrToPostNode@{PtrToPostNode}}
+\index{PtrToPostNode@{PtrToPostNode}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{PtrToPostNode}{PtrToPostNode}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{database_8h_a78aac30880cdf089d1fdebca9ac6c3ff}{Post\+Node}}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{database_8h_a5cb694b39358fae2f528f7a0980bfb7a}{Ptr\+To\+Post\+Node}}}
+
+\Hypertarget{database_8h_a2c5b04877efe5e43f9d0988ed6d00ada}\label{database_8h_a2c5b04877efe5e43f9d0988ed6d00ada} 
+\index{database.h@{database.h}!PtrToUser@{PtrToUser}}
+\index{PtrToUser@{PtrToUser}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{PtrToUser}{PtrToUser}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{database_8h_a5eea95fd0acdf2448ee7037cb4901653}{\+\_\+\+User}}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{database_8h_a2c5b04877efe5e43f9d0988ed6d00ada}{Ptr\+To\+User}}}
+
+\Hypertarget{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}\label{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0} 
+\index{database.h@{database.h}!User@{User}}
+\index{User@{User}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{User}{User}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{database_8h_a5eea95fd0acdf2448ee7037cb4901653}{\+\_\+\+User}}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}}}
+
+\Hypertarget{database_8h_a9103b753f9f11f673fb1f33cb4edddb6}\label{database_8h_a9103b753f9f11f673fb1f33cb4edddb6} 
+\index{database.h@{database.h}!UserPosts@{UserPosts}}
+\index{UserPosts@{UserPosts}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{UserPosts}{UserPosts}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{database_8h_a5cb694b39358fae2f528f7a0980bfb7a}{Ptr\+To\+Post\+Node}} \mbox{\hyperlink{database_8h_a9103b753f9f11f673fb1f33cb4edddb6}{User\+Posts}}}
+
+
+
 \doxysubsection{Function Documentation}
+\Hypertarget{database_8h_ac7dd8a7af5b71944a8e8a5787ba710f0}\label{database_8h_ac7dd8a7af5b71944a8e8a5787ba710f0} 
+\index{database.h@{database.h}!clear\_database@{clear\_database}}
+\index{clear\_database@{clear\_database}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{clear\_database()}{clear\_database()}}
+{\footnotesize\ttfamily void clear\+\_\+database (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}]{graph }\end{DoxyParamCaption})}
+
+
+
+Elimina la base de datos en su totalidad. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Grafo de usuarios \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_ac7dd8a7af5b71944a8e8a5787ba710f0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{d8/d9c/database_8h_ac7dd8a7af5b71944a8e8a5787ba710f0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{database_8h_a396f9e338551f945a1e511c2d32ae9c0}\label{database_8h_a396f9e338551f945a1e511c2d32ae9c0} 
+\index{database.h@{database.h}!create\_database\_dir@{create\_database\_dir}}
+\index{create\_database\_dir@{create\_database\_dir}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{create\_database\_dir()}{create\_database\_dir()}}
+{\footnotesize\ttfamily void create\+\_\+database\+\_\+dir (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Crea el directorio \textquotesingle{}database\textquotesingle{} si no existe. 
+
+\begin{DoxyNote}{Note}
+El directorio \textquotesingle{}database\textquotesingle{} se crea en el directorio desde donde se está ejecutando el programa. 
+\end{DoxyNote}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a396f9e338551f945a1e511c2d32ae9c0_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{database_8h_a76f762d2a9063e73e62fa1e7127951ff}\label{database_8h_a76f762d2a9063e73e62fa1e7127951ff} 
 \index{database.h@{database.h}!current\_session@{current\_session}}
 \index{current\_session@{current\_session}!database.h@{database.h}}
 \doxysubsubsection{\texorpdfstring{current\_session()}{current\_session()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct__user}{User}} current\+\_\+session (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}}}]{graph }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} current\+\_\+session (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{graph }\end{DoxyParamCaption})}
 
 
 
-Verifica si hay una sesión iniciada y si es válida. 
+Obtiene el usuario de la sesión iniciada actualmente, si existe. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em graph} & Tabla hash de usuarios \\
+{\em graph} & Grafo de usuarios \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-user, si está la sesión iniciada, NULL si no o no es válida la sesión 
+User Usuario actual. NULL si la sesión no existe. 
 \end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a76f762d2a9063e73e62fa1e7127951ff_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{d8/d9c/database_8h_a76f762d2a9063e73e62fa1e7127951ff_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{database_8h_a84ddec926c8a5475e48c2e6a59741d00}\label{database_8h_a84ddec926c8a5475e48c2e6a59741d00} 
 \index{database.h@{database.h}!database\_exists\_and\_not\_empty@{database\_exists\_and\_not\_empty}}
 \index{database\_exists\_and\_not\_empty@{database\_exists\_and\_not\_empty}!database.h@{database.h}}
@@ -114,31 +299,52 @@ user, si está la sesión iniciada, NULL si no o no es válida la sesión
 
 
 
-Verifica si la carpeta database existe y contiene datos. 
+Verifica si la carpeta database existe y no está vacía. 
 
-\begin{DoxyReturn}{Returns}
-1 si existe y contiene al menos un archivo, 0 de lo contrario. 
-\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a84ddec926c8a5475e48c2e6a59741d00_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{database_8h_a13d272cd38e4c062da1f9d46f17bf9c3}\label{database_8h_a13d272cd38e4c062da1f9d46f17bf9c3} 
 \index{database.h@{database.h}!delete\_account@{delete\_account}}
 \index{delete\_account@{delete\_account}!database.h@{database.h}}
 \doxysubsubsection{\texorpdfstring{delete\_account()}{delete\_account()}}
-{\footnotesize\ttfamily void delete\+\_\+account (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__user}{User}}}]{user }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void delete\+\_\+account (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}}}]{user }\end{DoxyParamCaption})}
 
 
 
-Elimina el usuario de la sesión actual de la base de datos. 
+Borrar la cuenta de un usuario de la base de datos. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em user} & Sesión iniciada \\
+{\em user} & Usuario a borrar\\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Se borran todos los archivos de la carpeta "{}database/\{user\}\+\_\+data"{} y la misma carpeta 
+\end{DoxyNote}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a13d272cd38e4c062da1f9d46f17bf9c3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a13d272cd38e4c062da1f9d46f17bf9c3_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{database_8h_ad754349fdaa7256297f09a6c77ccd2a2}\label{database_8h_ad754349fdaa7256297f09a6c77ccd2a2} 
 \index{database.h@{database.h}!edit\_account@{edit\_account}}
 \index{edit\_account@{edit\_account}!database.h@{database.h}}
 \doxysubsubsection{\texorpdfstring{edit\_account()}{edit\_account()}}
-{\footnotesize\ttfamily void edit\+\_\+account (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__user}{User}}}]{user,  }\item[{\mbox{\hyperlink{struct__globalInterests}{Global\+Interests}}}]{global\+Interests,  }\item[{\mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}}}]{table }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void edit\+\_\+account (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}}}]{user,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests,  }\item[{\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{table }\end{DoxyParamCaption})}
 
 
 
@@ -153,36 +359,67 @@ Permite a un usuario editar su información de cuenta.
 {\em table} & Tabla de usuarios \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_ad754349fdaa7256297f09a6c77ccd2a2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{d8/d9c/database_8h_ad754349fdaa7256297f09a6c77ccd2a2_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{database_8h_a5c2c93b11c91edd6b02eb8de193bba3f}\label{database_8h_a5c2c93b11c91edd6b02eb8de193bba3f} 
 \index{database.h@{database.h}!follow@{follow}}
 \index{follow@{follow}!database.h@{database.h}}
 \doxysubsubsection{\texorpdfstring{follow()}{follow()}}
-{\footnotesize\ttfamily void follow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__user}{User}}}]{user,  }\item[{char \texorpdfstring{$\ast$}{*}}]{follow,  }\item[{\mbox{\hyperlink{struct__globalInterests}{Global\+Interests}}}]{global\+Interests,  }\item[{\mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}}}]{table }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void follow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}}}]{user,  }\item[{char \texorpdfstring{$\ast$}{*}}]{follow,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests,  }\item[{\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{table }\end{DoxyParamCaption})}
 
 
 
-Permite a un usuario seguir a otro, y guarda dicha información en la base de datos. 
+Seguir a un usuario. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em user} & Sesión iniciada \\
+{\em user} & Usuario que sigue a otro \\
 \hline
-{\em follow} & Nombre de usuario de la persona a seguir \\
+{\em follow} & Nombre del usuario que se va a seguir \\
 \hline
 {\em global\+Interests} & Tabla de intereses globales \\
 \hline
-{\em table} & Tabla hash de usuarios \\
+{\em table} & Tabla hash de usuarios\\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Esta información se guarda en la carpeta "{}database/\{user\}\+\_\+data/following.\+dat"{} 
+\end{DoxyNote}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a5c2c93b11c91edd6b02eb8de193bba3f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=299pt]{d8/d9c/database_8h_a5c2c93b11c91edd6b02eb8de193bba3f_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{database_8h_a77103f45cf4c5b241aaad7936989564b}\label{database_8h_a77103f45cf4c5b241aaad7936989564b} 
 \index{database.h@{database.h}!load\_all\_users@{load\_all\_users}}
 \index{load\_all\_users@{load\_all\_users}!database.h@{database.h}}
 \doxysubsubsection{\texorpdfstring{load\_all\_users()}{load\_all\_users()}}
-{\footnotesize\ttfamily void load\+\_\+all\+\_\+users (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}}}]{table,  }\item[{\mbox{\hyperlink{struct__graph}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{struct__globalInterests}{Global\+Interests}}}]{global\+Interests }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void load\+\_\+all\+\_\+users (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{table,  }\item[{\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests }\end{DoxyParamCaption})}
 
 
 
-Carga todos los usuarios desde los archivos en la carpeta database, restaurando el estado anterior. Se debe llamar antes de generar usuarios aleatorios. 
+Carga todos los usuarios desde la base de datos. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -193,34 +430,196 @@ Carga todos los usuarios desde los archivos en la carpeta database, restaurando 
 {\em global\+Interests} & Tabla de intereses globales \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a77103f45cf4c5b241aaad7936989564b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a77103f45cf4c5b241aaad7936989564b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{database_8h_a01f812e0547c932313f6b755ade7ac73}\label{database_8h_a01f812e0547c932313f6b755ade7ac73} 
+\index{database.h@{database.h}!load\_connections@{load\_connections}}
+\index{load\_connections@{load\_connections}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{load\_connections()}{load\_connections()}}
+{\footnotesize\ttfamily void load\+\_\+connections (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{table,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests }\end{DoxyParamCaption})}
+
+
+
+Carga todas las conexiones (aristas) de los usuarios desde la base de datos. 
+
+\begin{DoxyNote}{Note}
+Es necesario que se haya cargado los usuarios con 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{database_8c_a77103f45cf4c5b241aaad7936989564b}{load\+\_\+all\+\_\+users} antes de llamar a esta función.
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Tabla hash de usuarios \\
+\hline
+{\em global\+Interests} & Tabla de intereses globales \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a01f812e0547c932313f6b755ade7ac73_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a01f812e0547c932313f6b755ade7ac73_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{database_8h_abf714cec1175e6736bc91b758979c959}\label{database_8h_abf714cec1175e6736bc91b758979c959} 
+\index{database.h@{database.h}!load\_database@{load\_database}}
+\index{load\_database@{load\_database}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{load\_database()}{load\_database()}}
+{\footnotesize\ttfamily void load\+\_\+database (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{table,  }\item[{\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests }\end{DoxyParamCaption})}
+
+
+
+Carga la base de datos en su totalidad. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Tabla hash de usuarios \\
+\hline
+{\em graph} & Grafo de usuarios \\
+\hline
+{\em global\+Interests} & Tabla de intereses globales \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_abf714cec1175e6736bc91b758979c959_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{d8/d9c/database_8h_abf714cec1175e6736bc91b758979c959_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{database_8h_a1e51423ffa4b06685c5d230c770eb278}\label{database_8h_a1e51423ffa4b06685c5d230c770eb278} 
+\index{database.h@{database.h}!load\_user\_from\_file@{load\_user\_from\_file}}
+\index{load\_user\_from\_file@{load\_user\_from\_file}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{load\_user\_from\_file()}{load\_user\_from\_file()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} load\+\_\+user\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename,  }\item[{\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{table,  }\item[{\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests }\end{DoxyParamCaption})}
+
+
+
+Carga un usuario desde un archivo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Nombre del archivo \\
+\hline
+{\em table} & Tabla hash de usuarios \\
+\hline
+{\em graph} & Grafo de usuarios \\
+\hline
+{\em global\+Interests} & Tabla de intereses globales \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+User Usuario cargado 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a1e51423ffa4b06685c5d230c770eb278_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a1e51423ffa4b06685c5d230c770eb278_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{database_8h_a2d1946fce4d4e29fa0c79c9d8045fd74}\label{database_8h_a2d1946fce4d4e29fa0c79c9d8045fd74} 
 \index{database.h@{database.h}!login@{login}}
 \index{login@{login}!database.h@{database.h}}
 \doxysubsubsection{\texorpdfstring{login()}{login()}}
-{\footnotesize\ttfamily void login (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}}}]{graph }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void login (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{graph }\end{DoxyParamCaption})}
 
 
 
-Inicia sesión en la red social. 
+Inicia sesión. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em username} & Usuario a iniciar sesión \\
-\hline
-{\em password} & Contraseña \\
-\hline
-{\em graph} & Tabla hash de usuarios \\
+{\em graph} & Grafo de usuarios \\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Se guarda el usuario actual en "{}current.\+dat"{} 
+\end{DoxyNote}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a2d1946fce4d4e29fa0c79c9d8045fd74_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{d8/d9c/database_8h_a2d1946fce4d4e29fa0c79c9d8045fd74_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{database_8h_ac79c3b2234769c7fd497702cf88e21bf}\label{database_8h_ac79c3b2234769c7fd497702cf88e21bf} 
+\index{database.h@{database.h}!logout@{logout}}
+\index{logout@{logout}!database.h@{database.h}}
+\doxysubsubsection{\texorpdfstring{logout()}{logout()}}
+{\footnotesize\ttfamily void logout (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Cierra sesión. 
+
+\begin{DoxyNote}{Note}
+Borra el archivo "{}current.\+dat"{} 
+\end{DoxyNote}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{d8/d9c/database_8h_ac79c3b2234769c7fd497702cf88e21bf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_ac79c3b2234769c7fd497702cf88e21bf_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{database_8h_a116abf50656b08636a9f449c3f46e2cd}\label{database_8h_a116abf50656b08636a9f449c3f46e2cd} 
 \index{database.h@{database.h}!register\_user@{register\_user}}
 \index{register\_user@{register\_user}!database.h@{database.h}}
 \doxysubsubsection{\texorpdfstring{register\_user()}{register\_user()}}
-{\footnotesize\ttfamily void register\+\_\+user (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}}}]{table,  }\item[{\mbox{\hyperlink{struct__graph}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{struct__globalInterests}{Global\+Interests}}}]{global\+Interests }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void register\+\_\+user (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{table,  }\item[{\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests }\end{DoxyParamCaption})}
 
 
 
-Registra un usuario nuevo en la red social. 
+Registra un nuevo usuario en la base de datos. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -231,33 +630,64 @@ Registra un usuario nuevo en la red social.
 {\em global\+Interests} & Tabla de intereses globales \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a116abf50656b08636a9f449c3f46e2cd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{d8/d9c/database_8h_a116abf50656b08636a9f449c3f46e2cd_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{database_8h_a403ac5de2bde8804588c7739d023f6f1}\label{database_8h_a403ac5de2bde8804588c7739d023f6f1} 
 \index{database.h@{database.h}!save\_all\_users@{save\_all\_users}}
 \index{save\_all\_users@{save\_all\_users}!database.h@{database.h}}
 \doxysubsubsection{\texorpdfstring{save\_all\_users()}{save\_all\_users()}}
-{\footnotesize\ttfamily void save\+\_\+all\+\_\+users (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__graph}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{struct__globalInterests}{Global\+Interests}}}]{global\+Interests }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void save\+\_\+all\+\_\+users (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests }\end{DoxyParamCaption})}
 
 
 
-Guarda todos los usuarios del grafo en la carpeta database. 
+Guarda todos los usuarios cargados en el programa en la base de datos. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em graph} & Grafo con usuarios \\
+{\em graph} & Grafo de usuarios \\
 \hline
-{\em global\+Interests} & Tabla global de intereses \\
+{\em global\+Interests} & Tabla de intereses globales \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a403ac5de2bde8804588c7739d023f6f1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{d8/d9c/database_8h_a403ac5de2bde8804588c7739d023f6f1_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{database_8h_abdee669a4d0bab54b2af1fa5f0a04cc1}\label{database_8h_abdee669a4d0bab54b2af1fa5f0a04cc1} 
 \index{database.h@{database.h}!save\_user\_data@{save\_user\_data}}
 \index{save\_user\_data@{save\_user\_data}!database.h@{database.h}}
 \doxysubsubsection{\texorpdfstring{save\_user\_data()}{save\_user\_data()}}
-{\footnotesize\ttfamily void save\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__user}{User}}}]{user,  }\item[{\mbox{\hyperlink{struct__globalInterests}{Global\+Interests}}}]{global\+Interests }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void save\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}}}]{user,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests }\end{DoxyParamCaption})}
 
 
 
-Guarda toda la información de un usuario en "{}database/\{username\}\+\_\+data"{}. 
+Guarda toda la información de un usuario en la base de datos. 
 
+\begin{DoxyNote}{Note}
+Se guardan los en la carpeta "{}database/\{username\}\+\_\+data"{}. Su info como usuario está en "{}database/\{username\}\+\_\+data/data.\+dat"{}, sus seguidores en "{}database/\{username\}\+\_\+data/following.\+dat"{} y sus seguidores en "{}database/\{username\}\+\_\+data/followers.\+dat"{}. Sus publicaciones estarán en "{}database/\{username\}\+\_\+data/posts"{}, cada post siendo un archivo teniendo de nombre la fecha en formato "{}\+AAAA-\/\+MM-\/\+DD HH\+:\+MM\+:\+SS"{}.
+\end{DoxyNote}
 
 \begin{DoxyParams}{Parameters}
 {\em user} & Usuario a guardar \\
@@ -265,41 +695,89 @@ Guarda toda la información de un usuario en "{}database/\{username\}\+\_\+data"
 {\em global\+Interests} & Tabla de intereses globales \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{d8/d9c/database_8h_abdee669a4d0bab54b2af1fa5f0a04cc1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_abdee669a4d0bab54b2af1fa5f0a04cc1_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{database_8h_a27d66932dd0c4411d8baa6acc4b717af}\label{database_8h_a27d66932dd0c4411d8baa6acc4b717af} 
 \index{database.h@{database.h}!unfollow@{unfollow}}
 \index{unfollow@{unfollow}!database.h@{database.h}}
 \doxysubsubsection{\texorpdfstring{unfollow()}{unfollow()}}
-{\footnotesize\ttfamily void unfollow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__user}{User}}}]{user,  }\item[{char \texorpdfstring{$\ast$}{*}}]{follow,  }\item[{\mbox{\hyperlink{struct__globalInterests}{Global\+Interests}}}]{global\+Interests,  }\item[{\mbox{\hyperlink{struct__hashtable}{Ptr\+To\+Hash\+Table}}}]{table }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void unfollow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}}}]{user,  }\item[{char \texorpdfstring{$\ast$}{*}}]{follow,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests,  }\item[{\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{table }\end{DoxyParamCaption})}
 
 
 
-Permite a un usuario dejar de seguir a otro, y guarda dicha información en la base de datos. 
+Dejar de seguir a un usuario. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em user} & Sesión iniciada \\
+{\em user} & Usuario que deja de seguir a otro \\
 \hline
-{\em follow} & Nombre de usuario de la persona a seguir \\
+{\em follow} & Nombre del usuario que ya no se va a seguir \\
 \hline
 {\em global\+Interests} & Tabla de intereses globales \\
 \hline
-{\em table} & Tabla hash de usuarios \\
+{\em table} & Tabla hash de usuarios\\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Esta información se guarda en la carpeta "{}database/\{user\}\+\_\+data/followers.\+dat"{} 
+\end{DoxyNote}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a27d66932dd0c4411d8baa6acc4b717af_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{d8/d9c/database_8h_a27d66932dd0c4411d8baa6acc4b717af_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{database_8h_a83dfa88ced51dd9165e817e89f8ddc63}\label{database_8h_a83dfa88ced51dd9165e817e89f8ddc63} 
 \index{database.h@{database.h}!write\_post@{write\_post}}
 \index{write\_post@{write\_post}!database.h@{database.h}}
 \doxysubsubsection{\texorpdfstring{write\_post()}{write\_post()}}
-{\footnotesize\ttfamily void write\+\_\+post (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__user}{User}}}]{user,  }\item[{\mbox{\hyperlink{struct__globalInterests}{Global\+Interests}}}]{global\+Interests }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void write\+\_\+post (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}}}]{user,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests }\end{DoxyParamCaption})}
 
 
 
-Permite a un usuario publicar un post, guardandolo en la base de datos. 
+Publicar un post desde un usuario. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em user} & Sesión iniciada \\
+{\em user} & Usuario publicador \\
 \hline
-{\em global\+Interests} & Tabla de intereses globales \\
+{\em global\+Interests} & Tabla de intereses globales\\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Se guarda la publicación en la carpeta "{}database/\{username\}\+\_\+data/posts"{} 
+\end{DoxyNote}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d9c/database_8h_a83dfa88ced51dd9165e817e89f8ddc63_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{d8/d9c/database_8h_a83dfa88ced51dd9165e817e89f8ddc63_icgraph}
+\end{center}
+\end{figure}

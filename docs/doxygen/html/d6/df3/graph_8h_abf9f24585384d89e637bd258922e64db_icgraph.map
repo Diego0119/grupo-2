@@ -1,0 +1,19 @@
+<map id="search_previous_in_edge" name="search_previous_in_edge">
+<area shape="rect" id="Node000001" title="Busca la adyacencia anterior a un usuario en una lista de adyacencia." alt="" coords="977,49,1164,75"/>
+<area shape="rect" id="Node000002" href="$d1/d2a/graph_8c.html#a3e633b4d8bf50863870e67bf4ca97319" title="Permite que un usuario deje de seguir a otro." alt="" coords="819,49,929,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="963,65,930,65,930,59,963,59"/>
+<area shape="rect" id="Node000003" href="$d1/d2a/graph_8c.html#a6d6724321b00dccfe21c27cebcbcadd0" title="Libera todas las adyacencias de un usuario." alt="" coords="653,24,771,49"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="805,54,770,49,771,43,805,49"/>
+<area shape="rect" id="Node000008" href="$d5/d4b/database_8c.html#a27d66932dd0c4411d8baa6acc4b717af" title="Dejar de seguir a un usuario." alt="" coords="471,75,550,100"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="805,70,550,87,550,82,805,64"/>
+<area shape="rect" id="Node000004" href="$d2/d9e/users_8c.html#afc890b7835333cedad2a333a95e3c510" title="Elimina un usuario." alt="" coords="269,24,368,49"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="651,24,605,15,511,8,416,15,362,27,361,21,416,10,511,3,606,10,652,18"/>
+<area shape="rect" id="Node000007" href="$d1/d2a/graph_8c.html#a6c33d80720eb130a585010c03b36d10a" title="Elimina un usuario del grafo." alt="" coords="416,25,605,51"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="640,40,606,40,606,35,640,35"/>
+<area shape="rect" id="Node000005" href="$d2/d9e/users_8c.html#aefba9a925655e4df5dba3e7433342f78" title="Libera la memoria de todos los usuarios de la red social." alt="" coords="108,24,221,49"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="256,39,222,39,222,34,256,34"/>
+<area shape="rect" id="Node000006" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,49,60,75"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="95,53,61,60,60,54,94,48"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="402,40,368,40,368,34,402,35"/>
+<area shape="poly" id="edge9_Node000008_Node000006" title=" " alt="" coords="458,87,60,66,60,61,458,82"/>
+</map>

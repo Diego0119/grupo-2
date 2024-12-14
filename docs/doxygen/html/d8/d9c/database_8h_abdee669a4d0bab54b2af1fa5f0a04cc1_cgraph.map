@@ -1,0 +1,9 @@
+<map id="save_user_data" name="save_user_data">
+<area shape="rect" id="Node000001" title="Guarda toda la información de un usuario en la base de datos." alt="" coords="5,55,129,80"/>
+<area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#aeda9265bc6db17bc211f56c5177063ff" title="Calcula qué tan amigable es un usuario." alt="" coords="181,5,345,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,52,198,32,199,37,119,57"/>
+<area shape="rect" id="Node000003" href="$d2/d9e/users_8c.html#ac56f8b225ddd39009e826d1f0b8499b8" title="Clasifica el nivel de amigabilidad de un usuario según su puntaje." alt="" coords="185,55,340,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="130,65,172,65,172,70,130,70"/>
+<area shape="rect" id="Node000004" href="$d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582" title="Elimina todos los archivos en un directorio." alt="" coords="177,104,348,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="119,77,199,98,198,103,118,83"/>
+</map>

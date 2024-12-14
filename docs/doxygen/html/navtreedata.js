@@ -28,11 +28,6 @@ var NAVTREE =
     [ "Classes", "annotated.html", [
       [ "Ejecución del programa", "index.html#autotoc_md1", null ],
       [ "Comandos disponibles", "index.html#autotoc_md2", null ],
-      [ "Lista de tareas", "index.html#autotoc_md3", [
-        [ "👨‍💻 Desarrollado por:", "index.html#autotoc_md0", null ],
-        [ "Urgente", "index.html#autotoc_md4", null ],
-        [ "Extras", "index.html#autotoc_md5", null ]
-      ] ],
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Members", "functions.html", [
@@ -43,8 +38,10 @@ var NAVTREE =
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ]
+        [ "All", "globals.html", "globals_dup" ],
+        [ "Functions", "globals_func.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]
@@ -52,7 +49,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"annotated.html",
+"db/d02/struct__heap.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

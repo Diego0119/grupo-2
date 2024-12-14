@@ -1,0 +1,7 @@
+<map id="create_database_dir" name="create_database_dir">
+<area shape="rect" id="Node000001" title="Crea el directorio &#39;database&#39; si no existe." alt="" coords="275,5,429,31"/>
+<area shape="rect" id="Node000002" href="$d5/d4b/database_8c.html#a403ac5de2bde8804588c7739d023f6f1" title="Guarda todos los usuarios cargados en el programa en la base de datos." alt="" coords="108,5,227,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,21,227,21,227,15,261,15"/>
+<area shape="rect" id="Node000003" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>

@@ -1,0 +1,23 @@
+<map id="free_all_users" name="free_all_users">
+<area shape="rect" id="Node000001" title="Libera la memoria de todos los usuarios de la red social." alt="" coords="5,129,119,155"/>
+<area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#afc890b7835333cedad2a333a95e3c510" title="Elimina un usuario." alt="" coords="167,129,265,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,139,153,139,153,145,119,145"/>
+<area shape="rect" id="Node000003" href="$d2/daf/hash__table_8c.html#ac2658c590377bd10f0556f8750773bf6" title="Elimina un elemento de la tabla hash." alt="" coords="319,5,497,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="224,127,259,84,284,60,312,40,325,33,327,38,315,44,287,64,263,88,228,131"/>
+<area shape="rect" id="Node000005" href="$d2/d9e/users_8c.html#a9b71eb9fad474dbd89952026242302f0" title="Elimina la lista de posts de un usuario." alt="" coords="341,79,475,104"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="264,127,345,105,346,110,266,132"/>
+<area shape="rect" id="Node000006" href="$d1/d2a/graph_8c.html#a6d6724321b00dccfe21c27cebcbcadd0" title="Libera todas las adyacencias de un usuario." alt="" coords="551,179,668,204"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="266,142,375,149,503,165,546,173,545,178,502,170,374,155,265,147"/>
+<area shape="rect" id="Node000009" href="$d2/d9e/users_8c.html#a8f43b1f54e3b8b9e1d0a432ed32a648e" title="Libera memoria los intereses de un usuario." alt="" coords="335,180,481,205"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="266,152,346,174,345,179,264,157"/>
+<area shape="rect" id="Node000010" href="$d1/d2a/graph_8c.html#a6c33d80720eb130a585010c03b36d10a" title="Elimina un usuario del grafo." alt="" coords="313,229,503,255"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="232,153,267,184,315,216,330,222,328,227,312,220,264,189,228,157"/>
+<area shape="rect" id="Node000004" href="$d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="556,5,663,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="498,15,542,15,542,21,498,21"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="376,80,370,70,373,60,386,54,408,52,434,56,445,64,442,68,432,60,408,57,388,59,377,64,375,70,381,77"/>
+<area shape="rect" id="Node000007" href="$d1/d2a/graph_8c.html#a3e633b4d8bf50863870e67bf4ca97319" title="Permite que un usuario deje de seguir a otro." alt="" coords="716,179,827,204"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="668,189,702,189,702,194,668,194"/>
+<area shape="rect" id="Node000008" href="$d1/d2a/graph_8c.html#abf9f24585384d89e637bd258922e64db" title="Busca la adyacencia anterior a un usuario en una lista de adyacencia." alt="" coords="875,179,1061,204"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="827,189,861,189,861,194,827,194"/>
+<area shape="poly" id="edge11_Node000010_Node000006" title=" " alt="" coords="459,227,544,205,546,210,460,232"/>
+</map>

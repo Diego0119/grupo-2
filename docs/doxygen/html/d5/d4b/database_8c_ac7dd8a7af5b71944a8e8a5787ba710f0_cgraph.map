@@ -1,0 +1,11 @@
+<map id="clear_database" name="clear_database">
+<area shape="rect" id="Node000001" title="Elimina la base de datos en su totalidad." alt="" coords="5,31,127,56"/>
+<area shape="rect" id="Node000002" href="$d5/d4b/database_8c.html#a13d272cd38e4c062da1f9d46f17bf9c3" title="Borrar la cuenta de un usuario de la base de datos." alt="" coords="175,31,296,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,41,161,41,161,46,127,46"/>
+<area shape="rect" id="Node000003" href="$d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582" title="Elimina todos los archivos en un directorio." alt="" coords="344,5,515,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="296,33,330,28,331,34,297,38"/>
+<area shape="rect" id="Node000004" href="$d5/d4b/database_8c.html#ac79c3b2234769c7fd497702cf88e21bf" title="Cierra sesión." alt="" coords="398,55,461,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="296,48,385,59,384,65,296,53"/>
+<area shape="rect" id="Node000005" href="$d7/db6/utilities_8c.html#a73eb533269566775275da2ac91350562" title=" " alt="" coords="563,55,649,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="461,65,549,65,549,70,461,70"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="add_interest" name="add_interest">
+<area shape="rect" id="Node000001" title=" " alt="" coords="279,31,381,56"/>
+<area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833" title="Genera usuarios aleatorios." alt="" coords="108,5,231,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="264,36,231,30,232,25,265,30"/>
+<area shape="rect" id="Node000004" href="$d5/d4b/database_8c.html#a116abf50656b08636a9f449c3f46e2cd" title="Registra un nuevo usuario en la base de datos." alt="" coords="116,55,223,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="265,56,223,62,222,57,265,50"/>
+<area shape="rect" id="Node000003" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,31,60,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,35,61,41,60,36,94,29"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="102,58,60,51,61,45,103,53"/>
+</map>

@@ -10,5 +10,5 @@ var searchData=
   ['_5fpending_5fconnections_7',['_pending_connections',['../d0/da6/struct__pending__connections.html',1,'']]],
   ['_5fpost_8',['_post',['../d6/d28/struct__post.html',1,'']]],
   ['_5fpostnode_9',['_postNode',['../da/d98/struct__postNode.html',1,'']]],
-  ['_5fuser_10',['_user',['../d5/d4f/struct__user.html',1,'']]]
+  ['_5fuser_10',['_user',['../d5/d4f/struct__user.html',1,'_user'],['../d8/d9c/database_8h.html#a5eea95fd0acdf2448ee7037cb4901653',1,'_User:&#160;database.h'],['../d6/df3/graph_8h.html#a5eea95fd0acdf2448ee7037cb4901653',1,'_User:&#160;graph.h'],['../d0/d5f/users_8h.html#a5eea95fd0acdf2448ee7037cb4901653',1,'_User:&#160;users.h']]]
 ];

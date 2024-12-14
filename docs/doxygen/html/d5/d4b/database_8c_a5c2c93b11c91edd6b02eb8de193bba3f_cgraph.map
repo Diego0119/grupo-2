@@ -1,0 +1,22 @@
+<map id="follow" name="follow">
+<area shape="rect" id="Node000001" title="Seguir a un usuario." alt="" coords="5,104,68,129"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="13,105,8,96,10,86,20,80,37,77,56,81,65,89,61,93,54,86,37,83,22,85,15,89,13,95,17,103"/>
+<area shape="rect" id="Node000002" href="$d1/d2a/graph_8c.html#a4d6718ee3e14fdfec3f71cf10d4aea0a" title="Añade una adyacencia entre dos usuarios." alt="" coords="135,31,221,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,102,139,60,142,65,63,106"/>
+<area shape="rect" id="Node000004" href="$d5/d4b/database_8c.html#abdee669a4d0bab54b2af1fa5f0a04cc1" title="Guarda toda la información de un usuario en la base de datos." alt="" coords="116,104,240,129"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="68,114,102,114,102,119,68,119"/>
+<area shape="rect" id="Node000008" href="$d2/d9e/users_8c.html#a02b0bb2074d6748efedd29d4cbb1ee82" title="Busca a un usuario según su nombre de usuario." alt="" coords="128,177,228,203"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="63,127,142,169,139,173,61,132"/>
+<area shape="rect" id="Node000003" href="$d2/d9e/users_8c.html#a9c564038c86f55e7ad802f912e004869" title="Calcula la DIFERENCIA de jaccard entre dos usuarios." alt="" coords="319,5,427,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="221,35,305,24,306,29,221,40"/>
+<area shape="rect" id="Node000005" href="$d2/d9e/users_8c.html#aeda9265bc6db17bc211f56c5177063ff" title="Calcula qué tan amigable es un usuario." alt="" coords="291,55,455,80"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="228,101,308,81,310,86,230,107"/>
+<area shape="rect" id="Node000006" href="$d2/d9e/users_8c.html#ac56f8b225ddd39009e826d1f0b8499b8" title="Clasifica el nivel de amigabilidad de un usuario según su puntaje." alt="" coords="296,104,451,129"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="240,114,282,114,282,119,240,119"/>
+<area shape="rect" id="Node000007" href="$d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582" title="Elimina todos los archivos en un directorio." alt="" coords="288,153,459,179"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="230,127,310,147,308,152,228,132"/>
+<area shape="rect" id="Node000009" href="$d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="292,203,455,228"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="229,194,279,200,278,206,228,199"/>
+<area shape="rect" id="Node000010" href="$d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="507,203,613,228"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="455,213,493,213,493,218,455,218"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="database_exists_and_not_empty" name="database_exists_and_not_empty">
+<area shape="rect" id="Node000001" title="Verifica si la carpeta database existe y no está vacía." alt="" coords="279,23,437,63"/>
+<area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833" title="Genera usuarios aleatorios." alt="" coords="108,5,231,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="264,33,230,29,231,24,265,28"/>
+<area shape="rect" id="Node000003" href="$d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función que ejecuta el flujo principal del programa." alt="" coords="5,31,60,56"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="265,46,60,46,60,41,265,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,35,61,41,60,36,94,29"/>
+</map>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['id_0',['id',['../d5/d4f/struct__user.html#a94822395e1748cb26cdbd9f9f9393b66',1,'_user::id'],['../da/d98/struct__postNode.html#ace569ee169d91a95ad239273cbb542b4',1,'_postNode::id']]],
-  ['intereststable_1',['interestsTable',['../d5/d87/struct__globalInterests.html#a4ca0c46597c06d66bafeac0d3ab5c0e6',1,'_globalInterests']]]
+  ['globalid_0',['globalId',['../d8/d57/struct__interest.html#ac965e66eec91e76aefeb7aeb45c828c6',1,'_interest']]],
+  ['graphuserslist_1',['graphUsersList',['../d5/d08/struct__graph.html#a9dc3eeaa9ddbe7809220c7b47bb4889b',1,'_graph']]]
 ];

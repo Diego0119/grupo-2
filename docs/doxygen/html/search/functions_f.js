@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ver_5fposts_0',['ver_posts',['../d5/d4f/heaps_8c.html#aa4499cf0118858ef39802b277a5374cf',1,'ver_posts(heap *h):&#160;heaps.c'],['../dc/d8b/heaps_8h.html#aa4499cf0118858ef39802b277a5374cf',1,'ver_posts(heap *h):&#160;heaps.c']]]
+  ['unfollow_0',['unfollow',['../d5/d4b/database_8c.html#a27d66932dd0c4411d8baa6acc4b717af',1,'unfollow(User user, char *follow, GlobalInterests globalInterests, PtrToHashTable table):&#160;database.c'],['../d8/d9c/database_8h.html#a27d66932dd0c4411d8baa6acc4b717af',1,'unfollow(User user, char *follow, GlobalInterests globalInterests, PtrToHashTable table):&#160;database.c']]]
 ];

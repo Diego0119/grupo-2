@@ -1,0 +1,9 @@
+<map id="remove_user_from_graph" name="remove_user_from_graph">
+<area shape="rect" id="Node000001" title="Elimina un usuario del grafo." alt="" coords="5,5,195,31"/>
+<area shape="rect" id="Node000002" href="$d1/d2a/graph_8c.html#a6d6724321b00dccfe21c27cebcbcadd0" title="Libera todas las adyacencias de un usuario." alt="" coords="243,5,360,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,15,229,15,229,21,195,21"/>
+<area shape="rect" id="Node000003" href="$d1/d2a/graph_8c.html#a3e633b4d8bf50863870e67bf4ca97319" title="Permite que un usuario deje de seguir a otro." alt="" coords="408,5,519,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,15,394,15,394,21,360,21"/>
+<area shape="rect" id="Node000004" href="$d1/d2a/graph_8c.html#abf9f24585384d89e637bd258922e64db" title="Busca la adyacencia anterior a un usuario en una lista de adyacencia." alt="" coords="567,5,753,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="519,15,553,15,553,21,519,21"/>
+</map>

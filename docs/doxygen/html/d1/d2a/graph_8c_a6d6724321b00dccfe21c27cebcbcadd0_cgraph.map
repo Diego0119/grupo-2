@@ -1,0 +1,7 @@
+<map id="free_all_edges" name="free_all_edges">
+<area shape="rect" id="Node000001" title="Libera todas las adyacencias de un usuario." alt="" coords="5,5,123,31"/>
+<area shape="rect" id="Node000002" href="$d1/d2a/graph_8c.html#a3e633b4d8bf50863870e67bf4ca97319" title="Permite que un usuario deje de seguir a otro." alt="" coords="171,5,281,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,15,157,15,157,21,123,21"/>
+<area shape="rect" id="Node000003" href="$d1/d2a/graph_8c.html#abf9f24585384d89e637bd258922e64db" title="Busca la adyacencia anterior a un usuario en una lista de adyacencia." alt="" coords="329,5,516,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="281,15,316,15,316,21,281,21"/>
+</map>

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['globalid_0',['globalId',['../d8/d57/struct__interest.html#ac965e66eec91e76aefeb7aeb45c828c6',1,'_interest']]],
-  ['graphuserslist_1',['graphUsersList',['../d5/d08/struct__graph.html#a9dc3eeaa9ddbe7809220c7b47bb4889b',1,'_graph']]]
+  ['followers_0',['followers',['../d0/da6/struct__pending__connections.html#a3087378d61c85157b721f82135f056ec',1,'_pending_connections::followers'],['../d5/d4f/struct__user.html#a16e69445c7c801ff40d4dbd7235316d8',1,'_user::followers']]],
+  ['following_1',['following',['../d0/da6/struct__pending__connections.html#a32ca8a4799bcb3e4bb4bc7cb21cc75ff',1,'_pending_connections::following'],['../d5/d4f/struct__user.html#aefcdce14fc97e6a679f9d18cf50c73ab',1,'_user::following']]],
+  ['friendliness_2',['friendliness',['../d5/d4f/struct__user.html#afb98b79bf0fc4fe7374bac9a69a9d59c',1,'_user']]]
 ];

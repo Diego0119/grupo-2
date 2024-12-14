@@ -1,0 +1,9 @@
+<map id="free_structures_and_exit" name="free_structures_and_exit">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,188,80"/>
+<area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#a5b739812b015806f1a10bb82b97ce588" title="Libera la lista de intereses globales." alt="" coords="236,5,395,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,52,244,31,246,36,154,57"/>
+<area shape="rect" id="Node000003" href="$d1/d2a/graph_8c.html#aa69532d3e5630c6949bf8e76a663fe2b" title="Libera la memoria de un grafo." alt="" coords="269,55,361,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,65,255,65,255,70,188,70"/>
+<area shape="rect" id="Node000004" href="$d2/daf/hash__table_8c.html#a2537edb646045b3189b9e01f2f532cb7" title="Libera toda la memoria utilizada por la tabla hash." alt="" coords="252,104,379,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="154,77,246,98,244,104,153,83"/>
+</map>

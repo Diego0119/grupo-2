@@ -8,49 +8,59 @@ Cabecera para \doxylink{utilities_8c}{utilities.\+c}.
 {\ttfamily \#include $<$getopt.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$dirent.\+h$>$}\newline
 {\ttfamily \#include "{}hash\+\_\+table.\+h"{}}\newline
-Include dependency graph for utilities.\+h\+:
-% FIG 0
-This graph shows which files directly or indirectly include this file\+:
-% FIG 1
+{\ttfamily \#include "{}graph.\+h"{}}\newline
+{\ttfamily \#include "{}users.\+h"{}}\newline
+Include dependency graph for utilities.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/dfc/utilities_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/db7/utilities_8h__dep__incl}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{utilities_8h_a82acb32225c05e9aa4c524c40bc5852a}\label{utilities_8h_a82acb32225c05e9aa4c524c40bc5852a} 
-\#define {\bfseries MAX\+\_\+\+CHAR}~256
+\#define \mbox{\hyperlink{utilities_8h_a82acb32225c05e9aa4c524c40bc5852a}{MAX\+\_\+\+CHAR}}~256
 \item 
-\Hypertarget{utilities_8h_aba2a7fe77a7501e5844370eec0185207}\label{utilities_8h_aba2a7fe77a7501e5844370eec0185207} 
-\#define {\bfseries COLOR\+\_\+\+BLACK}~"{}\textbackslash{}033\mbox{[}0;30m"{}
+\#define \mbox{\hyperlink{utilities_8h_ad86358bf19927183dd7b4ae215a29731}{COLOR\+\_\+\+RED}}~"{}\textbackslash{}033\mbox{[}0;31m"{}
 \item 
-\Hypertarget{utilities_8h_ad86358bf19927183dd7b4ae215a29731}\label{utilities_8h_ad86358bf19927183dd7b4ae215a29731} 
-\#define {\bfseries COLOR\+\_\+\+RED}~"{}\textbackslash{}033\mbox{[}0;31m"{}
+\#define \mbox{\hyperlink{utilities_8h_afc9149f5de51bd9ac4f5ebbfa153f018}{COLOR\+\_\+\+GREEN}}~"{}\textbackslash{}033\mbox{[}0;32m"{}
 \item 
-\Hypertarget{utilities_8h_afc9149f5de51bd9ac4f5ebbfa153f018}\label{utilities_8h_afc9149f5de51bd9ac4f5ebbfa153f018} 
-\#define {\bfseries COLOR\+\_\+\+GREEN}~"{}\textbackslash{}033\mbox{[}0;32m"{}
+\#define \mbox{\hyperlink{utilities_8h_a4534b577b74a58b0f4b7be027af664e0}{COLOR\+\_\+\+YELLOW}}~"{}\textbackslash{}033\mbox{[}0;33m"{}
 \item 
-\Hypertarget{utilities_8h_a4534b577b74a58b0f4b7be027af664e0}\label{utilities_8h_a4534b577b74a58b0f4b7be027af664e0} 
-\#define {\bfseries COLOR\+\_\+\+YELLOW}~"{}\textbackslash{}033\mbox{[}0;33m"{}
+\#define \mbox{\hyperlink{utilities_8h_a23c70d699a5a775bc2e1ebeb8603f630}{COLOR\+\_\+\+BLUE}}~"{}\textbackslash{}033\mbox{[}0;34m"{}
 \item 
-\Hypertarget{utilities_8h_a23c70d699a5a775bc2e1ebeb8603f630}\label{utilities_8h_a23c70d699a5a775bc2e1ebeb8603f630} 
-\#define {\bfseries COLOR\+\_\+\+BLUE}~"{}\textbackslash{}033\mbox{[}0;34m"{}
+\#define \mbox{\hyperlink{utilities_8h_a8deb0beccea721b35bdb1b4f7264fe75}{COLOR\+\_\+\+MAGENTA}}~"{}\textbackslash{}033\mbox{[}0;35m"{}
 \item 
-\Hypertarget{utilities_8h_a8deb0beccea721b35bdb1b4f7264fe75}\label{utilities_8h_a8deb0beccea721b35bdb1b4f7264fe75} 
-\#define {\bfseries COLOR\+\_\+\+MAGENTA}~"{}\textbackslash{}033\mbox{[}0;35m"{}
+\#define \mbox{\hyperlink{utilities_8h_a82573859711fce56f1aa0a76b18a9b18}{COLOR\+\_\+\+CYAN}}~"{}\textbackslash{}033\mbox{[}0;36m"{}
 \item 
-\Hypertarget{utilities_8h_a82573859711fce56f1aa0a76b18a9b18}\label{utilities_8h_a82573859711fce56f1aa0a76b18a9b18} 
-\#define {\bfseries COLOR\+\_\+\+CYAN}~"{}\textbackslash{}033\mbox{[}0;36m"{}
+\#define \mbox{\hyperlink{utilities_8h_a9b44987ffdc2af19b635206b94334b69}{COLOR\+\_\+\+WHITE}}~"{}\textbackslash{}033\mbox{[}0;37m"{}
 \item 
-\Hypertarget{utilities_8h_a9b44987ffdc2af19b635206b94334b69}\label{utilities_8h_a9b44987ffdc2af19b635206b94334b69} 
-\#define {\bfseries COLOR\+\_\+\+WHITE}~"{}\textbackslash{}033\mbox{[}0;37m"{}
+\#define \mbox{\hyperlink{utilities_8h_a302607d6f585b7e9ba1c3eab8d2199d5}{COLOR\+\_\+\+BOLD}}~"{}\textbackslash{}033\mbox{[}1m"{}
 \item 
-\Hypertarget{utilities_8h_a302607d6f585b7e9ba1c3eab8d2199d5}\label{utilities_8h_a302607d6f585b7e9ba1c3eab8d2199d5} 
-\#define {\bfseries COLOR\+\_\+\+BOLD}~"{}\textbackslash{}033\mbox{[}1m"{}
+\#define \mbox{\hyperlink{utilities_8h_a26282df675a9c2ba43a299a0483e4520}{COLOR\+\_\+\+UNDERLINE}}~"{}\textbackslash{}033\mbox{[}4m"{}
 \item 
-\Hypertarget{utilities_8h_a26282df675a9c2ba43a299a0483e4520}\label{utilities_8h_a26282df675a9c2ba43a299a0483e4520} 
-\#define {\bfseries COLOR\+\_\+\+UNDERLINE}~"{}\textbackslash{}033\mbox{[}4m"{}
+\#define \mbox{\hyperlink{utilities_8h_a17f760256046df23dd0ab46602f04d02}{COLOR\+\_\+\+RESET}}~"{}\textbackslash{}033\mbox{[}0m"{}
 \item 
-\Hypertarget{utilities_8h_a17f760256046df23dd0ab46602f04d02}\label{utilities_8h_a17f760256046df23dd0ab46602f04d02} 
-\#define {\bfseries COLOR\+\_\+\+RESET}~"{}\textbackslash{}033\mbox{[}0m"{}
+\#define \mbox{\hyperlink{utilities_8h_a897420a5d635e6de9e4ed9a156115875}{CLEAN\+\_\+\+SCREEN}}~"{}\textbackslash{}033\mbox{[}2J"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__globalInterests}{\+\_\+global\+Interests}} \mbox{\hyperlink{utilities_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}
+\item 
+typedef struct \mbox{\hyperlink{struct__edge}{\+\_\+edge}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{utilities_8h_a6515921c52024d62e2a51b22e9eed1d1}{Edge}}
+\item 
+typedef struct \mbox{\hyperlink{struct__graph}{\+\_\+graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{utilities_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -59,8 +69,13 @@ unsigned int \mbox{\hyperlink{utilities_8h_aac0e4071b93021a3454f4d61d277b519}{je
 \begin{DoxyCompactList}\small\item\em Calcula el hash de un string. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{utilities_8h_a757e6e51479badedfcf23bae4d05ec9a}{get\+\_\+option}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em Indice del programa. \end{DoxyCompactList}\item 
-\Hypertarget{utilities_8h_a0ea8ae37a046313ec525e076e6005dcb}\label{utilities_8h_a0ea8ae37a046313ec525e076e6005dcb} 
-int {\bfseries line\+\_\+number\+\_\+in\+\_\+file} (char \texorpdfstring{$\ast$}{*}file)
+int \mbox{\hyperlink{utilities_8h_a0ea8ae37a046313ec525e076e6005dcb}{line\+\_\+number\+\_\+in\+\_\+file}} (char \texorpdfstring{$\ast$}{*}file)
+\begin{DoxyCompactList}\small\item\em Obtiene el número de líneas en un archivo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utilities_8h_a160d24be9bf39cc47705ace34ff13582}{delete\+\_\+all\+\_\+in\+\_\+directory}} (const char \texorpdfstring{$\ast$}{*}directory)
+\begin{DoxyCompactList}\small\item\em Elimina todos los archivos en un directorio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utilities_8h_a73eb533269566775275da2ac91350562}{print\+\_\+logo}} (void)
+\item 
+void \mbox{\hyperlink{utilities_8h_a3b744f7d0a58cbf2362aacdd02caa1db}{free\+\_\+structures\+\_\+and\+\_\+exit}} (\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table, \mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests\+Table)
 \end{DoxyCompactItemize}
 
 
@@ -80,7 +95,145 @@ Cabecera para \doxylink{utilities_8c}{utilities.\+c}.
 \end{DoxyAuthor}
 
 
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{utilities_8h_a897420a5d635e6de9e4ed9a156115875}\label{utilities_8h_a897420a5d635e6de9e4ed9a156115875} 
+\index{utilities.h@{utilities.h}!CLEAN\_SCREEN@{CLEAN\_SCREEN}}
+\index{CLEAN\_SCREEN@{CLEAN\_SCREEN}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{CLEAN\_SCREEN}{CLEAN\_SCREEN}}
+{\footnotesize\ttfamily \#define CLEAN\+\_\+\+SCREEN~"{}\textbackslash{}033\mbox{[}2J"{}}
+
+\Hypertarget{utilities_8h_a23c70d699a5a775bc2e1ebeb8603f630}\label{utilities_8h_a23c70d699a5a775bc2e1ebeb8603f630} 
+\index{utilities.h@{utilities.h}!COLOR\_BLUE@{COLOR\_BLUE}}
+\index{COLOR\_BLUE@{COLOR\_BLUE}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{COLOR\_BLUE}{COLOR\_BLUE}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+BLUE~"{}\textbackslash{}033\mbox{[}0;34m"{}}
+
+\Hypertarget{utilities_8h_a302607d6f585b7e9ba1c3eab8d2199d5}\label{utilities_8h_a302607d6f585b7e9ba1c3eab8d2199d5} 
+\index{utilities.h@{utilities.h}!COLOR\_BOLD@{COLOR\_BOLD}}
+\index{COLOR\_BOLD@{COLOR\_BOLD}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{COLOR\_BOLD}{COLOR\_BOLD}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+BOLD~"{}\textbackslash{}033\mbox{[}1m"{}}
+
+\Hypertarget{utilities_8h_a82573859711fce56f1aa0a76b18a9b18}\label{utilities_8h_a82573859711fce56f1aa0a76b18a9b18} 
+\index{utilities.h@{utilities.h}!COLOR\_CYAN@{COLOR\_CYAN}}
+\index{COLOR\_CYAN@{COLOR\_CYAN}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{COLOR\_CYAN}{COLOR\_CYAN}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+CYAN~"{}\textbackslash{}033\mbox{[}0;36m"{}}
+
+\Hypertarget{utilities_8h_afc9149f5de51bd9ac4f5ebbfa153f018}\label{utilities_8h_afc9149f5de51bd9ac4f5ebbfa153f018} 
+\index{utilities.h@{utilities.h}!COLOR\_GREEN@{COLOR\_GREEN}}
+\index{COLOR\_GREEN@{COLOR\_GREEN}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{COLOR\_GREEN}{COLOR\_GREEN}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+GREEN~"{}\textbackslash{}033\mbox{[}0;32m"{}}
+
+\Hypertarget{utilities_8h_a8deb0beccea721b35bdb1b4f7264fe75}\label{utilities_8h_a8deb0beccea721b35bdb1b4f7264fe75} 
+\index{utilities.h@{utilities.h}!COLOR\_MAGENTA@{COLOR\_MAGENTA}}
+\index{COLOR\_MAGENTA@{COLOR\_MAGENTA}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{COLOR\_MAGENTA}{COLOR\_MAGENTA}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+MAGENTA~"{}\textbackslash{}033\mbox{[}0;35m"{}}
+
+\Hypertarget{utilities_8h_ad86358bf19927183dd7b4ae215a29731}\label{utilities_8h_ad86358bf19927183dd7b4ae215a29731} 
+\index{utilities.h@{utilities.h}!COLOR\_RED@{COLOR\_RED}}
+\index{COLOR\_RED@{COLOR\_RED}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{COLOR\_RED}{COLOR\_RED}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+RED~"{}\textbackslash{}033\mbox{[}0;31m"{}}
+
+\Hypertarget{utilities_8h_a17f760256046df23dd0ab46602f04d02}\label{utilities_8h_a17f760256046df23dd0ab46602f04d02} 
+\index{utilities.h@{utilities.h}!COLOR\_RESET@{COLOR\_RESET}}
+\index{COLOR\_RESET@{COLOR\_RESET}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{COLOR\_RESET}{COLOR\_RESET}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+RESET~"{}\textbackslash{}033\mbox{[}0m"{}}
+
+\Hypertarget{utilities_8h_a26282df675a9c2ba43a299a0483e4520}\label{utilities_8h_a26282df675a9c2ba43a299a0483e4520} 
+\index{utilities.h@{utilities.h}!COLOR\_UNDERLINE@{COLOR\_UNDERLINE}}
+\index{COLOR\_UNDERLINE@{COLOR\_UNDERLINE}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{COLOR\_UNDERLINE}{COLOR\_UNDERLINE}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+UNDERLINE~"{}\textbackslash{}033\mbox{[}4m"{}}
+
+\Hypertarget{utilities_8h_a9b44987ffdc2af19b635206b94334b69}\label{utilities_8h_a9b44987ffdc2af19b635206b94334b69} 
+\index{utilities.h@{utilities.h}!COLOR\_WHITE@{COLOR\_WHITE}}
+\index{COLOR\_WHITE@{COLOR\_WHITE}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{COLOR\_WHITE}{COLOR\_WHITE}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+WHITE~"{}\textbackslash{}033\mbox{[}0;37m"{}}
+
+\Hypertarget{utilities_8h_a4534b577b74a58b0f4b7be027af664e0}\label{utilities_8h_a4534b577b74a58b0f4b7be027af664e0} 
+\index{utilities.h@{utilities.h}!COLOR\_YELLOW@{COLOR\_YELLOW}}
+\index{COLOR\_YELLOW@{COLOR\_YELLOW}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{COLOR\_YELLOW}{COLOR\_YELLOW}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+YELLOW~"{}\textbackslash{}033\mbox{[}0;33m"{}}
+
+\Hypertarget{utilities_8h_a82acb32225c05e9aa4c524c40bc5852a}\label{utilities_8h_a82acb32225c05e9aa4c524c40bc5852a} 
+\index{utilities.h@{utilities.h}!MAX\_CHAR@{MAX\_CHAR}}
+\index{MAX\_CHAR@{MAX\_CHAR}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_CHAR}{MAX\_CHAR}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+CHAR~256}
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{utilities_8h_a6515921c52024d62e2a51b22e9eed1d1}\label{utilities_8h_a6515921c52024d62e2a51b22e9eed1d1} 
+\index{utilities.h@{utilities.h}!Edge@{Edge}}
+\index{Edge@{Edge}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{Edge}{Edge}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__edge}{\+\_\+edge}}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{database_8h_a6515921c52024d62e2a51b22e9eed1d1}{Edge}}}
+
+\Hypertarget{utilities_8h_a9b0b9d0cb757c2efded518bf5a3b0672}\label{utilities_8h_a9b0b9d0cb757c2efded518bf5a3b0672} 
+\index{utilities.h@{utilities.h}!GlobalInterests@{GlobalInterests}}
+\index{GlobalInterests@{GlobalInterests}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{GlobalInterests}{GlobalInterests}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__globalInterests}{\+\_\+global\+Interests}} \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}
+
+\Hypertarget{utilities_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}\label{utilities_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8} 
+\index{utilities.h@{utilities.h}!Graph@{Graph}}
+\index{Graph@{Graph}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{Graph}{Graph}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__graph}{\+\_\+graph}}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}
+
+
+
 \doxysubsection{Function Documentation}
+\Hypertarget{utilities_8h_a160d24be9bf39cc47705ace34ff13582}\label{utilities_8h_a160d24be9bf39cc47705ace34ff13582} 
+\index{utilities.h@{utilities.h}!delete\_all\_in\_directory@{delete\_all\_in\_directory}}
+\index{delete\_all\_in\_directory@{delete\_all\_in\_directory}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{delete\_all\_in\_directory()}{delete\_all\_in\_directory()}}
+{\footnotesize\ttfamily void delete\+\_\+all\+\_\+in\+\_\+directory (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{directory }\end{DoxyParamCaption})}
+
+
+
+Elimina todos los archivos en un directorio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em directory} & Nombre del directorio \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/utilities_8h_a160d24be9bf39cc47705ace34ff13582_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{utilities_8h_a3b744f7d0a58cbf2362aacdd02caa1db}\label{utilities_8h_a3b744f7d0a58cbf2362aacdd02caa1db} 
+\index{utilities.h@{utilities.h}!free\_structures\_and\_exit@{free\_structures\_and\_exit}}
+\index{free\_structures\_and\_exit@{free\_structures\_and\_exit}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{free\_structures\_and\_exit()}{free\_structures\_and\_exit()}}
+{\footnotesize\ttfamily void free\+\_\+structures\+\_\+and\+\_\+exit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hash__table_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{table,  }\item[{\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests\+Table }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/utilities_8h_a3b744f7d0a58cbf2362aacdd02caa1db_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/utilities_8h_a3b744f7d0a58cbf2362aacdd02caa1db_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{utilities_8h_a757e6e51479badedfcf23bae4d05ec9a}\label{utilities_8h_a757e6e51479badedfcf23bae4d05ec9a} 
 \index{utilities.h@{utilities.h}!get\_option@{get\_option}}
 \index{get\_option@{get\_option}!utilities.h@{utilities.h}}
@@ -101,6 +254,20 @@ Indice del programa.
 \begin{DoxyReturn}{Returns}
 int Retorna número de la opción seleccionada 
 \end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{de/df0/utilities_8h_a757e6e51479badedfcf23bae4d05ec9a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{de/df0/utilities_8h_a757e6e51479badedfcf23bae4d05ec9a_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{utilities_8h_aac0e4071b93021a3454f4d61d277b519}\label{utilities_8h_aac0e4071b93021a3454f4d61d277b519} 
 \index{utilities.h@{utilities.h}!jenkins\_hash@{jenkins\_hash}}
 \index{jenkins\_hash@{jenkins\_hash}!utilities.h@{utilities.h}}
@@ -119,3 +286,48 @@ Calcula el hash de un string.
 \begin{DoxyReturn}{Returns}
 unsigned int 
 \end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/utilities_8h_aac0e4071b93021a3454f4d61d277b519_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{utilities_8h_a0ea8ae37a046313ec525e076e6005dcb}\label{utilities_8h_a0ea8ae37a046313ec525e076e6005dcb} 
+\index{utilities.h@{utilities.h}!line\_number\_in\_file@{line\_number\_in\_file}}
+\index{line\_number\_in\_file@{line\_number\_in\_file}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{line\_number\_in\_file()}{line\_number\_in\_file()}}
+{\footnotesize\ttfamily int line\+\_\+number\+\_\+in\+\_\+file (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{file }\end{DoxyParamCaption})}
+
+
+
+Obtiene el número de líneas en un archivo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & Nombre del archivo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Número de líneas en el archivo 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/utilities_8h_a0ea8ae37a046313ec525e076e6005dcb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{utilities_8h_a73eb533269566775275da2ac91350562}\label{utilities_8h_a73eb533269566775275da2ac91350562} 
+\index{utilities.h@{utilities.h}!print\_logo@{print\_logo}}
+\index{print\_logo@{print\_logo}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{print\_logo()}{print\_logo()}}
+{\footnotesize\ttfamily void print\+\_\+logo (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/utilities_8h_a73eb533269566775275da2ac91350562_icgraph}
+\end{center}
+\end{figure}

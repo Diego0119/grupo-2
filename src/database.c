@@ -15,7 +15,9 @@
 #include "database.h"
 
 /**
- * @brief Crea el directorio database si no existe.
+ * @brief Crea el directorio 'database' si no existe.
+ * 
+ * @note El directorio 'database' se crea en el directorio desde donde se está ejecutando el programa.
  */
 void create_database_dir(void){
     struct stat st = {0};
@@ -27,7 +29,8 @@ void create_database_dir(void){
 }
 
 /**
- * @brief Guarda toda la información de un usuario en "database/{username}_data".
+ * @brief Guarda toda la información de un usuario en la base de datos
+ * @note Se guardan los en la carpeta "database/{username}_data". Su info como usuario está en "database/{username}_data/data.dat", sus seguidores en "database/{username}_data/following.dat" y sus seguidores en "database/{username}_data/followers.dat". Sus publicaciones estarán en "database/{username}_data/posts", cada post siendo un archivo teniendo de nombre la fecha en formato "AAAA-MM-DD HH:MM:SS".
  *
  * @param user Usuario a guardar
  * @param globalInterests Tabla de intereses globales
@@ -125,7 +128,10 @@ void save_user_data(User user, GlobalInterests globalInterests){
 }
 
 /**
- * @brief Guarda todos los usuarios en la carpeta database.
+ * @brief Guarda todos los usuarios cargados en el programa en la base de datos.
+ * 
+ * @param graph Grafo de usuarios
+ * @param globalInterests Tabla de intereses globales
  */
 void save_all_users(Graph graph, GlobalInterests globalInterests) {
     create_database_dir();
@@ -138,7 +144,9 @@ void save_all_users(Graph graph, GlobalInterests globalInterests) {
 }
 
 /**
- * @brief Elimina todos los archivos y la carpeta database.
+ * @brief Elimina la base de datos en su totalidad.
+ * 
+ * @param graph Grafo de usuarios
  */
 void clear_database(Graph graph) {
     GraphList aux = graph->graphUsersList->next;
@@ -170,9 +178,13 @@ int database_exists_and_not_empty(void) {
 }
 
 /**
- * @brief Carga un usuario desde un archivo y devuelve su PendingConnections.
+ * @brief Carga un usuario desde un archivo
  * 
- * Se añade debug extra para entender el flujo de lectura, especialmente de las publicaciones.
+ * @param filename Nombre del archivo
+ * @param table Tabla hash de usuarios
+ * @param graph Grafo de usuarios
+ * @param globalInterests Tabla de intereses globales
+ * @return User Usuario cargado
  */
 User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
     char buffer[128];
@@ -259,7 +271,11 @@ User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph
 
 
 /**
- * @brief Carga todos los usuarios desde database.
+ * @brief Carga todos los usuarios desde la base de datos.
+ * 
+ * @param table Tabla hash de usuarios
+ * @param graph Grafo de usuarios
+ * @param globalInterests Tabla de intereses globales
  */
 void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInterests){
     DIR *dir = opendir("database");
@@ -287,7 +303,13 @@ void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInt
     
 }
 
-
+/**
+ * @brief Carga todas las conexiones (aristas) de los usuarios desde la base de datos.
+ * @note Es necesario que se haya cargado los usuarios con @see load_all_users antes de llamar a esta función.
+ * 
+ * @param table Tabla hash de usuarios
+ * @param globalInterests Tabla de intereses globales
+ */
 void load_connections(PtrToHashTable table, GlobalInterests globalInterests){
     DIR *dir = opendir("database");
     if (!dir) {
@@ -331,13 +353,23 @@ void load_connections(PtrToHashTable table, GlobalInterests globalInterests){
     }
 }
 
+/**
+ * @brief Carga la base de datos en su totalidad
+ * 
+ * @param table Tabla hash de usuarios
+ * @param graph Grafo de usuarios
+ * @param globalInterests Tabla de intereses globales
+ */
 void load_database(PtrToHashTable table, Graph graph, GlobalInterests globalInterests){
     load_all_users(table, graph, globalInterests);
     load_connections(table, globalInterests);
 }
 
 /**
- * @brief Obtiene el usuario de la sesión actual, si existe.
+ * @brief Obtiene el usuario de la sesión iniciada actualmente, si existe.
+ * 
+ * @param graph Grafo de usuarios
+ * @return User Usuario actual. NULL si la sesión no existe.
  */
 User current_session(PtrToHashTable graph) {
     FILE *file = fopen("current.dat","r");
@@ -363,6 +395,9 @@ User current_session(PtrToHashTable graph) {
 
 /**
  * @brief Inicia sesión
+ * 
+ * @param graph Grafo de usuarios
+ * @note Se guarda el usuario actual en "current.dat"
  */
 void login(PtrToHashTable graph) {
     FILE *file = fopen("current.dat","w");
@@ -403,6 +438,7 @@ void login(PtrToHashTable graph) {
 
 /**
  * @brief Cierra sesión
+ * @note Borra el archivo "current.dat"
  */
 void logout(void) {
     if(remove("current.dat")==0){
@@ -412,10 +448,14 @@ void logout(void) {
 }
 
 /**
- * @brief Registra un nuevo usuario
+ * @brief Registra un nuevo usuario en la base de datos
+ * 
+ * @param table Tabla hash de usuarios
+ * @param graph Grafo de usuarios
+ * @param globalInterests Tabla de intereses globales
+ * 
  */
 void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInterests) {
-    // leer usuario y contraseña
 
     print_logo();
 
@@ -471,7 +511,12 @@ void register_user(PtrToHashTable table, Graph graph, GlobalInterests globalInte
 }
 
 /**
- * @brief Publicar un post
+ * @brief Publicar un post desde un usuario
+ * 
+ * @param user Usuario publicador
+ * @param globalInterests Tabla de intereses globales
+ * 
+ * @note Se guarda la publicación en la carpeta "database/{username}_data/posts"
  */
 void write_post(User user, GlobalInterests globalInterests) {
     print_logo();
@@ -493,6 +538,13 @@ void write_post(User user, GlobalInterests globalInterests) {
 
 /**
  * @brief Seguir a un usuario
+ * 
+ * @param user Usuario que sigue a otro
+ * @param follow Nombre del usuario que se va a seguir
+ * @param globalInterests Tabla de intereses globales
+ * @param table Tabla hash de usuarios
+ * 
+ * @note Esta información se guarda en la carpeta "database/{user}_data/following.dat"
  */
 void follow(User user, char* follow, GlobalInterests globalInterests, PtrToHashTable table) {
     User to_follow = search_user(follow, table);
@@ -507,6 +559,13 @@ void follow(User user, char* follow, GlobalInterests globalInterests, PtrToHashT
 
 /**
  * @brief Dejar de seguir a un usuario
+ * 
+ * @param user Usuario que deja de seguir a otro
+ * @param follow Nombre del usuario que ya no se va a seguir
+ * @param globalInterests Tabla de intereses globales
+ * @param table Tabla hash de usuarios
+ * 
+ * @note Esta información se guarda en la carpeta "database/{user}_data/followers.dat"
  */
 void unfollow(User user, char* follow, GlobalInterests globalInterests, PtrToHashTable table) {
     User to_unfollow = search_user(follow, table);
@@ -522,7 +581,11 @@ void unfollow(User user, char* follow, GlobalInterests globalInterests, PtrToHas
 }
 
 /**
- * @brief Borrar la cuenta del usuario actual
+ * @brief Borrar la cuenta de un usuario de la base de datos
+ * 
+ * @param user Usuario a borrar
+ * 
+ * @note Se borran todos los archivos de la carpeta "database/{user}_data" y la misma carpeta
  */
 void delete_account(User user) {
     char path[512];

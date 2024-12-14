@@ -1,0 +1,17 @@
+<map id="edit_account" name="edit_account">
+<area shape="rect" id="Node000001" title="Permite a un usuario editar su información de cuenta." alt="" coords="5,105,111,131"/>
+<area shape="rect" id="Node000002" href="$d5/d4b/database_8c.html#abdee669a4d0bab54b2af1fa5f0a04cc1" title="Guarda toda la información de un usuario en la base de datos." alt="" coords="159,68,283,93"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,103,151,94,152,99,111,109"/>
+<area shape="rect" id="Node000006" href="$d2/d9e/users_8c.html#a02b0bb2074d6748efedd29d4cbb1ee82" title="Busca a un usuario según su nombre de usuario." alt="" coords="171,129,271,155"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="111,123,158,130,157,135,110,128"/>
+<area shape="rect" id="Node000003" href="$d2/d9e/users_8c.html#aeda9265bc6db17bc211f56c5177063ff" title="Calcula qué tan amigable es un usuario." alt="" coords="334,5,498,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="255,65,330,39,355,32,356,37,331,45,257,70"/>
+<area shape="rect" id="Node000004" href="$d2/d9e/users_8c.html#ac56f8b225ddd39009e826d1f0b8499b8" title="Clasifica el nivel de amigabilidad de un usuario según su puntaje." alt="" coords="339,55,493,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="283,74,325,71,325,76,283,79"/>
+<area shape="rect" id="Node000005" href="$d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582" title="Elimina todos los archivos en un directorio." alt="" coords="331,104,501,129"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="283,89,334,99,333,104,282,95"/>
+<area shape="rect" id="Node000007" href="$d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="335,153,497,179"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="271,145,321,152,321,157,271,151"/>
+<area shape="rect" id="Node000008" href="$d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="549,153,656,179"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="498,163,535,163,535,169,498,169"/>
+</map>

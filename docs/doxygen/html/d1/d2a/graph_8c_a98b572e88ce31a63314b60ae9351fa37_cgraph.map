@@ -1,0 +1,5 @@
+<map id="dijkstra" name="dijkstra">
+<area shape="rect" id="Node000001" title="Algoritmo de Dijkstra." alt="" coords="5,5,76,31"/>
+<area shape="rect" id="Node000002" href="$d1/d2a/graph_8c.html#a1f2002999a93188dbe535bd83b2d8582" title="Devuelve índice de un usuario según su posición en el grafo." alt="" coords="124,5,279,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,15,110,15,110,21,76,21"/>
+</map>
