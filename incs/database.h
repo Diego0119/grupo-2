@@ -24,6 +24,7 @@
 #include "users.h"
 #include "graph.h"
 #include "utilities.h"
+#define _XOPEN_SOURCE 700
 
 /*usuarios individuales*/
 typedef struct _user _User;
@@ -44,19 +45,6 @@ typedef struct _globalInterests GlobalInterests;
 typedef struct _edge *Edge;
 typedef struct _graph *Graph;
 
-/**
- * @struct _pending_connections
- * @brief Lista auxiliar para guardar las conexiones pendientes de un usuario en la carga de la base de datos
- */
-typedef struct _pending_connections {
-    char *username; /*!< Nombre de usuario */
-    char **followers; /*!< Nombres de los usuarios que lo siguen */
-    int numFollowers; /*!< Numero de seguidores */
-    char **following; /*!< Nombres de los usuarios que sigue */
-    int numFollowing; /*!< Número de seguidos */
-    struct _pending_connections *next; /*!< Siguiente en la lista */
-} PendingConnections;
-
 /* FUNCIONES DE CARGA Y GUARDADO DE LA BASE DE DATOS */
 void create_database_dir(void);
 void save_user_data(User user, GlobalInterests globalInterests);
@@ -68,7 +56,7 @@ User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph
 void load_database(PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
 void load_connections(PtrToHashTable table, GlobalInterests globalInterests);
 
-/* FUNCIONES DE SESION ACTUAL */
+/* FUNCIONES DE SESIONES */
 void login(PtrToHashTable graph);
 void logout(void);
 User current_session(PtrToHashTable graph);
