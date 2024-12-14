@@ -18,9 +18,9 @@ Include dependency graph for hash\+\_\+table.\+c\+:\nopagebreak
 \item 
 \mbox{\hyperlink{database_8h_a31908626dcb461c733577209bc647a55}{Hash\+Table}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hash__table_8c_a3fccc35fdaa619c188fe92be6484f0c8}{create\+\_\+hash\+\_\+table}} (void)
 \begin{DoxyCompactList}\small\item\em Crea una nueva tabla hash vacía. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{hash__table_8c_a59ed78b7d84acd2ba628ae76d36f782b}{insert\+\_\+into\+\_\+hash\+\_\+table}} (\mbox{\hyperlink{database_8h_a31908626dcb461c733577209bc647a55}{Hash\+Table}} \texorpdfstring{$\ast$}{*}table, char \texorpdfstring{$\ast$}{*}key, void \texorpdfstring{$\ast$}{*}data)
+int \mbox{\hyperlink{hash__table_8c_aa75f2a6c862abe70b3ddd592cce5935f}{insert\+\_\+into\+\_\+hash\+\_\+table}} (\mbox{\hyperlink{database_8h_a31908626dcb461c733577209bc647a55}{Hash\+Table}} \texorpdfstring{$\ast$}{*}table, const char \texorpdfstring{$\ast$}{*}key, void \texorpdfstring{$\ast$}{*}data)
 \begin{DoxyCompactList}\small\item\em Inserta un nuevo elemento en la tabla hash. \end{DoxyCompactList}\item 
-void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hash__table_8c_a2ce95b083b6024decb314925a79cf32c}{search\+\_\+in\+\_\+hash\+\_\+table}} (\mbox{\hyperlink{database_8h_a31908626dcb461c733577209bc647a55}{Hash\+Table}} \texorpdfstring{$\ast$}{*}table, char \texorpdfstring{$\ast$}{*}key)
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hash__table_8c_a5fb04c7a2ae2f9064e4b9f4f679ce4e2}{search\+\_\+in\+\_\+hash\+\_\+table}} (\mbox{\hyperlink{database_8h_a31908626dcb461c733577209bc647a55}{Hash\+Table}} \texorpdfstring{$\ast$}{*}table, const char \texorpdfstring{$\ast$}{*}key)
 \begin{DoxyCompactList}\small\item\em Busca un elemento en la tabla hash por su clave. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{hash__table_8c_ac2658c590377bd10f0556f8750773bf6}{delete\+\_\+from\+\_\+hash\+\_\+table}} (\mbox{\hyperlink{database_8h_a31908626dcb461c733577209bc647a55}{Hash\+Table}} \texorpdfstring{$\ast$}{*}table, char \texorpdfstring{$\ast$}{*}key)
 \begin{DoxyCompactList}\small\item\em Elimina un elemento de la tabla hash. \end{DoxyCompactList}\item 
@@ -85,7 +85,8 @@ Elimina un elemento de la tabla hash.
 \begin{DoxyReturn}{Returns}
 int 0 si se elimina correctamente, -\/1 si no se encuentra 
 \end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -114,19 +115,18 @@ Libera toda la memoria utilizada por la tabla hash.
 {\em table} & Tabla hash \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{d2/daf/hash__table_8c_a2537edb646045b3189b9e01f2f532cb7_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{hash__table_8c_a59ed78b7d84acd2ba628ae76d36f782b}\label{hash__table_8c_a59ed78b7d84acd2ba628ae76d36f782b} 
+\Hypertarget{hash__table_8c_aa75f2a6c862abe70b3ddd592cce5935f}\label{hash__table_8c_aa75f2a6c862abe70b3ddd592cce5935f} 
 \index{hash\_table.c@{hash\_table.c}!insert\_into\_hash\_table@{insert\_into\_hash\_table}}
 \index{insert\_into\_hash\_table@{insert\_into\_hash\_table}!hash\_table.c@{hash\_table.c}}
 \doxysubsubsection{\texorpdfstring{insert\_into\_hash\_table()}{insert\_into\_hash\_table()}}
-{\footnotesize\ttfamily int insert\+\_\+into\+\_\+hash\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a31908626dcb461c733577209bc647a55}{Hash\+Table}} \texorpdfstring{$\ast$}{*}}]{table,  }\item[{char \texorpdfstring{$\ast$}{*}}]{key,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int insert\+\_\+into\+\_\+hash\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a31908626dcb461c733577209bc647a55}{Hash\+Table}} \texorpdfstring{$\ast$}{*}}]{table,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{key,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
 
 
 
@@ -144,11 +144,12 @@ Inserta un nuevo elemento en la tabla hash.
 \begin{DoxyReturn}{Returns}
 int 0 si se inserta correctamente, -\/1 si hay un error 
 \end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=323pt]{d2/daf/hash__table_8c_a59ed78b7d84acd2ba628ae76d36f782b_cgraph}
+\includegraphics[width=323pt]{d2/daf/hash__table_8c_aa75f2a6c862abe70b3ddd592cce5935f_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:
@@ -156,14 +157,14 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{d2/daf/hash__table_8c_a59ed78b7d84acd2ba628ae76d36f782b_icgraph}
+\includegraphics[width=350pt]{d2/daf/hash__table_8c_aa75f2a6c862abe70b3ddd592cce5935f_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{hash__table_8c_a2ce95b083b6024decb314925a79cf32c}\label{hash__table_8c_a2ce95b083b6024decb314925a79cf32c} 
+\Hypertarget{hash__table_8c_a5fb04c7a2ae2f9064e4b9f4f679ce4e2}\label{hash__table_8c_a5fb04c7a2ae2f9064e4b9f4f679ce4e2} 
 \index{hash\_table.c@{hash\_table.c}!search\_in\_hash\_table@{search\_in\_hash\_table}}
 \index{search\_in\_hash\_table@{search\_in\_hash\_table}!hash\_table.c@{hash\_table.c}}
 \doxysubsubsection{\texorpdfstring{search\_in\_hash\_table()}{search\_in\_hash\_table()}}
-{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} search\+\_\+in\+\_\+hash\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a31908626dcb461c733577209bc647a55}{Hash\+Table}} \texorpdfstring{$\ast$}{*}}]{table,  }\item[{char \texorpdfstring{$\ast$}{*}}]{key }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} search\+\_\+in\+\_\+hash\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a31908626dcb461c733577209bc647a55}{Hash\+Table}} \texorpdfstring{$\ast$}{*}}]{table,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{key }\end{DoxyParamCaption})}
 
 
 
@@ -179,11 +180,12 @@ Busca un elemento en la tabla hash por su clave.
 \begin{DoxyReturn}{Returns}
 void\texorpdfstring{$\ast$}{*} Puntero a los datos encontrados o NULL si no existe 
 \end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=318pt]{d2/daf/hash__table_8c_a2ce95b083b6024decb314925a79cf32c_cgraph}
+\includegraphics[width=318pt]{d2/daf/hash__table_8c_a5fb04c7a2ae2f9064e4b9f4f679ce4e2_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:
@@ -191,6 +193,6 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{d2/daf/hash__table_8c_a2ce95b083b6024decb314925a79cf32c_icgraph}
+\includegraphics[width=350pt]{d2/daf/hash__table_8c_a5fb04c7a2ae2f9064e4b9f4f679ce4e2_icgraph}
 \end{center}
 \end{figure}

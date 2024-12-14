@@ -1,4 +1,12 @@
 var searchData=
 [
-  ['bfs_0',['BFS',['../d6/df3/graph_8h.html#a7ad1db7176aabe57d636a695b0867b02',1,'graph.h']]]
+  ['calculate_5faffinity_0',['calculate_affinity',['../d6/df3/graph_8h.html#abbbf934b5ee71eff94b3ca03af42175a',1,'graph.h']]],
+  ['calculate_5ffriendliness_1',['calculate_friendliness',['../d2/d9e/users_8c.html#aeda9265bc6db17bc211f56c5177063ff',1,'calculate_friendliness(User user):&#160;users.c'],['../d0/d5f/users_8h.html#aeda9265bc6db17bc211f56c5177063ff',1,'calculate_friendliness(User user):&#160;users.c']]],
+  ['classify_5ffriendliness_2',['classify_friendliness',['../d2/d9e/users_8c.html#ac56f8b225ddd39009e826d1f0b8499b8',1,'classify_friendliness(float friendliness):&#160;users.c'],['../d0/d5f/users_8h.html#ac56f8b225ddd39009e826d1f0b8499b8',1,'classify_friendliness(float friendliness):&#160;users.c']]],
+  ['clear_5fdatabase_3',['clear_database',['../d5/d4b/database_8c.html#ac7dd8a7af5b71944a8e8a5787ba710f0',1,'clear_database(Graph graph):&#160;database.c'],['../d8/d9c/database_8h.html#ac7dd8a7af5b71944a8e8a5787ba710f0',1,'clear_database(Graph graph):&#160;database.c']]],
+  ['create_5fdatabase_5fdir_4',['create_database_dir',['../d8/d9c/database_8h.html#a396f9e338551f945a1e511c2d32ae9c0',1,'create_database_dir(void):&#160;database.c'],['../d5/d4b/database_8c.html#a396f9e338551f945a1e511c2d32ae9c0',1,'create_database_dir(void):&#160;database.c']]],
+  ['create_5fempty_5fuserposts_5',['create_empty_userposts',['../d2/d9e/users_8c.html#af97adbc40604faad2ab88b2fe0d9c494',1,'create_empty_userPosts(void):&#160;users.c'],['../d0/d5f/users_8h.html#af97adbc40604faad2ab88b2fe0d9c494',1,'create_empty_userPosts(void):&#160;users.c']]],
+  ['create_5fhash_5ftable_6',['create_hash_table',['../d2/daf/hash__table_8c.html#a3fccc35fdaa619c188fe92be6484f0c8',1,'create_hash_table(void):&#160;hash_table.c'],['../d4/ddb/hash__table_8h.html#a3fccc35fdaa619c188fe92be6484f0c8',1,'create_hash_table(void):&#160;hash_table.c']]],
+  ['create_5fnew_5fuser_7',['create_new_user',['../d2/d9e/users_8c.html#a546db2111e9fd5d89cd8ef363da9d7c0',1,'create_new_user(const char *username, const char *password, const char *name, PtrToHashTable table, Graph graph, GlobalInterests globalInterests):&#160;users.c'],['../d0/d5f/users_8h.html#a546db2111e9fd5d89cd8ef363da9d7c0',1,'create_new_user(const char *username, const char *password, const char *name, PtrToHashTable table, Graph graph, GlobalInterests globalInterests):&#160;users.c']]],
+  ['current_5fsession_8',['current_session',['../d5/d4b/database_8c.html#a76f762d2a9063e73e62fa1e7127951ff',1,'current_session(PtrToHashTable graph):&#160;database.c'],['../d8/d9c/database_8h.html#a76f762d2a9063e73e62fa1e7127951ff',1,'current_session(PtrToHashTable graph):&#160;database.c']]]
 ];

@@ -1,6 +1,6 @@
 <map id="create_empty_userPosts" name="create_empty_userPosts">
 <area shape="rect" id="Node000001" title="Crea lista enlazada de posts vacía." alt="" coords="847,81,1029,107"/>
-<area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="667,56,799,81"/>
+<area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#a546db2111e9fd5d89cd8ef363da9d7c0" title="Crea un nuevo usuario." alt="" coords="667,56,799,81"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="833,84,799,79,799,74,834,78"/>
 <area shape="rect" id="Node000006" href="$d5/d4b/database_8c.html#a1e51423ffa4b06685c5d230c770eb278" title="Carga un usuario desde un archivo." alt="" coords="468,107,619,132"/>
 <area shape="poly" id="edge11_Node000001_Node000006" title=" " alt="" coords="833,103,619,117,619,112,832,98"/>

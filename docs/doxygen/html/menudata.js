@@ -62,7 +62,6 @@ var menudata={children:[
 {text:"All",url:"globals.html",children:[
 {text:"_",url:"globals.html#index__5F"},
 {text:"a",url:"globals_a.html#index_a"},
-{text:"b",url:"globals_b.html#index_b"},
 {text:"c",url:"globals_c.html#index_c"},
 {text:"d",url:"globals_d.html#index_d"},
 {text:"e",url:"globals_e.html#index_e"},
@@ -80,7 +79,6 @@ var menudata={children:[
 {text:"w",url:"globals_w.html#index_w"}]},
 {text:"Functions",url:"globals_func.html",children:[
 {text:"a",url:"globals_func.html#index_a"},
-{text:"b",url:"globals_func.html#index_b"},
 {text:"c",url:"globals_func.html#index_c"},
 {text:"d",url:"globals_func.html#index_d"},
 {text:"e",url:"globals_func.html#index_e"},

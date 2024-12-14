@@ -6,8 +6,8 @@
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="130,50,164,55,163,60,129,55"/>
 <area shape="rect" id="Node000003" href="$d7/db6/utilities_8c.html#a73eb533269566775275da2ac91350562" title="Imprime el logo del programa." alt="" coords="363,5,450,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="259,15,349,15,349,21,259,21"/>
-<area shape="rect" id="Node000005" href="$d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="325,55,488,80"/>
+<area shape="rect" id="Node000005" href="$d2/daf/hash__table_8c.html#a5fb04c7a2ae2f9064e4b9f4f679ce4e2" title="Busca un elemento en la tabla hash por su clave." alt="" coords="325,55,488,80"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="277,65,312,65,312,70,277,70"/>
-<area shape="rect" id="Node000006" href="$d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="536,55,643,80"/>
+<area shape="rect" id="Node000006" href="$d7/db6/utilities_8c.html#a770dc96ae0bcc43485ac7705b061f03b" title="Calcula el hash de un string." alt="" coords="536,55,643,80"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="489,65,522,65,522,70,489,70"/>
 </map>

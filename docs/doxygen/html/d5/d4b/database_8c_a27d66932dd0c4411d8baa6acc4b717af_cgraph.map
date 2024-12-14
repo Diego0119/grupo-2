@@ -21,9 +21,9 @@
 <area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="447,114,520,114,520,119,447,119"/>
 <area shape="rect" id="Node000008" href="$d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582" title="Elimina todos los archivos en un directorio." alt="" coords="525,153,696,179"/>
 <area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="444,127,539,148,538,153,442,132"/>
-<area shape="rect" id="Node000010" href="$d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="529,203,692,228"/>
+<area shape="rect" id="Node000010" href="$d2/daf/hash__table_8c.html#a5fb04c7a2ae2f9064e4b9f4f679ce4e2" title="Busca un elemento en la tabla hash por su clave." alt="" coords="529,203,692,228"/>
 <area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="435,194,516,203,515,208,434,199"/>
-<area shape="rect" id="Node000011" href="$d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="744,203,851,228"/>
+<area shape="rect" id="Node000011" href="$d7/db6/utilities_8c.html#a770dc96ae0bcc43485ac7705b061f03b" title="Calcula el hash de un string." alt="" coords="744,203,851,228"/>
 <area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="692,213,730,213,730,218,692,218"/>
 <area shape="rect" id="Node000013" href="$d1/d2a/graph_8c.html#abf9f24585384d89e637bd258922e64db" title="Busca la adyacencia anterior a un usuario en una lista de adyacencia." alt="" coords="291,229,477,255"/>
 <area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="243,239,277,239,277,245,243,245"/>

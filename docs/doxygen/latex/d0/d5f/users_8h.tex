@@ -23,8 +23,7 @@ Include dependency graph for users.\+h\+:\nopagebreak
 \includegraphics[width=350pt]{d8/d16/users_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -80,7 +79,7 @@ typedef \mbox{\hyperlink{database_8h_a31908626dcb461c733577209bc647a55}{Hash\+Ta
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} \mbox{\hyperlink{users_8h_ad2c3fd62b5918a70ecf917d4810caddd}{create\+\_\+new\+\_\+user}} (char \texorpdfstring{$\ast$}{*}username, char \texorpdfstring{$\ast$}{*}password, char \texorpdfstring{$\ast$}{*}name, \mbox{\hyperlink{database_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table, \mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests)
+\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} \mbox{\hyperlink{users_8h_a546db2111e9fd5d89cd8ef363da9d7c0}{create\+\_\+new\+\_\+user}} (const char \texorpdfstring{$\ast$}{*}username, const char \texorpdfstring{$\ast$}{*}password, const char \texorpdfstring{$\ast$}{*}name, \mbox{\hyperlink{database_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table, \mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests)
 \begin{DoxyCompactList}\small\item\em Crea un nuevo usuario. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{users_8h_afc890b7835333cedad2a333a95e3c510}{delete\+\_\+user}} (\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} user, \mbox{\hyperlink{database_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table, \mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph)
 \begin{DoxyCompactList}\small\item\em Elimina un usuario. \end{DoxyCompactList}\item 
@@ -88,8 +87,6 @@ void \mbox{\hyperlink{users_8h_afc890b7835333cedad2a333a95e3c510}{delete\+\_\+us
 \begin{DoxyCompactList}\small\item\em Busca a un usuario según su nombre de usuario. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{users_8h_aefba9a925655e4df5dba3e7433342f78}{free\+\_\+all\+\_\+users}} (\mbox{\hyperlink{database_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}} table, \mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph)
 \begin{DoxyCompactList}\small\item\em Libera la memoria de todos los usuarios de la red social. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{users_8h_afb02f9a84d5af8c7b39ccfde9ecd3649}{increment\+\_\+popularity}} (\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} user)
-\begin{DoxyCompactList}\small\item\em Incrementa la popularidad de un usuario. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{users_8h_a35b00484b2f280f381c1f3015de40b10}{print\+\_\+user}} (\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} user, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests\+Table)
 \begin{DoxyCompactList}\small\item\em Imprime toda la información de un usuario. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{users_8h_a360a3e27e03a0155ccfe3cdc28f9abe1}{print\+\_\+all\+\_\+users}} (\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}} graph)
@@ -100,8 +97,6 @@ void \mbox{\hyperlink{users_8h_a6314922df43861bd6d37310fda8fad29}{print\+\_\+fol
 \begin{DoxyCompactList}\small\item\em Imprime los seguidos de un usuario. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{users_8h_aea0be0e6a2651d5351de6f6bbc0654c6}{print\+\_\+user\+\_\+interests}} (\mbox{\hyperlink{database_8h_a67cdeb4bceb57805c2aaa33ff4ce3ba7}{Interest\+Table}} user\+Interests, \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interests\+Table)
 \begin{DoxyCompactList}\small\item\em Imprime los intereses de un usuario. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{users_8h_a6ebb1bc44da4008341485e23988d0ee5}{suggest\+\_\+popular\+\_\+users}} (\mbox{\hyperlink{database_8h_a31908626dcb461c733577209bc647a55}{Hash\+Table}} \texorpdfstring{$\ast$}{*}table)
-\begin{DoxyCompactList}\small\item\em Sugerir usuarios populares basados en popularidad. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{database_8h_a9103b753f9f11f673fb1f33cb4edddb6}{User\+Posts}} \mbox{\hyperlink{users_8h_af97adbc40604faad2ab88b2fe0d9c494}{create\+\_\+empty\+\_\+user\+Posts}} (void)
 \begin{DoxyCompactList}\small\item\em Crea lista enlazada de posts vacía. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{database_8h_a5cb694b39358fae2f528f7a0980bfb7a}{Ptr\+To\+Post\+Node}} \mbox{\hyperlink{users_8h_a9ebb42e316a747ef9b35e33309ee9bb7}{insert\+\_\+post}} (\mbox{\hyperlink{database_8h_a9103b753f9f11f673fb1f33cb4edddb6}{User\+Posts}} posts, char \texorpdfstring{$\ast$}{*}content)
@@ -114,8 +109,6 @@ void \mbox{\hyperlink{users_8h_a9b71eb9fad474dbd89952026242302f0}{delete\+\_\+us
 \begin{DoxyCompactList}\small\item\em Elimina la lista de posts de un usuario. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{users_8h_a6b6418dc0ab92404a730e1b8eeb392a0}{print\+\_\+user\+Posts}} (\mbox{\hyperlink{database_8h_a9103b753f9f11f673fb1f33cb4edddb6}{User\+Posts}} posts)
 \begin{DoxyCompactList}\small\item\em Imprime una lista de posts. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{users_8h_a1fb73a78d8eea9b0adbc075296452483}{sort\+\_\+posts}} (\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} user)
-\begin{DoxyCompactList}\small\item\em Ordena las publicaciones de un usuario por fecha. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} \mbox{\hyperlink{users_8h_aca6a94ac9bee002e66e4734c28dcfbfd}{init\+\_\+global\+\_\+interests}} (void)
 \begin{DoxyCompactList}\small\item\em Inicializa la tabla de tópicos globales leyendo el archivo \textquotesingle{}subtopics\textquotesingle{}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{users_8h_a5b739812b015806f1a10bb82b97ce588}{free\+\_\+global\+\_\+interests}} (\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}} global\+Interest\+Table)
@@ -268,8 +261,7 @@ Cabecera para \doxylink{users_8c}{users.\+c}.
 \doxysubsubsection{\texorpdfstring{add\_interest()}{add\_interest()}}
 {\footnotesize\ttfamily void add\+\_\+interest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}}}]{user,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interest\+Table,  }\item[{int}]{interest\+Id }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -294,8 +286,7 @@ Calcula qué tan amigable es un usuario.
 \begin{DoxyReturn}{Returns}
 Un valor flotante que representa la amigabilidad del usuario. Valores más altos indican mayor amigabilidad. 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -320,8 +311,7 @@ Clasifica el nivel de amigabilidad de un usuario según su puntaje.
 \begin{DoxyReturn}{Returns}
 const char\texorpdfstring{$\ast$}{*} Categoría textual que describe el nivel de amigabilidad. 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -352,11 +342,11 @@ Here is the caller graph for this function\+:
 \includegraphics[width=350pt]{d0/d5f/users_8h_af97adbc40604faad2ab88b2fe0d9c494_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{users_8h_ad2c3fd62b5918a70ecf917d4810caddd}\label{users_8h_ad2c3fd62b5918a70ecf917d4810caddd} 
+\Hypertarget{users_8h_a546db2111e9fd5d89cd8ef363da9d7c0}\label{users_8h_a546db2111e9fd5d89cd8ef363da9d7c0} 
 \index{users.h@{users.h}!create\_new\_user@{create\_new\_user}}
 \index{create\_new\_user@{create\_new\_user}!users.h@{users.h}}
 \doxysubsubsection{\texorpdfstring{create\_new\_user()}{create\_new\_user()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} create\+\_\+new\+\_\+user (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{username,  }\item[{char \texorpdfstring{$\ast$}{*}}]{password,  }\item[{char \texorpdfstring{$\ast$}{*}}]{name,  }\item[{\mbox{\hyperlink{database_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{table,  }\item[{\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}} create\+\_\+new\+\_\+user (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{username,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{password,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{name,  }\item[{\mbox{\hyperlink{database_8h_a7e056d7659ae1acde513c0dbf0a43833}{Ptr\+To\+Hash\+Table}}}]{table,  }\item[{\mbox{\hyperlink{database_8h_a0f9b15cbd48db95b75e66e2d49ecbdd8}{Graph}}}]{graph,  }\item[{\mbox{\hyperlink{database_8h_a9b0b9d0cb757c2efded518bf5a3b0672}{Global\+Interests}}}]{global\+Interests }\end{DoxyParamCaption})}
 
 
 
@@ -383,11 +373,12 @@ Primero inicializar tabla hash, grafo e intereses globales
 \begin{DoxyReturn}{Returns}
 User 
 \end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{d0/d5f/users_8h_ad2c3fd62b5918a70ecf917d4810caddd_cgraph}
+\includegraphics[width=350pt]{d0/d5f/users_8h_a546db2111e9fd5d89cd8ef363da9d7c0_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:
@@ -395,7 +386,7 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{d0/d5f/users_8h_ad2c3fd62b5918a70ecf917d4810caddd_icgraph}
+\includegraphics[width=350pt]{d0/d5f/users_8h_a546db2111e9fd5d89cd8ef363da9d7c0_icgraph}
 \end{center}
 \end{figure}
 \Hypertarget{users_8h_af6609b1667d0d49c01bbdbfc0eee271e}\label{users_8h_af6609b1667d0d49c01bbdbfc0eee271e} 
@@ -423,7 +414,8 @@ Elimina un usuario.
 {\em graph} & Grafo de usuarios \\
 \hline
 \end{DoxyParams}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -491,8 +483,7 @@ double
 \begin{DoxyNote}{Note}
 Utilizarse en el peso de la conexion 
 \end{DoxyNote}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -516,7 +507,8 @@ Libera la memoria de todos los usuarios de la red social.
 {\em graph} & Grafo de usuarios \\
 \hline
 \end{DoxyParams}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -545,8 +537,7 @@ Libera la lista de intereses globales.
 {\em global\+Interest\+Table} & \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -599,8 +590,7 @@ Función para crear una publicación aleatoria.
 \begin{DoxyReturn}{Returns}
 char\texorpdfstring{$\ast$}{*} 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -621,8 +611,7 @@ Here is the call graph for this function\+:
 \includegraphics[width=350pt]{d0/d5f/users_8h_afd45a31abe49e3ac81f1b65dc575a3f8_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -641,9 +630,9 @@ Genera conexiones aleatorias entre usuarios.
 
 
 \begin{DoxyParams}{Parameters}
-{\em quantity} & Cantidad de usuarios en el grafo. \\
+{\em graph} & Grafo de usuarios \\
 \hline
-{\em graph} & El grafo de usuarios. \\
+{\em global\+Interests} & Tabla de intereses globales \\
 \hline
 \end{DoxyParams}
 Here is the call graph for this function\+:\nopagebreak
@@ -653,8 +642,7 @@ Here is the call graph for this function\+:\nopagebreak
 \includegraphics[width=350pt]{d0/d5f/users_8h_aa608289825b004627ba2258665dec9bc_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -692,8 +680,7 @@ Here is the call graph for this function\+:
 \includegraphics[width=350pt]{d0/d5f/users_8h_a0b42257a0acbc35fbebf03fda14ccf8d_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -727,29 +714,13 @@ Here is the call graph for this function\+:
 \includegraphics[width=350pt]{d0/d5f/users_8h_a901b74d1392472b70c8d66d58938e833_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{d0/d5f/users_8h_a901b74d1392472b70c8d66d58938e833_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{users_8h_afb02f9a84d5af8c7b39ccfde9ecd3649}\label{users_8h_afb02f9a84d5af8c7b39ccfde9ecd3649} 
-\index{users.h@{users.h}!increment\_popularity@{increment\_popularity}}
-\index{increment\_popularity@{increment\_popularity}!users.h@{users.h}}
-\doxysubsubsection{\texorpdfstring{increment\_popularity()}{increment\_popularity()}}
-{\footnotesize\ttfamily void increment\+\_\+popularity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}}}]{user }\end{DoxyParamCaption})}
-
-
-
-Incrementa la popularidad de un usuario. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em user} & Puntero al usuario \\
-\hline
-\end{DoxyParams}
 \Hypertarget{users_8h_aca6a94ac9bee002e66e4734c28dcfbfd}\label{users_8h_aca6a94ac9bee002e66e4734c28dcfbfd} 
 \index{users.h@{users.h}!init\_global\_interests@{init\_global\_interests}}
 \index{init\_global\_interests@{init\_global\_interests}!users.h@{users.h}}
@@ -763,7 +734,8 @@ Inicializa la tabla de tópicos globales leyendo el archivo \textquotesingle{}su
 \begin{DoxyReturn}{Returns}
 Global\+Interests 
 \end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -826,15 +798,15 @@ Inserta al principio de la lista y guarda la fecha de la máquina en el momento 
 \begin{DoxyReturn}{Returns}
 Ptr\+To\+Post\+Node 
 \end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=267pt]{d0/d5f/users_8h_a9ebb42e316a747ef9b35e33309ee9bb7_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -856,8 +828,7 @@ Imprime todos los usuarios de la red social.
 {\em graph} & Grafo de usuarios \\
 \hline
 \end{DoxyParams}
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -886,8 +857,7 @@ Imprime los seguidores de un usuario.
 {\em user} & Usuario \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -909,16 +879,14 @@ Imprime los seguidos de un usuario.
 {\em user} & Usuario \\
 \hline
 \end{DoxyParams}
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=270pt]{d0/d5f/users_8h_a6314922df43861bd6d37310fda8fad29_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -955,8 +923,7 @@ Imprime toda la información de un usuario.
 {\em global\+Interests\+Table} & Tabla de intereses globales \\
 \hline
 \end{DoxyParams}
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1042,48 +1009,18 @@ Busca a un usuario según su nombre de usuario.
 \begin{DoxyReturn}{Returns}
 User 
 \end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{d0/d5f/users_8h_a02b0bb2074d6748efedd29d4cbb1ee82_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{d0/d5f/users_8h_a02b0bb2074d6748efedd29d4cbb1ee82_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{users_8h_a1fb73a78d8eea9b0adbc075296452483}\label{users_8h_a1fb73a78d8eea9b0adbc075296452483} 
-\index{users.h@{users.h}!sort\_posts@{sort\_posts}}
-\index{sort\_posts@{sort\_posts}!users.h@{users.h}}
-\doxysubsubsection{\texorpdfstring{sort\_posts()}{sort\_posts()}}
-{\footnotesize\ttfamily void sort\+\_\+posts (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a995d9e8670b5cd49a0b3348a0abb13a0}{User}}}]{user }\end{DoxyParamCaption})}
-
-
-
-Ordena las publicaciones de un usuario por fecha. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em user} & Puntero al usuario \\
-\hline
-\end{DoxyParams}
-\Hypertarget{users_8h_a6ebb1bc44da4008341485e23988d0ee5}\label{users_8h_a6ebb1bc44da4008341485e23988d0ee5} 
-\index{users.h@{users.h}!suggest\_popular\_users@{suggest\_popular\_users}}
-\index{suggest\_popular\_users@{suggest\_popular\_users}!users.h@{users.h}}
-\doxysubsubsection{\texorpdfstring{suggest\_popular\_users()}{suggest\_popular\_users()}}
-{\footnotesize\ttfamily void suggest\+\_\+popular\+\_\+users (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{database_8h_a31908626dcb461c733577209bc647a55}{Hash\+Table}} \texorpdfstring{$\ast$}{*}}]{table }\end{DoxyParamCaption})}
-
-
-
-Sugerir usuarios populares basados en popularidad. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em table} & Tabla hash que contiene los usuarios \\
-\hline
-\end{DoxyParams}

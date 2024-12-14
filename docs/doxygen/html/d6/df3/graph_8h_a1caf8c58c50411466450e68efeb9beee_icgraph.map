@@ -1,6 +1,6 @@
 <map id="init_empty_edge" name="init_empty_edge">
 <area shape="rect" id="Node000001" title="Inicia una lista de adyacencia vacía." alt="" coords="847,55,977,80"/>
-<area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="667,55,799,80"/>
+<area shape="rect" id="Node000002" href="$d2/d9e/users_8c.html#a546db2111e9fd5d89cd8ef363da9d7c0" title="Crea un nuevo usuario." alt="" coords="667,55,799,80"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="833,70,799,70,799,65,833,65"/>
 <area shape="rect" id="Node000003" href="$d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833" title="Genera usuarios aleatorios." alt="" coords="482,5,605,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="670,54,593,33,594,28,671,49"/>

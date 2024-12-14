@@ -10,7 +10,7 @@
 <area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="104,152,185,174,184,179,103,157"/>
 <area shape="rect" id="Node000009" href="$d1/d2a/graph_8c.html#a6c33d80720eb130a585010c03b36d10a" title="Elimina un usuario del grafo." alt="" coords="152,229,341,255"/>
 <area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="70,153,106,184,153,216,169,222,167,227,151,220,102,189,67,157"/>
-<area shape="rect" id="Node000003" href="$d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="395,5,501,31"/>
+<area shape="rect" id="Node000003" href="$d7/db6/utilities_8c.html#a770dc96ae0bcc43485ac7705b061f03b" title="Calcula el hash de un string." alt="" coords="395,5,501,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="336,15,381,15,381,21,336,21"/>
 <area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="215,80,208,70,212,60,225,54,247,52,273,56,284,64,281,68,271,60,247,57,226,59,216,64,213,70,219,77"/>
 <area shape="rect" id="Node000006" href="$d1/d2a/graph_8c.html#a3e633b4d8bf50863870e67bf4ca97319" title="Permite que un usuario deje de seguir a otro." alt="" coords="555,179,665,204"/>

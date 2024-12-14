@@ -10,8 +10,8 @@
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="283,74,325,71,325,76,283,79"/>
 <area shape="rect" id="Node000005" href="$d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582" title="Elimina todos los archivos en un directorio." alt="" coords="331,104,501,129"/>
 <area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="283,89,334,99,333,104,282,95"/>
-<area shape="rect" id="Node000007" href="$d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="335,153,497,179"/>
+<area shape="rect" id="Node000007" href="$d2/daf/hash__table_8c.html#a5fb04c7a2ae2f9064e4b9f4f679ce4e2" title="Busca un elemento en la tabla hash por su clave." alt="" coords="335,153,497,179"/>
 <area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="271,145,321,152,321,157,271,151"/>
-<area shape="rect" id="Node000008" href="$d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="549,153,656,179"/>
+<area shape="rect" id="Node000008" href="$d7/db6/utilities_8c.html#a770dc96ae0bcc43485ac7705b061f03b" title="Calcula el hash de un string." alt="" coords="549,153,656,179"/>
 <area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="498,163,535,163,535,169,498,169"/>
 </map>

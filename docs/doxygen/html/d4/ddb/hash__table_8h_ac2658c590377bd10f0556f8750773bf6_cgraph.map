@@ -1,5 +1,5 @@
 <map id="delete_from_hash_table" name="delete_from_hash_table">
 <area shape="rect" id="Node000001" title="Elimina un elemento de la tabla hash." alt="" coords="5,5,184,31"/>
-<area shape="rect" id="Node000002" href="$d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="232,5,339,31"/>
+<area shape="rect" id="Node000002" href="$d7/db6/utilities_8c.html#a770dc96ae0bcc43485ac7705b061f03b" title="Calcula el hash de un string." alt="" coords="232,5,339,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,15,218,15,218,21,184,21"/>
 </map>

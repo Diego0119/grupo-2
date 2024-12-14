@@ -14,7 +14,7 @@
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="621,52,721,30,722,36,623,57"/>
 <area shape="rect" id="Node000005" href="$d2/d9e/users_8c.html#a9ebb42e316a747ef9b35e33309ee9bb7" title="Crea un post en la lista de posts." alt="" coords="745,55,840,80"/>
 <area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="651,65,731,65,731,70,651,70"/>
-<area shape="rect" id="Node000006" href="$d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="932,279,1039,304"/>
+<area shape="rect" id="Node000006" href="$d7/db6/utilities_8c.html#a770dc96ae0bcc43485ac7705b061f03b" title="Calcula el hash de un string." alt="" coords="932,279,1039,304"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="841,69,864,77,886,89,923,130,950,178,969,225,981,264,976,266,964,227,946,180,919,133,882,93,862,82,839,74"/>
 <area shape="rect" id="Node000008" href="$d1/d2a/graph_8c.html#a4d6718ee3e14fdfec3f71cf10d4aea0a" title="Añade una adyacencia entre dos usuarios." alt="" coords="519,168,605,193"/>
 <area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="420,195,505,185,506,190,420,200"/>
@@ -22,9 +22,9 @@
 <area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="604,166,732,131,734,136,606,171"/>
 <area shape="rect" id="Node000011" href="$d2/d9e/users_8c.html#aa07746382b32ef874f1f05d0bc166411" title=" " alt="" coords="511,292,613,317"/>
 <area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="349,365,470,326,497,318,499,324,471,331,350,370"/>
-<area shape="rect" id="Node000012" href="$d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="496,341,628,367"/>
+<area shape="rect" id="Node000012" href="$d2/d9e/users_8c.html#a546db2111e9fd5d89cd8ef363da9d7c0" title="Crea un nuevo usuario." alt="" coords="496,341,628,367"/>
 <area shape="poly" id="edge11_Node000010_Node000012" title=" " alt="" coords="372,372,482,360,483,365,373,377"/>
-<area shape="rect" id="Node000018" href="$d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="711,452,874,477"/>
+<area shape="rect" id="Node000018" href="$d2/daf/hash__table_8c.html#a5fb04c7a2ae2f9064e4b9f4f679ce4e2" title="Busca un elemento en la tabla hash por su clave." alt="" coords="711,452,874,477"/>
 <area shape="poly" id="edge26_Node000010_Node000018" title=" " alt="" coords="373,385,502,402,654,427,730,446,729,451,653,433,502,407,372,390"/>
 <area shape="rect" id="Node000019" href="$d5/d4b/database_8c.html#a84ddec926c8a5475e48c2e6a59741d00" title="Verifica si la carpeta database existe y no está vacía." alt="" coords="483,442,641,482"/>
 <area shape="poly" id="edge21_Node000010_Node000019" title=" " alt="" coords="352,391,488,435,486,440,351,396"/>
@@ -39,7 +39,7 @@
 <area shape="poly" id="edge14_Node000012_Node000015" title=" " alt="" coords="628,341,713,327,714,332,628,346"/>
 <area shape="rect" id="Node000016" href="$d2/d9e/users_8c.html#a712d75094f2cdc4a576c1ea1dc5288ff" title="Inicializa los intereses de un usuario." alt="" coords="721,353,864,379"/>
 <area shape="poly" id="edge15_Node000012_Node000016" title=" " alt="" coords="628,355,708,359,708,364,628,360"/>
-<area shape="rect" id="Node000017" href="$d2/daf/hash__table_8c.html#a59ed78b7d84acd2ba628ae76d36f782b" title="Inserta un nuevo elemento en la tabla hash." alt="" coords="708,403,877,428"/>
+<area shape="rect" id="Node000017" href="$d2/daf/hash__table_8c.html#aa75f2a6c862abe70b3ddd592cce5935f" title="Inserta un nuevo elemento en la tabla hash." alt="" coords="708,403,877,428"/>
 <area shape="poly" id="edge16_Node000012_Node000017" title=" " alt="" coords="611,364,732,397,731,402,610,369"/>
 <area shape="poly" id="edge19_Node000012_Node000018" title=" " alt="" coords="614,364,655,384,670,398,679,412,688,426,703,438,714,444,711,449,700,443,684,429,675,415,666,402,652,388,612,369"/>
 <area shape="poly" id="edge17_Node000017_Node000006" title=" " alt="" coords="854,400,883,388,929,352,964,313,968,317,932,356,885,392,856,405"/>

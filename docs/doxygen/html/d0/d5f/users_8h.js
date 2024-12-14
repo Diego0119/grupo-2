@@ -24,7 +24,7 @@ var users_8h =
     [ "calculate_friendliness", "d0/d5f/users_8h.html#aeda9265bc6db17bc211f56c5177063ff", null ],
     [ "classify_friendliness", "d0/d5f/users_8h.html#ac56f8b225ddd39009e826d1f0b8499b8", null ],
     [ "create_empty_userPosts", "d0/d5f/users_8h.html#af97adbc40604faad2ab88b2fe0d9c494", null ],
-    [ "create_new_user", "d0/d5f/users_8h.html#ad2c3fd62b5918a70ecf917d4810caddd", null ],
+    [ "create_new_user", "d0/d5f/users_8h.html#a546db2111e9fd5d89cd8ef363da9d7c0", null ],
     [ "delete_post", "d0/d5f/users_8h.html#af6609b1667d0d49c01bbdbfc0eee271e", null ],
     [ "delete_user", "d0/d5f/users_8h.html#afc890b7835333cedad2a333a95e3c510", null ],
     [ "delete_userPosts", "d0/d5f/users_8h.html#a9b71eb9fad474dbd89952026242302f0", null ],
@@ -37,7 +37,6 @@ var users_8h =
     [ "generate_random_connections", "d0/d5f/users_8h.html#aa608289825b004627ba2258665dec9bc", null ],
     [ "generate_random_posts", "d0/d5f/users_8h.html#a0b42257a0acbc35fbebf03fda14ccf8d", null ],
     [ "generate_users", "d0/d5f/users_8h.html#a901b74d1392472b70c8d66d58938e833", null ],
-    [ "increment_popularity", "d0/d5f/users_8h.html#afb02f9a84d5af8c7b39ccfde9ecd3649", null ],
     [ "init_global_interests", "d0/d5f/users_8h.html#aca6a94ac9bee002e66e4734c28dcfbfd", null ],
     [ "init_user_interests", "d0/d5f/users_8h.html#a712d75094f2cdc4a576c1ea1dc5288ff", null ],
     [ "insert_post", "d0/d5f/users_8h.html#a9ebb42e316a747ef9b35e33309ee9bb7", null ],
@@ -49,7 +48,5 @@ var users_8h =
     [ "print_user_interests", "d0/d5f/users_8h.html#aea0be0e6a2651d5351de6f6bbc0654c6", null ],
     [ "print_userPosts", "d0/d5f/users_8h.html#a6b6418dc0ab92404a730e1b8eeb392a0", null ],
     [ "search_post", "d0/d5f/users_8h.html#ae83326636dc27d4a8413f016ed65576e", null ],
-    [ "search_user", "d0/d5f/users_8h.html#a02b0bb2074d6748efedd29d4cbb1ee82", null ],
-    [ "sort_posts", "d0/d5f/users_8h.html#a1fb73a78d8eea9b0adbc075296452483", null ],
-    [ "suggest_popular_users", "d0/d5f/users_8h.html#a6ebb1bc44da4008341485e23988d0ee5", null ]
+    [ "search_user", "d0/d5f/users_8h.html#a02b0bb2074d6748efedd29d4cbb1ee82", null ]
 ];

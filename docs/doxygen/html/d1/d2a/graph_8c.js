@@ -8,6 +8,5 @@ var graph_8c =
     [ "initialize_graph", "d1/d2a/graph_8c.html#a701b25df107a52bf6b2dc39817a185b5", null ],
     [ "remove_edge", "d1/d2a/graph_8c.html#a3e633b4d8bf50863870e67bf4ca97319", null ],
     [ "remove_user_from_graph", "d1/d2a/graph_8c.html#a6c33d80720eb130a585010c03b36d10a", null ],
-    [ "search_previous_in_edge", "d1/d2a/graph_8c.html#abf9f24585384d89e637bd258922e64db", null ],
-    [ "search_user_in_edge", "d1/d2a/graph_8c.html#a8346e4b4a067b1e5630a1790c3c29cc0", null ]
+    [ "search_previous_in_edge", "d1/d2a/graph_8c.html#abf9f24585384d89e637bd258922e64db", null ]
 ];

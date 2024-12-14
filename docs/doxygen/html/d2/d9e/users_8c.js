@@ -4,7 +4,7 @@ var users_8c =
     [ "calculate_friendliness", "d2/d9e/users_8c.html#aeda9265bc6db17bc211f56c5177063ff", null ],
     [ "classify_friendliness", "d2/d9e/users_8c.html#ac56f8b225ddd39009e826d1f0b8499b8", null ],
     [ "create_empty_userPosts", "d2/d9e/users_8c.html#af97adbc40604faad2ab88b2fe0d9c494", null ],
-    [ "create_new_user", "d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd", null ],
+    [ "create_new_user", "d2/d9e/users_8c.html#a546db2111e9fd5d89cd8ef363da9d7c0", null ],
     [ "delete_user", "d2/d9e/users_8c.html#afc890b7835333cedad2a333a95e3c510", null ],
     [ "delete_userPosts", "d2/d9e/users_8c.html#a9b71eb9fad474dbd89952026242302f0", null ],
     [ "edge_jaccard", "d2/d9e/users_8c.html#a9c564038c86f55e7ad802f912e004869", null ],
@@ -16,7 +16,6 @@ var users_8c =
     [ "generate_random_connections", "d2/d9e/users_8c.html#aa608289825b004627ba2258665dec9bc", null ],
     [ "generate_random_posts", "d2/d9e/users_8c.html#a0b42257a0acbc35fbebf03fda14ccf8d", null ],
     [ "generate_users", "d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833", null ],
-    [ "increment_popularity", "d2/d9e/users_8c.html#afb02f9a84d5af8c7b39ccfde9ecd3649", null ],
     [ "init_global_interests", "d2/d9e/users_8c.html#aca6a94ac9bee002e66e4734c28dcfbfd", null ],
     [ "init_user_interests", "d2/d9e/users_8c.html#a712d75094f2cdc4a576c1ea1dc5288ff", null ],
     [ "insert_post", "d2/d9e/users_8c.html#a9ebb42e316a747ef9b35e33309ee9bb7", null ],
@@ -27,7 +26,5 @@ var users_8c =
     [ "print_user", "d2/d9e/users_8c.html#a35b00484b2f280f381c1f3015de40b10", null ],
     [ "print_user_interests", "d2/d9e/users_8c.html#af8a2c28d208845d1d404235073e0ae85", null ],
     [ "print_userPosts", "d2/d9e/users_8c.html#a6b6418dc0ab92404a730e1b8eeb392a0", null ],
-    [ "search_user", "d2/d9e/users_8c.html#a02b0bb2074d6748efedd29d4cbb1ee82", null ],
-    [ "sort_posts", "d2/d9e/users_8c.html#a1fb73a78d8eea9b0adbc075296452483", null ],
-    [ "suggest_popular_users", "d2/d9e/users_8c.html#a6ebb1bc44da4008341485e23988d0ee5", null ]
+    [ "search_user", "d2/d9e/users_8c.html#a02b0bb2074d6748efedd29d4cbb1ee82", null ]
 ];

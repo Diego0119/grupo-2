@@ -1,7 +1,7 @@
 <map id="search_user" name="search_user">
 <area shape="rect" id="Node000001" title="Busca a un usuario según su nombre de usuario." alt="" coords="5,5,105,31"/>
-<area shape="rect" id="Node000002" href="$d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="153,5,316,31"/>
+<area shape="rect" id="Node000002" href="$d2/daf/hash__table_8c.html#a5fb04c7a2ae2f9064e4b9f4f679ce4e2" title="Busca un elemento en la tabla hash por su clave." alt="" coords="153,5,316,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,15,140,15,140,21,105,21"/>
-<area shape="rect" id="Node000003" href="$d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="364,5,471,31"/>
+<area shape="rect" id="Node000003" href="$d7/db6/utilities_8c.html#a770dc96ae0bcc43485ac7705b061f03b" title="Calcula el hash de un string." alt="" coords="364,5,471,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="317,15,350,15,350,21,317,21"/>
 </map>

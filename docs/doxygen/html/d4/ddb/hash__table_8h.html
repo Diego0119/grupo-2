@@ -248,12 +248,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a3fccc35fdaa619c188fe92be6484f0c8" id="r_a3fccc35fdaa619c188fe92be6484f0c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d9c/database_8h.html#a31908626dcb461c733577209bc647a55">HashTable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/ddb/hash__table_8h.html#a3fccc35fdaa619c188fe92be6484f0c8">create_hash_table</a> (void)</td></tr>
 <tr class="memdesc:a3fccc35fdaa619c188fe92be6484f0c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea una nueva tabla hash vacía.  <br /></td></tr>
 <tr class="separator:a3fccc35fdaa619c188fe92be6484f0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59ed78b7d84acd2ba628ae76d36f782b" id="r_a59ed78b7d84acd2ba628ae76d36f782b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/ddb/hash__table_8h.html#a59ed78b7d84acd2ba628ae76d36f782b">insert_into_hash_table</a> (<a class="el" href="../../d8/d9c/database_8h.html#a31908626dcb461c733577209bc647a55">HashTable</a> *table, char *key, void *data)</td></tr>
-<tr class="memdesc:a59ed78b7d84acd2ba628ae76d36f782b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserta un nuevo elemento en la tabla hash.  <br /></td></tr>
-<tr class="separator:a59ed78b7d84acd2ba628ae76d36f782b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ce95b083b6024decb314925a79cf32c" id="r_a2ce95b083b6024decb314925a79cf32c"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/ddb/hash__table_8h.html#a2ce95b083b6024decb314925a79cf32c">search_in_hash_table</a> (<a class="el" href="../../d8/d9c/database_8h.html#a31908626dcb461c733577209bc647a55">HashTable</a> *table, char *key)</td></tr>
-<tr class="memdesc:a2ce95b083b6024decb314925a79cf32c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca un elemento en la tabla hash por su clave.  <br /></td></tr>
-<tr class="separator:a2ce95b083b6024decb314925a79cf32c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa75f2a6c862abe70b3ddd592cce5935f" id="r_aa75f2a6c862abe70b3ddd592cce5935f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/ddb/hash__table_8h.html#aa75f2a6c862abe70b3ddd592cce5935f">insert_into_hash_table</a> (<a class="el" href="../../d8/d9c/database_8h.html#a31908626dcb461c733577209bc647a55">HashTable</a> *table, const char *key, void *data)</td></tr>
+<tr class="memdesc:aa75f2a6c862abe70b3ddd592cce5935f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserta un nuevo elemento en la tabla hash.  <br /></td></tr>
+<tr class="separator:aa75f2a6c862abe70b3ddd592cce5935f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fb04c7a2ae2f9064e4b9f4f679ce4e2" id="r_a5fb04c7a2ae2f9064e4b9f4f679ce4e2"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/ddb/hash__table_8h.html#a5fb04c7a2ae2f9064e4b9f4f679ce4e2">search_in_hash_table</a> (<a class="el" href="../../d8/d9c/database_8h.html#a31908626dcb461c733577209bc647a55">HashTable</a> *table, const char *key)</td></tr>
+<tr class="memdesc:a5fb04c7a2ae2f9064e4b9f4f679ce4e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca un elemento en la tabla hash por su clave.  <br /></td></tr>
+<tr class="separator:a5fb04c7a2ae2f9064e4b9f4f679ce4e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2658c590377bd10f0556f8750773bf6" id="r_ac2658c590377bd10f0556f8750773bf6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/ddb/hash__table_8h.html#ac2658c590377bd10f0556f8750773bf6">delete_from_hash_table</a> (<a class="el" href="../../d8/d9c/database_8h.html#a31908626dcb461c733577209bc647a55">HashTable</a> *table, char *key)</td></tr>
 <tr class="memdesc:ac2658c590377bd10f0556f8750773bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina un elemento de la tabla hash.  <br /></td></tr>
 <tr class="separator:ac2658c590377bd10f0556f8750773bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -407,7 +407,7 @@ Functions</h2></td></tr>
 <div class="center"><img src="../../d4/ddb/hash__table_8h_ac2658c590377bd10f0556f8750773bf6_cgraph.png" border="0" usemap="#ad4/ddb/hash__table_8h_ac2658c590377bd10f0556f8750773bf6_cgraph" alt=""/></div>
 <map name="ad4/ddb/hash__table_8h_ac2658c590377bd10f0556f8750773bf6_cgraph" id="ad4/ddb/hash__table_8h_ac2658c590377bd10f0556f8750773bf6_cgraph">
 <area shape="rect" title="Elimina un elemento de la tabla hash." alt="" coords="5,5,184,31"/>
-<area shape="rect" href="../../d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="232,5,339,31"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a770dc96ae0bcc43485ac7705b061f03b" title="Calcula el hash de un string." alt="" coords="232,5,339,31"/>
 <area shape="poly" title=" " alt="" coords="184,15,218,15,218,21,184,21"/>
 </map>
 </div>
@@ -476,8 +476,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a59ed78b7d84acd2ba628ae76d36f782b" name="a59ed78b7d84acd2ba628ae76d36f782b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59ed78b7d84acd2ba628ae76d36f782b">&#9670;&#160;</a></span>insert_into_hash_table()</h2>
+<a id="aa75f2a6c862abe70b3ddd592cce5935f" name="aa75f2a6c862abe70b3ddd592cce5935f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa75f2a6c862abe70b3ddd592cce5935f">&#9670;&#160;</a></span>insert_into_hash_table()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -491,7 +491,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>key</em>, </td>
         </tr>
         <tr>
@@ -523,10 +523,10 @@ Functions</h2></td></tr>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/ddb/hash__table_8h_a59ed78b7d84acd2ba628ae76d36f782b_cgraph.png" border="0" usemap="#ad4/ddb/hash__table_8h_a59ed78b7d84acd2ba628ae76d36f782b_cgraph" alt=""/></div>
-<map name="ad4/ddb/hash__table_8h_a59ed78b7d84acd2ba628ae76d36f782b_cgraph" id="ad4/ddb/hash__table_8h_a59ed78b7d84acd2ba628ae76d36f782b_cgraph">
+<div class="center"><img src="../../d4/ddb/hash__table_8h_aa75f2a6c862abe70b3ddd592cce5935f_cgraph.png" border="0" usemap="#ad4/ddb/hash__table_8h_aa75f2a6c862abe70b3ddd592cce5935f_cgraph" alt=""/></div>
+<map name="ad4/ddb/hash__table_8h_aa75f2a6c862abe70b3ddd592cce5935f_cgraph" id="ad4/ddb/hash__table_8h_aa75f2a6c862abe70b3ddd592cce5935f_cgraph">
 <area shape="rect" title="Inserta un nuevo elemento en la tabla hash." alt="" coords="5,5,175,31"/>
-<area shape="rect" href="../../d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="223,5,329,31"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a770dc96ae0bcc43485ac7705b061f03b" title="Calcula el hash de un string." alt="" coords="223,5,329,31"/>
 <area shape="poly" title=" " alt="" coords="175,15,209,15,209,21,175,21"/>
 </map>
 </div>
@@ -535,10 +535,10 @@ Functions</h2></td></tr>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/ddb/hash__table_8h_a59ed78b7d84acd2ba628ae76d36f782b_icgraph.png" border="0" usemap="#ad4/ddb/hash__table_8h_a59ed78b7d84acd2ba628ae76d36f782b_icgraph" alt=""/></div>
-<map name="ad4/ddb/hash__table_8h_a59ed78b7d84acd2ba628ae76d36f782b_icgraph" id="ad4/ddb/hash__table_8h_a59ed78b7d84acd2ba628ae76d36f782b_icgraph">
+<div class="center"><img src="../../d4/ddb/hash__table_8h_aa75f2a6c862abe70b3ddd592cce5935f_icgraph.png" border="0" usemap="#ad4/ddb/hash__table_8h_aa75f2a6c862abe70b3ddd592cce5935f_icgraph" alt=""/></div>
+<map name="ad4/ddb/hash__table_8h_aa75f2a6c862abe70b3ddd592cce5935f_icgraph" id="ad4/ddb/hash__table_8h_aa75f2a6c862abe70b3ddd592cce5935f_icgraph">
 <area shape="rect" title="Inserta un nuevo elemento en la tabla hash." alt="" coords="847,55,1016,80"/>
-<area shape="rect" href="../../d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="667,55,799,80"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a546db2111e9fd5d89cd8ef363da9d7c0" title="Crea un nuevo usuario." alt="" coords="667,55,799,80"/>
 <area shape="poly" title=" " alt="" coords="833,70,799,70,799,65,833,65"/>
 <area shape="rect" href="../../d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833" title="Genera usuarios aleatorios." alt="" coords="482,5,605,31"/>
 <area shape="poly" title=" " alt="" coords="670,54,593,33,594,28,671,49"/>
@@ -561,8 +561,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2ce95b083b6024decb314925a79cf32c" name="a2ce95b083b6024decb314925a79cf32c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ce95b083b6024decb314925a79cf32c">&#9670;&#160;</a></span>search_in_hash_table()</h2>
+<a id="a5fb04c7a2ae2f9064e4b9f4f679ce4e2" name="a5fb04c7a2ae2f9064e4b9f4f679ce4e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fb04c7a2ae2f9064e4b9f4f679ce4e2">&#9670;&#160;</a></span>search_in_hash_table()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -576,7 +576,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>key</em>&#160;</td>
         </tr>
         <tr>
@@ -601,10 +601,10 @@ Functions</h2></td></tr>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/ddb/hash__table_8h_a2ce95b083b6024decb314925a79cf32c_cgraph.png" border="0" usemap="#ad4/ddb/hash__table_8h_a2ce95b083b6024decb314925a79cf32c_cgraph" alt=""/></div>
-<map name="ad4/ddb/hash__table_8h_a2ce95b083b6024decb314925a79cf32c_cgraph" id="ad4/ddb/hash__table_8h_a2ce95b083b6024decb314925a79cf32c_cgraph">
+<div class="center"><img src="../../d4/ddb/hash__table_8h_a5fb04c7a2ae2f9064e4b9f4f679ce4e2_cgraph.png" border="0" usemap="#ad4/ddb/hash__table_8h_a5fb04c7a2ae2f9064e4b9f4f679ce4e2_cgraph" alt=""/></div>
+<map name="ad4/ddb/hash__table_8h_a5fb04c7a2ae2f9064e4b9f4f679ce4e2_cgraph" id="ad4/ddb/hash__table_8h_a5fb04c7a2ae2f9064e4b9f4f679ce4e2_cgraph">
 <area shape="rect" title="Busca un elemento en la tabla hash por su clave." alt="" coords="5,5,168,31"/>
-<area shape="rect" href="../../d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519" title="Calcula el hash de un string." alt="" coords="216,5,323,31"/>
+<area shape="rect" href="../../d7/db6/utilities_8c.html#a770dc96ae0bcc43485ac7705b061f03b" title="Calcula el hash de un string." alt="" coords="216,5,323,31"/>
 <area shape="poly" title=" " alt="" coords="169,15,202,15,202,21,169,21"/>
 </map>
 </div>
@@ -613,10 +613,10 @@ Functions</h2></td></tr>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/ddb/hash__table_8h_a2ce95b083b6024decb314925a79cf32c_icgraph.png" border="0" usemap="#ad4/ddb/hash__table_8h_a2ce95b083b6024decb314925a79cf32c_icgraph" alt=""/></div>
-<map name="ad4/ddb/hash__table_8h_a2ce95b083b6024decb314925a79cf32c_icgraph" id="ad4/ddb/hash__table_8h_a2ce95b083b6024decb314925a79cf32c_icgraph">
+<div class="center"><img src="../../d4/ddb/hash__table_8h_a5fb04c7a2ae2f9064e4b9f4f679ce4e2_icgraph.png" border="0" usemap="#ad4/ddb/hash__table_8h_a5fb04c7a2ae2f9064e4b9f4f679ce4e2_icgraph" alt=""/></div>
+<map name="ad4/ddb/hash__table_8h_a5fb04c7a2ae2f9064e4b9f4f679ce4e2_icgraph" id="ad4/ddb/hash__table_8h_a5fb04c7a2ae2f9064e4b9f4f679ce4e2_icgraph">
 <area shape="rect" title="Busca un elemento en la tabla hash por su clave." alt="" coords="864,56,1027,81"/>
-<area shape="rect" href="../../d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="684,56,816,81"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a546db2111e9fd5d89cd8ef363da9d7c0" title="Crea un nuevo usuario." alt="" coords="684,56,816,81"/>
 <area shape="poly" title=" " alt="" coords="850,71,816,71,816,66,850,66"/>
 <area shape="rect" href="../../d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833" title="Genera usuarios aleatorios." alt="" coords="499,5,622,31"/>
 <area shape="poly" title=" " alt="" coords="872,56,816,46,622,25,623,20,816,41,873,51"/>

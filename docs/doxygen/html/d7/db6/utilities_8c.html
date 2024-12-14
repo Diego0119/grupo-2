@@ -167,15 +167,15 @@ $(document).ready(function(){initNavTree('d7/db6/utilities_8c.html','../../'); i
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aac0e4071b93021a3454f4d61d277b519" id="r_aac0e4071b93021a3454f4d61d277b519"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db6/utilities_8c.html#aac0e4071b93021a3454f4d61d277b519">jenkins_hash</a> (char *key)</td></tr>
-<tr class="memdesc:aac0e4071b93021a3454f4d61d277b519"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula el hash de un string.  <br /></td></tr>
-<tr class="separator:aac0e4071b93021a3454f4d61d277b519"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a770dc96ae0bcc43485ac7705b061f03b" id="r_a770dc96ae0bcc43485ac7705b061f03b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db6/utilities_8c.html#a770dc96ae0bcc43485ac7705b061f03b">jenkins_hash</a> (const char *key)</td></tr>
+<tr class="memdesc:a770dc96ae0bcc43485ac7705b061f03b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula el hash de un string.  <br /></td></tr>
+<tr class="separator:a770dc96ae0bcc43485ac7705b061f03b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a757e6e51479badedfcf23bae4d05ec9a" id="r_a757e6e51479badedfcf23bae4d05ec9a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db6/utilities_8c.html#a757e6e51479badedfcf23bae4d05ec9a">get_option</a> (int argc, char *argv[])</td></tr>
 <tr class="memdesc:a757e6e51479badedfcf23bae4d05ec9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indice del programa.  <br /></td></tr>
 <tr class="separator:a757e6e51479badedfcf23bae4d05ec9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ea8ae37a046313ec525e076e6005dcb" id="r_a0ea8ae37a046313ec525e076e6005dcb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db6/utilities_8c.html#a0ea8ae37a046313ec525e076e6005dcb">line_number_in_file</a> (char *file)</td></tr>
-<tr class="memdesc:a0ea8ae37a046313ec525e076e6005dcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene el número de líneas en un archivo.  <br /></td></tr>
-<tr class="separator:a0ea8ae37a046313ec525e076e6005dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2720bc93dfffbf29ee1443e6ca52ccf" id="r_aa2720bc93dfffbf29ee1443e6ca52ccf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db6/utilities_8c.html#aa2720bc93dfffbf29ee1443e6ca52ccf">line_number_in_file</a> (const char *file)</td></tr>
+<tr class="memdesc:aa2720bc93dfffbf29ee1443e6ca52ccf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene el número de líneas en un archivo.  <br /></td></tr>
+<tr class="separator:aa2720bc93dfffbf29ee1443e6ca52ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a160d24be9bf39cc47705ace34ff13582" id="r_a160d24be9bf39cc47705ace34ff13582"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db6/utilities_8c.html#a160d24be9bf39cc47705ace34ff13582">delete_all_in_directory</a> (const char *directory)</td></tr>
 <tr class="memdesc:a160d24be9bf39cc47705ace34ff13582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina todos los archivos en un directorio.  <br /></td></tr>
 <tr class="separator:a160d24be9bf39cc47705ace34ff13582"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -404,8 +404,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aac0e4071b93021a3454f4d61d277b519" name="aac0e4071b93021a3454f4d61d277b519"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac0e4071b93021a3454f4d61d277b519">&#9670;&#160;</a></span>jenkins_hash()</h2>
+<a id="a770dc96ae0bcc43485ac7705b061f03b" name="a770dc96ae0bcc43485ac7705b061f03b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a770dc96ae0bcc43485ac7705b061f03b">&#9670;&#160;</a></span>jenkins_hash()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -413,7 +413,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">unsigned int jenkins_hash </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
           <td></td>
         </tr>
@@ -433,18 +433,18 @@ Functions</h2></td></tr>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d7/db6/utilities_8c_aac0e4071b93021a3454f4d61d277b519_icgraph.png" border="0" usemap="#ad7/db6/utilities_8c_aac0e4071b93021a3454f4d61d277b519_icgraph" alt=""/></div>
-<map name="ad7/db6/utilities_8c_aac0e4071b93021a3454f4d61d277b519_icgraph" id="ad7/db6/utilities_8c_aac0e4071b93021a3454f4d61d277b519_icgraph">
+<div class="center"><img src="../../d7/db6/utilities_8c_a770dc96ae0bcc43485ac7705b061f03b_icgraph.png" border="0" usemap="#ad7/db6/utilities_8c_a770dc96ae0bcc43485ac7705b061f03b_icgraph" alt=""/></div>
+<map name="ad7/db6/utilities_8c_a770dc96ae0bcc43485ac7705b061f03b_icgraph" id="ad7/db6/utilities_8c_a770dc96ae0bcc43485ac7705b061f03b_icgraph">
 <area shape="rect" title="Calcula el hash de un string." alt="" coords="1131,490,1237,515"/>
-<area shape="rect" href="../../d2/d9e/users_8c.html#ad2c3fd62b5918a70ecf917d4810caddd" title="Crea un nuevo usuario." alt="" coords="724,439,856,465"/>
+<area shape="rect" href="../../d2/d9e/users_8c.html#a546db2111e9fd5d89cd8ef363da9d7c0" title="Crea un nuevo usuario." alt="" coords="724,439,856,465"/>
 <area shape="poly" title=" " alt="" coords="1117,501,1016,493,904,479,844,467,845,462,904,473,1017,487,1117,496"/>
 <area shape="rect" href="../../d2/daf/hash__table_8c.html#ac2658c590377bd10f0556f8750773bf6" title="Elimina un elemento de la tabla hash." alt="" coords="904,619,1083,645"/>
 <area shape="poly" title=" " alt="" coords="1154,526,1084,574,1015,621,1012,617,1081,570,1151,521"/>
-<area shape="rect" href="../../d2/daf/hash__table_8c.html#a59ed78b7d84acd2ba628ae76d36f782b" title="Inserta un nuevo elemento en la tabla hash." alt="" coords="909,439,1078,465"/>
+<area shape="rect" href="../../d2/daf/hash__table_8c.html#aa75f2a6c862abe70b3ddd592cce5935f" title="Inserta un nuevo elemento en la tabla hash." alt="" coords="909,439,1078,465"/>
 <area shape="poly" title=" " alt="" coords="1121,489,1041,467,1043,462,1123,484"/>
 <area shape="rect" href="../../d2/d9e/users_8c.html#a9ebb42e316a747ef9b35e33309ee9bb7" title="Crea un post en la lista de posts." alt="" coords="743,541,837,566"/>
 <area shape="poly" title=" " alt="" coords="1117,514,838,550,838,545,1116,509"/>
-<area shape="rect" href="../../d2/daf/hash__table_8c.html#a2ce95b083b6024decb314925a79cf32c" title="Busca un elemento en la tabla hash por su clave." alt="" coords="912,389,1075,414"/>
+<area shape="rect" href="../../d2/daf/hash__table_8c.html#a5fb04c7a2ae2f9064e4b9f4f679ce4e2" title="Busca un elemento en la tabla hash por su clave." alt="" coords="912,389,1075,414"/>
 <area shape="poly" title=" " alt="" coords="1157,482,1123,455,1081,429,1050,417,1052,412,1084,424,1126,450,1160,478"/>
 <area shape="rect" href="../../d2/d9e/users_8c.html#a901b74d1392472b70c8d66d58938e833" title="Genera usuarios aleatorios." alt="" coords="525,389,648,414"/>
 <area shape="poly" title=" " alt="" coords="724,439,638,417,639,411,726,433"/>
@@ -508,8 +508,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a0ea8ae37a046313ec525e076e6005dcb" name="a0ea8ae37a046313ec525e076e6005dcb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ea8ae37a046313ec525e076e6005dcb">&#9670;&#160;</a></span>line_number_in_file()</h2>
+<a id="aa2720bc93dfffbf29ee1443e6ca52ccf" name="aa2720bc93dfffbf29ee1443e6ca52ccf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2720bc93dfffbf29ee1443e6ca52ccf">&#9670;&#160;</a></span>line_number_in_file()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -517,7 +517,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int line_number_in_file </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>file</em></td><td>)</td>
           <td></td>
         </tr>
@@ -537,8 +537,8 @@ Functions</h2></td></tr>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d7/db6/utilities_8c_a0ea8ae37a046313ec525e076e6005dcb_icgraph.png" border="0" usemap="#ad7/db6/utilities_8c_a0ea8ae37a046313ec525e076e6005dcb_icgraph" alt=""/></div>
-<map name="ad7/db6/utilities_8c_a0ea8ae37a046313ec525e076e6005dcb_icgraph" id="ad7/db6/utilities_8c_a0ea8ae37a046313ec525e076e6005dcb_icgraph">
+<div class="center"><img src="../../d7/db6/utilities_8c_aa2720bc93dfffbf29ee1443e6ca52ccf_icgraph.png" border="0" usemap="#ad7/db6/utilities_8c_aa2720bc93dfffbf29ee1443e6ca52ccf_icgraph" alt=""/></div>
+<map name="ad7/db6/utilities_8c_aa2720bc93dfffbf29ee1443e6ca52ccf_icgraph" id="ad7/db6/utilities_8c_aa2720bc93dfffbf29ee1443e6ca52ccf_icgraph">
 <area shape="rect" title="Obtiene el número de líneas en un archivo." alt="" coords="311,5,460,31"/>
 <area shape="rect" href="../../d2/d9e/users_8c.html#aca6a94ac9bee002e66e4734c28dcfbfd" title="Inicializa la tabla de tópicos globales leyendo el archivo &#39;subtopics&#39;." alt="" coords="108,5,263,31"/>
 <area shape="poly" title=" " alt="" coords="297,21,263,21,263,15,297,15"/>
