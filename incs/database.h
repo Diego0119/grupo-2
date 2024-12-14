@@ -62,8 +62,7 @@ typedef struct _pending_connections {
 void create_database_dir(void);
 void save_user_data(User user, GlobalInterests globalInterests);
 void save_all_users(Graph graph, GlobalInterests globalInterests);
-void clear_database(void);
-void confirm_and_cleanup(void);
+void clear_database(Graph graph);
 int database_exists_and_not_empty(void);
 void load_all_users(PtrToHashTable table, Graph graph, GlobalInterests globalInterests);
 User load_user_from_file(const char *filename, PtrToHashTable table, Graph graph, GlobalInterests globalInterests);

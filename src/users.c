@@ -481,8 +481,7 @@ double edge_jaccard(User user1, User user2, GlobalInterests globalInterestTable)
  */
 void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInterests globalInterests)
 {
-    struct stat directory;
-    if(stat("database", &directory) == 0){
+    if(database_exists_and_not_empty()!=0){
         printf("Ya existe una base de datos. Desea sobreescribirla? (1. Sí, 2. No)\n");
         int option;
         do {
@@ -494,7 +493,7 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
         if(option == 2){
             return;
         }
-        clear_database();
+        clear_database(graph);
     }
     printf("Creando usuarios, por favor espere...\n");
 
@@ -577,6 +576,7 @@ void generate_users(int quantity, PtrToHashTable table, Graph graph, GlobalInter
 
         free(name);
         free(password);
+
     }
 }
 

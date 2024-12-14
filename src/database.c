@@ -141,31 +141,13 @@ void save_all_users(Graph graph, GlobalInterests globalInterests) {
 /**
  * @brief Elimina todos los archivos y la carpeta database.
  */
-void clear_database(void) {
-    if(!system("rm -rf database")){
-        printf("Se ha eliminado la base de datos.\n");
+void clear_database(Graph graph) {
+    GraphList aux = graph->graphUsersList->next;
+    while (aux) {
+        delete_account(aux);
+        aux = aux->next;
     }
-}
-
-/**
- * @brief Pregunta si se desea mantener o eliminar la base de datos.
- */
-void confirm_and_cleanup(void) {
-    int opcion;
-    printf("¿Desea mantener los datos guardados?\n");
-    printf("1. Sí\n");
-    printf("2. No, eliminar todo.\n");
-    printf("Elige una opción: ");
-    if (scanf("%d", &opcion) != 1) {
-        printf("Entrada no válida, se conservarán los datos.\n");
-        return;
-    }
-
-    if (opcion == 2) {
-        clear_database();
-    } else {
-        printf("Se conservarán los datos.\n");
-    }
+    printf("Se han eliminado todos los datos de la base de datos.\n");
 }
 
 
@@ -429,9 +411,6 @@ void logout(void) {
         print_logo();
         printf(COLOR_RED COLOR_BOLD"Se ha cerrado sesión exitosamente. Nos vemos pronto...\n"COLOR_RESET);
     }
-    else {
-        printf(COLOR_RED COLOR_BOLD"ERROR: No hay una sesión iniciada\n"COLOR_RESET);
-    }
 }
 
 /**
@@ -560,8 +539,8 @@ void delete_account(User user) {
     rmdir(path);
     snprintf(path, sizeof(path), "database/%s_data", user->username);
     rmdir(path);
-    logout();
     printf("Se ha borrado la cuenta de '%s' exitosamente.\n", user->username);
+    logout();
 }
 
 /**

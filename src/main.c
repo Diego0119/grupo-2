@@ -62,6 +62,7 @@ int main(int argc, char *argv[]){
                 generate_random_connections(graph, globalInterestsTable);
                 save_all_users(graph, globalInterestsTable);
                 free_all_users(table, graph);
+                printf(COLOR_BLUE "Se han generado %d usuarios exitosamente\n", quantity);
             }
             else{
                 printf("No se ha encontrado una base de datos. Ejecute './devgraph -g <cantidad de usuarios>' para generar una.\n");
@@ -136,7 +137,7 @@ int main(int argc, char *argv[]){
 
     case 12: /* BORRAR BASE DE DATOS */
         remove("current.dat");
-        clear_database();
+        clear_database(graph);
         break;
     
     case 13: /* EDITAR INFORMACIÓN DEL USUARIO */
