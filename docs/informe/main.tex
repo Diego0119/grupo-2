@@ -82,7 +82,7 @@
 %----------------------------------------------------------
 
 \begin{abstract}
-    POR HACER
+    DevGraph es una simulación de una red social, enfocada en la creación de usuarios, la conexión entre ellos, la visualización y creación de publicaciones, y la posible sugerencia de amistades y publicaciones. Para esto se utilizaron grafos, listas enlazadas, tablas hash, colas de prioridad, algoritmos de similaridad, etc.
 \end{abstract}
 
 %----------------------------------------------------------
@@ -151,7 +151,7 @@ Para su implementación en C, se utilizaron algoritmos y estructuras de datos pa
 %----------------------------------------------------------
 % PLANTEAMIENTO
 %----------------------------------------------------------
-\section{Plantemiento del desarrollo del proyecto}
+\section{Planteamiento del desarrollo del proyecto}
 
 
 \subsection{Usuarios y Posts}
@@ -246,137 +246,42 @@ Para recorrer el grafo en su totalidad, se decidió hacer que los usuarios no so
 Por otro lado, para la búsqueda de caminos cortos, se decidió utilizar el algoritmo de Dijkstra, que se utiliza para encontrar el menor camino entre dos nodos en un grafo. Se tuvo la duda si utilizar otros algoritmos como por ejemplo el algoritmo de BFS, pero finalmente fue descartado por una mayor simplicidad.
 
 \subsection{Generación de usuarios aleatorios}
-La generación de usuarios aleatorios es un proceso común en simulaciones y pruebas de software. 
-En este caso, se diseñó un algoritmo para generar nombres de usuarios aleatorios utilizando listas predefinidas de nombres y apellidos, combinándolos de forma aleatoria, lo que permite crear usuarios en nuestra red social.
-Estos usuarios posteriormente serán usados para conectarlos, crear sus intereses, analizar su perfil y generar un perfil psicológico.
+\rhostart{L}a generación de usuarios aleatorios es un proceso común en simulaciones y pruebas de software. Al ser este programa una simulación de una red social más que una red social real, este aspecto es importante para comprobar si el programa funciona correctamente.
 
-\subsubsection{Proceso de Generación}
-\begin{itemize}
-	\item \textbf{Definición de Listas:} Se crearon dos listas predefinidas: una para los nombres y otra para los apellidos, que contienen un conjunto variado de cadenas de texto representando nombres comunes.
-	\item \textbf{Selección Aleatoria:} Para cada usuario, se selecciona aleatoriamente un nombre y un apellido de sus respectivas listas usando la función \texttt{rand()}.
-	\item \textbf{Concatenación:} Una vez seleccionados el nombre y apellido, se concatenan para formar un nombre completo.
-	\item \textbf{Asignación:} El nombre generado se asigna al campo correspondiente del usuario.
-\end{itemize}
-\newpage
-\subsubsection{Ejemplo de Código}
-\begin{lstlisting}[caption={Ejemplo de código, utilizando las normas de codificación}, label={lst:normas_codificacion}, language=C]
-	void agregarArista(Grafo* grafo, int origen, int destino) {
-	Nodo* nuevoNodo = malloc(sizeof(Nodo));
-	nuevoNodo->vertice = destino;
-	nuevoNodo->siguiente = grafo->listas[origen].cabeza;
-	grafo->listas[origen].cabeza = nuevoNodo;
-	
-	// Para grafos no dirigidos
-	nuevoNodo = malloc(sizeof(Nodo));
-	nuevoNodo->vertice = origen;
-	nuevoNodo->siguiente = grafo->listas[destino].cabeza;
-	grafo->listas[destino].cabeza = nuevoNodo;
-\end{lstlisting}
+\vspace{0.5cm}
 
-\begin{lstlisting}[caption={Ejemplo de código, utilizando las normas de codificación}, label={lst:normas_codificacion}, language=C]
-	
-	
-	for (int i = 0; i < quantity; i++) {
-	int nameIndex = rand() % numNames;
-	int usernameIndex = rand() % numUsernames;
-	int passwordIndex = rand() % numPasswords;
-	
-	char *name = strdup(names[nameIndex]);
-	char *username = strdup(usernames[usernameIndex]);
-	char *password = strdup(passwords[passwordIndex]);
-	
-	if (search_in_hash_table(table, username)) {
-		printf("Advertencia: El nombre de usuario '%s' ya existe. Saltando...\n", username);
-		free(name);
-		free(username);
-		free(password);
-		continue;
-	}
-	
-	User newUser = create_new_user(username, password, name, table, graph, globalInterests);
-	if (!newUser) {
-		printf("Error al crear el usuario '%s'.\n", username);
-		free(name);
-		free(username);
-		free(password);
-		continue;
-	}
-	
-	for(int i=0; i<rand()%globalInterests.numInterests; i++) {
-		add_interest(newUser, globalInterests, rand()% globalInterests.numInterests);
-	}
-	
-	printf("Usuario creado: %s (%s)\n", name, username);
-	
-	free(name);
-	free(username);
-	free(password);
-	}
-\end{lstlisting}
+Se decidió diseñar un algoritmo que generara nombres de usuarios aleatoriamente, de una lista de nombres predefinidas, para que estos tuvieran coherencia. Sin embargo, esto significó la existencia del problema de que si los usuarios no se pueden repetir, entonces habría un máximo de usuarios. Para tratar de mitigar este problema, se optó por agregar un número de 0 a 100 al final de cada usuario, así disminuyendo significativamente la probabilidad de colisión.
 
-\subsubsection{Ventajas y Limitaciones}
-\textbf{Ventajas:}
-\begin{itemize}
-	\item Permite simular usuarios según la cantidad indicada por el usuario.
-	\item Garantiza la variabilidad en los datos generados.
-\end{itemize}
-\textbf{Limitaciones:}
-\begin{itemize}
-	\item La calidad de los nombres generados depende del tamaño y diversidad de las listas predefinidas.
-	\item En escenarios de gran escala, es posible que se repitan nombres si las listas son pequeñas.
-\end{itemize}
+\vspace{0.5cm}
 
-\subsection{Conexión entre Usuarios}
-\begin{quote}
-	conexión entre usuarios en el sistema se implementa mediante un grafo, donde cada nodo representa un usuario y las aristas indican la relación entre ellos.
-	Esta estructura permite modelar redes sociales o sistemas similares.
-\end{quote}
+Otro aspecto necesario en la generación de usuarios aleatorios era que estos tuviesen intereses y preferencias aleatorias. Esto resulta fácil, ya que es  simplemente generar un número aleatorio entre 0 y la cantidad total de intereses, que defina la cantidad de intereses que tendrá el usuario en total, para luego aleatoriamente asignar un interés en cada iteración.
 
-\subsubsection{Proceso de Creación de Conexiones}
-\begin{itemize}
-	\item \textbf{Inicialización del Grafo:} El grafo se inicializa en memoria, permitiendo agregar nodos y conexiones dinámicamente.
-	\item \textbf{Selección Aleatoria de Conexiones:} Se selecciona aleatoriamente un número de conexiones para cada usuario, limitado por un valor máximo.
-	\item \textbf{Verificación de Conexiones:} Se verifica que las conexiones no sean duplicadas ni auto-conexiones.
-	\item \textbf{Establecimiento de Conexiones:} Si la conexión es válida, se actualiza la lista de conexiones de ambos usuarios.
-\end{itemize}
+\vspace{0.5cm}
 
-\subsubsection{Ventajas y Limitaciones}
-\textbf{Ventajas:}
-\begin{itemize}
-	\item Proporciona una forma sencilla y efectiva de simular una red de usuarios.
-	\item La implementación dinámica permite adaptarse a cambios en el tamaño del sistema.
-\end{itemize}
-\textbf{Limitaciones:}
-\begin{itemize}
-	\item La selección aleatoria podría generar distribuciones desiguales de conexiones.
-	\item En sistemas de gran escala, el proceso puede ser computacionalmente costoso.
-\end{itemize}
+Con los usuarios aleatorios creados, fue importante posteriormente que estos tuviesen conexiones y publicaciones aleatorias. Para las conexiones, se utilizó una lógica similar a la de los intereses, y para las publicaciones aleatorias, se diseñó un algoritmo que creara frases aleatorias según los intereses de los usuarios definidos anteriormente, así manteniendo la coherencia de los usuarios.
 
-\subsection{Implementación de Dijkstra}
-El algoritmo de Dijkstra es una técnica eficiente para encontrar la ruta más corta en un grafo ponderado.
-En este caso, se utiliza para encontrar usuarios cercanos en la red social, asignando un peso entre las conexiones. 
 
-\subsubsection{Descripción del Algoritmo}
-Este algoritmo se utiliza para calcular las distancias mínimas desde un nodo fuente hacia todos los demás nodos. 
-Una vez que se calculan las distancias, es posible filtrar a los usuarios más cercanos mediante un parámetro.
+\subsection{Recomendación de amistades y publicaciones}
 
-\subsubsection{Estructura de Datos}
-\begin{lstlisting}[caption={Ejemplo de código, utilizando las normas de codificación}, label={lst:normas_codificacion}, language=C]
-	struct _edge {
-	User dest; /*!< Usuario destino */
-	double weight; /*!< Peso de la arista */
-	Edge next; /*!< Siguiente en la lista de aristas */
-};
-\end{lstlisting}
+\rhostart{P}ara lograr crear recomedaciones de usuario y publicaciones para cada usuario según sus intereses se decidió utilizar colas de prioridad (heaps) para guardar las recomendaciones de amistades y las publicaciones, y ordenarlas de manera que cuando extraigamos un elemento de la cola, este sea el máximo o el mínimo, dependiendo del tipo de cola. Al principio se tuvo la duda si implementar esta estructura de datos con listas enlazadas o con arreglos, pero finalmente después de una investigación, por temas de eficiencia se optó por los arreglos.
 
-\subsection{Planteamiento para las recomendaciones de amistades y publicaciones}
+\vspace{0.5cm}
 
-Para lograr estas recomendaciones se decidió utilizar colas de prioridad (heaps) para guardar las recomendaciones de amistades y las publicaciones, y ordenarlas de manera que cuando extraigamos un elemento de la cola, este sea el máximo o el mínimo, dependiendo del tipo de cola.
+Para simular las recomendaciones de amistades, se planteó utilizar Dijkstra o BFS para calcular la distancia de un nodo a otro en un grado y así simular sugerencia de amigos de amigos; finalmente se optó por el algoritmo de Dijkstra como se comentó con anterioridad. Además, se planteó utilizar Jaccard para calcular la similitud entre los usuarios, para poder calcular cuántos usuarios comparten un interes común con otro del total de usuarios.
 
-Para simular las recomendaciones de amistades, se planteo utilizar Dijkstra o BFS para calcular la distancia de un nodo a otro en un grado y así simular sugerencia de amigos de amigos. Además, se planteo utilizar Jaccard para calcular la similitud entre los usuarios, para poder calcular cuántos usuarios comparten un interes común con otro.
+\vspace{0.5cm}
 
-Para simular las publicaciones, se planteo que primero se mostrarían las publicaciones de los usuarios a los que seguimos, seguidos de estas publicaciones, vendrán aquellas publicaciones recomendadas en base a los usuarios con los que tenemos intereses comunes (jaccard).
+Para simular las publicaciones, se planteó que primero se mostrarían las publicaciones de los usuarios a los que seguimos, seguidos de estas publicaciones, vendrán aquellas publicaciones recomendadas en base a los usuarios con los que tenemos intereses comunes (jaccard).
 
+\subsection{Base de datos}
+
+\rhostart{L}a necesidad de la persistencia de los datos de usuarios en el tiempo hizo que se debiera recurrrir a una forma de almacenamiento como seria una base de datos, la cual recopilaria los datos de los usuarios registrados en la aplicación.
+
+Algo que fue difícil de plantear en un primer intento fue el cómo almacenar la información de los usuarios en el directorio, que fuese eficiente y organizada, pero que no ocupara mucho espacio. Al principio se planteó en utilizar un archivo XML o archivo de texto que almacenara toda la información, pero rápidamente al pensar en un flujo de usuarios grande esta idea fue descartada, ya que el archivo sería demasiado grande, costoso de leer y difícil de implementar su carga. Luego, se pensó en tener una carpeta 'database', en donde cada usuario guardado le correspondiera un archivo de texto con toda su información. Esta idea fue más fácil de implementar, pero costosa de cargar, pues se presentaron problemas en la carga de seguidores, seguidos y publicaciones.
+
+\vspace{0.5cm}
+
+Finalmente, la idea que prosperó fue que cada usuario tuviera su carpeta propia en la carpeta 'database', en este directorio habiendo un archivo para la información de su perfil, otro para sus seguidos, otro para sus seguidores, y una carpeta para sus posts, cada post siendo un archivo de texto con su contenido. Esta idea hizo tanto como la carga como el código mucho más simple y eficiente.
 \newpage
 \section{Implementación}
 
@@ -420,44 +325,112 @@ Para que un usuario pueda escoger los intereses que este desea tener, debe de re
 
 
 \subsection{Índice de similaridad}
-El índice se similaridad de Jaccard fue implementado como una función que recibe dos usuarios, realiza un cálculo con los intereses de ambos, y devuelve un valor entre 0 y 1. Este valor fue aplicado como el peso de la conexión entre los usuarios, por lo tanto, es calculado cada vez que el programa se ejecuta y se crean las conexiones entre usuarios. Sin embargo, finalmente no se utilizó el índice de jaccard como tal, sino, la \textbf{distancia de jaccard}, que en vez de la similaridad, indica que tan diferentes son los usuarios A y B, o sea, que mientras más diferentes son los usuarios, mayor será su distancia.
+\rhostart{E}l índice se similaridad de Jaccard fue implementado como una función que recibe dos usuarios, realiza un cálculo con los intereses de ambos, y devuelve un valor entre 0 y 1. Este valor fue aplicado como el peso de la conexión entre los usuarios, por lo tanto, es calculado cada vez que el programa se ejecuta y se crean las conexiones entre usuarios. Sin embargo, finalmente no se utilizó el índice de jaccard como tal, sino, la \textbf{distancia de jaccard}, que en vez de la similaridad, indica que tan diferentes son los usuarios A y B, o sea, que mientras más diferentes son los usuarios, mayor será su distancia.
+
+\subsection{Grafos}
+
+\rhostart{L}os grafos fueron implementados como una lista enlazada simple, en donde cada nodo tiene 2 listas de adyacencia. Cada nodo contiene punteros hacia estas listas, que a su vez permiten mantener un registro de las conexiones asociadas a un usuario determinado. La lista de seguidos gestiona las aristas dirigidas hacia los usuarios que un nodo sigue, mientras que la lista de seguidores contiene las conexiones entrantes, permitiendo representar el grafo dirigido.
+
+\vspace{0.5cm}
+
+Para representar las aristas se creó una estructura \texttt{Edge}, que contiene un puntero hacia el usuario destino, así como el peso de la conexión, volviendo el grafo ponderado. Esta estructura es una lista enlazada simple, entonces además contiene un puntero hacia la conexión siguiente.
+
+\begin{lstlisting}[caption={Estructura que representa una arista y un grafo}]
+
+struct _edge{
+    User dest; /*!< Usuario destino */
+    double weight; /*!< Peso de la arista */
+    Edge next; /*!< Siguiente en la lista de aristas */
+};
+
+struct _graph{
+    GraphList graphUsersList; /*!< Lista de usuarios en el grafo */
+    int usersNumber; /*!< Numero de usuarios en el grafo */
+};
+\end{lstlisting}
+
+Esta forma de implementación es ideal para grafos dirigidos y ponderados. Usar listas enlazadas para las conexiones hace que el uso de memoria sea eficiente, especialmente en grafos dispersos donde no todos los nodos están conectados entre sí. Además, este diseño hace que agregar o eliminar nodos y conexiones sea sencillo, sin necesidad de realizar cambios complicados en la estructura del grafo. Esto la hace una solución práctica y funcional para aplicaciones donde la estructura del grafo puede cambiar con frecuencia.
 
 
 \subsection{Colas de prioridad (heaps)}
-\begin{quote}
-	La cola de prioridad es una estructura de datos que se utilizó para almacenar sugerencias de amistades con respecto a sus intereses y amigos de amigos, y publicaciones en base a nuestros intereses y/o amigos.
+	\rhostart{L}a cola de prioridad, como se dijo anteriormente, es una estructura de datos que se utilizó para almacenar sugerencias de amistades con respecto a sus intereses y amigos de amigos, y publicaciones en base a nuestros intereses y/o amigos. Esta fue implementada con un arreglo. 
 	
+	\vspace{0.5cm}
+
 	Para las sugerencias de amigos de amigos se utilizó el algoritmo de Dijkstra para calcular la distancia de un nodo a otro en un grafo, y de ésta manera lograr encontrar usuarios cercanos en la red con amigos en común. Una vez calculada la distancia, ésta se utilizará como prioridad para la sugerencia de amistad, para que los usuarios con amigos en común se ordenen de menor a mayor distancia.
 	
+	\vspace{0.5cm}
+
 	Para la sugerencia de amistades según los intereses de los usuarios, se utilizó el algoritmo de similaridad de Jaccard, que mide la proporción entre la intersección y la unión de los conjuntos de intereses o conexiones compartidas entre dos usuarios. Este algoritmo se utilizó para calcular la similitud entre los usuarios donde mientras menor sea el resultado, más similar serán sus intereses.
 	
+	\vspace{0.5cm}
+
 	Para la visualización de publicaciones se considerarán prioridad las publicaciones de nuestros seguidos, y luego de éstas las publicaciones de aquellos usuarios con los que tengamos intereses comunes calculado previamente con jaccard como lo hicimos con la sugerencia de amistades según los intereses.
 	
+	\vspace{0.5cm}
+
 	Esta cola de prioridad (heap), es una estructura de datos que organiza elementos de manera que siempre se pueda tener acceso rápido al elemento de menor o mayor prioridad, dependiendo del tipo de heap (mínimo o máximo). En nuestro caso trabajamos con el máximo, es decir que el elemento con mayor prioridad será el primero en la cola (se encuentra en la raiz). Para mantener las propiedades de ésta estructura, se implementaron funciones para insertar, extraer máximos y mínimos, funciones para ordenar la cola de prioridad.
 	
+	\vspace{0.5cm}
+
 	Las principales funciones que fueron implementadas para mantener estas propiedades de la cola de prioridad (heap) fueron las de heapify\_up y heapify\_down.
 	
 	\begin{itemize}
 		\item \textbf{heapify\_up:} Esta función ordena la cola prioridad de manera que, al insertar un nuevo elemento al final de la cola, este es comparado con su padre, intercambiándolos si la prioridad del nuevo elemento es mayor. Esto se repite hasta que se cumpla la propiedad o el elemento llegue a la raiz de la cola.
 		\item \textbf{heapify\_down:} Esta función ordena la cola de prioridad de manera que, después de eliminar o extraer el máximo elemento de la cola, el elemento al final de la cola es ubicado en la raiz de la cola y se compara con sus hijos, se intercambia si la prioridad de del hijo mayor es mayor a la del elemento en la raiz (padre). Esto continúa hasta que se cumpla la propiedad o el elemento no tenga más hijos.
 	\end{itemize}
-\end{quote}
 
 \newpage
-\section{Base de Datos}
-\begin{quote}
-	La necesidad de la persistencia de los datos de usuarios en el tiempo hizo que se debiera recurrrir a una forma de almacenamiento como seria una base de datos, la cual repopilaria los datos de los usuarios registrados en la aplicacion.
-	
-	La simplesa fue el enfoque inicial al principio del desarrollo, almacenando la informacion de los usuarios en simples archivos de texto, pero a medida que iba avanzando el proyecto se vio la necesidad de una base de datos mas especifica y la cual almacenara los datos de los usuarios en subsecciones dentro de su mismo directorio, que guardarian todos los datos personales del usuario ademas de las publicaciones, intereses y actividad reciente.
-	
-	Sin embargo para llegar a esto existieron distintas complicaciones en el desarrollo como lo fueron la insercion de datos, esto debido a que no se descargaban correctamente de la base de datos............
-\end{quote}
+\subsection{Base de Datos}
+\rhostart{P}ara la base de datos se hicieron 3 funciones principales:
+	\begin{itemize}
+		\item \textbf{load\_all\_users:} Esta función carga los perfiles de los usuarios, así como sus publicanes
+		\item \textbf{load\_connections:} Esta función carga las conexiones entre los usuarios
+		\item \textbf{save\_database:} Esta función guarda toda la información de los usuarios de la base de datos, así como sus conexiones y publicaciones.
+		\
+	\end{itemize}
+Las funciones de carga son ejecutadas en cada llamada del programa, si es que es necesario en el comando que se le pase el programa. Esto lo hace recorriendo primero cada carpeta del directorio 'database' (que como se dijo anteriormente, cada directorio dentro de él representa un usuario), y se guarda el perfil del usuario que está en el archivo 'data.dat' que tiene cada uno. Una vez todos los perfiles guardados, las conexiones son cargadas, ya que no es posible cargar las conexiones sin antes los usuarios cargados.
+
+\vspace{0.5cm}
+
+Para el guardado de la base de datos, se utiliza una lógica inversa, recorriendo cada usuario del grafo y guardando su perfil en los archivos correspondientes mencionados anteriormente.
+
+\vspace{0.5cm}
+
+En resumen, cada usuario tiene un directorio con la siguiente estructura:
+
+\begin{itemize}
+	\item \textbf{data.dat:} Contiene el perfil del usuario, que incluye su ID, nombre, contraseña, categoría, y su lista de intereses.
+	\item \textbf{following.dat:} Contiene una lista de usuarios que sigue al usuario actual.
+	\item \textbf{followers.dat:} Contiene una lista de usuarios que el usuario actual sigue.
+	\item \textbf{posts:} Carpeta con los posts del usuario actual.
+\end{itemize}
+ 
+\subsection{Tablas Hash}
+\rhostart{L}as tablas hash, como se dijo anteriormente, fueron utilizadas para la búsqueda eficiente de usuarios en el grafo, con orden $O(1)$, por lo que esto es un aspecto fundamental para la rapidez del programa.
+
+\vspace{0.5cm}
+
+La estructura \texttt{HashNode} fue creada para organizar y manejar los datos en una tabla hash. Esta es una lista enlazada así manejando los casos de colisiones. Un aspecto a importante a destacar es que esta estructura almacena un dato de tipo \texttt{void*}, lo que permite almacenar datos de cualquier tipo, como usuarios, publicaciones, intereses, etc.
+
+\begin{lstlisting}[caption={Estructura que representa una celda de una tabla hash}]
+
+	struct _hashnode {
+    char *key;
+    void *data; 
+    Hashnode *next;
+};
+
+struct _hashtable {
+    Hashnode *buckets[HASH_TABLE_SIZE]; 
+};
+\end{lstlisting}
 
 \newpage
-\section{Gestión del equipo de trabajo}
+\section{Gestión del trabajo}
 \rhostart{E}l equipo de trabajo constó de 5 personas, uno de ellos designado por el profesor como líder del grupo, con la responsabilidad de coordinar el trabajo y la gestión del proyecto. Debido a la cantidad de personas involucradas, fue fundamental establecer mecanismos de comunicación, coordinación y orden para asegurar la colaboración y la coordinación de los diferentes miembros del equipo. Algunos de estos mecanismos fueron:
 
-\subsection{Normas de codificación}
+section{Normas de codificación}
 Las normas de codificación fueron establecidas para el proyecto, con el objetivo de garantizar la coherencia y la consistencia en la codificación. Estas normas incluían:
 
 \begin{itemize}
@@ -508,12 +481,11 @@ A continuación, se presenta una descripción detallada de las tareas asignadas 
 	\item \textbf{Franco Aguilar:} \\
 	Franco fue responsable de la implementación de \textbf{colas de prioridad}, que permiten gestionar las tareas de manera eficiente y priorizar las acciones dentro de la red social.
 	
-	\item \textbf{Miguel Maripillan:} \\
-	Miguel trabajó en conjunto con Diego en la implementación de la \textbf{estructura de grafos} y los \textbf{algoritmos BFS/DFS} para explorar las conexiones entre usuarios de manera eficiente. Además, se encargó del \textbf{almacenamiento de la información de los usuarios} en la nube y de la \textbf{carga de usuarios} a través de un archivo \texttt{txt} de entrada.
+ como lo son las sugerencias de amistades según interes o 	\item \textbf{Miguel Maripillan:} \\
+ami	Miguel trabajó en conjunto con Diego en la implementación de la \textbf{estructura de grafos} y los \textbf{algoritmos BFS/DFS} para explogos de amigos y la creación y sugerencia de publicaciones en base a sus intereses y/o usuarios seguidos por el usuario actual.rar las conexiones entre usuarios de manera eficiente. Además, se encargó del \textbf{almacenamiento de la información de los usuarios} en la nube y de la \textbf{carga de usuarios} a través de un archivo \texttt{txt} de entrada.
 \end{itemize}
 
 
-\newpage
 %----------------------------------------------------------
 % MEJORAS POSIBLES A FUTURO
 %----------------------------------------------------------
@@ -529,6 +501,10 @@ A continuación, se presenta una descripción detallada de las tareas asignadas 
 	\item Implementación de un sistema de mensajería: En este proyecto se utilizó una interfaz de línea de comandos para interactuar con el programa, pero se podría implementar un sistema de mensajería para permitir a los usuarios comunicarse entre sí y con otros usuarios.
 	\vspace{0.3cm}
 	\item La creación de grupos o comunidades: Para este tipo de programas es posible crear grupos o comunidades en la red social con respecto a un tema o usuario en particular, para que los usuarios puedan conectarse con otros usuarios de la misma comunidad.
+	\vspace{0.3cm}
+	\item Búsqueda de publicaciones eficiente: Se pudo haber implementado una tabla hash para las publicaciones de cada usuario, así este pudiendo por ejemplo, editar o borrar una publicación sin un costo grande en tiempo de ejecución.
+	\vspace{0.3cm}
+	\item Se pudo haber mejorado los tiempos de respuesta de la aplicación, ya que cuando se tiene un flujo grande de usuarios (más de 50.000) el programa tarda mucho en cargar los datos de los usuarios y publicaciones, lo que afecta la experiencia de usuario. Probablemente el algoritmo de la carga de datos se puede mejorar.
 \end{itemize}
 
 
@@ -538,38 +514,65 @@ A continuación, se presenta una descripción detallada de las tareas asignadas 
 %----------------------------------------------------------
 \section{Ejemplo de uso}
 
-    \rhostart{P}OR HACER
+\rhostart{P}ara utilizar este programa es sencillo, en el terminal se debe escribir el comando \texttt{make} para compilar el programa, y posterior a esto se debe escribir el comando \texttt{./build/devgraph.out} o \texttt{./devgraph.out} en el caso de haber ingresado a la carpeta build, asegurandose de tener el documento de entrada \texttt{subtopics} en la misma carpeta.
+
+Para comenzar a utilizar el programa, podemos acompañar a nuestro ejecutable con un \texttt{-h} o \texttt{--help} para ver las opciones de uso del programa.
+
+Si se desea empezar a utilizar las diferentes opciones que otorga el menu de ayuda, se debe partir primero por la opción \texttt{-g <cantidad>} o \texttt{--generate <cantidad>}, que permite generar la cantidad de usuarios que se deseen, a su vez preguntando si se quieren generar publicaciones para cada uno de ellos.
+
+Luego de generar los usuarios, sin haber iniciado sesión, se pueden utilizar comandos como \texttt{-a} o \texttt{--all} que lista los usuarios registrados y \texttt{-c} o \texttt{--clear} para vaciar/borrar la base de datos.
+
+Para utilizar los comandos que requiere de inicio de sesión, puedes utilizar los datos de usuarios generados, y luego utilizar el comando \texttt{-l <usuario>} o \texttt{--login <usuario>} para iniciar sesión, o bien \texttt{-r} o \texttt{--register} para registrarse con sus propios datos y luego iniciar sesión.
+
+Una vez iniciado sesión se pueden empezar a utilizar los siguientes comandos:
+\begin{itemize}
+	\item \texttt{-o} o \texttt{--logout}: cierra sesión del usuario actual.
+	\item \texttt{-d} o \texttt{--delete}: borra el usuario actual.
+	\item \texttt{-e} o \texttt{--edit}: permiso para editar el perfil del usuario actual.
+	\item \texttt{-p} o \texttt{--post}: postea una publicación.
+	\item \texttt{-m} o \texttt{--me}: muestra el perfil del usuario actual.
+	\item \texttt{-u <usuario>} o \texttt{--user <usuario>}: muestra el perfil del usuario entregado.
+	\item \texttt{-f <usuario>} o \texttt{--follow <usuario>}: seguir al usuario otorgado.
+	\item \texttt{-n <usuario>} o \texttt{--unfollow <usuario>}: dejar de seguir al usuario otorgado.
+	\item \texttt{-w} o \texttt{--followerlist}: imprime la lista de usuarios que sigue al usuario actual.
+	\item \texttt{-v} o \texttt{--followlist}: imprime la lista de usuarios que sigue el usuario actual.
+	\item \texttt{-q} o \texttt{--feed}: muestra publicaciones de los usuarios que sigue en base a sus seguidos e intereses.
+	\item \texttt{-x} o \texttt{--connect}: muestra sugerencias de amigos de amigos y además sugiere amigos según los intereses de los usuarios.
+\end{itemize}
+
+\textbf{Nota:} No olvidar que para utilizar el programa se debe ejecutar de la siguiente manera: \texttt{./build/devgraph.out <COMANDO>} o \texttt{./devgraph.out <COMANDO>} en el caso de haber ingresado a la carpeta build.
     
 \newpage
 %----------------------------------------------------------
 % CONCLUSIONES
 %----------------------------------------------------------
 \section{Conclusiones}
-\begin{itemize}
-	\item En este proyecto, logramos implementar con éxito una red social simulada que cumple con todas las funcionalidades necesarias.
-	\item Pudimos crear y conectar usuarios, gestionar publicaciones y compartirlas de acuerdo con los intereses y amistades dentro de la red.
-	\item Implementamos funcionalidades avanzadas, como la recomendación de nuevos usuarios y publicaciones, lo cual añadió un extra a la experiencia de la red social simulada.
-\end{itemize}
+\rhostart{E}n este proyecto se logro implementar con creces una red social simulada que cumplió con todas las funcionalidades requeridas. Logramos simular varias de las funcionalidades de una red social, como la creación, edición y conexión de usuarios, gestionar publicaciones y compartir contenido en función de los intereses y relaciones de amistad, además de incorporar características avanzadas como la recomendación de nuevos usuarios y publicaciones, la generación aleatoria de diversos elementos rotundamente necesarios en una red social, lo cual añadió una mejoría en lo que respecta a la experiencia ofrecida por el programa. 
 
-\begin{quote}
-	Uno de los aspectos destacables de este proyecto fue la integración del perfil psicológico como una funcionalidad extra.
-	También aprendimos y utilizamos diversas estructuras de datos y algoritmos que resultaron fundamentales para el buen funcionamiento del programa.
-\end{quote}
-\begin{quote}
-	Este proyecto fue una excelente oportunidad para poner en práctica nuestros conocimientos sobre estructuras de datos y algoritmos, nos permitió profundizar en temas como tablas hash, colas de prioridad, listas enlazadas y la similitud de Jaccard. Todo el proceso nos permitió aprender de manera práctica y aplicar conceptos de la teoría de estructuras, lo que fortaleció nuestras habilidades en programación.
-	
-	En resumen, el desarrollo de esta red social fue exitoso, cumplimos con todos los objetivos planteados y adquirimos nuevos conocimientos valiosos.
-\end{quote}
+\vspace{0.5cm}
+
+En su gran mayoría se puede destacar la base de datos, las colas de prioridad, los grafos y las funciones para el usuario que fueron desarrolladas de manera significativa que nos impulsó a lograr nuestros objetivos, utilizando diversas estructuras de datos y algoritmos esenciales para mantener la estabilidad del programa, como tablas hash, las ya mencionada colas de prioridad (heaps), listas enlazadas y listas de adyacencia. También aplicamos el algoritmo de similaridad de jaccard y el algoritmo de Dijkstra para optimizar las recomendaciones y búsquedas de usuarios y/o publicaciones.
+
+\vspace{0.5cm}
+
+Durante el desarrollo del proyecto, a pesar de la dificultad e inconvenientes sufridos, se logró salir adelante con este proyecto con un gran resultado a nuestro parecer, logrando en su mayoría los objetivos planteados al inicio de este trabajo y logramos aplicar de manera práctica conceptos visto en clase y a su vez conceptos investigados por nuestra propia cuenta, fortaleciendo así nuestras habilidades en programación.
 %----------------------------------------------------------
 % SECCION DE REFERENCIAS
 %----------------------------------------------------------
-\newpage
+\newpage 
+
+
 \section{Referencias}
 \begin{itemize}
-	\item .....
-	\item .....
-\end{itemize}
+    \item \textbf{Pasky}. Funciones opendir, readdir y closedir en C (2009). Disponible en: https://pasky.wordpress.com/2009/08/05/funciones-opendir-readdir-y-closedir-en-c/. Consultado el 30 de noviembre de 2024.
 
-%----------------------------------------------------------
+    \item \textbf{R. Pasniuk}. Directorios y ficheros en C (2013). Disponible en: https://www.programacion.com.py/escritorio/c/directorios-y-ficheros-en-c-linux. Consultado el 5 de diciembre de 2024.
+
+    \item \textbf{OdeN}. Arboles de HEAP y colas de prioridad (2020). Disponible en: https://www.youtube.com/watch?v=udZcgpg-Ss0. Consultado el 2 de diciembre de 2024.
+
+    \item \textbf{GRAPHeverywhere}. Algoritmo de similaridad de Jaccard (202X). Disponible en: https://www.grapheverywhere.com/algoritmo-de-similaridad-de-jaccard/. Consultado el 2 de diciembre de 2024.
+
+    \item \textbf{Estefania Cassingena Navone}. Algoritmo de la ruta mas corta de Dijkstra - Introduccion grafica y detallada (2022). Disponible en: https://www.freecodecamp.org/espanol/news/algoritmo-de-la-ruta-mas-corta-de-dijkstra-introduccion-grafica/. Consultado el 3 de diciembre de 2024.
+\end{itemize}
 
 \end{document}
