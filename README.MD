@@ -22,8 +22,9 @@ Para ejecutar el programa, siga los siguientes pasos:
 2. Generar las carpetas necesarias con el comando `make folders`
 3. Compilar el programa con el comando `make`
 4. Ejecutar el programa con `make run` o entrando a la carpeta `build` y ejecutando el archivo `devgraph.out`
-5. Para comenzar a utilizar el programa, debe generar usuarios con el comando `.devgraph.out -g <cantidad de usuarios>`
+5. Para comenzar a utilizar el programa, antes debe generar usuarios con el comando `.devgraph.out -g <cantidad de usuarios>`
 > ⚠️ Asegurese que el archivo `subtopics` se encuentre en el mismo directorio del que va a ejecutarse el programa
+> ⚠️ Limite de generación de usuarios: 50000, pero para una mejor experiencia, se recomienda un limite de 1000 a 10000 usuarios.
 
 ## Comandos disponibles
 
